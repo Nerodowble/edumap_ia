@@ -1,0 +1,300 @@
+{
+  "matematica": {
+    "algebra": {
+      "label": "Álgebra",
+      "palavras": ["equação", "incógnita", "sistema de equações", "monômio", "polinômio",
+                   "fatoração", "produto notável", "inequação", "expressão algébrica",
+                   "variável", "coeficiente", "grau da equação", "raiz da equação"]
+    },
+    "geometria": {
+      "label": "Geometria",
+      "palavras": ["triângulo", "polígono", "ângulo", "área", "volume", "perímetro",
+                   "círculo", "esfera", "cone", "prisma", "cilindro", "cubo",
+                   "retângulo", "quadrado", "trapézio", "losango", "diagonal",
+                   "hipotenusa", "cateto", "pitágoras", "semelhança", "congruência"]
+    },
+    "estatistica": {
+      "label": "Estatística e Probabilidade",
+      "palavras": ["média", "moda", "mediana", "variância", "desvio padrão",
+                   "probabilidade", "gráfico", "tabela", "amostra", "frequência",
+                   "histograma", "evento", "espaço amostral", "porcentagem de chance"]
+    },
+    "aritmetica": {
+      "label": "Aritmética e Números",
+      "palavras": ["fração", "decimal", "porcentagem", "razão", "proporção",
+                   "potência", "raiz quadrada", "mmc", "mdc", "divisor",
+                   "múltiplo", "número primo", "número inteiro", "número natural",
+                   "número racional", "número irracional", "radiciação", "exponenciação"]
+    },
+    "trigonometria": {
+      "label": "Trigonometria",
+      "palavras": ["seno", "cosseno", "tangente", "lei dos senos", "lei dos cossenos",
+                   "ângulo agudo", "triângulo retângulo", "ciclo trigonométrico",
+                   "radiano", "grau", "arco"]
+    },
+    "funcoes": {
+      "label": "Funções e Gráficos",
+      "palavras": ["função", "domínio", "imagem", "contradomínio", "função afim",
+                   "função quadrática", "função exponencial", "função logarítmica",
+                   "crescente", "decrescente", "vértice da parábola", "eixo de simetria",
+                   "plano cartesiano", "coordenadas", "par ordenado"]
+    }
+  },
+
+  "fisica": {
+    "mecanica": {
+      "label": "Mecânica",
+      "palavras": ["força", "velocidade", "aceleração", "massa", "peso", "newton",
+                   "momentum", "impulso", "energia mecânica", "trabalho", "potência",
+                   "atrito", "normal", "resultante", "mru", "mruv", "queda livre",
+                   "lançamento", "torque", "equilíbrio", "centro de massa", "lei de newton"]
+    },
+    "eletromagnetismo": {
+      "label": "Eletromagnetismo",
+      "palavras": ["eletricidade", "campo elétrico", "magnetismo", "corrente elétrica",
+                   "resistência", "lei de ohm", "tensão", "voltagem", "circuito",
+                   "capacitor", "indutor", "força magnética", "campo magnético",
+                   "indução eletromagnética", "transformador", "gerador", "motor elétrico",
+                   "carga elétrica", "coulomb", "potência elétrica", "energia elétrica"]
+    },
+    "termodinamica": {
+      "label": "Termodinâmica",
+      "palavras": ["calor", "temperatura", "entropia", "gás ideal", "dilatação",
+                   "lei da termodinâmica", "máquina térmica", "ciclo de carnot",
+                   "capacidade térmica", "calor específico", "condução", "convecção",
+                   "irradiação", "fusão", "vaporização", "condensação", "solidificação"]
+    },
+    "optica": {
+      "label": "Óptica",
+      "palavras": ["luz", "reflexão", "refração", "espelho", "lente", "índice de refração",
+                   "espelho plano", "espelho côncavo", "espelho convexo",
+                   "lente convergente", "lente divergente", "foco", "objeto", "imagem",
+                   "miopia", "hipermetropia", "prisma óptico", "dispersão da luz",
+                   "cor", "espectro luminoso"]
+    },
+    "ondulatoria": {
+      "label": "Ondulatória e Som",
+      "palavras": ["onda", "som", "frequência", "amplitude", "comprimento de onda",
+                   "período", "velocidade da onda", "reflexão da onda", "refração da onda",
+                   "difração", "interferência", "ressônancia", "nível sonoro", "decibel",
+                   "ultrassom", "infrassom", "efeito doppler"]
+    },
+    "fisica_moderna": {
+      "label": "Física Moderna",
+      "palavras": ["fóton", "quantum", "radioatividade", "átomo de bohr",
+                   "dualidade onda-partícula", "princípio de incerteza", "relatividade",
+                   "fusão nuclear", "fissão nuclear", "energia nuclear", "raio x",
+                   "laser", "semicondutor", "transistor"]
+    }
+  },
+
+  "quimica": {
+    "quimica_geral": {
+      "label": "Química Geral e Atômica",
+      "palavras": ["átomo", "próton", "nêutron", "elétron", "tabela periódica",
+                   "número atômico", "massa atômica", "orbital", "camada de valência",
+                   "ligação iônica", "ligação covalente", "ligação metálica",
+                   "metal", "ametal", "semimetal", "gases nobres"]
+    },
+    "quimica_organica": {
+      "label": "Química Orgânica",
+      "palavras": ["hidrocarboneto", "álcool", "aldeído", "cetona", "ácido carboxílico",
+                   "éster", "amina", "amida", "benzeno", "polímero", "plástico",
+                   "alcano", "alceno", "alcino", "isomeria", "fórmula estrutural",
+                   "carbono", "cadeia carbônica", "grupo funcional"]
+    },
+    "estequiometria": {
+      "label": "Estequiometria e Reações",
+      "palavras": ["mol", "massa molar", "balanceamento", "reação química",
+                   "reagente", "produto", "coeficiente estequiométrico",
+                   "rendimento", "massa em excesso", "lei de lavoisier",
+                   "lei de proust", "oxidação", "redução", "oxi-redução"]
+    },
+    "solucoes": {
+      "label": "Soluções e Ácidos/Bases",
+      "palavras": ["solução", "concentração", "solubilidade", "ph", "poh",
+                   "ácido", "base", "sal", "óxido", "neutralização",
+                   "titulação", "indicador", "tampão", "hidrólise",
+                   "molaridade", "molalidade", "pressão osmótica"]
+    }
+  },
+
+  "biologia": {
+    "citologia": {
+      "label": "Citologia (Célula)",
+      "palavras": ["célula", "membrana plasmática", "citoplasma", "núcleo",
+                   "mitocôndria", "cloroplasto", "ribossomo", "retículo endoplasmático",
+                   "aparelho de golgi", "vacúolo", "mitose", "meiose",
+                   "célula procariótica", "célula eucariótica", "divisão celular"]
+    },
+    "genetica": {
+      "label": "Genética e Hereditariedade",
+      "palavras": ["DNA", "RNA", "gene", "cromossomo", "alelo", "dominante",
+                   "recessivo", "fenótipo", "genótipo", "lei de mendel",
+                   "crossing over", "mutação", "herança", "heredograma",
+                   "mapa genético", "projeto genoma", "engenharia genética"]
+    },
+    "ecologia": {
+      "label": "Ecologia e Meio Ambiente",
+      "palavras": ["ecossistema", "cadeia alimentar", "teia alimentar", "bioma",
+                   "ciclos biogeoquímicos", "população", "comunidade", "habitat",
+                   "nicho ecológico", "sucessão ecológica", "desequilíbrio ambiental",
+                   "extinção", "biodiversidade", "impacto ambiental"]
+    },
+    "fisiologia": {
+      "label": "Fisiologia e Sistemas",
+      "palavras": ["hormônio", "sistema nervoso", "digestão", "respiração celular",
+                   "fotossíntese", "circulação", "excreção", "reprodução",
+                   "neurônio", "sinapse", "sistema endócrino", "imunidade",
+                   "anticorpo", "antígeno", "vacinação", "sistema muscular"]
+    },
+    "evolucao": {
+      "label": "Evolução e Taxonomia",
+      "palavras": ["seleção natural", "darwin", "especiação", "filogenia",
+                   "cladograma", "deriva genética", "adaptação", "evolução biológica",
+                   "lamarck", "taxonomia biológica", "reino", "filo", "classe",
+                   "ordem", "família", "gênero", "espécie"]
+    }
+  },
+
+  "ciencias": {
+    "seres_vivos": {
+      "label": "Seres Vivos e Ecologia",
+      "palavras": ["célula", "organismo", "ser vivo", "espécie", "ecossistema",
+                   "cadeia alimentar", "fotossíntese", "respiração", "reprodução",
+                   "adaptação", "habitat", "reino animal", "reino vegetal"]
+    },
+    "corpo_humano": {
+      "label": "Corpo Humano",
+      "palavras": ["sistema nervoso", "digestão", "circulação", "respiração humana",
+                   "sistema ósseo", "sistema muscular", "órgão dos sentidos",
+                   "saúde", "higiene", "vacina", "doença", "prevenção"]
+    },
+    "materia_energia": {
+      "label": "Matéria e Energia",
+      "palavras": ["estado físico", "sólido", "líquido", "gasoso", "mistura",
+                   "separação de misturas", "calor", "energia", "luz", "som",
+                   "eletricidade", "magnetismo", "força", "movimento"]
+    },
+    "astronomia": {
+      "label": "Astronomia e Terra",
+      "palavras": ["sistema solar", "planeta", "estrela", "lua", "sol",
+                   "universo", "galáxia", "cometa", "asteroide", "eclipse",
+                   "camadas da terra", "vulcão", "terremoto", "tectônica"]
+    }
+  },
+
+  "historia": {
+    "brasil_colonial": {
+      "label": "Brasil Colonial",
+      "palavras": ["colonização", "pacto colonial", "escravidão", "ciclos econômicos",
+                   "pau-brasil", "cana-de-açúcar", "ouro", "diamante", "capitanias",
+                   "jesuítas", "bandeirantes", "quilombo", "palmares", "inconfidência"]
+    },
+    "brasil_imperial": {
+      "label": "Brasil Imperial",
+      "palavras": ["independência", "primeiro reinado", "regência", "segundo reinado",
+                   "dom pedro", "abolição", "lei áurea", "lei eusébio de queirós",
+                   "guerra do paraguai", "partido liberal", "partido conservador"]
+    },
+    "brasil_republica": {
+      "label": "Brasil República",
+      "palavras": ["proclamação da república", "república velha", "era vargas",
+                   "ditadura militar", "redemocratização", "constituição",
+                   "revolução de 1930", "estado novo", "diretas já", "lula", "collor"]
+    },
+    "historia_antiga": {
+      "label": "Mundo Antigo",
+      "palavras": ["grécia", "roma", "egito", "mesopotâmia", "fenícia",
+                   "pérsia", "atenas", "esparta", "olimpíadas", "democracia ateniense",
+                   "república romana", "império romano", "pirâmides", "faraó"]
+    },
+    "idade_media": {
+      "label": "Idade Média",
+      "palavras": ["feudalismo", "cruzadas", "igreja medieval", "papa", "clero",
+                   "servo", "nobre", "cavaleiro", "castelo", "burgo", "burguesía",
+                   "renascimento comercial", "peste negra", "islamismo"]
+    },
+    "idade_moderna": {
+      "label": "Idade Moderna",
+      "palavras": ["renascimento", "reforma protestante", "absolutismo", "mercantilismo",
+                   "grandes navegações", "colonialismo", "revolução científica",
+                   "iluminismo", "enciclopédia", "montesquieu", "rousseau", "voltaire"]
+    },
+    "historia_contemporanea": {
+      "label": "Idade Contemporânea",
+      "palavras": ["revolução francesa", "imperialismo", "primeira guerra", "segunda guerra",
+                   "guerra fria", "urss", "nazismo", "fascismo", "holocausto",
+                   "onu", "globalização", "neoliberalismo", "descolonização"]
+    }
+  },
+
+  "geografia": {
+    "geo_fisica": {
+      "label": "Geografia Física",
+      "palavras": ["relevo", "clima", "hidrografia", "solo", "vegetação", "biomas",
+                   "erosão", "intemperismo", "bacia hidrográfica", "aquífero",
+                   "planalto", "planície", "depressão", "chapada", "serra",
+                   "litoral", "correntes marítimas", "placas tectônicas"]
+    },
+    "geo_humana": {
+      "label": "Geografia Humana",
+      "palavras": ["população", "migração", "urbanização", "industrialização",
+                   "êxodo rural", "pirâmide etária", "taxa de natalidade",
+                   "taxa de mortalidade", "crescimento vegetativo", "densidade",
+                   "metrópole", "megalópole", "conurbação", "periferias"]
+    },
+    "geopolitica": {
+      "label": "Geopolítica e Globalização",
+      "palavras": ["fronteiras", "geopolítica", "conflitos", "organizações internacionais",
+                   "onu", "otan", "mercosul", "brics", "globalização",
+                   "blocos econômicos", "neocolonialismo", "imperialismo contemporâneo"]
+    },
+    "cartografia": {
+      "label": "Cartografia",
+      "palavras": ["mapa", "escala", "projeção", "coordenadas geográficas",
+                   "latitude", "longitude", "paralelos", "meridianos", "equador",
+                   "trópico de câncer", "trópico de capricórnio", "fusos horários",
+                   "gps", "sensoriamento remoto", "sig"]
+    },
+    "brasil_geo": {
+      "label": "Geografia do Brasil",
+      "palavras": ["regiões brasileiras", "nordeste", "sudeste", "sul", "norte", "centro-oeste",
+                   "amazônia", "cerrado", "caatinga", "pampa", "pantanal", "mata atlântica",
+                   "rio amazonas", "rio são francisco", "rio paraná", "planalto central"]
+    }
+  },
+
+  "portugues": {
+    "gramatica": {
+      "label": "Gramática",
+      "palavras": ["substantivo", "verbo", "adjetivo", "advérbio", "pronome",
+                   "preposição", "conjunção", "artigo", "numeral", "interjeição",
+                   "concordância verbal", "concordância nominal", "regência",
+                   "crase", "pontuação", "acentuação", "ortografia", "morfologia",
+                   "sintaxe", "sujeito", "predicado", "objeto", "adjunto"]
+    },
+    "interpretacao": {
+      "label": "Interpretação e Leitura",
+      "palavras": ["texto", "interpretação", "compreensão", "inferência",
+                   "gênero textual", "tipo textual", "narração", "descrição",
+                   "argumentação", "exposição", "instrução", "coesão", "coerência",
+                   "intertextualidade", "contexto", "tema", "ideia principal"]
+    },
+    "producao_textual": {
+      "label": "Produção Textual",
+      "palavras": ["redação", "dissertação", "argumentação", "tese", "argumento",
+                   "conclusão", "parágrafo", "introdução", "desenvolvimento",
+                   "conto", "crônica", "carta", "email", "relatório", "resumo",
+                   "resenha", "notícia", "editorial", "artigo de opinião"]
+    },
+    "literatura": {
+      "label": "Literatura",
+      "palavras": ["romance", "conto", "poesia", "poema", "modernismo", "romantismo",
+                   "realismo", "naturalismo", "parnasianismo", "simbolismo",
+                   "barroco", "arcadismo", "machado de assis", "drummond",
+                   "clarice lispector", "graciliano ramos", "narrador", "personagem",
+                   "enredo", "clímax", "desfecho", "metáfora", "ironia", "humor"]
+    }
+  }
+}

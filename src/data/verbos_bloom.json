@@ -1,0 +1,83 @@
+{
+  "6": {
+    "nivel": "Criar",
+    "cor": "#9B59B6",
+    "descricao": "Produzir algo original combinando elementos de formas novas",
+    "verbos": [
+      "crie", "elabore", "proponha", "desenvolva", "componha", "construa",
+      "invente", "planeje", "projete", "formule", "produza", "redija",
+      "compile", "combine", "gere", "modifique", "reorganize", "derive",
+      "hipotetize", "escreva uma redação", "produza um texto", "crie um roteiro",
+      "elabore um projeto", "proponha uma solução", "invente uma história",
+      "componha uma música", "desenhe", "monte", "articule", "sintetize"
+    ]
+  },
+  "5": {
+    "nivel": "Avaliar",
+    "cor": "#E74C3C",
+    "descricao": "Fazer julgamentos com base em critérios e padrões",
+    "verbos": [
+      "avalie", "critique", "julgue", "justifique", "defenda", "argumente",
+      "recomende", "priorize", "escolha", "determine", "decida", "convença",
+      "persuada", "apoie", "questione", "debate", "opine", "fundamente",
+      "verifique se", "valide", "selecione a melhor", "qual é a melhor",
+      "você concorda", "explique sua opinião", "posicione-se", "reflita sobre"
+    ]
+  },
+  "4": {
+    "nivel": "Analisar",
+    "cor": "#E67E22",
+    "descricao": "Decompor material em partes e entender sua estrutura",
+    "verbos": [
+      "analise", "compare", "diferencie", "examine", "relacione", "classifique",
+      "organize", "identifique a causa", "decomponha", "distinga", "discrimine",
+      "separe", "categorize", "contraste", "teste", "atribua", "deduza",
+      "infira", "calcule a relação", "mostre a diferença", "por que",
+      "quais são as causas", "quais são as consequências", "como se relaciona",
+      "associe", "correlacione", "mapeie", "esquematize", "estruture"
+    ]
+  },
+  "3": {
+    "nivel": "Aplicar",
+    "cor": "#F1C40F",
+    "descricao": "Usar conhecimento em situações novas ou concretas",
+    "verbos": [
+      "calcule", "resolva", "aplique", "use", "demonstre", "execute",
+      "implemente", "mostre como", "compute", "complete", "ilustre",
+      "opere", "prepare", "utilize", "pratique", "esboce", "interprete",
+      "manipule", "construa", "modifique", "preveja", "classifique",
+      "determine o valor", "encontre", "obtenha", "trace", "meça",
+      "experimente", "desenvolva", "resolução", "resolva a equação",
+      "calcule o resultado", "efetue", "realize a operação"
+    ]
+  },
+  "2": {
+    "nivel": "Compreender",
+    "cor": "#2ECC71",
+    "descricao": "Interpretar, classificar e explicar informações",
+    "verbos": [
+      "explique", "descreva", "resuma", "interprete", "traduza", "reescreva",
+      "dê exemplos", "ilustre", "parafraseie", "indique", "discuta",
+      "expresse", "identifique", "localize", "reconheça", "relate",
+      "represente", "selecione", "diferencie", "generalize", "infira",
+      "de acordo com o texto", "segundo o autor", "o que significa",
+      "o texto afirma que", "qual é a ideia principal", "o que o autor quis dizer",
+      "qual o significado", "quais são as características", "descreva",
+      "em suas palavras", "resumindo", "o que é"
+    ]
+  },
+  "1": {
+    "nivel": "Lembrar",
+    "cor": "#3498DB",
+    "descricao": "Recuperar informação da memória de longo prazo",
+    "verbos": [
+      "defina", "liste", "cite", "nomeie", "identifique", "enumere",
+      "reconheça", "reproduza", "memorize", "marque", "declare", "rotule",
+      "encontre", "aponte", "ordene", "assinale", "marque a alternativa",
+      "indique a alternativa", "qual é o nome", "quando foi",
+      "quem foi", "onde fica", "em que ano", "qual a data",
+      "quem descobriu", "qual a fórmula", "qual o conceito",
+      "o que é definido como", "qual a definição", "complete"
+    ]
+  }
+}

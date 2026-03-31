@@ -1,0 +1,210 @@
+{
+  "matematica": {
+    "alta": [
+      "equação", "fração", "geometria", "área", "volume", "porcentagem",
+      "razão", "proporção", "ângulo", "triângulo", "álgebra", "conjunto",
+      "probabilidade", "estatística", "função", "perímetro", "circunferência",
+      "polígono", "quadrado", "retângulo", "círculo", "esfera", "cubo",
+      "cilindro", "cone", "prisma", "logaritmo", "exponencial", "trigonometria",
+      "seno", "cosseno", "tangente", "sequência", "progressão", "aritmética",
+      "média", "moda", "mediana", "variância", "desvio padrão", "matriz",
+      "determinante", "módulo", "raiz", "potência", "mmc", "mdc", "inteiro",
+      "natural", "racional", "irracional", "decimal", "plano cartesiano"
+    ],
+    "media": [
+      "calcule", "resolva", "número", "valor", "resultado", "quanto",
+      "medida", "metro", "litro", "quilograma", "operação", "soma",
+      "subtração", "multiplicação", "divisão", "produto", "quociente",
+      "resto", "dividendo", "divisor", "dobro", "triplo", "metade",
+      "total", "diferença", "figura", "forma", "lado", "vértice", "base",
+      "altura", "diagonal", "eixo", "coordenada", "gráfico", "tabela"
+    ]
+  },
+  "portugues": {
+    "alta": [
+      "substantivo", "verbo", "adjetivo", "advérbio", "pronome", "preposição",
+      "conjunção", "interjeição", "ortografia", "redação", "poema", "poesia",
+      "conto", "crônica", "narrador", "personagem", "metáfora", "metonímia",
+      "hipérbole", "ironia", "concordância", "regência", "coesão", "coerência",
+      "morfologia", "sintaxe", "fonologia", "semântica", "pontuação",
+      "acentuação", "período", "oração", "sujeito", "predicado", "objeto",
+      "complemento", "adjunto", "aposto", "vocativo", "frase", "período",
+      "crase", "artigo", "numeral", "interjeição", "locuções", "figuras de linguagem",
+      "gênero textual", "dissertação", "argumentação", "narração", "descrição",
+      "romance", "epopeia", "soneto", "haiku", "fábula", "lenda", "mito"
+    ],
+    "media": [
+      "texto", "autor", "leia", "trecho", "parágrafo", "palavra", "frase",
+      "leitura", "escrita", "língua", "linguagem", "comunicação", "mensagem",
+      "interpretação", "compreensão", "leitor", "escrevente", "ideia",
+      "tema", "assunto", "contexto", "sentido", "significado", "definição",
+      "conceito", "opinião", "argumento", "exemplo", "comparação"
+    ]
+  },
+  "historia": {
+    "alta": [
+      "guerra", "revolução", "século", "império", "colonização", "escravidão",
+      "república", "monarquia", "democracia", "ditadura", "feudalismo",
+      "capitalismo", "socialismo", "nazismo", "fascismo", "renascimento",
+      "iluminismo", "industrialização", "civilização", "colonialismo",
+      "imperialismo", "absolutismo", "mercantilismo", "escravocrata",
+      "abolição", "proclamação", "independência", "constituição", "golpe",
+      "ditadura militar", "redemocratização", "grécia", "roma", "egito",
+      "mesopotâmia", "feudal", "cruzadas", "reforma protestante",
+      "segunda guerra", "primeira guerra", "guerra fria", "urss", "eua",
+      "brasil colônia", "brasil império", "brasil república"
+    ],
+    "media": [
+      "aconteceu", "ocorreu", "período", "época", "tempo", "passado",
+      "presente", "futuro", "data", "ano", "governo", "lei", "direito",
+      "movimento", "luta", "resistência", "povo", "nação", "líder",
+      "presidente", "rei", "imperador", "general", "tratado", "acordo",
+      "aliança", "conflito", "batalha", "conquista", "território", "fronteira"
+    ]
+  },
+  "geografia": {
+    "alta": [
+      "relevo", "clima", "bioma", "hidrografia", "população", "região",
+      "território", "fronteira", "latitude", "longitude", "coordenada",
+      "escala", "mapa", "cartografia", "urbanização", "migração", "êxodo",
+      "desertificação", "erosão", "solo", "aquífero", "bacia hidrográfica",
+      "afluente", "planalto", "planície", "chapada", "serra", "litoral",
+      "continente", "oceano", "hemisfério", "trópico", "equador",
+      "cerrado", "caatinga", "pampa", "pantanal", "amazônia", "mata atlântica",
+      "globalização", "geopolítica", "indústria", "agropecuária", "extrativismo",
+      "pib", "idh", "desenvolvimento humano", "sustentabilidade", "meio ambiente"
+    ],
+    "media": [
+      "lugar", "local", "país", "estado", "cidade", "campo", "rural",
+      "urbano", "habitante", "moradia", "temperatura", "chuva", "seca",
+      "vegetação", "floresta", "recurso natural", "mineral", "petróleo",
+      "energia", "transporte", "comércio", "exportação", "importação",
+      "norte", "sul", "leste", "oeste", "região nordeste", "região sul"
+    ]
+  },
+  "ciencias": {
+    "alta": [
+      "célula", "fotossíntese", "ecossistema", "DNA", "organismo", "mitose",
+      "meiose", "átomo", "molécula", "elemento", "composto", "mistura",
+      "reação química", "energia", "força", "velocidade", "aceleração",
+      "massa", "peso", "densidade", "pressão", "temperatura", "calor",
+      "luz", "som", "eletricidade", "magnetismo", "gravitação", "evolução",
+      "seleção natural", "hereditariedade", "gene", "cromossomo", "proteína",
+      "enzima", "hormônio", "vírus", "bactéria", "fungo", "digestão",
+      "respiração celular", "sistema nervoso", "sistema circulatório",
+      "ecologia", "cadeia alimentar", "teia alimentar", "ser vivo", "biodiversidade"
+    ],
+    "media": [
+      "animal", "planta", "corpo", "saúde", "natureza", "ambiente",
+      "órgão", "sistema", "tecido", "nutrição", "reprodução", "crescimento",
+      "desenvolvimento", "adaptação", "habitat", "espécie", "experimento",
+      "hipótese", "observação", "conclusão", "laboratório", "microscópio",
+      "vacina", "doença", "prevenção", "higiene", "alimentação", "exercício"
+    ]
+  },
+  "biologia": {
+    "alta": [
+      "célula procariótica", "célula eucariótica", "membrana plasmática",
+      "mitocôndria", "cloroplasto", "ribossomo", "retículo endoplasmático",
+      "aparelho de golgi", "núcleo", "cromossomo", "gene", "alelo",
+      "dominante", "recessivo", "fenótipo", "genótipo", "lei de mendel",
+      "crossing over", "mutação", "seleção natural", "deriva genética",
+      "especiação", "filogenia", "cladograma", "taxonomia biológica",
+      "reino monera", "reino protista", "reino fungi", "reino plantae", "reino animalia",
+      "fotossíntese", "ciclo de krebs", "glicólise", "fermentação alcoólica",
+      "fermentação lática", "cadeia respiratória", "hormônio", "neurônio",
+      "sinapse", "imunidade", "anticorpo", "antígeno", "vacinação"
+    ],
+    "media": [
+      "organismo", "ser vivo", "espécie", "adaptação", "habitat",
+      "reprodução sexuada", "reprodução assexuada", "hereditariedade",
+      "variação genética", "evolução biológica", "ecossistema", "bioma",
+      "cadeia alimentar", "pirâmide ecológica", "ciclos biogeoquímicos"
+    ]
+  },
+  "quimica": {
+    "alta": [
+      "átomo", "próton", "nêutron", "elétron", "número atômico", "massa atômica",
+      "tabela periódica", "elemento químico", "metal", "ametal", "semimetal",
+      "ligação iônica", "ligação covalente", "ligação metálica", "orbital",
+      "camada de valência", "reação química", "reagente", "produto",
+      "ácido", "base", "sal", "óxido", "ph", "neutralização",
+      "oxidação", "redução", "eletrólise", "pilha", "bateria",
+      "solução", "concentração", "mol", "massa molar", "estequiometria",
+      "hidrocarboneto", "alcano", "alceno", "alcino", "benzeno", "álcool",
+      "aldeído", "cetona", "ácido carboxílico", "éster", "amina", "amida",
+      "polímero", "plástico", "isomeria"
+    ],
+    "media": [
+      "substância", "matéria", "propriedade", "estado físico", "sólido",
+      "líquido", "gasoso", "plasma", "fusão", "solidificação", "ebulição",
+      "condensação", "sublimação", "mistura", "separação de misturas",
+      "destilação", "filtração", "decantação", "cromatografia"
+    ]
+  },
+  "fisica": {
+    "alta": [
+      "força", "velocidade", "aceleração", "massa", "peso", "energia cinética",
+      "energia potencial", "trabalho", "potência", "momento angular", "impulso",
+      "lei de newton", "gravitação universal", "campo gravitacional",
+      "campo elétrico", "campo magnético", "força elétrica", "força magnética",
+      "resistência elétrica", "corrente elétrica", "tensão elétrica",
+      "lei de ohm", "circuito elétrico", "capacitor", "indutor",
+      "onda", "comprimento de onda", "frequência", "amplitude", "período",
+      "som", "luz", "reflexão", "refração", "difração", "interferência",
+      "óptica geométrica", "espelho", "lente", "termodinâmica",
+      "temperatura", "calor", "entropia", "lei dos gases", "pressão"
+    ],
+    "media": [
+      "movimento", "repouso", "posição", "trajetória", "deslocamento",
+      "inércia", "atrito", "normal", "resultante", "equilíbrio",
+      "referencial", "queda livre", "lançamento", "colisão", "elástico",
+      "inelástico", "conservação", "energia mecânica", "potência elétrica"
+    ]
+  },
+  "ingles": {
+    "alta": [
+      "verb", "noun", "adjective", "adverb", "pronoun", "preposition",
+      "conjunction", "article", "tense", "present", "past", "future",
+      "present perfect", "past perfect", "continuous", "passive voice",
+      "reported speech", "conditional", "modal verbs", "phrasal verbs",
+      "vocabulary", "grammar", "reading comprehension", "writing"
+    ],
+    "media": [
+      "text", "sentence", "paragraph", "word", "meaning", "translation",
+      "read", "write", "speak", "listen", "english", "language",
+      "communication", "dialogue", "conversation"
+    ]
+  },
+  "artes": {
+    "alta": [
+      "pintura", "escultura", "desenho", "gravura", "fotografia",
+      "teatro", "dança", "música", "arte contemporânea", "arte moderna",
+      "renascimento artístico", "impressionismo", "expressionismo",
+      "cubismo", "surrealismo", "abstrato", "figurativo", "composição",
+      "perspectiva", "proporção", "harmonia", "ritmo visual", "cor",
+      "linha", "forma", "textura", "volume", "espaço", "movimento",
+      "arte brasileira", "arte indígena", "arte africana"
+    ],
+    "media": [
+      "artista", "obra", "criação", "expressão", "estética", "beleza",
+      "cultura", "patrimônio", "museu", "galeria", "exposição",
+      "instrumentos musicais", "melodia", "harmonia musical", "ritmo"
+    ]
+  },
+  "ed_fisica": {
+    "alta": [
+      "esporte", "futebol", "basquete", "vôlei", "handebol", "natação",
+      "atletismo", "ginástica", "luta", "capoeira", "dança esportiva",
+      "regras", "arbitragem", "tática", "estratégia", "treino",
+      "resistência", "flexibilidade", "força muscular", "coordenação",
+      "equilíbrio", "agilidade", "velocidade", "saúde física",
+      "qualidade de vida", "sedentarismo", "obesidade", "postura"
+    ],
+    "media": [
+      "corpo", "movimento", "atividade física", "exercício", "jogo",
+      "brincadeira", "equipe", "time", "competição", "fair play",
+      "inclusão", "respeito", "cooperação", "desempenho atlético"
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+import re
+from typing import Dict, List
+
+_PATTERNS = [
+    re.compile(r"^\s*(\d{1,2})\s*[.)]\s+\S"),
+    re.compile(r"^[Qq]uestão\s+n?[°º]?\s*(\d{1,2})", re.IGNORECASE),
+    re.compile(r"^[Qq]\s*\.?\s*(\d{1,2})\s*[.)]\s*", re.IGNORECASE),
+    re.compile(r"^\((\d{1,2})\)\s+\S"),
+    re.compile(r"^(\d{1,2})\s*[ªa]\s+[Qq]uestão", re.IGNORECASE),
+]
+
+_ALT_PATTERN = re.compile(
+    r"^\s*[\[(]?\s*[AaBbCcDdEe]\s*[\])]?\s*[-.)]\s+\S", re.MULTILINE
+)
+
+
+def _match_question(line: str):
+    for pat in _PATTERNS:
+        m = pat.match(line)
+        if m:
+            try:
+                return int(m.group(1))
+            except (IndexError, ValueError):
+                return -1
+    return None
+
+
+def _split_stem_alts(text: str) -> Dict:
+    lines = text.splitlines()
+    stem, alts = [], []
+    in_alts = False
+    for line in lines:
+        if _ALT_PATTERN.match(line):
+            in_alts = True
+        (alts if in_alts else stem).append(line)
+    return {
+        "stem": "\n".join(stem).strip(),
+        "alternatives": [a.strip() for a in alts if a.strip()],
+    }
+
+
+def segment_questions(text: str) -> List[Dict]:
+    """Split raw OCR text into individual question dicts."""
+    lines = text.splitlines()
+    chunks: List[Dict] = []
+    current_lines: List[str] = []
+    current_num = None
+
+    for line in lines:
+        num = _match_question(line.strip())
+        if num is not None:
+            if current_lines:
+                chunks.append({"number": current_num, "raw": "\n".join(current_lines)})
+            current_num = num if num > 0 else (len(chunks) + 1)
+            current_lines = [line]
+        else:
+            current_lines.append(line)
+
+    if current_lines:
+        chunks.append({"number": current_num, "raw": "\n".join(current_lines)})
+
+    # Fallback: treat full text as single question
+    if not chunks:
+        chunks = [{"number": 1, "raw": text.strip()}]
+
+    # Renumber when detection gave -1
+    for i, c in enumerate(chunks):
+        if c["number"] is None or c["number"] < 0:
+            c["number"] = i + 1
+
+    results = []
+    for c in chunks:
+        if not c["raw"].strip():
+            continue
+        parts = _split_stem_alts(c["raw"])
+        if not parts["stem"] and not parts["alternatives"]:
+            continue
+        results.append(
+            {
+                "number": c["number"],
+                "text": c["raw"],
+                "stem": parts["stem"],
+                "alternatives": parts["alternatives"],
+            }
+        )
+
+    # Re-number sequentially to fix any gaps
+    for i, q in enumerate(results):
+        if q["number"] is None or q["number"] < 0:
+            q["number"] = i + 1
+
+    return results
