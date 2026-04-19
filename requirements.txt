@@ -12,6 +12,9 @@ fastapi>=0.110.0       # Framework da API
 uvicorn>=0.27.0        # Servidor ASGI
 python-multipart>=0.0.9  # Upload de arquivos no FastAPI
 
+# Banco de dados
+psycopg2-binary>=2.9.0   # Driver PostgreSQL (produção)
+
 # Utilitários
 fpdf2>=2.7.0           # Geração de PDFs (scripts de exemplo)
 pandas>=2.0.0          # Manipulação de dados (opcional)
