@@ -13,11 +13,25 @@ _ALT_PATTERN = re.compile(
     r"^\s*[\[(]?\s*[AaBbCcDdEe]\s*[\])]?\s*[-.)]\s+\S", re.MULTILINE
 )
 
+# Palavras típicas de cabeçalho que NÃO são questões
+_HEADER_WORDS = re.compile(
+    r"\b(escola|turma|nome|aluno|data|ano|série|bimestre|avaliação|prova|"
+    r"nota|professor|disciplina|instrução|instruções|página)\b",
+    re.IGNORECASE,
+)
+
 
 def _match_question(line: str):
+    # Exige ao menos 15 caracteres depois do marcador (cabeçalhos são curtos)
     for pat in _PATTERNS:
         m = pat.match(line)
         if m:
+            rest = line[m.end():].strip()
+            if len(rest) < 10:
+                continue
+            # Rejeita se a linha tem cara de cabeçalho
+            if _HEADER_WORDS.search(line) and len(line.strip()) < 60:
+                continue
             try:
                 return int(m.group(1))
             except (IndexError, ValueError):
@@ -68,12 +82,21 @@ def segment_questions(text: str) -> List[Dict]:
         if c["number"] is None or c["number"] < 0:
             c["number"] = i + 1
 
+    # Deduplica por número: mantém o chunk com mais conteúdo
+    seen: Dict[int, Dict] = {}
+    for c in chunks:
+        num = c["number"]
+        if num not in seen or len(c["raw"]) > len(seen[num]["raw"]):
+            seen[num] = c
+    chunks = sorted(seen.values(), key=lambda c: c["number"] or 0)
+
     results = []
     for c in chunks:
         if not c["raw"].strip():
             continue
         parts = _split_stem_alts(c["raw"])
-        if not parts["stem"] and not parts["alternatives"]:
+        # Descarta chunks sem conteúdo mínimo no stem (cabeçalhos residuais)
+        if len((parts["stem"] or "").strip()) < 12 and not parts["alternatives"]:
             continue
         results.append(
             {
