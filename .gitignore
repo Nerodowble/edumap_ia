@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Ambiente virtual
+venv/
+.venv/
+env/
+
+# Banco de dados
+data/*.db
+
+# Testes
+.pytest_cache/
+
+# Misc
+.DS_Store
+*.log

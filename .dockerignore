@@ -1,0 +1,11 @@
+.git
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+data/*.db
+.streamlit
+tests/
+docs/
+*.md
+provas_exemplo/
