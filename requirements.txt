@@ -1,8 +1,17 @@
-streamlit>=1.32.0
-pymupdf>=1.23.0
-pdfplumber>=0.10.0
-pytesseract>=0.3.10
-Pillow>=10.0.0
-fpdf2>=2.7.0
-plotly>=5.18.0
-pandas>=2.0.0
+# EduMap IA — Dependências Python
+# Instale com: pip install -r requirements.txt
+
+# OCR e extração de texto
+pymupdf>=1.23.0        # Extração de texto de PDFs digitais
+pdfplumber>=0.10.0     # Fallback para PDFs complexos
+pytesseract>=0.3.10    # OCR para imagens (requer Tesseract instalado no sistema)
+Pillow>=10.0.0         # Processamento de imagens
+
+# API REST
+fastapi>=0.110.0       # Framework da API
+uvicorn>=0.27.0        # Servidor ASGI
+python-multipart>=0.0.9  # Upload de arquivos no FastAPI
+
+# Utilitários
+fpdf2>=2.7.0           # Geração de PDFs (scripts de exemplo)
+pandas>=2.0.0          # Manipulação de dados (opcional)

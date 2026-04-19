@@ -89,6 +89,13 @@ def init_db():
             criado_em   TEXT DEFAULT (datetime('now','localtime')),
             UNIQUE(aluno_id, questao_id)
         );
+
+        CREATE TABLE IF NOT EXISTS gabarito (
+            prova_id        INTEGER NOT NULL REFERENCES provas(id) ON DELETE CASCADE,
+            numero_questao  INTEGER NOT NULL,
+            alternativa     TEXT NOT NULL,
+            PRIMARY KEY(prova_id, numero_questao)
+        );
         """)
 
 
@@ -113,6 +120,11 @@ def get_turma(turma_id: int) -> Optional[Dict]:
     with _conn() as con:
         row = con.execute("SELECT * FROM turmas WHERE id=?", (turma_id,)).fetchone()
         return dict(row) if row else None
+
+
+def delete_turma(turma_id: int) -> None:
+    with _conn() as con:
+        con.execute("DELETE FROM turmas WHERE id=?", (turma_id,))
 
 
 # ── Alunos ────────────────────────────────────────────────────────────────────
@@ -203,6 +215,52 @@ def get_questoes_prova(prova_id: int) -> List[Dict]:
             d["bncc_skills"] = [{"codigo": c} for c in json.loads(d.get("bncc_codigos") or "[]")]
             result.append(d)
         return result
+
+
+# ── Gabarito ──────────────────────────────────────────────────────────────────
+
+def salvar_gabarito(prova_id: int, gabarito: Dict[int, str]) -> None:
+    with _conn() as con:
+        con.execute("DELETE FROM gabarito WHERE prova_id=?", (prova_id,))
+        for num, alt in gabarito.items():
+            con.execute(
+                "INSERT INTO gabarito (prova_id, numero_questao, alternativa) VALUES (?,?,?)",
+                (prova_id, num, alt.upper()),
+            )
+
+
+def get_gabarito(prova_id: int) -> Dict[int, str]:
+    with _conn() as con:
+        rows = con.execute(
+            "SELECT numero_questao, alternativa FROM gabarito WHERE prova_id=? ORDER BY numero_questao",
+            (prova_id,),
+        ).fetchall()
+        return {r["numero_questao"]: r["alternativa"] for r in rows}
+
+
+def lancar_respostas_aluno(aluno_id: int, prova_id: int, respostas_aluno: Dict[int, str]) -> None:
+    """respostas_aluno: {numero_questao: alternativa_respondida} — compara com gabarito automaticamente."""
+    gabarito = get_gabarito(prova_id)
+    with _conn() as con:
+        questoes = con.execute(
+            "SELECT id, numero FROM questoes WHERE prova_id=?", (prova_id,)
+        ).fetchall()
+        num_to_id = {r["numero"]: r["id"] for r in questoes}
+
+        for numero, resposta in respostas_aluno.items():
+            qid = num_to_id.get(numero)
+            if not qid:
+                continue
+            gab = gabarito.get(numero, "")
+            correta = bool(resposta and gab and resposta.upper() == gab.upper())
+            con.execute(
+                """INSERT INTO respostas (aluno_id, questao_id, resposta, gabarito, correta)
+                   VALUES (?,?,?,?,?)
+                   ON CONFLICT(aluno_id, questao_id) DO UPDATE
+                   SET resposta=excluded.resposta, gabarito=excluded.gabarito,
+                       correta=excluded.correta""",
+                (aluno_id, qid, resposta.upper(), gab, 1 if correta else 0),
+            )
 
 
 # ── Respostas ─────────────────────────────────────────────────────────────────
