@@ -17,6 +17,7 @@ psycopg2-binary>=2.9.0   # Driver PostgreSQL (produção)
 
 # Autenticação
 passlib[bcrypt]>=1.7.4        # Hash de senhas com bcrypt
+bcrypt>=3.0.0,<4.0.0          # passlib não suporta bcrypt 4.x
 python-jose[cryptography]>=3.3.0  # JWT
 
 # Utilitários
