@@ -7,11 +7,15 @@ import os
 import re
 import sys
 import tempfile
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, Optional
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import Depends, FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from jose import JWTError, jwt
+from passlib.context import CryptContext
 from pydantic import BaseModel
 
 # ── Path setup ────────────────────────────────────────────────────────────────
@@ -23,6 +27,7 @@ from classifier.bncc_mapper import map_to_bncc
 from classifier.segmenter import segment_questions
 from classifier.subarea_classifier import classify_subarea
 from database import db
+from database import usuarios as db_usuarios
 from ocr.extractor import extract_text_from_file
 
 # ── App ───────────────────────────────────────────────────────────────────────
@@ -32,7 +37,6 @@ app = FastAPI(
     description="Backend da plataforma EduMap IA — diagnóstico taxonômico de aprendizagem.",
 )
 
-# Origens permitidas: padrão localhost + qualquer URL extra via ALLOWED_ORIGINS (separadas por vírgula)
 _extra = os.getenv("ALLOWED_ORIGINS", "")
 _origins = [
     "http://localhost:3000",
@@ -47,6 +51,48 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# ── Auth ──────────────────────────────────────────────────────────────────────
+_SECRET = os.getenv("SECRET_KEY", "edumap-dev-secret-change-in-prod")
+_ALGO = "HS256"
+_TTL = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "10080"))  # 7 days
+SKIP_AUTH = os.getenv("SKIP_AUTH", "").lower() in ("1", "true", "yes")
+
+_pwd = CryptContext(schemes=["bcrypt"], deprecated="auto")
+_bearer = HTTPBearer(auto_error=False)
+_FAKE_USER = {"id": 0, "nome": "Dev Admin", "email": "dev@local", "role": "admin_geral", "escola": ""}
+
+
+def _hash(pwd: str) -> str:
+    return _pwd.hash(pwd)
+
+
+def _verify(plain: str, hashed: str) -> bool:
+    return _pwd.verify(plain, hashed)
+
+
+def _create_token(uid: int) -> str:
+    exp = datetime.now(timezone.utc) + timedelta(minutes=_TTL)
+    return jwt.encode({"sub": str(uid), "exp": exp}, _SECRET, algorithm=_ALGO)
+
+
+def get_current_user(creds: Optional[HTTPAuthorizationCredentials] = Depends(_bearer)):
+    if SKIP_AUTH:
+        return _FAKE_USER
+    if not creds:
+        raise HTTPException(status_code=401, detail="Token não fornecido.")
+    try:
+        payload = jwt.decode(creds.credentials, _SECRET, algorithms=[_ALGO])
+        uid = payload.get("sub")
+        if uid is None:
+            raise HTTPException(status_code=401, detail="Token inválido.")
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Token inválido ou expirado.")
+    user = db_usuarios.get_usuario(int(uid))
+    if not user:
+        raise HTTPException(status_code=401, detail="Usuário não encontrado.")
+    return user
+
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 BLOOM_COLORS: Dict[int, str] = {
@@ -85,11 +131,53 @@ class RespostasPayload(BaseModel):
 
 
 class GabaritoPayload(BaseModel):
-    gabarito: Dict[str, str]  # {"1": "A", "2": "C", ...}
+    gabarito: Dict[str, str]
 
 
 class LancarBulkPayload(BaseModel):
-    respostas: Dict[str, Dict[str, str]]  # {str(aluno_id): {str(numero): alternativa}}
+    respostas: Dict[str, Dict[str, str]]
+
+
+class RegisterBody(BaseModel):
+    nome: str
+    email: str
+    senha: str
+    escola: str = ""
+
+
+class LoginBody(BaseModel):
+    email: str
+    senha: str
+
+
+# ── Auth endpoints ────────────────────────────────────────────────────────────
+@app.post("/auth/register", status_code=201, summary="Registra novo usuário")
+def auth_register(body: RegisterBody):
+    if db_usuarios.get_usuario_por_email(body.email):
+        raise HTTPException(400, "Email já cadastrado.")
+    count = db_usuarios.contar_usuarios()
+    role = "admin_geral" if count == 0 else "professor"
+    uid = db_usuarios.criar_usuario(body.nome, body.email, _hash(body.senha), role, body.escola)
+    return {"token": _create_token(uid), "role": role, "nome": body.nome}
+
+
+@app.post("/auth/login", summary="Autentica usuário e retorna JWT")
+def auth_login(body: LoginBody):
+    user = db_usuarios.get_usuario_por_email(body.email)
+    if not user or not _verify(body.senha, user["senha_hash"]):
+        raise HTTPException(401, "Email ou senha incorretos.")
+    return {"token": _create_token(user["id"]), "role": user["role"], "nome": user["nome"]}
+
+
+@app.get("/auth/me", summary="Retorna dados do usuário autenticado")
+def auth_me(user=Depends(get_current_user)):
+    return {
+        "id": user["id"],
+        "nome": user["nome"],
+        "email": user.get("email", ""),
+        "role": user["role"],
+        "escola": user.get("escola", ""),
+    }
 
 
 # ── Root ──────────────────────────────────────────────────────────────────────
@@ -99,20 +187,25 @@ def root():
 
 
 # ── Turmas ────────────────────────────────────────────────────────────────────
-@app.get("/turmas", summary="Lista todas as turmas")
-def list_turmas():
-    return db.listar_turmas()
+@app.get("/turmas", summary="Lista turmas visíveis ao usuário")
+def list_turmas(user=Depends(get_current_user)):
+    return db.listar_turmas(
+        usuario_id=user["id"],
+        role=user["role"],
+        escola=user.get("escola"),
+    )
 
 
 @app.post("/turmas", status_code=201, summary="Cria uma nova turma")
-def create_turma(body: TurmaCreate):
-    tid = db.criar_turma(body.nome, body.escola, body.disciplina)
+def create_turma(body: TurmaCreate, user=Depends(get_current_user)):
+    uid = user["id"] if user["id"] != 0 else None
+    tid = db.criar_turma(body.nome, body.escola, body.disciplina, uid)
     turma = db.get_turma(tid)
     return turma
 
 
 @app.delete("/turmas/{turma_id}", status_code=204, summary="Remove uma turma")
-def delete_turma(turma_id: int):
+def delete_turma(turma_id: int, user=Depends(get_current_user)):
     if not db.get_turma(turma_id):
         raise HTTPException(404, "Turma não encontrada.")
     db.delete_turma(turma_id)
@@ -120,12 +213,12 @@ def delete_turma(turma_id: int):
 
 # ── Alunos ────────────────────────────────────────────────────────────────────
 @app.get("/turmas/{turma_id}/alunos", summary="Lista alunos de uma turma")
-def list_alunos(turma_id: int):
+def list_alunos(turma_id: int, user=Depends(get_current_user)):
     return db.listar_alunos(turma_id)
 
 
 @app.post("/turmas/{turma_id}/alunos", status_code=201, summary="Adiciona aluno à turma")
-def create_aluno(turma_id: int, body: AlunoCreate):
+def create_aluno(turma_id: int, body: AlunoCreate, user=Depends(get_current_user)):
     if not db.get_turma(turma_id):
         raise HTTPException(404, "Turma não encontrada.")
     aid = db.criar_aluno(body.nome, turma_id)
@@ -134,7 +227,7 @@ def create_aluno(turma_id: int, body: AlunoCreate):
 
 # ── Provas ────────────────────────────────────────────────────────────────────
 @app.get("/turmas/{turma_id}/provas", summary="Lista provas de uma turma")
-def list_provas(turma_id: int):
+def list_provas(turma_id: int, user=Depends(get_current_user)):
     return db.listar_provas(turma_id)
 
 
@@ -144,6 +237,7 @@ async def upload_prova(
     year_level: str = Form(...),
     subject: str = Form("Detectar automaticamente"),
     turma_id: Optional[str] = Form(None),
+    user=Depends(get_current_user),
 ):
     suffix = Path(file.filename or "prova.pdf").suffix or ".pdf"
     content = await file.read()
@@ -219,22 +313,22 @@ async def upload_prova(
 
 # ── Questoes + Relatórios ─────────────────────────────────────────────────────
 @app.get("/provas/{prova_id}/questoes", summary="Lista questões de uma prova")
-def get_questoes(prova_id: int):
+def get_questoes(prova_id: int, user=Depends(get_current_user)):
     return db.get_questoes_prova(prova_id)
 
 
 @app.get("/provas/{prova_id}/relatorio/turma", summary="Relatório de desempenho por aluno")
-def get_relatorio_turma(prova_id: int):
+def get_relatorio_turma(prova_id: int, user=Depends(get_current_user)):
     return db.relatorio_turma(prova_id)
 
 
 @app.get("/provas/{prova_id}/relatorio/drilldown", summary="Relatório drill-down área→subárea→bloom→aluno")
-def get_relatorio_drilldown(prova_id: int):
+def get_relatorio_drilldown(prova_id: int, user=Depends(get_current_user)):
     return db.relatorio_drilldown(prova_id)
 
 
 @app.post("/provas/{prova_id}/respostas", status_code=201, summary="Salva respostas de um aluno")
-def save_respostas(prova_id: int, payload: RespostasPayload):
+def save_respostas(prova_id: int, payload: RespostasPayload, user=Depends(get_current_user)):
     respostas = {
         int(k): {"resposta": v.resposta, "gabarito": v.gabarito, "correta": v.correta}
         for k, v in payload.respostas.items()
@@ -244,21 +338,20 @@ def save_respostas(prova_id: int, payload: RespostasPayload):
 
 
 # ── Gabarito ──────────────────────────────────────────────────────────────────
-
 @app.post("/provas/{prova_id}/gabarito", status_code=201, summary="Salva gabarito da prova")
-def save_gabarito(prova_id: int, payload: GabaritoPayload):
+def save_gabarito(prova_id: int, payload: GabaritoPayload, user=Depends(get_current_user)):
     gabarito = {int(k): v for k, v in payload.gabarito.items()}
     db.salvar_gabarito(prova_id, gabarito)
     return {"ok": True}
 
 
 @app.get("/provas/{prova_id}/gabarito", summary="Retorna gabarito da prova")
-def get_gabarito(prova_id: int):
+def get_gabarito(prova_id: int, user=Depends(get_current_user)):
     return db.get_gabarito(prova_id)
 
 
-@app.post("/provas/{prova_id}/lancar", status_code=201, summary="Lança respostas de vários alunos com cálculo automático de acertos")
-def lancar_respostas(prova_id: int, payload: LancarBulkPayload):
+@app.post("/provas/{prova_id}/lancar", status_code=201, summary="Lança respostas de vários alunos")
+def lancar_respostas(prova_id: int, payload: LancarBulkPayload, user=Depends(get_current_user)):
     erros = []
     for aluno_id_str, resps in payload.respostas.items():
         try:
@@ -269,12 +362,9 @@ def lancar_respostas(prova_id: int, payload: LancarBulkPayload):
     return {"ok": True, "erros": erros}
 
 
-# ── OCR de gabarito de aluno ───────────────────────────────────────────────────
-
+# ── OCR de gabarito de aluno ──────────────────────────────────────────────────
 def _parse_respostas_ocr(text: str) -> Dict[int, str]:
-    """Extrai pares (numero_questao, alternativa) de texto OCR de gabarito."""
     respostas: Dict[int, str] = {}
-    # Padrões: "1. A", "1) B", "1- C", "1: D", "Q1 A", "01.A"
     patterns = [
         r'\b(\d{1,2})\s*[.)\-:]\s*([A-Ea-e])\b',
         r'\bQ\s*(\d{1,2})\s*[:\-\s]\s*([A-Ea-e])\b',
@@ -293,6 +383,7 @@ def _parse_respostas_ocr(text: str) -> Dict[int, str]:
 async def ocr_gabarito_aluno(
     prova_id: int,
     file: UploadFile = File(...),
+    user=Depends(get_current_user),
 ):
     suffix = Path(file.filename or "gabarito.jpg").suffix or ".jpg"
     content = await file.read()

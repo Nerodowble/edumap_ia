@@ -15,6 +15,8 @@ sys.path.insert(0, os.path.join(ROOT, "src"))
 sys.path.insert(0, ROOT)
 
 # ── Isola banco de dados ANTES de qualquer import da api ─────────────────────
+os.environ["SKIP_AUTH"] = "true"  # Desativa JWT nos testes
+
 _TMP_DIR = tempfile.mkdtemp(prefix="edumap_test_")
 _TEST_DB = os.path.join(_TMP_DIR, "test_edumap.db")
 

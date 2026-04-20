@@ -15,6 +15,10 @@ python-multipart>=0.0.9  # Upload de arquivos no FastAPI
 # Banco de dados
 psycopg2-binary>=2.9.0   # Driver PostgreSQL (produção)
 
+# Autenticação
+passlib[bcrypt]>=1.7.4        # Hash de senhas com bcrypt
+python-jose[cryptography]>=3.3.0  # JWT
+
 # Utilitários
 fpdf2>=2.7.0           # Geração de PDFs (scripts de exemplo)
 pandas>=2.0.0          # Manipulação de dados (opcional)

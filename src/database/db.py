@@ -20,11 +20,21 @@ DB_PATH = os.path.join(os.path.dirname(__file__), "..", "..", "data", "edumap.db
 # ── Schema ────────────────────────────────────────────────────────────────────
 
 _PG_SCHEMA = [
+    """CREATE TABLE IF NOT EXISTS usuarios (
+        id          BIGSERIAL PRIMARY KEY,
+        nome        TEXT NOT NULL,
+        email       TEXT NOT NULL UNIQUE,
+        senha_hash  TEXT NOT NULL,
+        role        TEXT NOT NULL DEFAULT 'professor',
+        escola      TEXT,
+        criado_em   TIMESTAMPTZ DEFAULT NOW()
+    )""",
     """CREATE TABLE IF NOT EXISTS turmas (
         id         BIGSERIAL PRIMARY KEY,
         nome       TEXT NOT NULL,
         escola     TEXT,
         disciplina TEXT,
+        usuario_id BIGINT REFERENCES usuarios(id) ON DELETE SET NULL,
         criado_em  TIMESTAMPTZ DEFAULT NOW()
     )""",
     """CREATE TABLE IF NOT EXISTS alunos (
@@ -78,11 +88,21 @@ _PG_SCHEMA = [
 ]
 
 _SQ_SCHEMA = """
+CREATE TABLE IF NOT EXISTS usuarios (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome        TEXT NOT NULL,
+    email       TEXT NOT NULL UNIQUE,
+    senha_hash  TEXT NOT NULL,
+    role        TEXT NOT NULL DEFAULT 'professor',
+    escola      TEXT,
+    criado_em   TEXT DEFAULT (datetime('now','localtime'))
+);
 CREATE TABLE IF NOT EXISTS turmas (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
     nome        TEXT NOT NULL,
     escola      TEXT,
     disciplina  TEXT,
+    usuario_id  INTEGER REFERENCES usuarios(id) ON DELETE SET NULL,
     criado_em   TEXT DEFAULT (datetime('now','localtime'))
 );
 CREATE TABLE IF NOT EXISTS alunos (
@@ -210,9 +230,24 @@ class _Conn:
         if _BACKEND == "postgres":
             for stmt in _PG_SCHEMA:
                 self._cur.execute(stmt)
+            try:
+                self._cur.execute(
+                    "ALTER TABLE turmas ADD COLUMN IF NOT EXISTS "
+                    "usuario_id BIGINT REFERENCES usuarios(id) ON DELETE SET NULL"
+                )
+            except Exception:
+                self._con.rollback()
             self._con.commit()
         else:
             self._con.executescript(_SQ_SCHEMA)
+            try:
+                self._con.execute(
+                    "ALTER TABLE turmas ADD COLUMN usuario_id INTEGER "
+                    "REFERENCES usuarios(id) ON DELETE SET NULL"
+                )
+                self._con.commit()
+            except Exception:
+                pass
 
 
 @contextmanager
@@ -238,17 +273,22 @@ def init_db():
 
 # ── Turmas ────────────────────────────────────────────────────────────────────
 
-def criar_turma(nome: str, escola: str = "", disciplina: str = "") -> int:
+def criar_turma(nome: str, escola: str = "", disciplina: str = "", usuario_id: Optional[int] = None) -> int:
     with _conn() as con:
         return con.insert(
-            "INSERT INTO turmas (nome, escola, disciplina) VALUES (?,?,?)",
-            (nome, escola, disciplina),
+            "INSERT INTO turmas (nome, escola, disciplina, usuario_id) VALUES (?,?,?,?)",
+            (nome, escola, disciplina, usuario_id),
         )
 
 
-def listar_turmas() -> List[Dict]:
+def listar_turmas(usuario_id: Optional[int] = None, role: str = "admin_geral", escola: Optional[str] = None) -> List[Dict]:
     with _conn() as con:
-        return con.execute("SELECT * FROM turmas ORDER BY nome").fetchall()
+        if role == "admin_geral":
+            return con.execute("SELECT * FROM turmas ORDER BY nome").fetchall()
+        elif role == "admin_escolar" and escola:
+            return con.execute("SELECT * FROM turmas WHERE escola=? ORDER BY nome", (escola,)).fetchall()
+        else:
+            return con.execute("SELECT * FROM turmas WHERE usuario_id=? ORDER BY nome", (usuario_id,)).fetchall()
 
 
 def get_turma(turma_id: int) -> Optional[Dict]:
