@@ -340,7 +340,82 @@ git push origin main
 | Aplicação (usar) | https://edumap-frontend-nu.vercel.app |
 | Login | https://edumap-frontend-nu.vercel.app/login |
 | Registro | https://edumap-frontend-nu.vercel.app/register |
+| Área Admin (só admin_geral) | https://edumap-frontend-nu.vercel.app/admin |
 | API (testar) | https://edumap-ia.onrender.com/docs |
 | Health check | https://edumap-ia.onrender.com/ |
 | Painel frontend | https://vercel.com/dashboard |
 | Painel backend + DB | https://dashboard.render.com |
+
+---
+
+## 10. Referência Completa de Endpoints
+
+Base: `https://edumap-ia.onrender.com`. Todos os endpoints (exceto `/auth/register`,
+`/auth/login`, `/`, `/docs`) exigem o header `Authorization: Bearer <jwt>`.
+
+### Autenticação
+| Método | Endpoint | Role | Descrição |
+|--------|----------|------|-----------|
+| `POST` | `/auth/register` | — | Cria usuário (1º vira admin_geral) |
+| `POST` | `/auth/login` | — | Autentica e retorna JWT |
+| `GET` | `/auth/me` | autenticado | Dados do usuário logado |
+
+### Turmas e Alunos
+| Método | Endpoint | Role | Descrição |
+|--------|----------|------|-----------|
+| `GET` | `/turmas` | autenticado | Lista turmas visíveis (filtrado por role) |
+| `POST` | `/turmas` | autenticado | Cria turma |
+| `DELETE` | `/turmas/{id}` | autenticado | Remove turma |
+| `GET` | `/turmas/{id}/alunos` | autenticado | Lista alunos |
+| `POST` | `/turmas/{id}/alunos` | autenticado | Adiciona aluno |
+
+### Provas
+| Método | Endpoint | Role | Descrição |
+|--------|----------|------|-----------|
+| `GET` | `/turmas/{id}/provas` | autenticado | Provas de uma turma |
+| `POST` | `/provas/upload` | autenticado | Upload + OCR + classificação |
+| `GET` | `/provas/{id}/questoes` | autenticado | Questões extraídas |
+| `GET` | `/provas/{id}/gabarito` | autenticado | Gabarito atual |
+| `POST` | `/provas/{id}/gabarito` | autenticado | Salvar/atualizar gabarito |
+| `POST` | `/provas/{id}/respostas` | autenticado | Salvar respostas de 1 aluno |
+| `POST` | `/provas/{id}/lancar` | autenticado | Lançar respostas em bulk |
+| `POST` | `/provas/{id}/ocr-aluno` | autenticado | OCR do gabarito preenchido |
+
+### Relatórios
+| Método | Endpoint | Role | Descrição |
+|--------|----------|------|-----------|
+| `GET` | `/provas/{id}/relatorio/turma` | autenticado | Desempenho por aluno |
+| `GET` | `/provas/{id}/relatorio/drilldown` | autenticado | Drilldown área → subárea → Bloom |
+| `GET` | `/provas/{id}/relatorio/taxonomia` | autenticado | Árvore taxonômica com stats |
+| `GET` | `/provas/{id}/relatorio/pontos-criticos` | autenticado | Top N nós críticos por aluno |
+
+### Admin — Usuários, Escolas e Provas
+| Método | Endpoint | Role | Descrição |
+|--------|----------|------|-----------|
+| `GET` | `/admin/usuarios` | admin_geral | Lista todos os usuários |
+| `GET` | `/admin/escolas` | admin_geral | Escolas agregadas |
+| `GET` | `/admin/provas` | admin_geral | Todas as provas |
+| `DELETE` | `/admin/provas/{id}` | admin_geral | Remove prova + cascade |
+
+### Admin — Taxonomia
+| Método | Endpoint | Role | Descrição |
+|--------|----------|------|-----------|
+| `GET` | `/admin/taxonomia/stats` | autenticado | Totais por matéria e nível |
+| `GET` | `/admin/taxonomia/materias` | autenticado | Lista matérias |
+| `GET` | `/admin/taxonomia/nos` | autenticado | Lista nós (filtro por matéria) |
+| `POST` | `/admin/taxonomia/classificar` | autenticado | Testa classificação em texto |
+| `POST` | `/admin/seed-taxonomia` | admin_geral | Seed do JSON em disco |
+| `POST` | `/admin/taxonomia/import-json` | admin_geral | Import em massa (body: JSON) |
+| `POST` | `/admin/taxonomia/no` | admin_geral | Cria nó filho |
+| `PUT` | `/admin/taxonomia/no/{id}` | admin_geral | Edita label + palavras_chave |
+| `DELETE` | `/admin/taxonomia/no/{id}` | admin_geral | Remove nó + descendentes |
+
+---
+
+## 11. Documentação Relacionada
+
+- **`docs/taxonomia.md`** — Sistema taxonômico completo (arquitetura, algoritmo,
+  fluxo de classificação, relatórios, roadmap)
+- **`docs/admin.md`** — Guia da área administrativa passo-a-passo
+- **Swagger interativo:** https://edumap-ia.onrender.com/docs — exploração
+  ao vivo de todos os endpoints, com autenticação e exemplos
