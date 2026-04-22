@@ -63,14 +63,17 @@ def segment_questions(text: str) -> List[Dict]:
     for line in lines:
         num = _match_question(line.strip())
         if num is not None:
-            if current_lines:
+            # Só salva chunk anterior se já tivemos um marcador de questão.
+            # Isso descarta o cabeçalho (linhas antes da 1ª questão).
+            if current_lines and current_num is not None:
                 chunks.append({"number": current_num, "raw": "\n".join(current_lines)})
             current_num = num if num > 0 else (len(chunks) + 1)
             current_lines = [line]
         else:
             current_lines.append(line)
 
-    if current_lines:
+    # Só anexa o último chunk se houve marcador (evita cabeçalho sem questão depois)
+    if current_lines and current_num is not None:
         chunks.append({"number": current_num, "raw": "\n".join(current_lines)})
 
     # Fallback: treat full text as single question
