@@ -306,6 +306,20 @@ def admin_list_escolas(user=Depends(get_current_user)):
     return db_usuarios.listar_escolas()
 
 
+# ── Admin: Provas ─────────────────────────────────────────────────────────────
+@app.get("/admin/provas", summary="Lista todas as provas (admin_geral)")
+def admin_list_provas(user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    return db.listar_todas_provas()
+
+
+@app.delete("/admin/provas/{prova_id}", status_code=204, summary="Deleta prova e dados relacionados (admin_geral)")
+def admin_delete_prova(prova_id: int, user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    if not db.delete_prova(prova_id):
+        raise HTTPException(404, "Prova não encontrada.")
+
+
 # ── Root ──────────────────────────────────────────────────────────────────────
 @app.get("/")
 def root():

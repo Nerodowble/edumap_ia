@@ -407,6 +407,27 @@ def listar_provas(turma_id: Optional[int] = None) -> List[Dict]:
         return con.execute("SELECT * FROM provas ORDER BY criado_em DESC").fetchall()
 
 
+def listar_todas_provas() -> List[Dict]:
+    """Lista todas as provas com informações da turma (admin)."""
+    with _conn() as con:
+        return con.execute(
+            """SELECT p.*, t.nome AS turma_nome, t.escola AS turma_escola
+               FROM provas p
+               LEFT JOIN turmas t ON t.id = p.turma_id
+               ORDER BY p.criado_em DESC"""
+        ).fetchall()
+
+
+def delete_prova(prova_id: int) -> bool:
+    """Deleta prova (cascata em questoes/respostas/gabarito via FK)."""
+    with _conn() as con:
+        existing = con.execute("SELECT id FROM provas WHERE id=?", (prova_id,)).fetchone()
+        if not existing:
+            return False
+        con.execute("DELETE FROM provas WHERE id=?", (prova_id,))
+        return True
+
+
 def get_questoes_prova(prova_id: int) -> List[Dict]:
     with _conn() as con:
         rows = con.execute(
