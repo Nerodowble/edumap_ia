@@ -85,6 +85,20 @@ _PG_SCHEMA = [
         alternativa    TEXT NOT NULL,
         PRIMARY KEY (prova_id, numero_questao)
     )""",
+    """CREATE TABLE IF NOT EXISTS taxonomia (
+        id              BIGSERIAL PRIMARY KEY,
+        etapa           TEXT NOT NULL DEFAULT 'ef2',
+        materia         TEXT NOT NULL,
+        codigo          TEXT NOT NULL UNIQUE,
+        label           TEXT NOT NULL,
+        nivel           INTEGER NOT NULL,
+        parent_id       BIGINT REFERENCES taxonomia(id) ON DELETE CASCADE,
+        palavras_chave  TEXT,
+        criado_em       TIMESTAMPTZ DEFAULT NOW()
+    )""",
+    "CREATE INDEX IF NOT EXISTS idx_taxonomia_materia ON taxonomia(materia)",
+    "CREATE INDEX IF NOT EXISTS idx_taxonomia_parent  ON taxonomia(parent_id)",
+    "CREATE INDEX IF NOT EXISTS idx_taxonomia_etapa   ON taxonomia(etapa)",
 ]
 
 _SQ_SCHEMA = """
@@ -153,6 +167,20 @@ CREATE TABLE IF NOT EXISTS gabarito (
     alternativa     TEXT NOT NULL,
     PRIMARY KEY(prova_id, numero_questao)
 );
+CREATE TABLE IF NOT EXISTS taxonomia (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    etapa           TEXT NOT NULL DEFAULT 'ef2',
+    materia         TEXT NOT NULL,
+    codigo          TEXT NOT NULL UNIQUE,
+    label           TEXT NOT NULL,
+    nivel           INTEGER NOT NULL,
+    parent_id       INTEGER REFERENCES taxonomia(id) ON DELETE CASCADE,
+    palavras_chave  TEXT,
+    criado_em       TEXT DEFAULT (datetime('now','localtime'))
+);
+CREATE INDEX IF NOT EXISTS idx_taxonomia_materia ON taxonomia(materia);
+CREATE INDEX IF NOT EXISTS idx_taxonomia_parent  ON taxonomia(parent_id);
+CREATE INDEX IF NOT EXISTS idx_taxonomia_etapa   ON taxonomia(etapa);
 """
 
 

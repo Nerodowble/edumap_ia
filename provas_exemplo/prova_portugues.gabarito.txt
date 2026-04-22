@@ -1,0 +1,14 @@
+Gabarito + nó esperado da taxonomia
+============================================================
+ 1. D  →  ef2.portugues.gramatica.morfologia.adverbio
+ 2. B  →  ef2.portugues.gramatica.morfologia.adjetivo
+ 3. D  →  ef2.portugues.gramatica.concordancia_verbal
+ 4. B  →  ef2.portugues.semantica.figuras_linguagem
+ 5. A  →  ef2.portugues.gramatica.acentuacao
+ 6. C  →  ef2.portugues.gramatica.sintaxe.complementos
+ 7. B  →  ef2.portugues.semantica.sinonimos_antonimos
+ 8. A  →  ef2.portugues.gramatica.ortografia
+ 9. A  →  ef2.portugues.gramatica.pontuacao
+10. C  →  ef2.portugues.producao_textual.narracao
+11. A  →  ef2.portugues.leitura_interpretacao.ideia_principal
+12. B  →  ef2.portugues.gramatica.regencia_verbal

@@ -1,0 +1,14 @@
+Gabarito + nó esperado da taxonomia
+============================================================
+ 1. C  →  ef2.matematica.geometria.figuras_planas.poligonos.triangulos.equilatero
+ 2. B  →  ef2.matematica.geometria.figuras_planas.angulos.tipos_angulos.reto
+ 3. C  →  ef2.matematica.geometria.perimetro_area.perimetro
+ 4. C  →  ef2.matematica.geometria.perimetro_area.area.area_retangulo
+ 5. D  →  ef2.matematica.geometria.volume.volume_cubo
+ 6. C  →  ef2.matematica.geometria.figuras_planas.poligonos.quadrilateros.losango
+ 7. C  →  ef2.matematica.geometria.solidos_geometricos.poliedros.piramides
+ 8. C  →  ef2.matematica.geometria.solidos_geometricos.corpos_redondos.cilindro
+ 9. A  →  ef2.matematica.geometria.figuras_planas.poligonos.triangulos.teorema_pitagoras
+10. C  →  ef2.matematica.geometria.figuras_planas.circunferencia_circulo.raio
+11. B  →  ef2.matematica.aritmetica.porcentagem
+12. C  →  ef2.matematica.algebra.equacoes_primeiro_grau

@@ -1,0 +1,661 @@
+{
+  "versao": "1.0",
+  "etapa": "ef2",
+  "descricao": "Taxonomia educacional hierárquica para Ensino Fundamental II (6º ao 9º ano). Estrutura em árvore com até 6 níveis. Cada nó tem palavras-chave para o classificador automático.",
+  "materias": [
+    {
+      "codigo": "matematica",
+      "label": "Matemática",
+      "palavras_chave": ["matemática", "matematica", "cálculo", "calculo", "número", "numero"],
+      "filhos": [
+        {
+          "codigo": "aritmetica",
+          "label": "Aritmética",
+          "palavras_chave": ["aritmética", "aritmetica", "operação", "operacao"],
+          "filhos": [
+            {
+              "codigo": "numeros_naturais",
+              "label": "Números Naturais",
+              "palavras_chave": ["natural", "naturais", "contagem", "sucessor", "antecessor"],
+              "filhos": [
+                {"codigo": "operacoes_naturais", "label": "Operações com Naturais", "palavras_chave": ["adição", "adicao", "soma", "subtração", "subtracao", "multiplicação", "multiplicacao", "divisão", "divisao"]},
+                {"codigo": "fatoracao", "label": "Fatoração", "palavras_chave": ["fatoração", "fatoracao", "fator", "decompor", "fatorar"]},
+                {"codigo": "numeros_primos", "label": "Números Primos e Compostos", "palavras_chave": ["primo", "primos", "composto", "compostos"]},
+                {"codigo": "mmc_mdc", "label": "MMC e MDC", "palavras_chave": ["mmc", "mdc", "mínimo múltiplo", "maximo divisor", "máximo divisor comum"]},
+                {"codigo": "multiplos_divisores", "label": "Múltiplos e Divisores", "palavras_chave": ["múltiplo", "multiplo", "divisor", "divisível", "divisivel"]}
+              ]
+            },
+            {
+              "codigo": "numeros_inteiros",
+              "label": "Números Inteiros",
+              "palavras_chave": ["inteiro", "inteiros", "negativo", "positivo", "oposto", "módulo"],
+              "filhos": [
+                {"codigo": "operacoes_inteiros", "label": "Operações com Inteiros", "palavras_chave": ["sinal", "sinais", "soma de inteiros", "regra de sinais"]},
+                {"codigo": "reta_numerica", "label": "Reta Numérica", "palavras_chave": ["reta numérica", "reta numerica", "eixo"]}
+              ]
+            },
+            {
+              "codigo": "numeros_racionais",
+              "label": "Números Racionais",
+              "palavras_chave": ["racional", "racionais", "fração", "fracao", "decimal", "dízima"],
+              "filhos": [
+                {"codigo": "fracoes", "label": "Frações", "palavras_chave": ["fração", "fracao", "numerador", "denominador", "irredutível", "equivalente"]},
+                {"codigo": "operacoes_fracoes", "label": "Operações com Frações", "palavras_chave": ["somar frações", "subtrair fracao", "multiplicar fração", "dividir fração"]},
+                {"codigo": "decimais", "label": "Números Decimais", "palavras_chave": ["decimal", "vírgula", "virgula", "centésimo", "milésimo"]},
+                {"codigo": "dizima_periodica", "label": "Dízima Periódica", "palavras_chave": ["dízima", "dizima", "periódica", "periodica"]}
+              ]
+            },
+            {
+              "codigo": "potenciacao_radiciacao",
+              "label": "Potenciação e Radiciação",
+              "palavras_chave": ["potência", "potencia", "expoente", "base", "raiz", "radical"],
+              "filhos": [
+                {"codigo": "potenciacao", "label": "Potenciação", "palavras_chave": ["potência", "potencia", "elevado", "expoente", "base"]},
+                {"codigo": "radiciacao", "label": "Radiciação", "palavras_chave": ["raiz quadrada", "raiz cúbica", "raiz cubica", "radical", "radicando"]},
+                {"codigo": "notacao_cientifica", "label": "Notação Científica", "palavras_chave": ["notação científica", "notacao cientifica"]}
+              ]
+            },
+            {"codigo": "porcentagem", "label": "Porcentagem", "palavras_chave": ["porcentagem", "percentual", "por cento", "%", "desconto", "aumento"]},
+            {"codigo": "proporcao_regra_tres", "label": "Proporção e Regra de Três", "palavras_chave": ["proporção", "proporcao", "proporcional", "regra de três", "regra de tres", "razão", "razao"]}
+          ]
+        },
+        {
+          "codigo": "algebra",
+          "label": "Álgebra",
+          "palavras_chave": ["álgebra", "algebra", "incógnita", "incognita", "variável", "variavel"],
+          "filhos": [
+            {"codigo": "expressoes_algebricas", "label": "Expressões Algébricas", "palavras_chave": ["expressão algébrica", "expressao algebrica", "monômio", "binômio", "polinômio", "termo semelhante"]},
+            {"codigo": "equacoes_primeiro_grau", "label": "Equações do 1º Grau", "palavras_chave": ["equação", "equacao", "primeiro grau", "1º grau", "resolver equação"]},
+            {"codigo": "sistemas_equacoes", "label": "Sistemas de Equações", "palavras_chave": ["sistema de equações", "sistema de equacoes", "substituição", "adição"]},
+            {"codigo": "equacoes_segundo_grau", "label": "Equações do 2º Grau", "palavras_chave": ["segundo grau", "2º grau", "bhaskara", "discriminante", "delta"]},
+            {"codigo": "inequacoes", "label": "Inequações", "palavras_chave": ["inequação", "inequacao", "desigualdade", "maior que", "menor que"]},
+            {"codigo": "funcoes", "label": "Funções", "palavras_chave": ["função", "funcao", "domínio", "imagem", "f(x)"]},
+            {"codigo": "produtos_notaveis", "label": "Produtos Notáveis", "palavras_chave": ["produto notável", "produto notavel", "quadrado da soma", "quadrado da diferença"]}
+          ]
+        },
+        {
+          "codigo": "geometria",
+          "label": "Geometria",
+          "palavras_chave": ["geometria", "forma", "figura", "geométrico", "geometrico"],
+          "filhos": [
+            {
+              "codigo": "figuras_planas",
+              "label": "Figuras Planas (Geometria Plana)",
+              "palavras_chave": ["figura plana", "plano", "bidimensional", "geometria plana"],
+              "filhos": [
+                {
+                  "codigo": "conceitos_basicos",
+                  "label": "Conceitos Básicos",
+                  "palavras_chave": ["ponto", "reta", "segmento", "plano"],
+                  "filhos": [
+                    {"codigo": "ponto", "label": "Ponto", "palavras_chave": ["ponto"]},
+                    {"codigo": "reta", "label": "Reta", "palavras_chave": ["reta", "retas"]},
+                    {"codigo": "segmento_reta", "label": "Segmento de Reta", "palavras_chave": ["segmento", "segmento de reta"]},
+                    {"codigo": "plano", "label": "Plano", "palavras_chave": ["plano", "planos"]},
+                    {"codigo": "semirreta", "label": "Semirreta", "palavras_chave": ["semirreta", "semi-reta"]}
+                  ]
+                },
+                {
+                  "codigo": "poligonos",
+                  "label": "Polígonos",
+                  "palavras_chave": ["polígono", "poligono", "polígonos", "lados", "vértices da figura"],
+                  "filhos": [
+                    {"codigo": "classificacao_lados", "label": "Classificação pelo Número de Lados", "palavras_chave": ["pentágono", "hexágono", "heptágono", "octógono", "decágono", "dodecágono"]},
+                    {
+                      "codigo": "triangulos",
+                      "label": "Triângulos",
+                      "palavras_chave": ["triângulo", "triangulo", "triangular", "três lados"],
+                      "filhos": [
+                        {"codigo": "equilatero", "label": "Triângulo Equilátero", "palavras_chave": ["equilátero", "equilateros", "três lados iguais", "tres lados iguais"]},
+                        {"codigo": "isosceles", "label": "Triângulo Isósceles", "palavras_chave": ["isósceles", "isosceles", "dois lados iguais"]},
+                        {"codigo": "escaleno", "label": "Triângulo Escaleno", "palavras_chave": ["escaleno", "três lados diferentes", "lados desiguais"]},
+                        {
+                          "codigo": "por_angulos",
+                          "label": "Classificação por Ângulos",
+                          "palavras_chave": ["classificação por ângulos", "triângulo quanto aos ângulos"],
+                          "filhos": [
+                            {"codigo": "acutangulo", "label": "Acutângulo", "palavras_chave": ["acutângulo", "acutangulo", "todos ângulos agudos"]},
+                            {"codigo": "retangulo_triangulo", "label": "Triângulo Retângulo", "palavras_chave": ["triângulo retângulo", "retangulo com um angulo reto", "hipotenusa", "cateto"]},
+                            {"codigo": "obtusangulo", "label": "Obtusângulo", "palavras_chave": ["obtusângulo", "obtusangulo", "ângulo obtuso"]}
+                          ]
+                        },
+                        {"codigo": "teorema_pitagoras", "label": "Teorema de Pitágoras", "palavras_chave": ["pitágoras", "pitagoras", "hipotenusa", "catetos", "teorema"]}
+                      ]
+                    },
+                    {
+                      "codigo": "quadrilateros",
+                      "label": "Quadriláteros",
+                      "palavras_chave": ["quadrilátero", "quadrilatero", "quatro lados"],
+                      "filhos": [
+                        {"codigo": "quadrado", "label": "Quadrado", "palavras_chave": ["quadrado", "quatro lados iguais", "lados congruentes"]},
+                        {"codigo": "retangulo_quad", "label": "Retângulo", "palavras_chave": ["retângulo", "retangulo", "lados opostos iguais"]},
+                        {"codigo": "losango", "label": "Losango", "palavras_chave": ["losango", "diagonais perpendiculares"]},
+                        {"codigo": "trapezio", "label": "Trapézio", "palavras_chave": ["trapézio", "trapezio", "bases paralelas"]},
+                        {"codigo": "paralelogramo", "label": "Paralelogramo", "palavras_chave": ["paralelogramo", "lados paralelos"]}
+                      ]
+                    },
+                    {"codigo": "poligonos_regulares", "label": "Polígonos Regulares", "palavras_chave": ["polígono regular", "poligono regular", "lados e ângulos iguais"]},
+                    {"codigo": "poligonos_irregulares", "label": "Polígonos Irregulares", "palavras_chave": ["polígono irregular", "lados desiguais"]}
+                  ]
+                },
+                {
+                  "codigo": "angulos",
+                  "label": "Ângulos",
+                  "palavras_chave": ["ângulo", "angulo", "grau", "medida angular"],
+                  "filhos": [
+                    {
+                      "codigo": "tipos_angulos",
+                      "label": "Tipos de Ângulos",
+                      "palavras_chave": ["tipo de ângulo", "classificar ângulo"],
+                      "filhos": [
+                        {"codigo": "agudo", "label": "Ângulo Agudo", "palavras_chave": ["agudo", "menor que 90"]},
+                        {"codigo": "reto", "label": "Ângulo Reto", "palavras_chave": ["ângulo reto", "90 graus", "90°"]},
+                        {"codigo": "obtuso", "label": "Ângulo Obtuso", "palavras_chave": ["obtuso", "maior que 90", "entre 90 e 180"]},
+                        {"codigo": "raso", "label": "Ângulo Raso", "palavras_chave": ["raso", "180 graus", "180°"]}
+                      ]
+                    },
+                    {"codigo": "medida_angulos", "label": "Medidas de Ângulos", "palavras_chave": ["medida do ângulo", "transferidor", "graus"]},
+                    {"codigo": "operacoes_angulos", "label": "Operações com Ângulos", "palavras_chave": ["somar ângulos", "subtrair ângulo", "ângulos complementares", "suplementares", "opostos pelo vértice"]}
+                  ]
+                },
+                {
+                  "codigo": "circunferencia_circulo",
+                  "label": "Circunferência e Círculo",
+                  "palavras_chave": ["circunferência", "circunferencia", "círculo", "circulo"],
+                  "filhos": [
+                    {"codigo": "raio", "label": "Raio", "palavras_chave": ["raio"]},
+                    {"codigo": "diametro", "label": "Diâmetro", "palavras_chave": ["diâmetro", "diametro"]},
+                    {"codigo": "corda", "label": "Corda", "palavras_chave": ["corda do círculo"]},
+                    {"codigo": "arco", "label": "Arco", "palavras_chave": ["arco de circunferência", "arco"]},
+                    {"codigo": "setor_circular", "label": "Setor Circular", "palavras_chave": ["setor circular", "setor do círculo"]}
+                  ]
+                }
+              ]
+            },
+            {
+              "codigo": "solidos_geometricos",
+              "label": "Sólidos Geométricos (Geometria Espacial)",
+              "palavras_chave": ["sólido", "solido", "espacial", "tridimensional", "3d"],
+              "filhos": [
+                {
+                  "codigo": "conceitos_solidos",
+                  "label": "Conceitos Básicos de Sólidos",
+                  "palavras_chave": ["face", "aresta", "vértice"],
+                  "filhos": [
+                    {"codigo": "faces", "label": "Faces", "palavras_chave": ["face", "faces"]},
+                    {"codigo": "arestas", "label": "Arestas", "palavras_chave": ["aresta", "arestas"]},
+                    {"codigo": "vertices", "label": "Vértices", "palavras_chave": ["vértice", "vertice", "vértices"]}
+                  ]
+                },
+                {
+                  "codigo": "poliedros",
+                  "label": "Poliedros",
+                  "palavras_chave": ["poliedro", "poliedros"],
+                  "filhos": [
+                    {
+                      "codigo": "prismas",
+                      "label": "Prismas",
+                      "palavras_chave": ["prisma", "prismas"],
+                      "filhos": [
+                        {"codigo": "prisma_reto", "label": "Prisma Reto", "palavras_chave": ["prisma reto"]},
+                        {"codigo": "prisma_obliquo", "label": "Prisma Oblíquo", "palavras_chave": ["prisma oblíquo", "prisma obliquo"]}
+                      ]
+                    },
+                    {
+                      "codigo": "piramides",
+                      "label": "Pirâmides",
+                      "palavras_chave": ["pirâmide", "piramide", "pirâmides"],
+                      "filhos": [
+                        {"codigo": "base_piramide", "label": "Base da Pirâmide", "palavras_chave": ["base da pirâmide"]},
+                        {"codigo": "faces_laterais", "label": "Faces Laterais", "palavras_chave": ["faces laterais"]},
+                        {"codigo": "altura_piramide", "label": "Altura da Pirâmide", "palavras_chave": ["altura da pirâmide"]}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "codigo": "corpos_redondos",
+                  "label": "Corpos Redondos",
+                  "palavras_chave": ["corpo redondo", "redondo"],
+                  "filhos": [
+                    {"codigo": "cilindro", "label": "Cilindro", "palavras_chave": ["cilindro", "cilíndrico"]},
+                    {"codigo": "cone", "label": "Cone", "palavras_chave": ["cone", "cônico", "geratriz"]},
+                    {"codigo": "esfera", "label": "Esfera", "palavras_chave": ["esfera", "esférico", "bola"]}
+                  ]
+                }
+              ]
+            },
+            {
+              "codigo": "perimetro_area",
+              "label": "Perímetro e Área",
+              "palavras_chave": ["perímetro", "perimetro", "área", "area"],
+              "filhos": [
+                {"codigo": "perimetro", "label": "Perímetro", "palavras_chave": ["perímetro", "perimetro", "contorno", "soma dos lados"]},
+                {
+                  "codigo": "area",
+                  "label": "Área",
+                  "palavras_chave": ["área", "area", "superfície"],
+                  "filhos": [
+                    {"codigo": "area_quadrado", "label": "Área do Quadrado", "palavras_chave": ["área do quadrado", "lado ao quadrado"]},
+                    {"codigo": "area_retangulo", "label": "Área do Retângulo", "palavras_chave": ["área do retângulo", "base vezes altura"]},
+                    {"codigo": "area_triangulo", "label": "Área do Triângulo", "palavras_chave": ["área do triângulo", "base vezes altura dividido por 2"]},
+                    {"codigo": "area_circulo", "label": "Área do Círculo", "palavras_chave": ["área do círculo", "pi r ao quadrado"]},
+                    {"codigo": "area_trapezio", "label": "Área do Trapézio", "palavras_chave": ["área do trapézio", "base maior base menor"]}
+                  ]
+                }
+              ]
+            },
+            {
+              "codigo": "volume",
+              "label": "Volume",
+              "palavras_chave": ["volume", "capacidade", "litro"],
+              "filhos": [
+                {"codigo": "unidades_volume", "label": "Unidades de Volume", "palavras_chave": ["cm³", "m³", "litro", "mililitro"]},
+                {"codigo": "volume_cubo", "label": "Volume do Cubo", "palavras_chave": ["volume do cubo", "lado ao cubo"]},
+                {"codigo": "volume_paralelepipedo", "label": "Volume do Paralelepípedo", "palavras_chave": ["volume do paralelepípedo", "comprimento largura altura"]},
+                {"codigo": "volume_cilindro", "label": "Volume do Cilindro", "palavras_chave": ["volume do cilindro"]},
+                {"codigo": "volume_cone", "label": "Volume do Cone", "palavras_chave": ["volume do cone"]},
+                {"codigo": "volume_esfera", "label": "Volume da Esfera", "palavras_chave": ["volume da esfera"]}
+              ]
+            },
+            {"codigo": "simetria", "label": "Simetria", "palavras_chave": ["simetria", "simétrico", "eixo de simetria", "reflexão"]}
+          ]
+        },
+        {
+          "codigo": "grandezas_medidas",
+          "label": "Grandezas e Medidas",
+          "palavras_chave": ["grandeza", "medida", "unidade"],
+          "filhos": [
+            {"codigo": "comprimento", "label": "Medidas de Comprimento", "palavras_chave": ["metro", "centímetro", "milímetro", "quilômetro", "comprimento"]},
+            {"codigo": "area_medidas", "label": "Medidas de Área", "palavras_chave": ["m²", "hectare", "área em"]},
+            {"codigo": "volume_medidas", "label": "Medidas de Volume", "palavras_chave": ["litro", "mililitro", "capacidade"]},
+            {"codigo": "massa", "label": "Medidas de Massa", "palavras_chave": ["quilograma", "grama", "tonelada", "peso"]},
+            {"codigo": "tempo", "label": "Medidas de Tempo", "palavras_chave": ["hora", "minuto", "segundo", "dia", "mês", "ano"]},
+            {"codigo": "monetarias", "label": "Medidas Monetárias", "palavras_chave": ["real", "dinheiro", "preço", "moeda"]}
+          ]
+        },
+        {
+          "codigo": "estatistica_probabilidade",
+          "label": "Estatística e Probabilidade",
+          "palavras_chave": ["estatística", "estatistica", "probabilidade", "dados"],
+          "filhos": [
+            {"codigo": "tabelas_graficos", "label": "Tabelas e Gráficos", "palavras_chave": ["tabela", "gráfico", "grafico", "barras", "colunas", "setores", "pizza"]},
+            {"codigo": "media", "label": "Média Aritmética", "palavras_chave": ["média", "media aritmetica", "média aritmética"]},
+            {"codigo": "mediana", "label": "Mediana", "palavras_chave": ["mediana", "valor central"]},
+            {"codigo": "moda", "label": "Moda", "palavras_chave": ["moda", "valor mais frequente"]},
+            {"codigo": "probabilidade", "label": "Probabilidade", "palavras_chave": ["probabilidade", "chance", "possibilidade", "evento"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "portugues",
+      "label": "Língua Portuguesa",
+      "palavras_chave": ["português", "portugues", "língua portuguesa"],
+      "filhos": [
+        {
+          "codigo": "leitura_interpretacao",
+          "label": "Leitura e Interpretação",
+          "palavras_chave": ["texto", "leia o texto", "de acordo com o texto", "interpretação"],
+          "filhos": [
+            {"codigo": "ideia_principal", "label": "Ideia Principal", "palavras_chave": ["ideia principal", "tema do texto", "assunto principal"]},
+            {"codigo": "inferencia", "label": "Inferência", "palavras_chave": ["infere-se", "pode-se concluir", "depreende-se"]},
+            {"codigo": "intertextualidade", "label": "Intertextualidade", "palavras_chave": ["intertextualidade", "diálogo entre textos", "referência"]}
+          ]
+        },
+        {
+          "codigo": "generos_textuais",
+          "label": "Gêneros Textuais",
+          "palavras_chave": ["gênero textual", "genero textual"],
+          "filhos": [
+            {"codigo": "noticia", "label": "Notícia", "palavras_chave": ["notícia", "noticia", "jornalístico"]},
+            {"codigo": "cronica", "label": "Crônica", "palavras_chave": ["crônica", "cronica"]},
+            {"codigo": "conto", "label": "Conto", "palavras_chave": ["conto", "narrativa curta"]},
+            {"codigo": "poema", "label": "Poema", "palavras_chave": ["poema", "poesia", "verso", "estrofe"]},
+            {"codigo": "fabula", "label": "Fábula", "palavras_chave": ["fábula", "fabula", "moral da história"]}
+          ]
+        },
+        {
+          "codigo": "gramatica",
+          "label": "Gramática",
+          "palavras_chave": ["gramática", "gramatica"],
+          "filhos": [
+            {"codigo": "ortografia", "label": "Ortografia", "palavras_chave": ["ortografia", "escrita correta", "grafia"]},
+            {"codigo": "acentuacao", "label": "Acentuação", "palavras_chave": ["acento", "acentuação", "acentuacao", "til", "agudo", "circunflexo"]},
+            {"codigo": "pontuacao", "label": "Pontuação", "palavras_chave": ["vírgula", "virgula", "ponto", "ponto e vírgula", "dois pontos"]},
+            {
+              "codigo": "morfologia",
+              "label": "Morfologia (Classes de Palavras)",
+              "palavras_chave": ["classe gramatical", "classes de palavras"],
+              "filhos": [
+                {"codigo": "substantivo", "label": "Substantivo", "palavras_chave": ["substantivo", "próprio", "comum", "abstrato", "concreto"]},
+                {"codigo": "adjetivo", "label": "Adjetivo", "palavras_chave": ["adjetivo", "qualifica", "qualidade"]},
+                {"codigo": "verbo", "label": "Verbo", "palavras_chave": ["verbo", "conjugar", "tempo verbal", "modo", "presente", "pretérito", "futuro"]},
+                {"codigo": "adverbio", "label": "Advérbio", "palavras_chave": ["advérbio", "adverbio"]},
+                {"codigo": "pronome", "label": "Pronome", "palavras_chave": ["pronome", "pessoal", "possessivo", "demonstrativo", "relativo"]},
+                {"codigo": "preposicao", "label": "Preposição", "palavras_chave": ["preposição", "preposicao"]},
+                {"codigo": "conjuncao", "label": "Conjunção", "palavras_chave": ["conjunção", "conjuncao", "coordenativa", "subordinativa"]},
+                {"codigo": "numeral", "label": "Numeral", "palavras_chave": ["numeral", "cardinal", "ordinal"]},
+                {"codigo": "artigo", "label": "Artigo", "palavras_chave": ["artigo", "definido", "indefinido"]},
+                {"codigo": "interjeicao", "label": "Interjeição", "palavras_chave": ["interjeição", "interjeicao"]}
+              ]
+            },
+            {
+              "codigo": "sintaxe",
+              "label": "Sintaxe",
+              "palavras_chave": ["sintaxe", "análise sintática", "analise sintatica"],
+              "filhos": [
+                {"codigo": "sujeito", "label": "Sujeito", "palavras_chave": ["sujeito", "simples", "composto", "oculto", "indeterminado"]},
+                {"codigo": "predicado", "label": "Predicado", "palavras_chave": ["predicado", "verbal", "nominal"]},
+                {"codigo": "complementos", "label": "Complementos Verbais", "palavras_chave": ["objeto direto", "objeto indireto", "complemento"]},
+                {"codigo": "adjuntos", "label": "Adjuntos", "palavras_chave": ["adjunto adnominal", "adjunto adverbial"]},
+                {"codigo": "aposto_vocativo", "label": "Aposto e Vocativo", "palavras_chave": ["aposto", "vocativo"]},
+                {"codigo": "oracoes", "label": "Orações", "palavras_chave": ["oração", "coordenada", "subordinada", "período simples", "período composto"]}
+              ]
+            },
+            {"codigo": "concordancia_verbal", "label": "Concordância Verbal", "palavras_chave": ["concordância verbal", "concordancia verbal", "concordar com o sujeito"]},
+            {"codigo": "concordancia_nominal", "label": "Concordância Nominal", "palavras_chave": ["concordância nominal", "concordancia nominal"]},
+            {"codigo": "regencia_verbal", "label": "Regência Verbal", "palavras_chave": ["regência verbal", "regencia verbal"]},
+            {"codigo": "regencia_nominal", "label": "Regência Nominal", "palavras_chave": ["regência nominal"]},
+            {"codigo": "crase", "label": "Crase", "palavras_chave": ["crase", "à", "acento grave"]}
+          ]
+        },
+        {
+          "codigo": "semantica",
+          "label": "Semântica",
+          "palavras_chave": ["semântica", "semantica", "significado"],
+          "filhos": [
+            {"codigo": "sinonimos_antonimos", "label": "Sinônimos e Antônimos", "palavras_chave": ["sinônimo", "sinonimo", "antônimo", "antonimo"]},
+            {"codigo": "denotacao_conotacao", "label": "Denotação e Conotação", "palavras_chave": ["denotação", "conotação", "sentido próprio", "sentido figurado"]},
+            {"codigo": "figuras_linguagem", "label": "Figuras de Linguagem", "palavras_chave": ["metáfora", "comparação", "metonímia", "hipérbole", "figura de linguagem"]},
+            {"codigo": "polissemia", "label": "Polissemia", "palavras_chave": ["polissemia", "vários sentidos"]}
+          ]
+        },
+        {
+          "codigo": "producao_textual",
+          "label": "Produção Textual",
+          "palavras_chave": ["redação", "redacao", "produção textual", "produza"],
+          "filhos": [
+            {"codigo": "narracao", "label": "Narração", "palavras_chave": ["narração", "narrativa", "enredo", "personagem", "narrador"]},
+            {"codigo": "descricao", "label": "Descrição", "palavras_chave": ["descrição", "descrever", "detalhar"]},
+            {"codigo": "dissertacao", "label": "Dissertação", "palavras_chave": ["dissertação", "dissertar", "argumento", "tese", "argumentativo"]},
+            {"codigo": "coesao_coerencia", "label": "Coesão e Coerência", "palavras_chave": ["coesão", "coerência", "conectivo"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "geografia",
+      "label": "Geografia",
+      "palavras_chave": ["geografia", "geográfico"],
+      "filhos": [
+        {
+          "codigo": "geografia_fisica",
+          "label": "Geografia Física",
+          "palavras_chave": ["geografia física", "natureza"],
+          "filhos": [
+            {"codigo": "relevo", "label": "Relevo", "palavras_chave": ["relevo", "planalto", "planície", "depressão", "montanha", "serra"]},
+            {"codigo": "clima", "label": "Clima", "palavras_chave": ["clima", "climático", "temperatura", "tropical", "equatorial", "desértico", "polar"]},
+            {"codigo": "vegetacao", "label": "Vegetação", "palavras_chave": ["vegetação", "bioma", "floresta", "cerrado", "caatinga", "mata atlântica", "pantanal", "pampas"]},
+            {"codigo": "hidrografia", "label": "Hidrografia", "palavras_chave": ["hidrografia", "rio", "bacia hidrográfica", "oceano", "mar", "lago"]},
+            {"codigo": "solo", "label": "Solo", "palavras_chave": ["solo", "erosão", "tipos de solo"]}
+          ]
+        },
+        {
+          "codigo": "geografia_humana",
+          "label": "Geografia Humana",
+          "palavras_chave": ["geografia humana", "população"],
+          "filhos": [
+            {"codigo": "populacao", "label": "População", "palavras_chave": ["população", "populacao", "demografia", "crescimento populacional", "pirâmide etária"]},
+            {"codigo": "urbanizacao", "label": "Urbanização", "palavras_chave": ["urbanização", "cidade", "urbano", "metrópole", "favela"]},
+            {"codigo": "migracao", "label": "Migração", "palavras_chave": ["migração", "migracao", "êxodo rural", "imigração", "emigração"]},
+            {"codigo": "globalizacao", "label": "Globalização", "palavras_chave": ["globalização", "globalizacao", "mundial", "multinacional"]}
+          ]
+        },
+        {
+          "codigo": "geografia_economica",
+          "label": "Geografia Econômica",
+          "palavras_chave": ["economia", "econômico", "setor"],
+          "filhos": [
+            {"codigo": "setores_economicos", "label": "Setores da Economia", "palavras_chave": ["setor primário", "setor secundário", "setor terciário"]},
+            {"codigo": "agricultura", "label": "Agricultura", "palavras_chave": ["agricultura", "agrícola", "agronegócio", "latifúndio", "monocultura"]},
+            {"codigo": "industria", "label": "Indústria", "palavras_chave": ["indústria", "industria", "industrial", "fábrica"]},
+            {"codigo": "comercio_servicos", "label": "Comércio e Serviços", "palavras_chave": ["comércio", "comercio", "serviços", "terciário"]}
+          ]
+        },
+        {
+          "codigo": "cartografia",
+          "label": "Cartografia",
+          "palavras_chave": ["cartografia", "mapa", "atlas"],
+          "filhos": [
+            {"codigo": "mapas", "label": "Mapas", "palavras_chave": ["mapa", "legenda", "rosa dos ventos"]},
+            {"codigo": "coordenadas", "label": "Coordenadas Geográficas", "palavras_chave": ["latitude", "longitude", "coordenadas", "meridiano", "paralelo"]},
+            {"codigo": "escala", "label": "Escala", "palavras_chave": ["escala", "escala numérica", "escala gráfica"]},
+            {"codigo": "projecoes", "label": "Projeções Cartográficas", "palavras_chave": ["projeção", "mercator", "peters"]}
+          ]
+        },
+        {
+          "codigo": "brasil",
+          "label": "Brasil",
+          "palavras_chave": ["brasil", "brasileiro"],
+          "filhos": [
+            {"codigo": "regioes_brasil", "label": "Regiões do Brasil", "palavras_chave": ["região norte", "nordeste", "centro-oeste", "sudeste", "sul", "regiões do brasil"]},
+            {"codigo": "estados_brasil", "label": "Estados Brasileiros", "palavras_chave": ["estado", "capitais do brasil", "unidades federativas"]},
+            {"codigo": "economia_brasileira", "label": "Economia Brasileira", "palavras_chave": ["economia do brasil", "pib brasileiro"]}
+          ]
+        },
+        {
+          "codigo": "mundo",
+          "label": "Mundo",
+          "palavras_chave": ["mundo", "mundial", "global"],
+          "filhos": [
+            {"codigo": "continentes", "label": "Continentes", "palavras_chave": ["continente", "américa", "europa", "áfrica", "ásia", "oceania", "antártida"]},
+            {"codigo": "paises", "label": "Países e Blocos", "palavras_chave": ["país", "paises", "bloco econômico", "união europeia", "mercosul", "onu"]},
+            {"codigo": "conflitos_mundiais", "label": "Conflitos Mundiais", "palavras_chave": ["guerra", "conflito", "terrorismo"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "ciencias",
+      "label": "Ciências",
+      "palavras_chave": ["ciência", "ciencias", "científico"],
+      "filhos": [
+        {
+          "codigo": "vida_evolucao",
+          "label": "Vida e Evolução",
+          "palavras_chave": ["vida", "ser vivo", "biologia"],
+          "filhos": [
+            {"codigo": "celula", "label": "Célula", "palavras_chave": ["célula", "celula", "núcleo", "membrana", "citoplasma", "organela"]},
+            {
+              "codigo": "corpo_humano",
+              "label": "Corpo Humano",
+              "palavras_chave": ["corpo humano", "sistema"],
+              "filhos": [
+                {"codigo": "sistema_digestorio", "label": "Sistema Digestório", "palavras_chave": ["digestão", "digestorio", "estômago", "intestino", "esôfago"]},
+                {"codigo": "sistema_respiratorio", "label": "Sistema Respiratório", "palavras_chave": ["respiração", "respiratorio", "pulmão", "alvéolo", "traqueia"]},
+                {"codigo": "sistema_circulatorio", "label": "Sistema Circulatório", "palavras_chave": ["circulatório", "coração", "sangue", "veia", "artéria"]},
+                {"codigo": "sistema_nervoso", "label": "Sistema Nervoso", "palavras_chave": ["sistema nervoso", "cérebro", "neurônio", "medula"]},
+                {"codigo": "sistema_reprodutor", "label": "Sistema Reprodutor", "palavras_chave": ["reprodutor", "reprodução", "gametas", "óvulo", "espermatozoide"]},
+                {"codigo": "sistema_esqueletico", "label": "Sistema Esquelético e Muscular", "palavras_chave": ["osso", "esqueleto", "músculo", "articulação"]}
+              ]
+            },
+            {"codigo": "genetica", "label": "Genética Básica", "palavras_chave": ["gene", "dna", "hereditariedade", "herança genética", "cromossomo"]},
+            {"codigo": "reinos_seres_vivos", "label": "Reinos dos Seres Vivos", "palavras_chave": ["reino animal", "reino vegetal", "fungos", "bactérias", "protistas"]},
+            {
+              "codigo": "ecologia",
+              "label": "Ecologia",
+              "palavras_chave": ["ecologia", "ecológico", "meio ambiente"],
+              "filhos": [
+                {"codigo": "ecossistemas", "label": "Ecossistemas", "palavras_chave": ["ecossistema", "bioma", "habitat"]},
+                {"codigo": "cadeia_alimentar", "label": "Cadeia Alimentar", "palavras_chave": ["cadeia alimentar", "produtor", "consumidor", "decompositor"]},
+                {"codigo": "poluicao", "label": "Poluição e Sustentabilidade", "palavras_chave": ["poluição", "sustentabilidade", "reciclagem", "efeito estufa"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "terra_universo",
+          "label": "Terra e Universo",
+          "palavras_chave": ["terra", "universo", "astronomia"],
+          "filhos": [
+            {"codigo": "sistema_solar", "label": "Sistema Solar", "palavras_chave": ["sistema solar", "planeta", "sol", "órbita", "lua"]},
+            {"codigo": "planeta_terra", "label": "Planeta Terra", "palavras_chave": ["camadas da terra", "crosta", "manto", "núcleo", "litosfera"]},
+            {"codigo": "movimentos_terra", "label": "Movimentos da Terra", "palavras_chave": ["rotação", "translação", "estações do ano", "dia e noite"]},
+            {"codigo": "clima_tempo", "label": "Clima e Tempo", "palavras_chave": ["clima", "tempo atmosférico", "nuvem", "chuva"]}
+          ]
+        },
+        {
+          "codigo": "materia_energia",
+          "label": "Matéria e Energia",
+          "palavras_chave": ["matéria", "energia", "física", "química"],
+          "filhos": [
+            {"codigo": "estados_fisicos", "label": "Estados Físicos da Matéria", "palavras_chave": ["sólido", "líquido", "gasoso", "estados da matéria"]},
+            {"codigo": "mudancas_estado", "label": "Mudanças de Estado", "palavras_chave": ["fusão", "vaporização", "condensação", "solidificação", "sublimação"]},
+            {"codigo": "atomos_moleculas", "label": "Átomos e Moléculas", "palavras_chave": ["átomo", "molécula", "elemento químico", "tabela periódica"]},
+            {"codigo": "reacoes_quimicas", "label": "Reações Químicas", "palavras_chave": ["reação química", "reagente", "produto"]},
+            {"codigo": "eletricidade", "label": "Eletricidade", "palavras_chave": ["eletricidade", "corrente elétrica", "circuito", "tensão", "resistência"]},
+            {"codigo": "som_luz", "label": "Som e Luz", "palavras_chave": ["som", "onda sonora", "luz", "reflexão", "refração"]},
+            {"codigo": "forca_movimento", "label": "Força e Movimento", "palavras_chave": ["força", "movimento", "velocidade", "aceleração", "newton"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "historia",
+      "label": "História",
+      "palavras_chave": ["história", "historia", "histórico"],
+      "filhos": [
+        {"codigo": "pre_historia", "label": "Pré-História", "palavras_chave": ["pré-história", "pre-historia", "paleolítico", "neolítico", "idade da pedra"]},
+        {
+          "codigo": "antiguidade_oriental",
+          "label": "Antiguidade Oriental",
+          "palavras_chave": ["antiguidade oriental"],
+          "filhos": [
+            {"codigo": "mesopotamia", "label": "Mesopotâmia", "palavras_chave": ["mesopotâmia", "mesopotamia", "sumérios", "babilônia", "hamurábi"]},
+            {"codigo": "egito_antigo", "label": "Egito Antigo", "palavras_chave": ["egito", "faraó", "pirâmide", "hieróglifo", "nilo"]},
+            {"codigo": "hebreus_fenicios_persas", "label": "Hebreus, Fenícios e Persas", "palavras_chave": ["hebreu", "fenício", "persa", "judaísmo"]}
+          ]
+        },
+        {
+          "codigo": "antiguidade_classica",
+          "label": "Antiguidade Clássica",
+          "palavras_chave": ["antiguidade clássica", "greco-romano"],
+          "filhos": [
+            {"codigo": "grecia_antiga", "label": "Grécia Antiga", "palavras_chave": ["grécia", "grecia", "atenas", "esparta", "democracia grega", "filosofia"]},
+            {"codigo": "roma_antiga", "label": "Roma Antiga", "palavras_chave": ["roma antiga", "república romana", "império romano", "césar"]}
+          ]
+        },
+        {
+          "codigo": "idade_media",
+          "label": "Idade Média",
+          "palavras_chave": ["idade média", "medieval", "feudalismo"],
+          "filhos": [
+            {"codigo": "feudalismo", "label": "Feudalismo", "palavras_chave": ["feudal", "feudalismo", "senhor feudal", "servo", "suserania"]},
+            {"codigo": "igreja_medieval", "label": "Igreja Medieval", "palavras_chave": ["igreja católica", "clero", "cruzada", "inquisição"]},
+            {"codigo": "imperio_bizantino", "label": "Império Bizantino e Islã", "palavras_chave": ["bizantino", "constantinopla", "islã", "muçulmano"]}
+          ]
+        },
+        {
+          "codigo": "idade_moderna",
+          "label": "Idade Moderna",
+          "palavras_chave": ["idade moderna"],
+          "filhos": [
+            {"codigo": "renascimento", "label": "Renascimento", "palavras_chave": ["renascimento", "humanismo", "leonardo da vinci"]},
+            {"codigo": "grandes_navegacoes", "label": "Grandes Navegações", "palavras_chave": ["navegação", "descobrimento", "pedro álvares cabral", "colombo"]},
+            {"codigo": "reforma_protestante", "label": "Reforma Protestante", "palavras_chave": ["reforma protestante", "lutero", "calvino", "contra-reforma"]},
+            {"codigo": "absolutismo_iluminismo", "label": "Absolutismo e Iluminismo", "palavras_chave": ["absolutismo", "rei", "iluminismo", "voltaire", "rousseau"]}
+          ]
+        },
+        {
+          "codigo": "idade_contemporanea",
+          "label": "Idade Contemporânea",
+          "palavras_chave": ["idade contemporânea"],
+          "filhos": [
+            {"codigo": "revolucao_francesa", "label": "Revolução Francesa", "palavras_chave": ["revolução francesa", "bastilha", "napoleão"]},
+            {"codigo": "revolucao_industrial", "label": "Revolução Industrial", "palavras_chave": ["revolução industrial", "máquina a vapor", "proletariado"]},
+            {"codigo": "guerras_mundiais", "label": "Guerras Mundiais", "palavras_chave": ["primeira guerra", "segunda guerra mundial", "nazismo", "holocausto"]},
+            {"codigo": "guerra_fria", "label": "Guerra Fria", "palavras_chave": ["guerra fria", "capitalismo versus socialismo", "muro de berlim"]}
+          ]
+        },
+        {
+          "codigo": "brasil_colonial",
+          "label": "Brasil Colonial",
+          "palavras_chave": ["brasil colonial", "colônia"],
+          "filhos": [
+            {"codigo": "descobrimento_brasil", "label": "Descobrimento do Brasil", "palavras_chave": ["descobrimento", "cabral", "1500"]},
+            {"codigo": "capitanias_hereditarias", "label": "Capitanias Hereditárias", "palavras_chave": ["capitania hereditária", "donatário"]},
+            {"codigo": "acucar_escravidao", "label": "Açúcar e Escravidão", "palavras_chave": ["engenho", "açúcar", "escravidão colonial", "negro africano"]},
+            {"codigo": "ouro_bandeirantes", "label": "Ouro e Bandeirantes", "palavras_chave": ["ouro", "bandeirante", "minas gerais", "tiradentes"]}
+          ]
+        },
+        {
+          "codigo": "brasil_imperio",
+          "label": "Brasil Império",
+          "palavras_chave": ["império", "brasil império"],
+          "filhos": [
+            {"codigo": "independencia_brasil", "label": "Independência do Brasil", "palavras_chave": ["independência", "dom pedro", "7 de setembro", "1822"]},
+            {"codigo": "primeiro_reinado", "label": "Primeiro Reinado", "palavras_chave": ["primeiro reinado", "dom pedro i"]},
+            {"codigo": "regencia", "label": "Período Regencial", "palavras_chave": ["regência", "regencia", "revoltas regenciais"]},
+            {"codigo": "segundo_reinado", "label": "Segundo Reinado", "palavras_chave": ["segundo reinado", "dom pedro ii", "abolição"]}
+          ]
+        },
+        {
+          "codigo": "brasil_republica",
+          "label": "Brasil República",
+          "palavras_chave": ["república", "brasil republica"],
+          "filhos": [
+            {"codigo": "republica_velha", "label": "República Velha", "palavras_chave": ["república velha", "café com leite", "coronelismo"]},
+            {"codigo": "era_vargas", "label": "Era Vargas", "palavras_chave": ["getúlio vargas", "estado novo", "clt"]},
+            {"codigo": "ditadura_militar", "label": "Ditadura Militar", "palavras_chave": ["ditadura militar", "1964", "ai-5", "diretas já"]},
+            {"codigo": "nova_republica", "label": "Nova República", "palavras_chave": ["nova república", "constituição de 1988", "democracia"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "ingles",
+      "label": "Língua Inglesa",
+      "palavras_chave": ["inglês", "ingles", "english"],
+      "filhos": [
+        {
+          "codigo": "grammar",
+          "label": "Grammar",
+          "palavras_chave": ["grammar", "gramática inglesa"],
+          "filhos": [
+            {"codigo": "verb_tenses", "label": "Verb Tenses", "palavras_chave": ["present", "past", "future", "simple", "continuous", "perfect"]},
+            {"codigo": "articles", "label": "Articles", "palavras_chave": ["articles", "a", "an", "the"]},
+            {"codigo": "pronouns_en", "label": "Pronouns", "palavras_chave": ["pronouns", "subject pronoun", "object pronoun"]},
+            {"codigo": "prepositions", "label": "Prepositions", "palavras_chave": ["preposition", "in", "on", "at"]},
+            {"codigo": "modals", "label": "Modal Verbs", "palavras_chave": ["modal", "can", "could", "must", "should"]}
+          ]
+        },
+        {"codigo": "vocabulary", "label": "Vocabulary", "palavras_chave": ["vocabulary", "word meaning", "synonym in english"]},
+        {"codigo": "reading_en", "label": "Reading Comprehension", "palavras_chave": ["read the text", "according to the text"]},
+        {"codigo": "writing_en", "label": "Writing", "palavras_chave": ["write about", "write an essay"]}
+      ]
+    },
+    {
+      "codigo": "artes",
+      "label": "Artes",
+      "palavras_chave": ["arte", "artes", "artístico"],
+      "filhos": [
+        {"codigo": "artes_visuais", "label": "Artes Visuais", "palavras_chave": ["artes visuais", "pintura", "escultura", "desenho", "cor"]},
+        {"codigo": "musica", "label": "Música", "palavras_chave": ["música", "musica", "nota musical", "ritmo", "melodia", "instrumento"]},
+        {"codigo": "danca", "label": "Dança", "palavras_chave": ["dança", "danca", "coreografia"]},
+        {"codigo": "teatro", "label": "Teatro", "palavras_chave": ["teatro", "peça teatral", "ator", "cenografia"]}
+      ]
+    },
+    {
+      "codigo": "ed_fisica",
+      "label": "Educação Física",
+      "palavras_chave": ["educação física", "educacao fisica", "ed fisica"],
+      "filhos": [
+        {"codigo": "esportes", "label": "Esportes", "palavras_chave": ["esporte", "futebol", "vôlei", "basquete", "handebol"]},
+        {"codigo": "ginastica", "label": "Ginástica", "palavras_chave": ["ginástica", "ginastica", "exercício físico"]},
+        {"codigo": "saude_corpo", "label": "Saúde e Corpo", "palavras_chave": ["saúde", "corpo", "atividade física", "alimentação"]},
+        {"codigo": "jogos_brincadeiras", "label": "Jogos e Brincadeiras", "palavras_chave": ["jogo", "brincadeira", "lúdico"]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+Gabarito + nó esperado da taxonomia
+============================================================
+ 1. B  →  ef2.geografia.geografia_fisica.relevo
+ 2. D  →  ef2.geografia.geografia_fisica.vegetacao
+ 3. B  →  ef2.geografia.geografia_fisica.clima
+ 4. C  →  ef2.geografia.geografia_humana.migracao
+ 5. B  →  ef2.geografia.cartografia.coordenadas
+ 6. C  →  ef2.geografia.cartografia.escala
+ 7. A  →  ef2.geografia.brasil.regioes_brasil
+ 8. B  →  ef2.geografia.geografia_economica.setores_economicos
+ 9. C  →  ef2.geografia.mundo.continentes
+10. C  →  ef2.geografia.geografia_humana.urbanizacao
+11. B  →  ef2.geografia.geografia_fisica.hidrografia
+12. B  →  ef2.geografia.geografia_economica.agricultura
