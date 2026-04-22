@@ -27,8 +27,11 @@ from classifier.bncc_mapper import map_to_bncc
 from classifier.segmenter import segment_questions
 from classifier.subarea_classifier import classify_subarea
 from database import db
+from database import taxonomia as db_taxonomia
 from database import usuarios as db_usuarios
 from ocr.extractor import extract_text_from_file
+
+JSON_TAXONOMIA = Path(__file__).parent / "data" / "taxonomia.json"
 
 # ── App ───────────────────────────────────────────────────────────────────────
 app = FastAPI(
@@ -178,6 +181,43 @@ def auth_me(user=Depends(get_current_user)):
         "role": user["role"],
         "escola": user.get("escola", ""),
     }
+
+
+# ── Admin: Taxonomia ──────────────────────────────────────────────────────────
+def _require_admin_geral(user):
+    if user["role"] != "admin_geral":
+        raise HTTPException(403, "Apenas admin_geral pode executar esta ação.")
+
+
+@app.post("/admin/seed-taxonomia", summary="Popular tabela de taxonomia a partir do JSON (admin_geral)")
+def admin_seed_taxonomia(user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    try:
+        stats = db_taxonomia.seed_from_json(JSON_TAXONOMIA)
+        return {"ok": True, **stats}
+    except FileNotFoundError as exc:
+        raise HTTPException(500, str(exc))
+    except Exception as exc:
+        raise HTTPException(500, f"Erro no seed: {exc}")
+
+
+@app.get("/admin/taxonomia/stats", summary="Estatísticas da taxonomia carregada")
+def admin_taxonomia_stats(etapa: str = "ef2", user=Depends(get_current_user)):
+    return db_taxonomia.stats(etapa)
+
+
+@app.get("/admin/taxonomia/materias", summary="Lista matérias da taxonomia")
+def admin_taxonomia_materias(etapa: str = "ef2", user=Depends(get_current_user)):
+    return db_taxonomia.listar_materias(etapa)
+
+
+@app.get("/admin/taxonomia/nos", summary="Lista nós da taxonomia (filtro opcional por matéria)")
+def admin_taxonomia_nos(
+    materia: Optional[str] = None,
+    etapa: str = "ef2",
+    user=Depends(get_current_user),
+):
+    return db_taxonomia.listar_nos(materia, etapa)
 
 
 # ── Root ──────────────────────────────────────────────────────────────────────
