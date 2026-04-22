@@ -26,6 +26,7 @@ from classifier.bloom_classifier import classify_bloom
 from classifier.bncc_mapper import map_to_bncc
 from classifier.segmenter import segment_questions
 from classifier.subarea_classifier import classify_subarea
+from classifier.taxonomia_classifier import classify as classify_taxonomia
 from database import db
 from database import taxonomia as db_taxonomia
 from database import usuarios as db_usuarios
@@ -153,6 +154,12 @@ class LoginBody(BaseModel):
     senha: str
 
 
+class ClassificarBody(BaseModel):
+    stem: str
+    materia: str
+    etapa: str = "ef2"
+
+
 # ── Auth endpoints ────────────────────────────────────────────────────────────
 @app.post("/auth/register", status_code=201, summary="Registra novo usuário")
 def auth_register(body: RegisterBody):
@@ -218,6 +225,18 @@ def admin_taxonomia_nos(
     user=Depends(get_current_user),
 ):
     return db_taxonomia.listar_nos(materia, etapa)
+
+
+@app.post("/admin/taxonomia/classificar", summary="Testa o classificador em um texto (sem salvar)")
+def admin_taxonomia_classificar(body: ClassificarBody, user=Depends(get_current_user)):
+    """
+    Útil para depurar o classificador. Passe um enunciado e a matéria,
+    veja qual nó da árvore ele bate.
+    """
+    tax = classify_taxonomia(body.stem, body.materia, body.etapa)
+    if not tax:
+        return {"encontrado": False, "stem": body.stem, "materia": body.materia}
+    return {"encontrado": True, **tax}
 
 
 # ── Root ──────────────────────────────────────────────────────────────────────
@@ -304,17 +323,29 @@ async def upload_prova(
             subarea_key, subarea_label = classify_subarea(stem, area_key)
             bncc = map_to_bncc(area_key, year_level, bloom_level)
 
+            # Classificação taxonômica profunda (árvore do banco)
+            tax = None
+            if area_key and area_key != "indefinida":
+                try:
+                    tax = classify_taxonomia(stem, area_key)
+                except Exception:
+                    tax = None
+
             q.update({
-                "area_key":        area_key,
-                "area_display":    get_area_display_name(area_key),
-                "area_confidence": area_conf,
-                "subarea_key":     subarea_key,
-                "subarea_label":   subarea_label,
-                "bloom_level":     bloom_level,
-                "bloom_name":      bloom_name,
-                "bloom_verb":      bloom_verb,
-                "bloom_color":     BLOOM_COLORS.get(bloom_level, "#9CA3AF"),
-                "bncc_skills":     bncc,
+                "area_key":          area_key,
+                "area_display":      get_area_display_name(area_key),
+                "area_confidence":   area_conf,
+                "subarea_key":       subarea_key,
+                "subarea_label":     subarea_label,
+                "bloom_level":       bloom_level,
+                "bloom_name":        bloom_name,
+                "bloom_verb":        bloom_verb,
+                "bloom_color":       BLOOM_COLORS.get(bloom_level, "#9CA3AF"),
+                "bncc_skills":       bncc,
+                "taxonomia_codigo":  tax["codigo"]  if tax else "",
+                "taxonomia_label":   tax["label"]   if tax else "",
+                "taxonomia_caminho": tax["caminho"] if tax else [],
+                "taxonomia_matches": tax["matches"] if tax else 0,
             })
 
         tid = int(turma_id) if turma_id and turma_id not in ("", "none") else None

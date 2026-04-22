@@ -22,9 +22,16 @@ def _get_id(con, codigo: str) -> Optional[int]:
 
 
 def _inserir_no(con, etapa, materia, codigo, label, nivel, parent_id, palavras):
-    if _existe_codigo(con, codigo):
-        return _get_id(con, codigo)
+    """UPSERT: insere novo nó ou atualiza label/palavras-chave se já existir.
+    Isso permite iterar na taxonomia JSON e re-rodar o seed para aplicar."""
     kw = ",".join(palavras) if palavras else ""
+    existing = _get_id(con, codigo)
+    if existing is not None:
+        con.execute(
+            "UPDATE taxonomia SET label=?, palavras_chave=?, nivel=?, parent_id=? WHERE id=?",
+            (label, kw, nivel, parent_id, existing),
+        )
+        return existing
     return con.insert(
         """INSERT INTO taxonomia
            (etapa, materia, codigo, label, nivel, parent_id, palavras_chave)
@@ -56,6 +63,7 @@ def seed_from_json(json_path: Path) -> Dict:
     materias = data.get("materias", [])
     materias_processadas = []
 
+    atualizados = 0
     with _conn() as con:
         row = con.execute(
             "SELECT COUNT(*) AS c FROM taxonomia WHERE etapa=?", (etapa,)
@@ -71,13 +79,16 @@ def seed_from_json(json_path: Path) -> Dict:
             "SELECT COUNT(*) AS c FROM taxonomia WHERE etapa=?", (etapa,)
         ).fetchone()
         total_depois = int(row["c"]) if row else 0
+        atualizados = total_antes  # todos os nós existentes são atualizados
 
+    adicionados = total_depois - total_antes
     return {
         "etapa": etapa,
         "materias_processadas": materias_processadas,
         "total_antes": total_antes,
         "total_depois": total_depois,
-        "adicionados": total_depois - total_antes,
+        "adicionados": adicionados,
+        "atualizados": atualizados,
     }
 
 

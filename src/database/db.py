@@ -55,19 +55,20 @@ _PG_SCHEMA = [
         criado_em      TIMESTAMPTZ DEFAULT NOW()
     )""",
     """CREATE TABLE IF NOT EXISTS questoes (
-        id            BIGSERIAL PRIMARY KEY,
-        prova_id      BIGINT NOT NULL REFERENCES provas(id) ON DELETE CASCADE,
-        numero        INTEGER,
-        texto         TEXT,
-        stem          TEXT,
-        area_key      TEXT,
-        area_display  TEXT,
-        subarea_key   TEXT,
-        subarea_label TEXT,
-        bloom_nivel   INTEGER,
-        bloom_nome    TEXT,
-        bloom_verbo   TEXT,
-        bncc_codigos  TEXT
+        id               BIGSERIAL PRIMARY KEY,
+        prova_id         BIGINT NOT NULL REFERENCES provas(id) ON DELETE CASCADE,
+        numero           INTEGER,
+        texto            TEXT,
+        stem             TEXT,
+        area_key         TEXT,
+        area_display     TEXT,
+        subarea_key      TEXT,
+        subarea_label    TEXT,
+        bloom_nivel      INTEGER,
+        bloom_nome       TEXT,
+        bloom_verbo      TEXT,
+        taxonomia_codigo TEXT,
+        bncc_codigos     TEXT
     )""",
     """CREATE TABLE IF NOT EXISTS respostas (
         id         BIGSERIAL PRIMARY KEY,
@@ -137,19 +138,20 @@ CREATE TABLE IF NOT EXISTS provas (
     criado_em      TEXT DEFAULT (datetime('now','localtime'))
 );
 CREATE TABLE IF NOT EXISTS questoes (
-    id            INTEGER PRIMARY KEY AUTOINCREMENT,
-    prova_id      INTEGER NOT NULL REFERENCES provas(id) ON DELETE CASCADE,
-    numero        INTEGER,
-    texto         TEXT,
-    stem          TEXT,
-    area_key      TEXT,
-    area_display  TEXT,
-    subarea_key   TEXT,
-    subarea_label TEXT,
-    bloom_nivel   INTEGER,
-    bloom_nome    TEXT,
-    bloom_verbo   TEXT,
-    bncc_codigos  TEXT
+    id               INTEGER PRIMARY KEY AUTOINCREMENT,
+    prova_id         INTEGER NOT NULL REFERENCES provas(id) ON DELETE CASCADE,
+    numero           INTEGER,
+    texto            TEXT,
+    stem             TEXT,
+    area_key         TEXT,
+    area_display     TEXT,
+    subarea_key      TEXT,
+    subarea_label    TEXT,
+    bloom_nivel      INTEGER,
+    bloom_nome       TEXT,
+    bloom_verbo      TEXT,
+    taxonomia_codigo TEXT,
+    bncc_codigos     TEXT
 );
 CREATE TABLE IF NOT EXISTS respostas (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -258,24 +260,28 @@ class _Conn:
         if _BACKEND == "postgres":
             for stmt in _PG_SCHEMA:
                 self._cur.execute(stmt)
-            try:
-                self._cur.execute(
-                    "ALTER TABLE turmas ADD COLUMN IF NOT EXISTS "
-                    "usuario_id BIGINT REFERENCES usuarios(id) ON DELETE SET NULL"
-                )
-            except Exception:
-                self._con.rollback()
+            # Migrações
+            for alter in [
+                "ALTER TABLE turmas ADD COLUMN IF NOT EXISTS usuario_id BIGINT REFERENCES usuarios(id) ON DELETE SET NULL",
+                "ALTER TABLE questoes ADD COLUMN IF NOT EXISTS taxonomia_codigo TEXT",
+            ]:
+                try:
+                    self._cur.execute(alter)
+                except Exception:
+                    self._con.rollback()
             self._con.commit()
         else:
             self._con.executescript(_SQ_SCHEMA)
-            try:
-                self._con.execute(
-                    "ALTER TABLE turmas ADD COLUMN usuario_id INTEGER "
-                    "REFERENCES usuarios(id) ON DELETE SET NULL"
-                )
-                self._con.commit()
-            except Exception:
-                pass
+            # SQLite não tem IF NOT EXISTS em ALTER TABLE — try/except
+            for alter in [
+                "ALTER TABLE turmas ADD COLUMN usuario_id INTEGER REFERENCES usuarios(id) ON DELETE SET NULL",
+                "ALTER TABLE questoes ADD COLUMN taxonomia_codigo TEXT",
+            ]:
+                try:
+                    self._con.execute(alter)
+                    self._con.commit()
+                except Exception:
+                    pass
 
 
 @contextmanager
@@ -371,8 +377,8 @@ def salvar_prova(
                 """INSERT INTO questoes
                    (prova_id, numero, texto, stem, area_key, area_display,
                     subarea_key, subarea_label,
-                    bloom_nivel, bloom_nome, bloom_verbo, bncc_codigos)
-                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?)""",
+                    bloom_nivel, bloom_nome, bloom_verbo, taxonomia_codigo, bncc_codigos)
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (
                     prova_id,
                     q.get("number"),
@@ -385,6 +391,7 @@ def salvar_prova(
                     q.get("bloom_level", 0),
                     q.get("bloom_name", ""),
                     q.get("bloom_verb", ""),
+                    q.get("taxonomia_codigo", ""),
                     bncc,
                 ),
             )
