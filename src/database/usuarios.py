@@ -33,3 +33,31 @@ def listar_usuarios() -> List[Dict]:
         return con.execute(
             "SELECT id, nome, email, role, escola, criado_em FROM usuarios ORDER BY nome"
         ).fetchall()
+
+
+def listar_escolas() -> List[Dict]:
+    """Agrega escolas a partir dos campos em usuarios e turmas."""
+    with _conn() as con:
+        usuarios_rows = con.execute(
+            """SELECT escola, COUNT(*) AS total
+               FROM usuarios
+               WHERE escola IS NOT NULL AND escola != ''
+               GROUP BY escola"""
+        ).fetchall()
+        turmas_rows = con.execute(
+            """SELECT escola, COUNT(*) AS total
+               FROM turmas
+               WHERE escola IS NOT NULL AND escola != ''
+               GROUP BY escola"""
+        ).fetchall()
+
+    merged: Dict[str, Dict] = {}
+    for r in usuarios_rows:
+        merged[r["escola"]] = {"escola": r["escola"], "usuarios": int(r["total"]), "turmas": 0}
+    for r in turmas_rows:
+        if r["escola"] in merged:
+            merged[r["escola"]]["turmas"] = int(r["total"])
+        else:
+            merged[r["escola"]] = {"escola": r["escola"], "usuarios": 0, "turmas": int(r["total"])}
+
+    return sorted(merged.values(), key=lambda x: x["escola"])

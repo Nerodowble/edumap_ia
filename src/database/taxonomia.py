@@ -51,17 +51,16 @@ def _walk(con, no: dict, etapa: str, materia: str, codigo_pai: str, nivel: int, 
         _walk(con, filho, etapa, materia, codigo_atual, nivel + 1, novo_id)
 
 
-def seed_from_json(json_path: Path) -> Dict:
-    """Popular o banco a partir do JSON da taxonomia. Idempotente."""
-    if not json_path.exists():
-        raise FileNotFoundError(f"Arquivo não encontrado: {json_path}")
-
-    with open(json_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
+def seed_from_data(data: Dict) -> Dict:
+    """Popular o banco a partir de um dict já parseado (upload via API)."""
+    if not isinstance(data, dict) or "materias" not in data:
+        raise ValueError("JSON inválido: esperado dict com chave 'materias'.")
 
     etapa = data.get("etapa", "ef2")
     materias = data.get("materias", [])
-    materias_processadas = []
+    if not isinstance(materias, list):
+        raise ValueError("JSON inválido: 'materias' deve ser lista.")
+    materias_processadas: List[str] = []
 
     atualizados = 0
     with _conn() as con:
@@ -90,6 +89,15 @@ def seed_from_json(json_path: Path) -> Dict:
         "adicionados": adicionados,
         "atualizados": atualizados,
     }
+
+
+def seed_from_json(json_path: Path) -> Dict:
+    """Popular a partir de arquivo JSON em disco."""
+    if not json_path.exists():
+        raise FileNotFoundError(f"Arquivo não encontrado: {json_path}")
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    return seed_from_data(data)
 
 
 # ── Consulta ──────────────────────────────────────────────────────────────────

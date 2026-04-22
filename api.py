@@ -11,7 +11,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, Optional
 
-from fastapi import Depends, FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import Body, Depends, FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jose import JWTError, jwt
@@ -237,6 +237,31 @@ def admin_taxonomia_classificar(body: ClassificarBody, user=Depends(get_current_
     if not tax:
         return {"encontrado": False, "stem": body.stem, "materia": body.materia}
     return {"encontrado": True, **tax}
+
+
+@app.post("/admin/taxonomia/import-json", summary="Importa taxonomia de um JSON no body (admin_geral)")
+def admin_taxonomia_import(body: Dict = Body(...), user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    try:
+        stats = db_taxonomia.seed_from_data(body)
+        return {"ok": True, **stats}
+    except (ValueError, KeyError) as exc:
+        raise HTTPException(400, f"JSON inválido: {exc}")
+    except Exception as exc:
+        raise HTTPException(500, f"Erro ao importar: {exc}")
+
+
+# ── Admin: Usuários e Escolas ─────────────────────────────────────────────────
+@app.get("/admin/usuarios", summary="Lista todos os usuários (admin_geral)")
+def admin_list_usuarios(user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    return db_usuarios.listar_usuarios()
+
+
+@app.get("/admin/escolas", summary="Lista escolas agregadas (admin_geral)")
+def admin_list_escolas(user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    return db_usuarios.listar_escolas()
 
 
 # ── Root ──────────────────────────────────────────────────────────────────────
