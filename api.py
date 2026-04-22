@@ -398,6 +398,16 @@ def get_relatorio_drilldown(prova_id: int, user=Depends(get_current_user)):
     return db.relatorio_drilldown(prova_id)
 
 
+@app.get("/provas/{prova_id}/relatorio/taxonomia", summary="Árvore taxonômica com stats por nó")
+def get_relatorio_taxonomia(prova_id: int, user=Depends(get_current_user)):
+    return db.relatorio_taxonomia(prova_id)
+
+
+@app.get("/provas/{prova_id}/relatorio/pontos-criticos", summary="Pontos críticos por aluno (taxonomia)")
+def get_pontos_criticos(prova_id: int, top_n: int = 3, user=Depends(get_current_user)):
+    return db.alunos_pontos_criticos(prova_id, top_n)
+
+
 @app.post("/provas/{prova_id}/respostas", status_code=201, summary="Salva respostas de um aluno")
 def save_respostas(prova_id: int, payload: RespostasPayload, user=Depends(get_current_user)):
     respostas = {

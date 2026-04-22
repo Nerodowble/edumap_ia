@@ -547,6 +547,133 @@ def relatorio_turma(prova_id: int) -> List[Dict]:
     return [relatorio_aluno(r["aluno_id"], prova_id) for r in alunos_ids]
 
 
+def relatorio_taxonomia(prova_id: int) -> Dict:
+    """Árvore taxonômica com stats agregados por nó (roll-up dos descendentes).
+    Só inclui questões com taxonomia_codigo preenchido."""
+    with _conn() as con:
+        rows = con.execute(
+            """SELECT q.taxonomia_codigo, r.correta
+               FROM respostas r
+               JOIN questoes q ON q.id = r.questao_id
+               WHERE q.prova_id = ?
+                 AND q.taxonomia_codigo IS NOT NULL
+                 AND q.taxonomia_codigo != ''""",
+            (prova_id,),
+        ).fetchall()
+
+        if not rows:
+            return {"arvore": []}
+
+        all_nodes = con.execute(
+            "SELECT id, codigo, label, nivel, parent_id FROM taxonomia"
+        ).fetchall()
+
+    by_codigo = {n["codigo"]: n for n in all_nodes}
+    by_id = {n["id"]: n for n in all_nodes}
+
+    stats: Dict[str, Dict] = {}
+    for r in rows:
+        codigo = r["taxonomia_codigo"]
+        correta = bool(r["correta"])
+        node = by_codigo.get(codigo)
+        if not node:
+            continue
+        cur = node
+        while cur is not None:
+            c = cur["codigo"]
+            if c not in stats:
+                parent = by_id.get(cur["parent_id"]) if cur["parent_id"] else None
+                stats[c] = {
+                    "codigo": c,
+                    "label": cur["label"],
+                    "nivel": cur["nivel"],
+                    "total": 0,
+                    "acertos": 0,
+                    "parent_codigo": parent["codigo"] if parent else None,
+                }
+            stats[c]["total"] += 1
+            if correta:
+                stats[c]["acertos"] += 1
+            cur = by_id.get(cur["parent_id"]) if cur["parent_id"] else None
+
+    for s in stats.values():
+        s["percentual"] = round(s["acertos"] * 100 / s["total"]) if s["total"] else 0
+
+    nodes_tree = {c: {**s, "filhos": []} for c, s in stats.items()}
+    roots: List[Dict] = []
+    for node in nodes_tree.values():
+        pc = node["parent_codigo"]
+        if pc and pc in nodes_tree:
+            nodes_tree[pc]["filhos"].append(node)
+        else:
+            roots.append(node)
+
+    def _sort_rec(n):
+        n["filhos"].sort(key=lambda c: c["percentual"])
+        for child in n["filhos"]:
+            _sort_rec(child)
+
+    for root in roots:
+        _sort_rec(root)
+    roots.sort(key=lambda r: r["label"])
+
+    return {"arvore": roots}
+
+
+def alunos_pontos_criticos(prova_id: int, top_n: int = 3) -> List[Dict]:
+    """Para cada aluno, retorna os top_n nós taxonômicos com pior desempenho (< 70%)."""
+    with _conn() as con:
+        rows = con.execute(
+            """SELECT a.id AS aluno_id, a.nome AS aluno_nome,
+                      q.taxonomia_codigo, r.correta
+               FROM respostas r
+               JOIN questoes q ON q.id = r.questao_id
+               JOIN alunos a ON a.id = r.aluno_id
+               WHERE q.prova_id = ?
+                 AND q.taxonomia_codigo IS NOT NULL
+                 AND q.taxonomia_codigo != ''""",
+            (prova_id,),
+        ).fetchall()
+
+        all_nodes = con.execute("SELECT codigo, label FROM taxonomia").fetchall()
+
+    labels = {n["codigo"]: n["label"] for n in all_nodes}
+
+    per_aluno: Dict[int, Dict] = {}
+    for r in rows:
+        aid = r["aluno_id"]
+        codigo = r["taxonomia_codigo"]
+        if aid not in per_aluno:
+            per_aluno[aid] = {"aluno_id": aid, "nome": r["aluno_nome"], "por_no": {}}
+        if codigo not in per_aluno[aid]["por_no"]:
+            per_aluno[aid]["por_no"][codigo] = {"total": 0, "acertos": 0}
+        per_aluno[aid]["por_no"][codigo]["total"] += 1
+        if r["correta"]:
+            per_aluno[aid]["por_no"][codigo]["acertos"] += 1
+
+    result: List[Dict] = []
+    for aluno in per_aluno.values():
+        nos = []
+        for codigo, s in aluno["por_no"].items():
+            pct = round(s["acertos"] * 100 / s["total"]) if s["total"] else 0
+            nos.append({
+                "codigo": codigo,
+                "label": labels.get(codigo, codigo),
+                "total": s["total"],
+                "acertos": s["acertos"],
+                "percentual": pct,
+            })
+        nos.sort(key=lambda n: (n["percentual"], -n["total"]))
+        criticos = [n for n in nos if n["percentual"] < 70][:top_n]
+        result.append({
+            "aluno_id": aluno["aluno_id"],
+            "nome": aluno["nome"],
+            "criticos": criticos,
+        })
+    result.sort(key=lambda a: (-len(a["criticos"]), a["nome"]))
+    return result
+
+
 def relatorio_drilldown(prova_id: int) -> Dict:
     with _conn() as con:
         rows = con.execute(
