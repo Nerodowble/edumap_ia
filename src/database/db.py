@@ -407,6 +407,11 @@ def listar_provas(turma_id: Optional[int] = None) -> List[Dict]:
         return con.execute("SELECT * FROM provas ORDER BY criado_em DESC").fetchall()
 
 
+def get_prova(prova_id: int) -> Optional[Dict]:
+    with _conn() as con:
+        return con.execute("SELECT * FROM provas WHERE id=?", (prova_id,)).fetchone()
+
+
 def listar_todas_provas() -> List[Dict]:
     """Lista todas as provas com informações da turma (admin)."""
     with _conn() as con:

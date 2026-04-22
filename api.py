@@ -13,6 +13,7 @@ from typing import Dict, Optional
 
 from fastapi import Body, Depends, FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import Response
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jose import JWTError, jwt
 from passlib.context import CryptContext
@@ -31,6 +32,7 @@ from database import db
 from database import taxonomia as db_taxonomia
 from database import usuarios as db_usuarios
 from ocr.extractor import extract_text_from_file
+from report.relatorio_pdf import gerar_pdf_relatorio
 
 JSON_TAXONOMIA = Path(__file__).parent / "data" / "taxonomia.json"
 
@@ -487,6 +489,27 @@ def get_relatorio_taxonomia(prova_id: int, user=Depends(get_current_user)):
 @app.get("/provas/{prova_id}/relatorio/pontos-criticos", summary="Pontos críticos por aluno (taxonomia)")
 def get_pontos_criticos(prova_id: int, top_n: int = 3, user=Depends(get_current_user)):
     return db.alunos_pontos_criticos(prova_id, top_n)
+
+
+@app.get("/provas/{prova_id}/relatorio/pdf", summary="Gera relatório pedagógico em PDF")
+def get_relatorio_pdf(prova_id: int, user=Depends(get_current_user)):
+    prova = db.get_prova(prova_id)
+    if not prova:
+        raise HTTPException(404, "Prova não encontrada.")
+    turma = db.get_turma(prova["turma_id"]) if prova.get("turma_id") else None
+    alunos = db.relatorio_turma(prova_id)
+    taxonomia = db.relatorio_taxonomia(prova_id)
+    pontos = db.alunos_pontos_criticos(prova_id, top_n=5)
+    try:
+        pdf_bytes = gerar_pdf_relatorio(prova, turma, alunos, taxonomia, pontos)
+    except Exception as exc:
+        raise HTTPException(500, f"Erro ao gerar PDF: {exc}")
+    nome_arquivo = f"relatorio_prova_{prova_id}.pdf"
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{nome_arquivo}"'},
+    )
 
 
 @app.post("/provas/{prova_id}/respostas", status_code=201, summary="Salva respostas de um aluno")
