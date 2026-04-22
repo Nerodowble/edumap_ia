@@ -133,6 +133,92 @@ def listar_nos(materia: Optional[str] = None, etapa: str = "ef2") -> List[Dict]:
         ).fetchall()
 
 
+def get_no(no_id: int) -> Optional[Dict]:
+    with _conn() as con:
+        return con.execute("SELECT * FROM taxonomia WHERE id=?", (no_id,)).fetchone()
+
+
+def atualizar_no(
+    no_id: int,
+    label: Optional[str] = None,
+    palavras_chave: Optional[List[str]] = None,
+) -> bool:
+    with _conn() as con:
+        existing = con.execute("SELECT id FROM taxonomia WHERE id=?", (no_id,)).fetchone()
+        if not existing:
+            return False
+        updates: List[str] = []
+        params: List = []
+        if label is not None:
+            updates.append("label=?")
+            params.append(label)
+        if palavras_chave is not None:
+            updates.append("palavras_chave=?")
+            params.append(",".join(palavras_chave))
+        if not updates:
+            return True
+        params.append(no_id)
+        con.execute(f"UPDATE taxonomia SET {','.join(updates)} WHERE id=?", tuple(params))
+        return True
+
+
+def criar_no(
+    parent_id: int,
+    codigo_slug: str,
+    label: str,
+    palavras_chave: List[str],
+) -> Optional[Dict]:
+    """Cria novo nó filho. Herda etapa e materia do pai."""
+    if not codigo_slug or not codigo_slug.replace("_", "").isalnum():
+        raise ValueError("codigo_slug deve ser alfanumérico (use _ como separador).")
+    with _conn() as con:
+        parent = con.execute(
+            "SELECT * FROM taxonomia WHERE id=?", (parent_id,)
+        ).fetchone()
+        if not parent:
+            return None
+        novo_codigo = f"{parent['codigo']}.{codigo_slug}"
+        exists = con.execute(
+            "SELECT id FROM taxonomia WHERE codigo=?", (novo_codigo,)
+        ).fetchone()
+        if exists:
+            raise ValueError(f"Código já existe: {novo_codigo}")
+        kw = ",".join(palavras_chave) if palavras_chave else ""
+        novo_id = con.insert(
+            """INSERT INTO taxonomia
+               (etapa, materia, codigo, label, nivel, parent_id, palavras_chave)
+               VALUES (?,?,?,?,?,?,?)""",
+            (
+                parent["etapa"],
+                parent["materia"],
+                novo_codigo,
+                label,
+                parent["nivel"] + 1,
+                parent_id,
+                kw,
+            ),
+        )
+        return {
+            "id": novo_id,
+            "codigo": novo_codigo,
+            "label": label,
+            "nivel": parent["nivel"] + 1,
+            "parent_id": parent_id,
+            "materia": parent["materia"],
+            "palavras_chave": kw,
+        }
+
+
+def deletar_no(no_id: int) -> bool:
+    """Deleta o nó e seus descendentes (FK ON DELETE CASCADE)."""
+    with _conn() as con:
+        existing = con.execute("SELECT id FROM taxonomia WHERE id=?", (no_id,)).fetchone()
+        if not existing:
+            return False
+        con.execute("DELETE FROM taxonomia WHERE id=?", (no_id,))
+        return True
+
+
 def stats(etapa: str = "ef2") -> Dict:
     with _conn() as con:
         total = con.execute(

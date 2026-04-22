@@ -160,6 +160,18 @@ class ClassificarBody(BaseModel):
     etapa: str = "ef2"
 
 
+class AtualizarNoBody(BaseModel):
+    label: Optional[str] = None
+    palavras_chave: Optional[list] = None
+
+
+class CriarNoBody(BaseModel):
+    parent_id: int
+    codigo_slug: str
+    label: str
+    palavras_chave: list = []
+
+
 # ── Auth endpoints ────────────────────────────────────────────────────────────
 @app.post("/auth/register", status_code=201, summary="Registra novo usuário")
 def auth_register(body: RegisterBody):
@@ -249,6 +261,36 @@ def admin_taxonomia_import(body: Dict = Body(...), user=Depends(get_current_user
         raise HTTPException(400, f"JSON inválido: {exc}")
     except Exception as exc:
         raise HTTPException(500, f"Erro ao importar: {exc}")
+
+
+@app.put("/admin/taxonomia/no/{no_id}", summary="Atualiza label e palavras-chave de um nó (admin_geral)")
+def admin_atualizar_no(no_id: int, body: AtualizarNoBody, user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    ok = db_taxonomia.atualizar_no(no_id, body.label, body.palavras_chave)
+    if not ok:
+        raise HTTPException(404, "Nó não encontrado.")
+    return {"ok": True, **(db_taxonomia.get_no(no_id) or {})}
+
+
+@app.post("/admin/taxonomia/no", status_code=201, summary="Cria novo nó filho (admin_geral)")
+def admin_criar_no(body: CriarNoBody, user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    try:
+        result = db_taxonomia.criar_no(
+            body.parent_id, body.codigo_slug, body.label, body.palavras_chave or []
+        )
+    except ValueError as exc:
+        raise HTTPException(400, str(exc))
+    if result is None:
+        raise HTTPException(404, "Nó pai não encontrado.")
+    return result
+
+
+@app.delete("/admin/taxonomia/no/{no_id}", status_code=204, summary="Deleta nó e descendentes (admin_geral)")
+def admin_deletar_no(no_id: int, user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    if not db_taxonomia.deletar_no(no_id):
+        raise HTTPException(404, "Nó não encontrado.")
 
 
 # ── Admin: Usuários e Escolas ─────────────────────────────────────────────────
