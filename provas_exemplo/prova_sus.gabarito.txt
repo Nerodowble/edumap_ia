@@ -1,0 +1,12 @@
+Gabarito: Avaliacao de SUS e Saude Publica
+================================================================================
+ 1. B  ->  superior.sus.historia_sus.lei_8080
+ 2. C  ->  superior.sus.principios_sus.universalidade
+ 3. B  ->  superior.sus.reforma_psiquiatrica.lei_10216
+ 4. B  ->  superior.sus.reforma_psiquiatrica.basaglia
+ 5. C  ->  superior.sus.raps.caps.caps3
+ 6. B  ->  superior.sus.raps.caps.caps_ad
+ 7. B  ->  superior.sus.raps
+ 8. C  ->  superior.sus.atencao_primaria.esf
+ 9. B  ->  superior.sus.humanizacao.pnh
+10. B  ->  superior.sus.politicas_programas.politica_ad

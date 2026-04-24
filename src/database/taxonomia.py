@@ -231,6 +231,39 @@ def deletar_no(no_id: int) -> bool:
         return True
 
 
+def remover_materia(etapa: str, materia: str) -> int:
+    """Remove matéria e todos os descendentes (FK cascade). Retorna qtd removida."""
+    with _conn() as con:
+        row = con.execute(
+            "SELECT COUNT(*) AS c FROM taxonomia WHERE etapa=? AND materia=?",
+            (etapa, materia),
+        ).fetchone()
+        count = int(row["c"]) if row else 0
+        if count == 0:
+            return 0
+        con.execute("DELETE FROM taxonomia WHERE etapa=? AND materia=?", (etapa, materia))
+        return count
+
+
+def cleanup_legacy_if_new_exists(
+    etapa: str,
+    legacy_materia: str,
+    required_new_materias: List[str],
+) -> int:
+    """Remove materia legada se TODAS as novas existem no banco. Útil para
+    migrações idempotentes no startup. Retorna qtd de nós removidos."""
+    with _conn() as con:
+        placeholders = ",".join(["?"] * len(required_new_materias))
+        row = con.execute(
+            f"SELECT COUNT(DISTINCT materia) AS c FROM taxonomia "
+            f"WHERE etapa=? AND materia IN ({placeholders})",
+            (etapa, *required_new_materias),
+        ).fetchone()
+        if not row or int(row["c"]) < len(required_new_materias):
+            return 0
+    return remover_materia(etapa, legacy_materia)
+
+
 def exportar_json(etapa: str = "ef2") -> Dict:
     """Exporta toda a taxonomia de uma etapa em formato compatível com import.
     Permite download, edição offline, re-upload (round-trip completo)."""

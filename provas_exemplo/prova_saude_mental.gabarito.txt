@@ -1,0 +1,12 @@
+Gabarito: Avaliacao de Saude Mental
+================================================================================
+ 1. C  ->  superior.saude_mental.classificacao.dsm5
+ 2. B  ->  superior.saude_mental.neurodesenvolvimento.tdah
+ 3. B  ->  superior.saude_mental.humor.depressao
+ 4. B  ->  superior.saude_mental.ansiedade.toc
+ 5. C  ->  superior.saude_mental.psicoticos.esquizofrenia
+ 6. B  ->  superior.saude_mental.personalidade.cluster_b.borderline
+ 7. D  ->  superior.saude_mental.neurodesenvolvimento.tea.tea_nivel3
+ 8. B  ->  superior.saude_mental.suicidio_autolesao.fatores_risco_protecao
+ 9. B  ->  superior.saude_mental.psicofarmacologia.antidepressivos
+10. B  ->  superior.saude_mental.clinica_avaliacao.entrevista_clinica

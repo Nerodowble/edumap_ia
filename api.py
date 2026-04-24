@@ -63,6 +63,13 @@ def _auto_seed_taxonomias():
 
 try:
     _auto_seed_taxonomias()
+    # Migração: remover matéria legada unificada se as 3 novas existem
+    removed = db_taxonomia.cleanup_legacy_if_new_exists(
+        "superior", "psicologia_saude_mental_sus",
+        ["psicologia", "saude_mental", "sus"],
+    )
+    if removed:
+        print(f"[migration] matéria legada 'psicologia_saude_mental_sus' removida: {removed} nós")
 except Exception as _exc:
     print(f"[auto-seed] erro geral: {_exc}")
 
@@ -142,7 +149,9 @@ SUBJECT_TO_KEY: Dict[str, str] = {
     "Física": "fisica",        "Química": "quimica",
     "Inglês": "ingles",        "Artes": "artes",
     "Ed. Física": "ed_fisica",
-    "Psicologia, Saúde Mental e SUS": "psicologia_saude_mental_sus",
+    "Psicologia": "psicologia",
+    "Saúde Mental": "saude_mental",
+    "SUS": "sus",
 }
 
 # ── Schemas ───────────────────────────────────────────────────────────────────

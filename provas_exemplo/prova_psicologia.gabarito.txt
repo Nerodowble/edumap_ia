@@ -1,0 +1,12 @@
+Gabarito: Avaliacao de Psicologia
+================================================================================
+ 1. B  ->  superior.psicologia.escolas_abordagens.psicanalise.freud
+ 2. C  ->  superior.psicologia.escolas_abordagens.psicanalise.mecanismos_defesa
+ 3. B  ->  superior.psicologia.escolas_abordagens.behaviorismo.skinner
+ 4. B  ->  superior.psicologia.escolas_abordagens.humanismo.rogers
+ 5. E  ->  superior.psicologia.escolas_abordagens.humanismo.maslow
+ 6. C  ->  superior.psicologia.desenvolvimento_humano.piaget.operatorio_concreto
+ 7. D  ->  superior.psicologia.escolas_abordagens.sociohistorica.vigotski
+ 8. B  ->  superior.psicologia.escolas_abordagens.behaviorismo.bandura
+ 9. C  ->  superior.psicologia.areas_atuacao.escolar
+10. B  ->  superior.psicologia.etica_profissional.sigilo

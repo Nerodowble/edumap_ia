@@ -1,10 +1,6 @@
 """
-Gera uma prova de Psicologia / Saúde Mental / SUS para testar a classificação
-taxonômica no nível Superior.
-
-Cada questão é desenhada para bater em um nó ESPECÍFICO da taxonomia
-'psicologia_saude_mental_sus' (etapa 'superior'). O nó esperado está
-comentado ao lado de cada questão.
+Gera 3 provas SEPARADAS, uma por matéria: Psicologia, Saúde Mental e SUS.
+Cada questão é desenhada para bater em um nó específico da taxonomia.
 
 Uso:
   python scripts/gerar_prova_psicologia.py
@@ -13,7 +9,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "provas_exemplo" / "prova_psicologia_sus.pdf"
+OUT_DIR = ROOT / "provas_exemplo"
 
 try:
     from fpdf import FPDF
@@ -22,251 +18,234 @@ except ImportError:
     sys.exit(1)
 
 
-QUESTOES = [
+# ═══ PROVA 1: PSICOLOGIA ═══════════════════════════════════════════════════════
+QUESTOES_PSICOLOGIA = [
     (
-        "De acordo com a teoria psicanalitica desenvolvida por Sigmund Freud, o "
-        "inconsciente opera segundo processos especificos. Sobre o inconsciente, "
-        "assinale a alternativa correta:",
-        [
-            "E identico ao pre-consciente e pode ser acessado pela simples vontade.",
-            "Contem conteudos recalcados que escapam ao controle da consciencia.",
-            "E uma invencao pos-freudiana, sem relevancia na psicanalise classica.",
-            "Opera segundo as leis da logica formal, igual ao pensamento consciente.",
-            "So existe nos pacientes com transtornos mentais graves.",
-        ],
-        "B",
-        "superior.psicologia_saude_mental_sus.fundamentos.escolas_abordagens.psicanalise.freud",
+        "De acordo com a teoria psicanalitica de Sigmund Freud, o inconsciente:",
+        ["E identico ao pre-consciente.", "Contem conteudos recalcados que escapam ao controle da consciencia.",
+         "E uma invencao pos-freudiana.", "Opera pelas leis da logica formal.", "So existe em pacientes graves."],
+        "B", "superior.psicologia.escolas_abordagens.psicanalise.freud",
     ),
     (
-        "Na teoria psicanalitica, os mecanismos de defesa sao operacoes do ego "
-        "para lidar com conflitos psiquicos. Qual dos mecanismos abaixo consiste "
-        "em atribuir a outra pessoa sentimentos ou desejos proprios inaceitaveis?",
+        "Na teoria psicanalitica, atribuir a outra pessoa sentimentos ou desejos proprios inaceitaveis e um mecanismo de defesa chamado:",
         ["Recalque", "Negacao", "Projecao", "Racionalizacao", "Sublimacao"],
-        "C",
-        "superior.psicologia_saude_mental_sus.fundamentos.escolas_abordagens.psicanalise.mecanismos_defesa",
+        "C", "superior.psicologia.escolas_abordagens.psicanalise.mecanismos_defesa",
     ),
     (
-        "Skinner desenvolveu o conceito de condicionamento operante, no qual o "
-        "comportamento e modelado por suas consequencias. Um reforco positivo "
-        "ocorre quando:",
-        [
-            "Um estimulo aversivo e removido apos o comportamento.",
-            "Um estimulo agradavel e adicionado apos o comportamento, aumentando sua frequencia.",
-            "O comportamento e simplesmente ignorado ate se extinguir.",
-            "Uma punicao e aplicada para reduzir o comportamento.",
-            "O organismo responde automaticamente a um estimulo neutro.",
-        ],
-        "B",
-        "superior.psicologia_saude_mental_sus.fundamentos.escolas_abordagens.behaviorismo.skinner",
+        "Segundo Skinner, no condicionamento operante, o reforco positivo ocorre quando:",
+        ["Um estimulo aversivo e removido apos o comportamento.",
+         "Um estimulo agradavel e adicionado apos o comportamento, aumentando sua frequencia.",
+         "O comportamento e ignorado ate se extinguir.", "Uma punicao e aplicada.", "Ha reflexo condicionado."],
+        "B", "superior.psicologia.escolas_abordagens.behaviorismo.skinner",
     ),
     (
-        "A Abordagem Centrada na Pessoa, proposta por Carl Rogers, destaca tres "
-        "atitudes fundamentais do terapeuta. Quais sao elas?",
-        [
-            "Interpretacao, neutralidade e abstinencia.",
-            "Empatia, aceitacao incondicional e congruencia.",
-            "Diretividade, analise e confrontacao.",
-            "Observacao, medicao e modelagem.",
-            "Hipnose, sugestao e catarse.",
-        ],
-        "B",
-        "superior.psicologia_saude_mental_sus.fundamentos.escolas_abordagens.humanismo.rogers",
+        "A Abordagem Centrada na Pessoa, de Carl Rogers, destaca tres atitudes fundamentais do terapeuta:",
+        ["Interpretacao, neutralidade e abstinencia.",
+         "Empatia, aceitacao incondicional e congruencia.",
+         "Diretividade, analise e confrontacao.", "Observacao, medicao e modelagem.",
+         "Hipnose, sugestao e catarse."],
+        "B", "superior.psicologia.escolas_abordagens.humanismo.rogers",
     ),
     (
-        "Abraham Maslow propos uma hierarquia de necessidades humanas organizada "
-        "em uma piramide. Qual necessidade ocupa o topo da piramide de Maslow?",
-        [
-            "Necessidades fisiologicas (alimentacao, sono).",
-            "Necessidades de seguranca.",
-            "Necessidades de pertencimento social.",
-            "Necessidades de estima.",
-            "Necessidade de autorrealizacao.",
-        ],
-        "E",
-        "superior.psicologia_saude_mental_sus.fundamentos.escolas_abordagens.humanismo.maslow",
+        "Qual necessidade ocupa o topo da piramide de Maslow?",
+        ["Fisiologicas", "Seguranca", "Pertencimento", "Estima", "Autorrealizacao"],
+        "E", "superior.psicologia.escolas_abordagens.humanismo.maslow",
     ),
     (
-        "O DSM-5 e um dos principais manuais classificatorios de transtornos "
-        "mentais. Sobre o DSM-5, assinale a alternativa correta:",
-        [
-            "E publicado pela Organizacao Mundial da Saude.",
-            "Adota exclusivamente uma abordagem dimensional de avaliacao.",
-            "E o Manual Diagnostico e Estatistico de Transtornos Mentais da Associacao Psiquiatrica Americana.",
-            "Foi extinto em favor da CID-11 em 2019.",
-            "So pode ser usado por psiquiatras, nao por psicologos.",
-        ],
-        "C",
-        "superior.psicologia_saude_mental_sus.psicopatologia.classificacao.dsm5",
+        "Na teoria de Piaget, a crianca conquista a nocao de conservacao (de quantidade, peso, volume) no estagio:",
+        ["Sensorio-motor", "Pre-operatorio", "Operatorio concreto", "Operatorio formal", "Pos-formal"],
+        "C", "superior.psicologia.desenvolvimento_humano.piaget.operatorio_concreto",
     ),
     (
-        "O Transtorno do Deficit de Atencao e Hiperatividade (TDAH) e um "
-        "transtorno do neurodesenvolvimento. Sobre o TDAH, e correto afirmar:",
-        [
-            "So pode ser diagnosticado em adultos.",
-            "Caracteriza-se por padrao persistente de desatencao e/ou hiperatividade/impulsividade que interfere no funcionamento.",
-            "E sempre causado por ma educacao familiar.",
-            "Nao existe tratamento farmacologico eficaz.",
-            "E considerado um transtorno psicotico pelo DSM-5.",
-        ],
-        "B",
-        "superior.psicologia_saude_mental_sus.psicopatologia.neurodesenvolvimento.tdah",
+        "O conceito de Zona de Desenvolvimento Proximal (ZDP) foi proposto por:",
+        ["Piaget", "Freud", "Skinner", "Vigotski", "Watson"],
+        "D", "superior.psicologia.escolas_abordagens.sociohistorica.vigotski",
     ),
     (
-        "O Transtorno Depressivo Maior, segundo o DSM-5, tem como um dos "
-        "criterios centrais a presenca de:",
-        [
-            "Alucinacoes auditivas persistentes.",
-            "Humor deprimido e/ou anedonia, com duracao minima de duas semanas.",
-            "Episodios de mania alternados com euforia.",
-            "Ansiedade excessiva e preocupacao incontrolavel.",
-            "Dificuldade em manter relacionamentos interpessoais.",
-        ],
-        "B",
-        "superior.psicologia_saude_mental_sus.psicopatologia.humor.depressao",
+        "A teoria da aprendizagem social de Albert Bandura destaca:",
+        ["Apenas o reforco positivo.", "O papel da modelacao e da autoeficacia na aprendizagem observacional.",
+         "O condicionamento classico.", "Os arquetipos do inconsciente coletivo.", "As fases psicossexuais."],
+        "B", "superior.psicologia.escolas_abordagens.behaviorismo.bandura",
     ),
     (
-        "O Transtorno Obsessivo-Compulsivo (TOC) caracteriza-se pela presenca de "
-        "obsessoes e/ou compulsoes. As compulsoes sao:",
-        [
-            "Pensamentos intrusivos e indesejados.",
-            "Comportamentos ou atos mentais repetitivos que o individuo se sente compelido a realizar para aliviar ansiedade.",
-            "Episodios de desrealizacao e despersonalizacao.",
-            "Memorias traumaticas involuntarias.",
-            "Sintomas somaticos sem causa organica.",
-        ],
-        "B",
-        "superior.psicologia_saude_mental_sus.psicopatologia.ansiedade.toc",
+        "A psicologia escolar atua principalmente:",
+        ["Realizando cirurgias cerebrais.", "Na saude mental de atletas.",
+         "Em processos de ensino-aprendizagem, queixas escolares e mediacao pedagogica.",
+         "Apenas em perícias judiciais.", "No transito."],
+        "C", "superior.psicologia.areas_atuacao.escolar",
     ),
     (
-        "A esquizofrenia e um transtorno psicotico que pode apresentar sintomas "
-        "positivos (como delirios e alucinacoes) e sintomas negativos. Um exemplo "
-        "de sintoma negativo da esquizofrenia e:",
-        [
-            "Delirios persecutorios.",
-            "Alucinacoes auditivas.",
-            "Embotamento afetivo e avolicao.",
-            "Pensamento desorganizado.",
-            "Agitacao psicomotora.",
-        ],
-        "C",
-        "superior.psicologia_saude_mental_sus.psicopatologia.psicoticos.esquizofrenia",
+        "Sobre o sigilo profissional do psicologo (Codigo de Etica), e correto afirmar:",
+        ["E absoluto e nunca pode ser quebrado.",
+         "Deve ser preservado, podendo ser limitado para proteger a vida e a saude proprias ou de terceiros.",
+         "Pode ser quebrado sempre que o psicologo julgar conveniente.",
+         "Nao se aplica a atendimentos em grupo.", "So vale para psicologos clinicos."],
+        "B", "superior.psicologia.etica_profissional.sigilo",
+    ),
+]
+
+# ═══ PROVA 2: SAÚDE MENTAL ═════════════════════════════════════════════════════
+QUESTOES_SAUDE_MENTAL = [
+    (
+        "O DSM-5 e o Manual Diagnostico e Estatistico de Transtornos Mentais publicado pela:",
+        ["OMS", "Ministerio da Saude", "APA - Associacao Psiquiatrica Americana",
+         "CFP", "Federacao Brasileira de Psiquiatria"],
+        "C", "superior.saude_mental.classificacao.dsm5",
     ),
     (
-        "A Lei 10.216, tambem conhecida como Lei Paulo Delgado, foi promulgada "
-        "em 2001 e representa um marco da Reforma Psiquiatrica brasileira. "
-        "Essa lei:",
-        [
-            "Determina o fechamento imediato de todos os hospitais psiquiatricos.",
-            "Dispoe sobre a protecao e os direitos das pessoas portadoras de transtornos mentais e redireciona o modelo assistencial.",
-            "Cria o Sistema Unico de Saude (SUS).",
-            "Regulamenta o uso de medicamentos psiquiatricos controlados.",
-            "So se aplica a pacientes em internacao voluntaria.",
-        ],
-        "B",
-        "superior.psicologia_saude_mental_sus.sus_politicas.reforma_psiquiatrica.lei_10216",
+        "O TDAH caracteriza-se por:",
+        ["So pode ser diagnosticado em adultos.",
+         "Padrao persistente de desatencao e/ou hiperatividade/impulsividade que interfere no funcionamento.",
+         "E sempre causado por ma educacao familiar.", "Nao tem tratamento farmacologico.",
+         "E um transtorno psicotico."],
+        "B", "superior.saude_mental.neurodesenvolvimento.tdah",
     ),
     (
-        "Franco Basaglia e considerado referencia mundial na luta antimanicomial. "
-        "Sua experiencia em Trieste, na Italia, influenciou a Reforma Psiquiatrica "
-        "brasileira. Basaglia defendia:",
-        [
-            "A expansao dos hospitais psiquiatricos tradicionais.",
-            "A desinstitucionalizacao e a criacao de servicos comunitarios em substituicao ao manicomio.",
-            "O uso exclusivo de eletroconvulsoterapia como tratamento.",
-            "A reclusao dos pacientes psiquiatricos por toda a vida.",
-            "A proibicao de qualquer tipo de medicacao psiquiatrica.",
-        ],
-        "B",
-        "superior.psicologia_saude_mental_sus.sus_politicas.reforma_psiquiatrica.basaglia",
+        "Um dos criterios centrais do Transtorno Depressivo Maior, segundo o DSM-5, e:",
+        ["Alucinacoes auditivas persistentes.",
+         "Humor deprimido e/ou anedonia, com duracao minima de duas semanas.",
+         "Episodios de mania.", "Ansiedade excessiva.", "Dificuldade em relacionamentos."],
+        "B", "superior.saude_mental.humor.depressao",
     ),
     (
-        "Os Centros de Atencao Psicossocial (CAPS) sao organizados em diferentes "
-        "modalidades. O CAPS III caracteriza-se por:",
-        [
-            "Atender apenas criancas e adolescentes.",
-            "Funcionar exclusivamente para casos de alcool e outras drogas.",
-            "Funcionar 24 horas por dia, com leitos de acolhimento noturno.",
-            "Atender em municipios com ate 20 mil habitantes.",
-            "Ser uma modalidade de hospital psiquiatrico tradicional.",
-        ],
-        "C",
-        "superior.psicologia_saude_mental_sus.sus_politicas.raps.caps.caps3",
+        "O Transtorno Obsessivo-Compulsivo (TOC) caracteriza-se por obsessoes e/ou compulsoes. As compulsoes sao:",
+        ["Pensamentos intrusivos e indesejados.",
+         "Comportamentos ou atos mentais repetitivos que o individuo se sente compelido a realizar para aliviar ansiedade.",
+         "Episodios de desrealizacao.", "Memorias traumaticas.", "Sintomas somaticos."],
+        "B", "superior.saude_mental.ansiedade.toc",
     ),
     (
-        "O CAPS AD (Alcool e outras Drogas) e um servico especializado da RAPS "
-        "que atende pessoas com problemas decorrentes do uso de substancias "
-        "psicoativas. Uma das suas diretrizes fundamentais e:",
-        [
-            "A abstinencia total e imediata como unica meta possivel.",
-            "A estrategia de reducao de danos, que nao exige abstinencia como condicao para o cuidado.",
-            "O encaminhamento obrigatorio a comunidades terapeuticas religiosas.",
-            "A internacao compulsoria em todos os casos.",
-            "O atendimento apenas a usuarios de drogas ilicitas.",
-        ],
-        "B",
-        "superior.psicologia_saude_mental_sus.sus_politicas.raps.caps.caps_ad",
+        "Na esquizofrenia, e um exemplo de sintoma NEGATIVO:",
+        ["Delirios persecutorios.", "Alucinacoes auditivas.",
+         "Embotamento afetivo e avolicao.", "Pensamento desorganizado.", "Agitacao psicomotora."],
+        "C", "superior.saude_mental.psicoticos.esquizofrenia",
     ),
     (
-        "A Rede de Atencao Psicossocial (RAPS) foi instituida pela Portaria "
-        "3.088/2011 do Ministerio da Saude e integra o SUS. A RAPS:",
-        [
-            "Substitui o SUS em questoes de saude mental.",
-            "Organiza os servicos de saude mental em rede, com pontos de atencao articulados e base territorial.",
-            "E composta apenas pelos CAPS e hospitais psiquiatricos.",
-            "Privatizou o atendimento em saude mental no Brasil.",
-            "So atende pacientes em regime de internacao integral.",
-        ],
-        "B",
-        "superior.psicologia_saude_mental_sus.sus_politicas.raps",
+        "O Transtorno de Personalidade Borderline (TPB) tem como caracteristica central:",
+        ["Padrao invariavel de estabilidade emocional.",
+         "Padrao de instabilidade em relacoes, autoimagem e afetos, com impulsividade marcante.",
+         "Total ausencia de empatia.", "Autoconfianca excessiva e grandiosidade.",
+         "Alucinacoes visuais."],
+        "B", "superior.saude_mental.personalidade.cluster_b.borderline",
     ),
     (
-        "A Constituicao Federal de 1988 estabeleceu a saude como direito de "
-        "todos e dever do Estado. Um dos principios doutrinarios do SUS que "
-        "garante que todas as pessoas tenham acesso aos servicos de saude, "
-        "independente de condicao social ou economica, e a:",
+        "O TEA (Transtorno do Espectro Autista) e classificado pelo DSM-5 em tres niveis. O Nivel 3 indica:",
+        ["Ausencia de prejuizo funcional.", "Suporte leve.", "Suporte substancial.",
+         "Suporte muito substancial (prejuizo grave).", "Autismo suprimido."],
+        "D", "superior.saude_mental.neurodesenvolvimento.tea.tea_nivel3",
+    ),
+    (
+        "Sobre os fatores de risco para suicidio, e correto afirmar:",
+        ["Sao irrelevantes para a prevencao.",
+         "Incluem historia previa de tentativas, transtornos mentais, isolamento social e desesperanca.",
+         "So se aplicam a adolescentes.", "Nao envolvem questoes sociais.", "Sao identicos para todos."],
+        "B", "superior.saude_mental.suicidio_autolesao.fatores_risco_protecao",
+    ),
+    (
+        "Os antidepressivos da classe dos ISRS (inibidores seletivos da recaptacao de serotonina), como a fluoxetina e a sertralina, atuam principalmente:",
+        ["Bloqueando receptores dopaminergicos.",
+         "Aumentando a disponibilidade de serotonina na fenda sinaptica.",
+         "Reduzindo a acao da acetilcolina.", "Como ansioliticos imediatos.",
+         "Como estabilizadores de humor primarios."],
+        "B", "superior.saude_mental.psicofarmacologia.antidepressivos",
+    ),
+    (
+        "A entrevista clinica em saude mental tem como objetivo:",
+        ["Apenas preencher formularios administrativos.",
+         "Coletar historia, observar estado mental e construir vinculo terapeutico para formulacao de caso.",
+         "Aplicar exclusivamente testes projetivos.", "Substituir o atendimento em grupo.",
+         "Indicar apenas medicacao."],
+        "B", "superior.saude_mental.clinica_avaliacao.entrevista_clinica",
+    ),
+]
+
+# ═══ PROVA 3: SUS ══════════════════════════════════════════════════════════════
+QUESTOES_SUS = [
+    (
+        "A Lei 8.080/1990, conhecida como Lei Organica da Saude:",
+        ["Cria o plano de saude suplementar.",
+         "Regulamenta, em todo o territorio nacional, as acoes e servicos de saude do SUS.",
+         "Extingue o SUS.", "So se aplica a hospitais privados.",
+         "Substitui a Constituicao Federal em materia de saude."],
+        "B", "superior.sus.historia_sus.lei_8080",
+    ),
+    (
+        "O principio do SUS que garante acesso a saude para TODOS os cidadaos, independentemente de condicao social, e a:",
         ["Descentralizacao", "Hierarquizacao", "Universalidade", "Regionalizacao", "Privatizacao"],
-        "C",
-        "superior.psicologia_saude_mental_sus.sus_politicas.principios_sus.universalidade",
+        "C", "superior.sus.principios_sus.universalidade",
     ),
     (
-        "A Estrategia Saude da Familia (ESF) e a principal porta de entrada "
-        "do SUS. Em saude mental, a ESF atua principalmente:",
-        [
-            "Realizando internacoes psiquiatricas de longa duracao.",
-            "Oferecendo atendimento intensivo apenas a casos graves.",
-            "Atraves de acoes de promocao, prevencao e cuidado no territorio, com apoio matricial dos CAPS.",
-            "Atendendo exclusivamente criancas e adolescentes.",
-            "Substituindo completamente o atendimento psiquiatrico especializado.",
-        ],
-        "C",
-        "superior.psicologia_saude_mental_sus.sus_politicas.raps.atencao_basica.esf",
+        "A Lei 10.216/2001, tambem conhecida como Lei Paulo Delgado:",
+        ["Determina o fechamento imediato de todos os hospitais psiquiatricos.",
+         "Dispoe sobre a protecao e os direitos das pessoas com transtornos mentais e redireciona o modelo assistencial.",
+         "Cria o SUS.", "Regulamenta medicamentos controlados.",
+         "So se aplica a internacao voluntaria."],
+        "B", "superior.sus.reforma_psiquiatrica.lei_10216",
     ),
     (
-        "O Codigo de Etica Profissional do Psicologo (CFP) estabelece diretrizes "
-        "fundamentais para a pratica. Sobre o sigilo profissional, e correto afirmar:",
-        [
-            "E absoluto e nunca pode ser quebrado em nenhuma hipotese.",
-            "Deve ser preservado, podendo ser limitado apenas para proteger a vida e a saude do proprio ou de terceiros.",
-            "Pode ser quebrado sempre que o psicologo julgar conveniente.",
-            "Nao se aplica a atendimentos em grupo.",
-            "So vale para psicologos clinicos.",
-        ],
-        "B",
-        "superior.psicologia_saude_mental_sus.fundamentos.etica_profissional.sigilo",
+        "Franco Basaglia, referencia mundial na luta antimanicomial, defendia:",
+        ["A expansao dos manicomios.",
+         "A desinstitucionalizacao e a criacao de servicos comunitarios em substituicao ao manicomio.",
+         "O uso exclusivo de eletroconvulsoterapia.", "A reclusao permanente de pacientes.",
+         "A proibicao de medicacao psiquiatrica."],
+        "B", "superior.sus.reforma_psiquiatrica.basaglia",
+    ),
+    (
+        "O CAPS III diferencia-se dos demais por:",
+        ["Atender apenas criancas.", "Atender apenas alcool e drogas.",
+         "Funcionar 24 horas por dia, com leitos de acolhimento noturno.",
+         "Ser voltado apenas para pequenos municipios.", "Ser um hospital psiquiatrico tradicional."],
+        "C", "superior.sus.raps.caps.caps3",
+    ),
+    (
+        "Uma das diretrizes fundamentais do CAPS AD (Alcool e Drogas) e:",
+        ["A abstinencia total e imediata como unica meta.",
+         "A estrategia de reducao de danos, que nao exige abstinencia como condicao para o cuidado.",
+         "O encaminhamento obrigatorio a comunidades terapeuticas.",
+         "A internacao compulsoria em todos os casos.", "Atender apenas drogas ilicitas."],
+        "B", "superior.sus.raps.caps.caps_ad",
+    ),
+    (
+        "A Rede de Atencao Psicossocial (RAPS), instituida pela Portaria 3.088/2011:",
+        ["Substitui o SUS.",
+         "Organiza os servicos de saude mental em rede, com pontos de atencao articulados e base territorial.",
+         "E composta apenas por CAPS e hospitais psiquiatricos.",
+         "Privatizou a saude mental no Brasil.", "So atende internacao integral."],
+        "B", "superior.sus.raps",
+    ),
+    (
+        "A Estrategia Saude da Familia (ESF) atua em saude mental principalmente:",
+        ["Realizando internacoes de longa duracao.", "Apenas em casos graves.",
+         "Atraves de acoes de promocao, prevencao e cuidado no territorio, com apoio matricial dos CAPS.",
+         "Atendendo exclusivamente criancas.", "Substituindo o atendimento especializado."],
+        "C", "superior.sus.atencao_primaria.esf",
+    ),
+    (
+        "A Politica Nacional de Humanizacao (PNH/HumanizaSUS) tem como um de seus principios:",
+        ["Padronizacao rigida dos atendimentos.",
+         "Transversalidade, acolhimento, clinica ampliada e gestao participativa.",
+         "Hierarquia militarizada.", "Privatizacao das UBS.", "Substituicao do SUS."],
+        "B", "superior.sus.humanizacao.pnh",
+    ),
+    (
+        "A estrategia de reducao de danos na politica para alcool e outras drogas:",
+        ["Exige abstinencia imediata como pre-requisito para o cuidado.",
+         "Prioriza minimizar danos associados ao uso, respeitando o usuario em sua singularidade, sem impor abstinencia.",
+         "Proibe qualquer uso medicamentoso.", "E sinonimo de internacao compulsoria.",
+         "So se aplica a drogas licitas."],
+        "B", "superior.sus.politicas_programas.politica_ad",
     ),
 ]
 
 
-def gerar_prova():
-    OUT.parent.mkdir(exist_ok=True)
-
+def _gerar_pdf(titulo: str, subtitulo: str, questoes: list, out_path: Path):
     pdf = FPDF()
     pdf.add_page()
 
     pdf.set_font("Helvetica", "B", 14)
-    pdf.cell(0, 8, "Avaliacao de Psicologia, Saude Mental e SUS", ln=True, align="C")
+    pdf.cell(0, 8, titulo, ln=True, align="C")
     pdf.set_font("Helvetica", size=10)
-    pdf.cell(0, 5, "Faculdade EduMap - Curso de Psicologia - Disciplina: Saude Mental e SUS", ln=True, align="C")
+    pdf.cell(0, 5, subtitulo, ln=True, align="C")
     pdf.ln(4)
 
     pdf.set_font("Helvetica", size=10)
@@ -275,16 +254,12 @@ def gerar_prova():
     pdf.ln(3)
 
     pdf.set_font("Helvetica", "I", 9)
-    pdf.multi_cell(0, 5,
-        "Instrucoes: leia cada questao com atencao e marque a alternativa correta. "
-        "A prova cobre fundamentos de Psicologia, psicopatologia e politicas publicas em "
-        "saude mental (SUS).",
-        new_x="LMARGIN", new_y="NEXT",
-    )
+    pdf.multi_cell(0, 5, "Instrucoes: leia cada questao com atencao e marque a alternativa correta.",
+                   new_x="LMARGIN", new_y="NEXT")
     pdf.ln(4)
 
     pdf.set_font("Helvetica", size=11)
-    for i, (enunciado, alts, _gab, _no) in enumerate(QUESTOES, 1):
+    for i, (enunciado, alts, _gab, _no) in enumerate(questoes, 1):
         pdf.set_font("Helvetica", "B", 11)
         pdf.multi_cell(0, 5.5, f"{i}. {enunciado}", new_x="LMARGIN", new_y="NEXT")
         pdf.set_font("Helvetica", size=11)
@@ -292,18 +267,48 @@ def gerar_prova():
         pdf.multi_cell(0, 5, alts_text, new_x="LMARGIN", new_y="NEXT")
         pdf.ln(2)
 
-    pdf.output(str(OUT))
+    pdf.output(str(out_path))
 
-    gab_path = OUT.with_suffix(".gabarito.txt")
+    gab_path = out_path.with_suffix(".gabarito.txt")
     with open(gab_path, "w", encoding="utf-8") as f:
-        f.write("Gabarito + no esperado da taxonomia (etapa: superior)\n")
+        f.write(f"Gabarito: {titulo}\n")
         f.write("=" * 80 + "\n")
-        for i, (_e, _a, gab, no) in enumerate(QUESTOES, 1):
+        for i, (_e, _a, gab, no) in enumerate(questoes, 1):
             f.write(f"{i:2d}. {gab}  ->  {no}\n")
 
-    print(f"[OK] Prova salva:    {OUT}")
-    print(f"[OK] Gabarito salvo: {gab_path}")
+    print(f"[OK] {out_path.name}  +  {gab_path.name}")
+
+
+def main():
+    OUT_DIR.mkdir(exist_ok=True)
+
+    _gerar_pdf(
+        "Avaliacao de Psicologia",
+        "Faculdade EduMap - Disciplina: Psicologia Geral",
+        QUESTOES_PSICOLOGIA,
+        OUT_DIR / "prova_psicologia.pdf",
+    )
+    _gerar_pdf(
+        "Avaliacao de Saude Mental",
+        "Faculdade EduMap - Disciplina: Psicopatologia e Saude Mental",
+        QUESTOES_SAUDE_MENTAL,
+        OUT_DIR / "prova_saude_mental.pdf",
+    )
+    _gerar_pdf(
+        "Avaliacao de SUS e Saude Publica",
+        "Faculdade EduMap - Disciplina: Politicas Publicas em Saude",
+        QUESTOES_SUS,
+        OUT_DIR / "prova_sus.pdf",
+    )
+
+
+# Export para o classificador testar
+QUESTOES_ALL = {
+    "psicologia": QUESTOES_PSICOLOGIA,
+    "saude_mental": QUESTOES_SAUDE_MENTAL,
+    "sus": QUESTOES_SUS,
+}
 
 
 if __name__ == "__main__":
-    gerar_prova()
+    main()
