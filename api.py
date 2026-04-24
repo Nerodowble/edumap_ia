@@ -274,6 +274,21 @@ def admin_taxonomia_template(user=Depends(get_current_user)):
     )
 
 
+@app.get("/admin/taxonomia/export", summary="Exporta taxonomia de uma etapa como JSON (admin_geral)")
+def admin_taxonomia_export(etapa: str = "ef2", user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    import json as _json
+    data = db_taxonomia.exportar_json(etapa)
+    content = _json.dumps(data, ensure_ascii=False, indent=2)
+    return Response(
+        content=content,
+        media_type="application/json",
+        headers={
+            "Content-Disposition": f'attachment; filename="taxonomia_{etapa}_export.json"'
+        },
+    )
+
+
 @app.get("/admin/taxonomia/stats", summary="Estatísticas da taxonomia carregada")
 def admin_taxonomia_stats(etapa: str = "ef2", user=Depends(get_current_user)):
     return db_taxonomia.stats(etapa)

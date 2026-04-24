@@ -231,6 +231,63 @@ def deletar_no(no_id: int) -> bool:
         return True
 
 
+def exportar_json(etapa: str = "ef2") -> Dict:
+    """Exporta toda a taxonomia de uma etapa em formato compatível com import.
+    Permite download, edição offline, re-upload (round-trip completo)."""
+    with _conn() as con:
+        rows = con.execute(
+            """SELECT id, codigo, label, nivel, parent_id, palavras_chave, materia
+               FROM taxonomia
+               WHERE etapa=?
+               ORDER BY nivel, codigo""",
+            (etapa,),
+        ).fetchall()
+
+    by_id: Dict[int, Dict] = {}
+    for r in rows:
+        slug = r["codigo"].split(".")[-1]
+        kws_csv = r.get("palavras_chave") or ""
+        kws = [k.strip() for k in kws_csv.split(",") if k.strip()]
+        node = {"codigo": slug, "label": r["label"]}
+        if kws:
+            node["palavras_chave"] = kws
+        node["_parent_id"] = r["parent_id"]
+        node["_materia"] = r["materia"]
+        node["filhos"] = []
+        by_id[r["id"]] = node
+
+    # Vincula filhos aos pais
+    roots_by_materia: Dict[str, Dict] = {}
+    for r in rows:
+        nd = by_id[r["id"]]
+        pid = r["parent_id"]
+        if pid and pid in by_id:
+            by_id[pid]["filhos"].append(nd)
+        else:
+            roots_by_materia[r["materia"]] = nd
+
+    # Limpa metadados auxiliares e chaves vazias
+    def _clean(node: Dict):
+        node.pop("_parent_id", None)
+        node.pop("_materia", None)
+        if not node.get("filhos"):
+            node.pop("filhos", None)
+        else:
+            for f in node["filhos"]:
+                _clean(f)
+
+    materias = list(roots_by_materia.values())
+    for m in materias:
+        _clean(m)
+
+    return {
+        "versao": "exportado",
+        "etapa": etapa,
+        "descricao": f"Taxonomia exportada do banco em tempo real (etapa: {etapa}).",
+        "materias": materias,
+    }
+
+
 def stats(etapa: str = "ef2") -> Dict:
     with _conn() as con:
         total = con.execute(
