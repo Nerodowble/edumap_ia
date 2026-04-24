@@ -120,6 +120,22 @@ def _create_token(uid: int) -> str:
     return jwt.encode({"sub": str(uid), "exp": exp}, _SECRET, algorithm=_ALGO)
 
 
+def _require_turma_access(turma_id: int, user: Dict):
+    """404 se turma não existe, 403 se existe mas não é do user."""
+    if not db.get_turma(turma_id):
+        raise HTTPException(404, "Turma não encontrada.")
+    if not db.user_pode_ver_turma(turma_id, user):
+        raise HTTPException(403, "Você não tem permissão para acessar esta turma.")
+
+
+def _require_prova_access(prova_id: int, user: Dict):
+    """404 se prova não existe, 403 se existe mas não é do user."""
+    if not db.get_prova(prova_id):
+        raise HTTPException(404, "Prova não encontrada.")
+    if not db.user_pode_ver_prova(prova_id, user):
+        raise HTTPException(403, "Você não tem permissão para acessar esta prova.")
+
+
 def get_current_user(creds: Optional[HTTPAuthorizationCredentials] = Depends(_bearer)):
     if SKIP_AUTH:
         return _FAKE_USER
@@ -425,21 +441,20 @@ def create_turma(body: TurmaCreate, user=Depends(get_current_user)):
 
 @app.delete("/turmas/{turma_id}", status_code=204, summary="Remove uma turma")
 def delete_turma(turma_id: int, user=Depends(get_current_user)):
-    if not db.get_turma(turma_id):
-        raise HTTPException(404, "Turma não encontrada.")
+    _require_turma_access(turma_id, user)
     db.delete_turma(turma_id)
 
 
 # ── Alunos ────────────────────────────────────────────────────────────────────
 @app.get("/turmas/{turma_id}/alunos", summary="Lista alunos de uma turma")
 def list_alunos(turma_id: int, user=Depends(get_current_user)):
+    _require_turma_access(turma_id, user)
     return db.listar_alunos(turma_id)
 
 
 @app.post("/turmas/{turma_id}/alunos", status_code=201, summary="Adiciona aluno à turma")
 def create_aluno(turma_id: int, body: AlunoCreate, user=Depends(get_current_user)):
-    if not db.get_turma(turma_id):
-        raise HTTPException(404, "Turma não encontrada.")
+    _require_turma_access(turma_id, user)
     aid = db.criar_aluno(body.nome, turma_id)
     return {"id": aid, "nome": body.nome, "turma_id": turma_id}
 
@@ -447,6 +462,7 @@ def create_aluno(turma_id: int, body: AlunoCreate, user=Depends(get_current_user
 # ── Provas ────────────────────────────────────────────────────────────────────
 @app.get("/turmas/{turma_id}/provas", summary="Lista provas de uma turma")
 def list_provas(turma_id: int, user=Depends(get_current_user)):
+    _require_turma_access(turma_id, user)
     return db.listar_provas(turma_id)
 
 
@@ -528,8 +544,12 @@ async def upload_prova(
             })
 
         tid = int(turma_id) if turma_id and turma_id not in ("", "none") else None
+        # Valida acesso à turma se fornecida
+        if tid is not None:
+            _require_turma_access(tid, user)
         disc_key = SUBJECT_TO_KEY.get(subject, "")
 
+        owner_id = user["id"] if user.get("id", 0) != 0 else None
         prova_id = db.salvar_prova(
             titulo=file.filename or "prova",
             serie=year_level,
@@ -538,6 +558,7 @@ async def upload_prova(
             ocr_method=method,
             questoes=questions,
             turma_id=tid,
+            usuario_id=owner_id,
         )
 
         return {
@@ -564,34 +585,38 @@ async def upload_prova(
 # ── Questoes + Relatórios ─────────────────────────────────────────────────────
 @app.get("/provas/{prova_id}/questoes", summary="Lista questões de uma prova")
 def get_questoes(prova_id: int, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
     return db.get_questoes_prova(prova_id)
 
 
 @app.get("/provas/{prova_id}/relatorio/turma", summary="Relatório de desempenho por aluno")
 def get_relatorio_turma(prova_id: int, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
     return db.relatorio_turma(prova_id)
 
 
 @app.get("/provas/{prova_id}/relatorio/drilldown", summary="Relatório drill-down área→subárea→bloom→aluno")
 def get_relatorio_drilldown(prova_id: int, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
     return db.relatorio_drilldown(prova_id)
 
 
 @app.get("/provas/{prova_id}/relatorio/taxonomia", summary="Árvore taxonômica com stats por nó")
 def get_relatorio_taxonomia(prova_id: int, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
     return db.relatorio_taxonomia(prova_id)
 
 
 @app.get("/provas/{prova_id}/relatorio/pontos-criticos", summary="Pontos críticos por aluno (taxonomia)")
 def get_pontos_criticos(prova_id: int, top_n: int = 3, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
     return db.alunos_pontos_criticos(prova_id, top_n)
 
 
 @app.get("/provas/{prova_id}/relatorio/pdf", summary="Gera relatório pedagógico em PDF")
 def get_relatorio_pdf(prova_id: int, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
     prova = db.get_prova(prova_id)
-    if not prova:
-        raise HTTPException(404, "Prova não encontrada.")
     turma = db.get_turma(prova["turma_id"]) if prova.get("turma_id") else None
     alunos = db.relatorio_turma(prova_id)
     taxonomia = db.relatorio_taxonomia(prova_id)
@@ -610,6 +635,7 @@ def get_relatorio_pdf(prova_id: int, user=Depends(get_current_user)):
 
 @app.post("/provas/{prova_id}/respostas", status_code=201, summary="Salva respostas de um aluno")
 def save_respostas(prova_id: int, payload: RespostasPayload, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
     respostas = {
         int(k): {"resposta": v.resposta, "gabarito": v.gabarito, "correta": v.correta}
         for k, v in payload.respostas.items()
@@ -621,6 +647,7 @@ def save_respostas(prova_id: int, payload: RespostasPayload, user=Depends(get_cu
 # ── Gabarito ──────────────────────────────────────────────────────────────────
 @app.post("/provas/{prova_id}/gabarito", status_code=201, summary="Salva gabarito da prova")
 def save_gabarito(prova_id: int, payload: GabaritoPayload, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
     gabarito = {int(k): v for k, v in payload.gabarito.items()}
     db.salvar_gabarito(prova_id, gabarito)
     return {"ok": True}
@@ -628,11 +655,13 @@ def save_gabarito(prova_id: int, payload: GabaritoPayload, user=Depends(get_curr
 
 @app.get("/provas/{prova_id}/gabarito", summary="Retorna gabarito da prova")
 def get_gabarito(prova_id: int, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
     return db.get_gabarito(prova_id)
 
 
 @app.post("/provas/{prova_id}/lancar", status_code=201, summary="Lança respostas de vários alunos")
 def lancar_respostas(prova_id: int, payload: LancarBulkPayload, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
     erros = []
     for aluno_id_str, resps in payload.respostas.items():
         try:
@@ -666,6 +695,7 @@ async def ocr_gabarito_aluno(
     file: UploadFile = File(...),
     user=Depends(get_current_user),
 ):
+    _require_prova_access(prova_id, user)
     suffix = Path(file.filename or "gabarito.jpg").suffix or ".jpg"
     content = await file.read()
 

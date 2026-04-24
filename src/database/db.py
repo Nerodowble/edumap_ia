@@ -52,6 +52,7 @@ _PG_SCHEMA = [
         arquivo_nome   TEXT,
         ocr_method     TEXT,
         total_questoes INTEGER,
+        usuario_id     BIGINT REFERENCES usuarios(id) ON DELETE SET NULL,
         criado_em      TIMESTAMPTZ DEFAULT NOW()
     )""",
     """CREATE TABLE IF NOT EXISTS questoes (
@@ -135,6 +136,7 @@ CREATE TABLE IF NOT EXISTS provas (
     arquivo_nome   TEXT,
     ocr_method     TEXT,
     total_questoes INTEGER,
+    usuario_id     INTEGER REFERENCES usuarios(id) ON DELETE SET NULL,
     criado_em      TEXT DEFAULT (datetime('now','localtime'))
 );
 CREATE TABLE IF NOT EXISTS questoes (
@@ -264,6 +266,7 @@ class _Conn:
             for alter in [
                 "ALTER TABLE turmas ADD COLUMN IF NOT EXISTS usuario_id BIGINT REFERENCES usuarios(id) ON DELETE SET NULL",
                 "ALTER TABLE questoes ADD COLUMN IF NOT EXISTS taxonomia_codigo TEXT",
+                "ALTER TABLE provas ADD COLUMN IF NOT EXISTS usuario_id BIGINT REFERENCES usuarios(id) ON DELETE SET NULL",
             ]:
                 try:
                     self._cur.execute(alter)
@@ -276,6 +279,7 @@ class _Conn:
             for alter in [
                 "ALTER TABLE turmas ADD COLUMN usuario_id INTEGER REFERENCES usuarios(id) ON DELETE SET NULL",
                 "ALTER TABLE questoes ADD COLUMN taxonomia_codigo TEXT",
+                "ALTER TABLE provas ADD COLUMN usuario_id INTEGER REFERENCES usuarios(id) ON DELETE SET NULL",
             ]:
                 try:
                     self._con.execute(alter)
@@ -361,13 +365,14 @@ def salvar_prova(
     ocr_method: str,
     questoes: List[Dict],
     turma_id: Optional[int] = None,
+    usuario_id: Optional[int] = None,
 ) -> int:
     with _conn() as con:
         prova_id = con.insert(
             """INSERT INTO provas
-               (titulo, turma_id, disciplina, serie, arquivo_nome, ocr_method, total_questoes)
-               VALUES (?,?,?,?,?,?,?)""",
-            (titulo, turma_id, disciplina, serie, arquivo_nome, ocr_method, len(questoes)),
+               (titulo, turma_id, disciplina, serie, arquivo_nome, ocr_method, total_questoes, usuario_id)
+               VALUES (?,?,?,?,?,?,?,?)""",
+            (titulo, turma_id, disciplina, serie, arquivo_nome, ocr_method, len(questoes), usuario_id),
         )
         for q in questoes:
             bncc = json.dumps(
@@ -405,6 +410,54 @@ def listar_provas(turma_id: Optional[int] = None) -> List[Dict]:
                 "SELECT * FROM provas WHERE turma_id=? ORDER BY criado_em DESC", (turma_id,)
             ).fetchall()
         return con.execute("SELECT * FROM provas ORDER BY criado_em DESC").fetchall()
+
+
+# ── Autorização (ownership / role) ────────────────────────────────────────────
+
+def user_pode_ver_turma(turma_id: int, user: Dict) -> bool:
+    """True se o usuário pode ver/acessar esta turma.
+    - admin_geral: sempre
+    - admin_escolar: se turma.escola == user.escola
+    - professor: se turma.usuario_id == user.id
+    """
+    if not user:
+        return False
+    if user.get("role") == "admin_geral":
+        return True
+    turma = get_turma(turma_id)
+    if not turma:
+        return False
+    if user.get("role") == "admin_escolar":
+        return (turma.get("escola") or "") == (user.get("escola") or "")
+    if user.get("role") == "professor":
+        return turma.get("usuario_id") == user.get("id")
+    return False
+
+
+def user_pode_ver_prova(prova_id: int, user: Dict) -> bool:
+    """True se o usuário pode ver/acessar esta prova."""
+    if not user:
+        return False
+    if user.get("role") == "admin_geral":
+        return True
+    prova = get_prova(prova_id)
+    if not prova:
+        return False
+    # Se a prova tem dono direto, verifica
+    owner_id = prova.get("usuario_id")
+    if user.get("role") == "professor":
+        if owner_id is not None:
+            return owner_id == user.get("id")
+        # Sem dono direto: verifica via turma
+        if prova.get("turma_id"):
+            return user_pode_ver_turma(prova["turma_id"], user)
+        return False
+    if user.get("role") == "admin_escolar":
+        if prova.get("turma_id"):
+            return user_pode_ver_turma(prova["turma_id"], user)
+        # Sem turma vinculada: admin_escolar não vê
+        return False
+    return False
 
 
 def get_prova(prova_id: int) -> Optional[Dict]:
