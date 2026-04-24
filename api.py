@@ -28,6 +28,7 @@ from classifier.bncc_mapper import map_to_bncc
 from classifier.segmenter import segment_questions
 from classifier.subarea_classifier import classify_subarea
 from classifier.taxonomia_classifier import classify as classify_taxonomia
+from classifier.taxonomia_classifier import classify_across_all as classify_taxonomia_auto
 from database import db
 from database import taxonomia as db_taxonomia
 from database import usuarios as db_usuarios
@@ -469,26 +470,43 @@ async def upload_prova(
         text, method = extract_text_from_file(tmp_path, noop)
         questions = segment_questions(text)
 
+        auto_detect = not subject or subject == "Detectar automaticamente"
+
         for q in questions:
             stem = q.get("stem") or q.get("text", "")
 
-            if subject and subject != "Detectar automaticamente":
+            tax = None
+            if not auto_detect:
+                # Professor selecionou a matéria — confia nela
                 area_key = SUBJECT_TO_KEY.get(subject, "indefinida")
                 area_conf = 1.0
+                if area_key and area_key != "indefinida":
+                    try:
+                        tax = classify_taxonomia(stem, area_key)
+                    except Exception:
+                        tax = None
             else:
-                area_key, area_conf, _ = classify_area(stem)
+                # Tenta a taxonomia globalmente primeiro (mais preciso)
+                try:
+                    tax = classify_taxonomia_auto(stem)
+                except Exception:
+                    tax = None
+
+                if tax and tax.get("matches", 0) >= 1:
+                    area_key = tax["materia"]
+                    area_conf = min(1.0, tax["matches"] / 4)
+                else:
+                    # Fallback: classificador legacy de palavras-chave
+                    area_key, area_conf, _ = classify_area(stem)
+                    if area_key and area_key != "indefinida":
+                        try:
+                            tax = classify_taxonomia(stem, area_key)
+                        except Exception:
+                            tax = None
 
             bloom_level, bloom_name, bloom_verb = classify_bloom(stem)
             subarea_key, subarea_label = classify_subarea(stem, area_key)
             bncc = map_to_bncc(area_key, year_level, bloom_level)
-
-            # Classificação taxonômica profunda (árvore do banco)
-            tax = None
-            if area_key and area_key != "indefinida":
-                try:
-                    tax = classify_taxonomia(stem, area_key)
-                except Exception:
-                    tax = None
 
             q.update({
                 "area_key":          area_key,

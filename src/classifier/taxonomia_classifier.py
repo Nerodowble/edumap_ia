@@ -159,6 +159,74 @@ def classify(stem: str, materia: str, etapa: str = "ef2") -> Optional[Dict]:
     }
 
 
+def classify_across_all(stem: str) -> Optional[Dict]:
+    """
+    Classifica o enunciado tentando TODAS as matérias/etapas da taxonomia.
+    Retorna o melhor match global, incluindo o codigo da matéria e etapa.
+
+    Útil quando o professor selecionou "Detectar automaticamente" —
+    em vez de usar o area_classifier legado (que só conhece as matérias
+    tradicionais), usa a taxonomia real do banco.
+    """
+    if not stem:
+        return None
+    stem_norm = _normalize(stem)
+    if not stem_norm:
+        return None
+
+    with _conn() as con:
+        nodes = con.execute(
+            """SELECT id, codigo, label, nivel, parent_id, palavras_chave, materia, etapa
+               FROM taxonomia"""
+        ).fetchall()
+    if not nodes:
+        return None
+
+    by_id = {n["id"]: n for n in nodes}
+
+    best = None
+    best_score = 0
+    best_matches = 0
+
+    for node in nodes:
+        kws = _parse_keywords(node.get("palavras_chave"))
+        if not kws:
+            continue
+        matches = _count_matches(kws, stem_norm)
+        if matches == 0:
+            continue
+        score = _score(matches, node["nivel"])
+        if score > best_score:
+            best_score = score
+            best_matches = matches
+            best = node
+
+    if not best:
+        return None
+
+    caminho: List[Dict] = []
+    cur = best
+    while cur is not None:
+        caminho.append({
+            "codigo": cur["codigo"],
+            "label":  cur["label"],
+            "nivel":  cur["nivel"],
+        })
+        pid = cur.get("parent_id")
+        cur = by_id.get(pid) if pid else None
+    caminho.reverse()
+
+    return {
+        "codigo":  best["codigo"],
+        "label":   best["label"],
+        "nivel":   best["nivel"],
+        "caminho": caminho,
+        "matches": best_matches,
+        "materia": best["materia"],
+        "etapa":   best["etapa"],
+    }
+
+
 def classify_many(stems: List[str], materia: str, etapa: str = "ef2") -> List[Optional[Dict]]:
     """Classifica múltiplos enunciados reutilizando a mesma árvore (mais rápido)."""
     nodes = _load_tree(materia, etapa)
