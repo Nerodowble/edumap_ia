@@ -162,11 +162,13 @@ def classify(stem: str, materia: str, etapa: str = "ef2") -> Optional[Dict]:
 def classify_across_all(stem: str) -> Optional[Dict]:
     """
     Classifica o enunciado tentando TODAS as matérias/etapas da taxonomia.
-    Retorna o melhor match global, incluindo o codigo da matéria e etapa.
 
-    Útil quando o professor selecionou "Detectar automaticamente" —
-    em vez de usar o area_classifier legado (que só conhece as matérias
-    tradicionais), usa a taxonomia real do banco.
+    Estratégia em 2 fases:
+      1. Soma matches por matéria (sinal agregado) para escolher a melhor
+      2. Dentro da matéria vencedora, escolhe o nó mais específico que bateu
+
+    Assim um único match em um nó profundo de matéria errada não rouba
+    uma questão que tem 5 matches distribuídos na matéria correta.
     """
     if not stem:
         return None
@@ -184,9 +186,9 @@ def classify_across_all(stem: str) -> Optional[Dict]:
 
     by_id = {n["id"]: n for n in nodes}
 
-    best = None
-    best_score = 0
-    best_matches = 0
+    # Fase 1: matches por nó + total acumulado por matéria
+    node_matches: Dict[int, int] = {}
+    materia_total: Dict[tuple, int] = {}
 
     for node in nodes:
         kws = _parse_keywords(node.get("palavras_chave"))
@@ -195,17 +197,39 @@ def classify_across_all(stem: str) -> Optional[Dict]:
         matches = _count_matches(kws, stem_norm)
         if matches == 0:
             continue
-        score = _score(matches, node["nivel"])
-        if score > best_score:
-            best_score = score
-            best_matches = matches
-            best = node
+        node_matches[node["id"]] = matches
+        key = (node["materia"], node["etapa"])
+        materia_total[key] = materia_total.get(key, 0) + matches
 
-    if not best:
+    if not materia_total:
+        return None
+
+    # Escolhe a matéria com maior total de matches
+    best_materia_key = max(materia_total.items(), key=lambda kv: kv[1])[0]
+    best_materia, best_etapa = best_materia_key
+
+    # Fase 2: dentro da matéria vencedora, pega o nó com melhor score individual
+    best_node = None
+    best_score = 0
+    best_matches_in_node = 0
+
+    for node in nodes:
+        if node["materia"] != best_materia or node["etapa"] != best_etapa:
+            continue
+        m = node_matches.get(node["id"], 0)
+        if m == 0:
+            continue
+        s = _score(m, node["nivel"])
+        if s > best_score:
+            best_score = s
+            best_matches_in_node = m
+            best_node = node
+
+    if not best_node:
         return None
 
     caminho: List[Dict] = []
-    cur = best
+    cur = best_node
     while cur is not None:
         caminho.append({
             "codigo": cur["codigo"],
@@ -217,13 +241,14 @@ def classify_across_all(stem: str) -> Optional[Dict]:
     caminho.reverse()
 
     return {
-        "codigo":  best["codigo"],
-        "label":   best["label"],
-        "nivel":   best["nivel"],
+        "codigo":  best_node["codigo"],
+        "label":   best_node["label"],
+        "nivel":   best_node["nivel"],
         "caminho": caminho,
-        "matches": best_matches,
-        "materia": best["materia"],
-        "etapa":   best["etapa"],
+        "matches": best_matches_in_node,
+        "materia": best_materia,
+        "etapa":   best_etapa,
+        "materia_total_matches": materia_total[best_materia_key],
     }
 
 

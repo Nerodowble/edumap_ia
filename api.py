@@ -474,33 +474,35 @@ async def upload_prova(
 
         for q in questions:
             stem = q.get("stem") or q.get("text", "")
+            # Inclui alternativas para dar mais sinal ao classificador
+            alts_list = q.get("alternatives", []) or []
+            stem_full = (stem + " " + " ".join(alts_list)).strip()
 
             tax = None
             if not auto_detect:
-                # Professor selecionou a matéria — confia nela
                 area_key = SUBJECT_TO_KEY.get(subject, "indefinida")
                 area_conf = 1.0
                 if area_key and area_key != "indefinida":
                     try:
-                        tax = classify_taxonomia(stem, area_key)
+                        tax = classify_taxonomia(stem_full, area_key)
                     except Exception:
                         tax = None
             else:
-                # Tenta a taxonomia globalmente primeiro (mais preciso)
+                # Auto-detect: usa a taxonomia com pontuação por matéria
                 try:
-                    tax = classify_taxonomia_auto(stem)
+                    tax = classify_taxonomia_auto(stem_full)
                 except Exception:
                     tax = None
 
-                if tax and tax.get("matches", 0) >= 1:
+                if tax and tax.get("materia_total_matches", tax.get("matches", 0)) >= 2:
                     area_key = tax["materia"]
-                    area_conf = min(1.0, tax["matches"] / 4)
+                    area_conf = min(1.0, tax.get("materia_total_matches", tax["matches"]) / 6)
                 else:
                     # Fallback: classificador legacy de palavras-chave
-                    area_key, area_conf, _ = classify_area(stem)
+                    area_key, area_conf, _ = classify_area(stem_full)
                     if area_key and area_key != "indefinida":
                         try:
-                            tax = classify_taxonomia(stem, area_key)
+                            tax = classify_taxonomia(stem_full, area_key)
                         except Exception:
                             tax = None
 
