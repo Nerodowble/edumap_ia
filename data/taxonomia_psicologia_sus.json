@@ -35,7 +35,7 @@
                   "palavras_chave": ["psicanálise", "psicanalítico", "psicanalista"],
                   "filhos": [
                     {"codigo": "freud", "label": "Freud e a Psicanálise Clássica", "palavras_chave": ["freud", "freudiano", "inconsciente", "libido", "pulsão", "id", "ego", "superego", "complexo de édipo"]},
-                    {"codigo": "mecanismos_defesa", "label": "Mecanismos de Defesa", "palavras_chave": ["mecanismo de defesa", "recalque", "negação", "projeção", "racionalização", "sublimação"]},
+                    {"codigo": "mecanismos_defesa", "label": "Mecanismos de Defesa", "palavras_chave": ["mecanismo de defesa", "mecanismos de defesa", "defesa do ego", "recalque", "negação", "projeção", "racionalização", "sublimação", "atribuir a outra pessoa"]},
                     {"codigo": "jung", "label": "Jung e a Psicologia Analítica", "palavras_chave": ["jung", "junguiano", "inconsciente coletivo", "arquétipo", "individuação", "sombra"]},
                     {"codigo": "lacan", "label": "Lacan", "palavras_chave": ["lacan", "lacaniano", "significante", "estágio do espelho", "real simbólico imaginário"]},
                     {"codigo": "winnicott", "label": "Winnicott", "palavras_chave": ["winnicott", "objeto transicional", "mãe suficientemente boa", "holding"]},
@@ -131,7 +131,7 @@
               "filhos": [
                 {"codigo": "codigo_etica", "label": "Código de Ética do Psicólogo", "palavras_chave": ["código de ética do psicólogo", "cep", "direitos fundamentais"]},
                 {"codigo": "cfp_crp", "label": "CFP e CRPs", "palavras_chave": ["conselho federal de psicologia", "cfp", "crp", "conselho regional"]},
-                {"codigo": "sigilo", "label": "Sigilo e Confidencialidade", "palavras_chave": ["sigilo profissional", "confidencialidade", "quebra de sigilo"]},
+                {"codigo": "sigilo", "label": "Sigilo e Confidencialidade", "palavras_chave": ["sigilo", "sigilo profissional", "preservar sigilo", "quebra de sigilo", "dever de sigilo", "confidencialidade"]},
                 {"codigo": "dilemas_eticos", "label": "Dilemas Éticos", "palavras_chave": ["dilema ético", "conflito ético"]}
               ]
             }
@@ -179,7 +179,7 @@
               "label": "Transtornos do Humor",
               "palavras_chave": ["transtorno do humor", "transtorno afetivo"],
               "filhos": [
-                {"codigo": "depressao", "label": "Depressão Maior", "palavras_chave": ["depressão", "transtorno depressivo", "tristeza patológica", "anedonia"]},
+                {"codigo": "depressao", "label": "Depressão Maior", "palavras_chave": ["depressão", "depressivo", "transtorno depressivo", "transtorno depressivo maior", "humor deprimido", "tristeza patológica", "anedonia", "episódio depressivo"]},
                 {"codigo": "bipolar", "label": "Transtorno Bipolar", "palavras_chave": ["bipolar", "mania", "hipomania", "transtorno bipolar"]},
                 {"codigo": "distimia", "label": "Distimia e Transtorno Depressivo Persistente", "palavras_chave": ["distimia", "transtorno depressivo persistente"]}
               ]
@@ -295,7 +295,7 @@
               "label": "Princípios e Diretrizes do SUS",
               "palavras_chave": ["princípios do sus", "diretrizes do sus"],
               "filhos": [
-                {"codigo": "universalidade", "label": "Universalidade", "palavras_chave": ["universalidade", "saúde para todos"]},
+                {"codigo": "universalidade", "label": "Universalidade", "palavras_chave": ["universalidade", "acesso universal", "saúde para todos", "todas as pessoas tenham acesso", "independente de condição social", "direito de todos"]},
                 {"codigo": "integralidade", "label": "Integralidade", "palavras_chave": ["integralidade", "atenção integral"]},
                 {"codigo": "equidade", "label": "Equidade", "palavras_chave": ["equidade", "tratamento desigual aos desiguais"]},
                 {"codigo": "descentralizacao", "label": "Descentralização e Regionalização", "palavras_chave": ["descentralização", "regionalização", "hierarquização"]},

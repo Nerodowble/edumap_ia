@@ -1,0 +1,20 @@
+Gabarito + no esperado da taxonomia (etapa: superior)
+================================================================================
+ 1. B  ->  superior.psicologia_saude_mental_sus.fundamentos.escolas_abordagens.psicanalise.freud
+ 2. C  ->  superior.psicologia_saude_mental_sus.fundamentos.escolas_abordagens.psicanalise.mecanismos_defesa
+ 3. B  ->  superior.psicologia_saude_mental_sus.fundamentos.escolas_abordagens.behaviorismo.skinner
+ 4. B  ->  superior.psicologia_saude_mental_sus.fundamentos.escolas_abordagens.humanismo.rogers
+ 5. E  ->  superior.psicologia_saude_mental_sus.fundamentos.escolas_abordagens.humanismo.maslow
+ 6. C  ->  superior.psicologia_saude_mental_sus.psicopatologia.classificacao.dsm5
+ 7. B  ->  superior.psicologia_saude_mental_sus.psicopatologia.neurodesenvolvimento.tdah
+ 8. B  ->  superior.psicologia_saude_mental_sus.psicopatologia.humor.depressao
+ 9. B  ->  superior.psicologia_saude_mental_sus.psicopatologia.ansiedade.toc
+10. C  ->  superior.psicologia_saude_mental_sus.psicopatologia.psicoticos.esquizofrenia
+11. B  ->  superior.psicologia_saude_mental_sus.sus_politicas.reforma_psiquiatrica.lei_10216
+12. B  ->  superior.psicologia_saude_mental_sus.sus_politicas.reforma_psiquiatrica.basaglia
+13. C  ->  superior.psicologia_saude_mental_sus.sus_politicas.raps.caps.caps3
+14. B  ->  superior.psicologia_saude_mental_sus.sus_politicas.raps.caps.caps_ad
+15. B  ->  superior.psicologia_saude_mental_sus.sus_politicas.raps
+16. C  ->  superior.psicologia_saude_mental_sus.sus_politicas.principios_sus.universalidade
+17. C  ->  superior.psicologia_saude_mental_sus.sus_politicas.raps.atencao_basica.esf
+18. B  ->  superior.psicologia_saude_mental_sus.fundamentos.etica_profissional.sigilo
