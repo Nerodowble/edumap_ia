@@ -37,6 +37,35 @@ from report.relatorio_pdf import gerar_pdf_relatorio
 JSON_TAXONOMIA = Path(__file__).parent / "data" / "taxonomia.json"
 JSON_TEMPLATE = Path(__file__).parent / "data" / "taxonomia_template.json"
 
+
+def _auto_seed_taxonomias():
+    """Auto-importa todos os arquivos data/taxonomia_*.json ou taxonomia.json
+    no startup do servidor. Idempotente (UPSERT). Pula o template. Silencia
+    erros para não impedir o boot."""
+    import json as _json
+    data_dir = Path(__file__).parent / "data"
+    if not data_dir.exists():
+        return
+    for jf in sorted(data_dir.glob("taxonomia*.json")):
+        if jf.name == "taxonomia_template.json":
+            continue
+        try:
+            with open(jf, "r", encoding="utf-8") as f:
+                data = _json.load(f)
+            stats = db_taxonomia.seed_from_data(data)
+            print(
+                f"[auto-seed] {jf.name}: etapa={stats['etapa']} "
+                f"total={stats['total_depois']} adicionados={stats['adicionados']}"
+            )
+        except Exception as exc:
+            print(f"[auto-seed] {jf.name}: FALHOU ({exc})")
+
+
+try:
+    _auto_seed_taxonomias()
+except Exception as _exc:
+    print(f"[auto-seed] erro geral: {_exc}")
+
 # ── App ───────────────────────────────────────────────────────────────────────
 app = FastAPI(
     title="EduMap IA API",

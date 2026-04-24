@@ -1,7 +1,7 @@
 {
-  "versao": "1.0",
+  "versao": "1.1",
   "etapa": "superior",
-  "descricao": "Taxonomia de Psicologia, Saúde Mental e SUS — Ensino Superior. Estruturada em 3 eixos: Fundamentos, Psicopatologia e Políticas Públicas em Saúde Mental (SUS).",
+  "descricao": "Taxonomia expandida de Psicologia, Saúde Mental e SUS — Ensino Superior. 3 eixos: Fundamentos de Psicologia, Psicopatologia e SUS/Políticas Públicas.",
   "materias": [
     {
       "codigo": "psicologia_saude_mental_sus",
@@ -21,7 +21,8 @@
                 {"codigo": "psicologia_cientifica", "label": "Surgimento da Psicologia Científica", "palavras_chave": ["wundt", "leipzig", "1879", "laboratório de psicologia", "introspecção"]},
                 {"codigo": "filosofia_fisiologia", "label": "Relações com Filosofia e Fisiologia", "palavras_chave": ["filosofia e psicologia", "fisiologia", "weber", "fechner", "psicofísica"]},
                 {"codigo": "funcionalismo", "label": "Funcionalismo", "palavras_chave": ["funcionalismo", "william james", "dewey", "adaptação"]},
-                {"codigo": "estruturalismo", "label": "Estruturalismo", "palavras_chave": ["estruturalismo", "titchener", "elementos da consciência"]}
+                {"codigo": "estruturalismo", "label": "Estruturalismo", "palavras_chave": ["estruturalismo", "titchener", "elementos da consciência"]},
+                {"codigo": "psicologia_no_brasil", "label": "Psicologia no Brasil", "palavras_chave": ["psicologia brasileira", "regulamentação profissional", "lei 4119", "1962"]}
               ]
             },
             {
@@ -36,10 +37,18 @@
                   "filhos": [
                     {"codigo": "freud", "label": "Freud e a Psicanálise Clássica", "palavras_chave": ["freud", "freudiano", "inconsciente", "libido", "pulsão", "id", "ego", "superego", "complexo de édipo"]},
                     {"codigo": "mecanismos_defesa", "label": "Mecanismos de Defesa", "palavras_chave": ["mecanismo de defesa", "mecanismos de defesa", "defesa do ego", "recalque", "negação", "projeção", "racionalização", "sublimação", "atribuir a outra pessoa"]},
-                    {"codigo": "jung", "label": "Jung e a Psicologia Analítica", "palavras_chave": ["jung", "junguiano", "inconsciente coletivo", "arquétipo", "individuação", "sombra"]},
-                    {"codigo": "lacan", "label": "Lacan", "palavras_chave": ["lacan", "lacaniano", "significante", "estágio do espelho", "real simbólico imaginário"]},
-                    {"codigo": "winnicott", "label": "Winnicott", "palavras_chave": ["winnicott", "objeto transicional", "mãe suficientemente boa", "holding"]},
-                    {"codigo": "klein", "label": "Melanie Klein", "palavras_chave": ["melanie klein", "posição esquizoparanoide", "posição depressiva"]}
+                    {"codigo": "topicas_freudianas", "label": "Tópicas Freudianas", "palavras_chave": ["primeira tópica", "segunda tópica", "pré-consciente", "instâncias psíquicas"]},
+                    {"codigo": "fases_psicossexuais", "label": "Fases do Desenvolvimento Psicossexual", "palavras_chave": ["fase oral", "fase anal", "fase fálica", "latência", "fase genital"]},
+                    {"codigo": "jung", "label": "Jung e a Psicologia Analítica", "palavras_chave": ["jung", "junguiano", "inconsciente coletivo", "arquétipo", "individuação", "sombra", "anima", "animus"]},
+                    {"codigo": "lacan", "label": "Lacan", "palavras_chave": ["lacan", "lacaniano", "significante", "estágio do espelho", "real simbólico imaginário", "retorno a freud"]},
+                    {"codigo": "winnicott", "label": "Winnicott", "palavras_chave": ["winnicott", "objeto transicional", "mãe suficientemente boa", "holding", "falso self"]},
+                    {"codigo": "klein", "label": "Melanie Klein", "palavras_chave": ["melanie klein", "posição esquizoparanoide", "posição depressiva", "relação de objeto"]},
+                    {"codigo": "ferenczi", "label": "Ferenczi", "palavras_chave": ["ferenczi", "sandor ferenczi", "elasticidade da técnica", "confusão de línguas"]},
+                    {"codigo": "anna_freud", "label": "Anna Freud", "palavras_chave": ["anna freud", "psicanálise com crianças", "ego e mecanismos de defesa"]},
+                    {"codigo": "bion", "label": "Bion", "palavras_chave": ["wilfred bion", "elementos alfa", "elementos beta", "grupos de trabalho", "dinâmica grupal"]},
+                    {"codigo": "fromm", "label": "Erich Fromm", "palavras_chave": ["erich fromm", "medo da liberdade", "psicanálise humanista"]},
+                    {"codigo": "horney", "label": "Karen Horney", "palavras_chave": ["karen horney", "neurose e cultura", "ansiedade básica"]},
+                    {"codigo": "erikson", "label": "Erik Erikson e os Estágios Psicossociais", "palavras_chave": ["erik erikson", "oito estágios", "estágios psicossociais", "identidade versus confusão"]}
                   ]
                 },
                 {
@@ -51,12 +60,15 @@
                     {"codigo": "pavlov", "label": "Pavlov e o Condicionamento Clássico", "palavras_chave": ["pavlov", "condicionamento clássico", "reflexo condicionado", "estímulo neutro"]},
                     {"codigo": "skinner", "label": "Skinner e o Condicionamento Operante", "palavras_chave": ["skinner", "condicionamento operante", "caixa de skinner", "operante"]},
                     {"codigo": "reforco", "label": "Reforço Positivo e Negativo", "palavras_chave": ["reforço positivo", "reforço negativo", "reforçador", "contingência"]},
-                    {"codigo": "punicao", "label": "Punição e Extinção", "palavras_chave": ["punição", "extinção", "esquiva", "fuga"]}
+                    {"codigo": "punicao", "label": "Punição e Extinção", "palavras_chave": ["punição", "extinção", "esquiva", "fuga"]},
+                    {"codigo": "esquemas_reforco", "label": "Esquemas de Reforço", "palavras_chave": ["esquema de reforço", "razão fixa", "intervalo variável", "reforço intermitente"]},
+                    {"codigo": "bandura", "label": "Bandura e Teoria Social Cognitiva", "palavras_chave": ["bandura", "albert bandura", "aprendizagem social", "aprendizagem observacional", "modelação", "autoeficácia", "bobo doll"]},
+                    {"codigo": "tolman", "label": "Tolman e Cognição Comportamental", "palavras_chave": ["tolman", "mapa cognitivo", "aprendizagem latente"]}
                   ]
                 },
                 {
                   "codigo": "gestalt",
-                  "label": "Gestalt",
+                  "label": "Gestalt (Psicologia da Forma)",
                   "palavras_chave": ["gestalt", "psicologia da forma", "wertheimer", "köhler"],
                   "filhos": [
                     {"codigo": "leis_percepcao", "label": "Leis da Percepção", "palavras_chave": ["leis da percepção", "proximidade", "semelhança", "continuidade", "fechamento"]},
@@ -65,12 +77,23 @@
                   ]
                 },
                 {
+                  "codigo": "gestalt_terapia",
+                  "label": "Gestalt-terapia (Fritz Perls)",
+                  "palavras_chave": ["gestalt-terapia", "gestalt terapia", "perls", "fritz perls"],
+                  "filhos": [
+                    {"codigo": "contato_awareness", "label": "Contato e Awareness", "palavras_chave": ["awareness", "contato terapêutico", "aqui e agora"]},
+                    {"codigo": "ciclo_contato", "label": "Ciclo do Contato", "palavras_chave": ["ciclo do contato", "necessidade emergente", "fechamento gestáltico"]}
+                  ]
+                },
+                {
                   "codigo": "humanismo",
                   "label": "Humanismo e Psicologia Humanista",
                   "palavras_chave": ["humanismo", "humanista", "terceira força"],
                   "filhos": [
                     {"codigo": "rogers", "label": "Rogers e a Abordagem Centrada na Pessoa", "palavras_chave": ["carl rogers", "abordagem centrada", "acp", "empatia", "aceitação incondicional", "congruência"]},
-                    {"codigo": "maslow", "label": "Maslow e a Hierarquia de Necessidades", "palavras_chave": ["maslow", "hierarquia de necessidades", "pirâmide de maslow", "autorrealização"]}
+                    {"codigo": "maslow", "label": "Maslow e a Hierarquia de Necessidades", "palavras_chave": ["maslow", "hierarquia de necessidades", "pirâmide de maslow", "autorrealização"]},
+                    {"codigo": "frankl", "label": "Frankl e a Logoterapia", "palavras_chave": ["viktor frankl", "logoterapia", "sentido da vida", "em busca de sentido"]},
+                    {"codigo": "rollo_may", "label": "Rollo May (Existencial)", "palavras_chave": ["rollo may", "psicologia existencial", "ansiedade existencial"]}
                   ]
                 },
                 {
@@ -79,7 +102,12 @@
                   "palavras_chave": ["terapia cognitivo-comportamental", "tcc", "cognitivo comportamental"],
                   "filhos": [
                     {"codigo": "beck", "label": "Aaron Beck e a Terapia Cognitiva", "palavras_chave": ["aaron beck", "beck", "distorções cognitivas", "pensamentos automáticos", "esquemas cognitivos"]},
-                    {"codigo": "ellis", "label": "Albert Ellis e a TREC", "palavras_chave": ["albert ellis", "trec", "terapia racional emotiva", "abc"]}
+                    {"codigo": "ellis", "label": "Albert Ellis e a TREC", "palavras_chave": ["albert ellis", "trec", "terapia racional emotiva", "abc"]},
+                    {"codigo": "reestruturacao_cognitiva", "label": "Reestruturação Cognitiva", "palavras_chave": ["reestruturação cognitiva", "modificação de crenças"]},
+                    {"codigo": "dbt", "label": "DBT — Terapia Comportamental Dialética (Linehan)", "palavras_chave": ["dbt", "linehan", "terapia comportamental dialética", "regulação emocional"]},
+                    {"codigo": "act", "label": "ACT — Terapia de Aceitação e Compromisso", "palavras_chave": ["act", "hayes", "terapia de aceitação", "flexibilidade psicológica"]},
+                    {"codigo": "mindfulness", "label": "Mindfulness / Atenção Plena", "palavras_chave": ["mindfulness", "atenção plena", "meditação atenta", "mbsr"]},
+                    {"codigo": "terapia_esquema", "label": "Terapia do Esquema (Young)", "palavras_chave": ["terapia do esquema", "jeffrey young", "esquemas iniciais desadaptativos"]}
                   ]
                 },
                 {
@@ -89,12 +117,27 @@
                   "filhos": [
                     {"codigo": "vigotski", "label": "Vigotski", "palavras_chave": ["vigotski", "vygotsky", "zdp", "zona de desenvolvimento proximal", "mediação", "funções psicológicas superiores"]},
                     {"codigo": "luria", "label": "Luria", "palavras_chave": ["luria", "neuropsicologia soviética"]},
-                    {"codigo": "leontiev", "label": "Leontiev", "palavras_chave": ["leontiev", "teoria da atividade"]}
+                    {"codigo": "leontiev", "label": "Leontiev e Teoria da Atividade", "palavras_chave": ["leontiev", "teoria da atividade", "atividade principal"]}
                   ]
                 },
-                {"codigo": "analise_comportamento", "label": "Análise do Comportamento", "palavras_chave": ["análise do comportamento", "aba", "analytics", "behavior analysis"]},
+                {"codigo": "analise_comportamento", "label": "Análise do Comportamento", "palavras_chave": ["análise do comportamento", "aba", "behavior analysis", "analítico-comportamental"]},
                 {"codigo": "fenomenologia_existencial", "label": "Fenomenologia e Existencialismo", "palavras_chave": ["fenomenologia", "existencialismo", "heidegger", "merleau-ponty", "sartre", "husserl"]},
-                {"codigo": "sistemica", "label": "Abordagem Sistêmica", "palavras_chave": ["sistêmica", "terapia familiar", "bateson", "minuchin"]}
+                {"codigo": "sistemica", "label": "Abordagem Sistêmica e Terapia Familiar", "palavras_chave": ["sistêmica", "terapia familiar", "bateson", "minuchin", "pensamento sistêmico"]},
+                {"codigo": "psicodrama", "label": "Psicodrama (Moreno)", "palavras_chave": ["psicodrama", "moreno", "jacob moreno", "role playing", "sociodrama"]},
+                {"codigo": "neuropsicanalise", "label": "Neuropsicanálise e Abordagens Integrativas", "palavras_chave": ["neuropsicanálise", "integrativa", "solms"]}
+              ]
+            },
+            {
+              "codigo": "desenvolvimento_humano",
+              "label": "Desenvolvimento Humano",
+              "palavras_chave": ["desenvolvimento humano", "psicologia do desenvolvimento", "ciclo vital"],
+              "filhos": [
+                {"codigo": "piaget", "label": "Piaget e a Epistemologia Genética", "palavras_chave": ["piaget", "estágios piagetianos", "sensório-motor", "pré-operatório", "operatório concreto", "operatório formal", "assimilação e acomodação"]},
+                {"codigo": "wallon", "label": "Wallon", "palavras_chave": ["henri wallon", "afetividade", "tônus", "pessoa completa"]},
+                {"codigo": "bowlby_apego", "label": "Bowlby e Teoria do Apego", "palavras_chave": ["bowlby", "teoria do apego", "apego seguro", "apego evitativo", "apego ansioso", "ainsworth"]},
+                {"codigo": "desenvolvimento_infantil", "label": "Desenvolvimento Infantil", "palavras_chave": ["desenvolvimento infantil", "infância", "marcos do desenvolvimento"]},
+                {"codigo": "adolescencia", "label": "Adolescência", "palavras_chave": ["adolescência", "puberdade", "identidade", "crise adolescente"]},
+                {"codigo": "adultez_velhice", "label": "Adultez e Velhice", "palavras_chave": ["adultez", "velhice", "envelhecimento", "gerontologia"]}
               ]
             },
             {
@@ -103,14 +146,28 @@
               "palavras_chave": ["área de atuação", "campo de atuação", "especialidade"],
               "filhos": [
                 {"codigo": "clinica", "label": "Psicologia Clínica", "palavras_chave": ["psicologia clínica", "atendimento clínico", "consultório", "psicoterapia"]},
-                {"codigo": "organizacional", "label": "Psicologia Organizacional e do Trabalho", "palavras_chave": ["psicologia organizacional", "psicologia do trabalho", "recrutamento", "gestão de pessoas"]},
+                {"codigo": "organizacional", "label": "Psicologia Organizacional e do Trabalho", "palavras_chave": ["psicologia organizacional", "psicologia do trabalho", "recrutamento", "gestão de pessoas", "clima organizacional"]},
                 {"codigo": "escolar", "label": "Psicologia Escolar e Educacional", "palavras_chave": ["psicologia escolar", "psicologia educacional", "aprendizagem", "queixa escolar"]},
-                {"codigo": "saude", "label": "Psicologia da Saúde", "palavras_chave": ["psicologia da saúde", "psicologia hospitalar", "adesão ao tratamento"]},
-                {"codigo": "social_comunitaria", "label": "Psicologia Social e Comunitária", "palavras_chave": ["psicologia social", "psicologia comunitária", "território", "comunidade"]},
+                {"codigo": "saude", "label": "Psicologia da Saúde", "palavras_chave": ["psicologia da saúde", "adesão ao tratamento", "doenças crônicas"]},
+                {"codigo": "hospitalar", "label": "Psicologia Hospitalar", "palavras_chave": ["psicologia hospitalar", "internação hospitalar", "cuidados paliativos"]},
+                {"codigo": "social_comunitaria", "label": "Psicologia Social e Comunitária", "palavras_chave": ["psicologia social", "psicologia comunitária", "território", "comunidade", "psicologia social crítica"]},
                 {"codigo": "juridica", "label": "Psicologia Jurídica e Forense", "palavras_chave": ["psicologia jurídica", "psicologia forense", "perícia psicológica", "avaliação forense"]},
                 {"codigo": "esportiva", "label": "Psicologia do Esporte", "palavras_chave": ["psicologia do esporte", "psicologia esportiva", "atleta"]},
                 {"codigo": "transito", "label": "Psicologia do Trânsito", "palavras_chave": ["psicologia do trânsito", "avaliação psicológica detran"]},
-                {"codigo": "neuropsicologia", "label": "Neuropsicologia", "palavras_chave": ["neuropsicologia", "avaliação neuropsicológica", "funções cognitivas"]}
+                {
+                  "codigo": "neuropsicologia",
+                  "label": "Neuropsicologia",
+                  "palavras_chave": ["neuropsicologia", "avaliação neuropsicológica"],
+                  "filhos": [
+                    {"codigo": "atencao", "label": "Atenção (Seletiva, Sustentada, Dividida)", "palavras_chave": ["atenção seletiva", "atenção sustentada", "atenção dividida", "atenção concentrada"]},
+                    {"codigo": "memoria", "label": "Memória (Curto/Longo Prazo, Episódica, Semântica)", "palavras_chave": ["memória de curto prazo", "memória de longo prazo", "memória episódica", "memória semântica", "memória procedural", "memória de trabalho"]},
+                    {"codigo": "funcoes_executivas", "label": "Funções Executivas", "palavras_chave": ["função executiva", "funções executivas", "planejamento", "inibição", "flexibilidade cognitiva", "córtex pré-frontal"]},
+                    {"codigo": "linguagem_afasia", "label": "Linguagem e Afasias", "palavras_chave": ["afasia", "afasia de broca", "afasia de wernicke", "linguagem cortical"]},
+                    {"codigo": "visuoespacial", "label": "Função Visuoespacial", "palavras_chave": ["visuoespacial", "negligência espacial", "rotação mental"]},
+                    {"codigo": "gnosia_praxia", "label": "Gnosias e Praxias", "palavras_chave": ["agnosia", "apraxia", "gnosia", "praxia"]}
+                  ]
+                },
+                {"codigo": "emergencia_desastres", "label": "Psicologia da Emergência e Desastres", "palavras_chave": ["psicologia da emergência", "primeiros socorros psicológicos", "desastres", "debriefing"]}
               ]
             },
             {
@@ -119,9 +176,21 @@
               "palavras_chave": ["metodologia", "pesquisa em psicologia", "método científico"],
               "filhos": [
                 {"codigo": "pesquisa_quantitativa", "label": "Pesquisa Quantitativa", "palavras_chave": ["pesquisa quantitativa", "método quantitativo", "estatística inferencial"]},
-                {"codigo": "pesquisa_qualitativa", "label": "Pesquisa Qualitativa", "palavras_chave": ["pesquisa qualitativa", "método qualitativo", "análise de conteúdo", "entrevista em profundidade"]},
-                {"codigo": "avaliacao_psicologica", "label": "Avaliação Psicológica e Testes", "palavras_chave": ["avaliação psicológica", "teste psicológico", "psicometria", "satepsi", "laudo psicológico"]},
-                {"codigo": "etica_pesquisa", "label": "Ética em Pesquisa com Seres Humanos", "palavras_chave": ["ética em pesquisa", "comitê de ética", "cep", "conep", "resolução 466"]}
+                {"codigo": "pesquisa_qualitativa", "label": "Pesquisa Qualitativa", "palavras_chave": ["pesquisa qualitativa", "método qualitativo", "análise de conteúdo", "entrevista em profundidade", "grupo focal"]},
+                {"codigo": "pesquisa_mista", "label": "Pesquisa Mista", "palavras_chave": ["pesquisa mista", "métodos mistos", "triangulação"]},
+                {"codigo": "etica_pesquisa", "label": "Ética em Pesquisa com Seres Humanos", "palavras_chave": ["ética em pesquisa", "comitê de ética", "cep", "conep", "resolução 466", "tcle"]},
+                {
+                  "codigo": "avaliacao_psicologica",
+                  "label": "Avaliação Psicológica e Testes",
+                  "palavras_chave": ["avaliação psicológica", "teste psicológico", "psicometria", "satepsi", "laudo psicológico", "documento psicológico"],
+                  "filhos": [
+                    {"codigo": "testes_inteligencia", "label": "Testes de Inteligência", "palavras_chave": ["wais", "wisc", "raven", "son-r", "qi", "quociente de inteligência"]},
+                    {"codigo": "testes_expressivos", "label": "Testes Expressivos/Projetivos", "palavras_chave": ["rorschach", "tat", "htp", "zulliger", "teste projetivo", "desenho da figura humana", "palográfico"]},
+                    {"codigo": "escalas_sintomaticas", "label": "Escalas Sintomáticas", "palavras_chave": ["bdi", "bai", "bhs", "escala beck", "hamilton", "y-bocs", "mmpi", "escala de ansiedade", "escala de depressão"]},
+                    {"codigo": "entrevistas_estruturadas", "label": "Entrevistas Diagnósticas", "palavras_chave": ["scid", "entrevista estruturada", "entrevista clínica", "anamnese"]},
+                    {"codigo": "psicometria_fundamentos", "label": "Fundamentos Psicométricos", "palavras_chave": ["validade", "fidedignidade", "normatização", "padronização", "tct", "tri"]}
+                  ]
+                }
               ]
             },
             {
@@ -132,7 +201,9 @@
                 {"codigo": "codigo_etica", "label": "Código de Ética do Psicólogo", "palavras_chave": ["código de ética do psicólogo", "cep", "direitos fundamentais"]},
                 {"codigo": "cfp_crp", "label": "CFP e CRPs", "palavras_chave": ["conselho federal de psicologia", "cfp", "crp", "conselho regional"]},
                 {"codigo": "sigilo", "label": "Sigilo e Confidencialidade", "palavras_chave": ["sigilo", "sigilo profissional", "preservar sigilo", "quebra de sigilo", "dever de sigilo", "confidencialidade"]},
-                {"codigo": "dilemas_eticos", "label": "Dilemas Éticos", "palavras_chave": ["dilema ético", "conflito ético"]}
+                {"codigo": "dilemas_eticos", "label": "Dilemas Éticos", "palavras_chave": ["dilema ético", "conflito ético"]},
+                {"codigo": "atuacao_online", "label": "Atuação Online / TICs", "palavras_chave": ["atendimento online", "psicoterapia online", "resolução 11", "tic na psicologia"]},
+                {"codigo": "resolucoes_cfp", "label": "Resoluções do CFP", "palavras_chave": ["resolução cfp", "resolução 09", "resolução 13"]}
               ]
             }
           ]
@@ -150,7 +221,8 @@
                 {"codigo": "normal_patologico", "label": "Normal e Patológico", "palavras_chave": ["normal e patológico", "canguilhem", "normalidade estatística"]},
                 {"codigo": "sofrimento_psiquico", "label": "Sofrimento Psíquico", "palavras_chave": ["sofrimento psíquico", "mal-estar", "angústia"]},
                 {"codigo": "determinantes_sociais", "label": "Determinantes Sociais da Saúde Mental", "palavras_chave": ["determinantes sociais", "desigualdade e saúde mental", "pobreza", "violência estrutural"]},
-                {"codigo": "estigma", "label": "Estigma e Saúde Mental", "palavras_chave": ["estigma", "preconceito", "doença mental"]}
+                {"codigo": "estigma", "label": "Estigma e Saúde Mental", "palavras_chave": ["estigma", "preconceito", "doença mental"]},
+                {"codigo": "modelo_biopsicossocial", "label": "Modelo Biopsicossocial", "palavras_chave": ["biopsicossocial", "modelo biomédico", "saúde integral"]}
               ]
             },
             {
@@ -160,7 +232,8 @@
               "filhos": [
                 {"codigo": "dsm5", "label": "DSM-5 e DSM-5-TR", "palavras_chave": ["dsm", "dsm-5", "dsm5", "manual diagnóstico estatístico", "apa"]},
                 {"codigo": "cid11", "label": "CID-10 e CID-11", "palavras_chave": ["cid", "cid-10", "cid-11", "classificação internacional de doenças", "oms"]},
-                {"codigo": "criticas_psiquiatrizacao", "label": "Críticas à Psiquiatrização", "palavras_chave": ["psiquiatrização", "medicalização", "patologização"]}
+                {"codigo": "criticas_psiquiatrizacao", "label": "Críticas à Psiquiatrização", "palavras_chave": ["psiquiatrização", "medicalização", "patologização"]},
+                {"codigo": "diagnostico_diferencial", "label": "Diagnóstico Diferencial", "palavras_chave": ["diagnóstico diferencial", "comorbidade", "diagnóstico psiquiátrico"]}
               ]
             },
             {
@@ -169,9 +242,19 @@
               "palavras_chave": ["neurodesenvolvimento", "transtorno do desenvolvimento"],
               "filhos": [
                 {"codigo": "tdah", "label": "TDAH", "palavras_chave": ["tdah", "déficit de atenção", "hiperatividade", "metilfenidato"]},
-                {"codigo": "tea", "label": "TEA — Transtorno do Espectro Autista", "palavras_chave": ["autismo", "tea", "espectro autista", "asperger"]},
+                {
+                  "codigo": "tea",
+                  "label": "TEA — Transtorno do Espectro Autista",
+                  "palavras_chave": ["autismo", "tea", "espectro autista", "asperger"],
+                  "filhos": [
+                    {"codigo": "tea_nivel1", "label": "TEA Nível 1 (suporte leve)", "palavras_chave": ["tea nível 1", "autismo leve"]},
+                    {"codigo": "tea_nivel2", "label": "TEA Nível 2 (suporte substancial)", "palavras_chave": ["tea nível 2", "autismo moderado"]},
+                    {"codigo": "tea_nivel3", "label": "TEA Nível 3 (suporte muito substancial)", "palavras_chave": ["tea nível 3", "autismo severo"]}
+                  ]
+                },
                 {"codigo": "deficiencia_intelectual", "label": "Deficiência Intelectual", "palavras_chave": ["deficiência intelectual", "di", "retardo mental"]},
-                {"codigo": "aprendizagem", "label": "Transtornos Específicos de Aprendizagem", "palavras_chave": ["dislexia", "discalculia", "disgrafia", "transtorno de aprendizagem"]}
+                {"codigo": "aprendizagem", "label": "Transtornos Específicos de Aprendizagem", "palavras_chave": ["dislexia", "discalculia", "disgrafia", "transtorno de aprendizagem"]},
+                {"codigo": "comunicacao", "label": "Transtornos da Comunicação", "palavras_chave": ["transtorno de linguagem", "gagueira", "transtorno fonológico"]}
               ]
             },
             {
@@ -180,8 +263,10 @@
               "palavras_chave": ["transtorno do humor", "transtorno afetivo"],
               "filhos": [
                 {"codigo": "depressao", "label": "Depressão Maior", "palavras_chave": ["depressão", "depressivo", "transtorno depressivo", "transtorno depressivo maior", "humor deprimido", "tristeza patológica", "anedonia", "episódio depressivo"]},
-                {"codigo": "bipolar", "label": "Transtorno Bipolar", "palavras_chave": ["bipolar", "mania", "hipomania", "transtorno bipolar"]},
-                {"codigo": "distimia", "label": "Distimia e Transtorno Depressivo Persistente", "palavras_chave": ["distimia", "transtorno depressivo persistente"]}
+                {"codigo": "bipolar", "label": "Transtorno Bipolar", "palavras_chave": ["bipolar", "mania", "hipomania", "transtorno bipolar", "episódio maníaco"]},
+                {"codigo": "distimia", "label": "Distimia / Transtorno Depressivo Persistente", "palavras_chave": ["distimia", "transtorno depressivo persistente"]},
+                {"codigo": "depressao_pos_parto", "label": "Depressão Pós-Parto", "palavras_chave": ["depressão pós-parto", "puerperal", "blues puerperal"]},
+                {"codigo": "humor_disforia_premenstrual", "label": "Transtorno Disfórico Pré-Menstrual", "palavras_chave": ["tdpm", "disforia pré-menstrual"]}
               ]
             },
             {
@@ -189,11 +274,13 @@
               "label": "Transtornos de Ansiedade",
               "palavras_chave": ["ansiedade", "transtorno ansioso"],
               "filhos": [
-                {"codigo": "tag", "label": "Transtorno de Ansiedade Generalizada (TAG)", "palavras_chave": ["tag", "ansiedade generalizada", "preocupação excessiva"]},
+                {"codigo": "tag", "label": "TAG — Transtorno de Ansiedade Generalizada", "palavras_chave": ["tag", "ansiedade generalizada", "preocupação excessiva"]},
                 {"codigo": "panico", "label": "Transtorno de Pânico", "palavras_chave": ["pânico", "ataque de pânico", "síndrome do pânico"]},
                 {"codigo": "fobia_social", "label": "Transtorno de Ansiedade Social", "palavras_chave": ["fobia social", "ansiedade social", "timidez patológica"]},
-                {"codigo": "fobias_especificas", "label": "Fobias Específicas", "palavras_chave": ["fobia específica", "aracnofobia", "claustrofobia"]},
-                {"codigo": "toc", "label": "TOC — Transtorno Obsessivo-Compulsivo", "palavras_chave": ["toc", "obsessivo-compulsivo", "obsessão", "compulsão", "ritual"]}
+                {"codigo": "fobias_especificas", "label": "Fobias Específicas", "palavras_chave": ["fobia específica", "aracnofobia", "claustrofobia", "agorafobia"]},
+                {"codigo": "toc", "label": "TOC — Transtorno Obsessivo-Compulsivo", "palavras_chave": ["toc", "obsessivo-compulsivo", "obsessão", "compulsão", "ritual"]},
+                {"codigo": "ansiedade_separacao", "label": "Transtorno de Ansiedade de Separação", "palavras_chave": ["ansiedade de separação"]},
+                {"codigo": "mutismo_seletivo", "label": "Mutismo Seletivo", "palavras_chave": ["mutismo seletivo"]}
               ]
             },
             {
@@ -203,7 +290,8 @@
               "filhos": [
                 {"codigo": "tept", "label": "TEPT — Estresse Pós-Traumático", "palavras_chave": ["tept", "estresse pós-traumático", "revivência", "flashback"]},
                 {"codigo": "estresse_agudo", "label": "Transtorno de Estresse Agudo", "palavras_chave": ["estresse agudo", "reação aguda ao estresse"]},
-                {"codigo": "adaptacao", "label": "Transtornos de Adaptação", "palavras_chave": ["transtorno de adaptação", "transtorno adaptativo"]}
+                {"codigo": "adaptacao", "label": "Transtornos de Adaptação", "palavras_chave": ["transtorno de adaptação", "transtorno adaptativo"]},
+                {"codigo": "trauma_complexo", "label": "Trauma Complexo / C-PTSD", "palavras_chave": ["trauma complexo", "c-ptsd", "trauma relacional"]}
               ]
             },
             {
@@ -211,10 +299,11 @@
               "label": "Transtornos Psicóticos",
               "palavras_chave": ["psicose", "transtorno psicótico"],
               "filhos": [
-                {"codigo": "esquizofrenia", "label": "Esquizofrenia", "palavras_chave": ["esquizofrenia", "esquizofrênico", "alucinação", "delírio"]},
+                {"codigo": "esquizofrenia", "label": "Esquizofrenia", "palavras_chave": ["esquizofrenia", "esquizofrênico", "alucinação", "delírio", "sintomas positivos", "sintomas negativos"]},
                 {"codigo": "esquizoafetivo", "label": "Transtorno Esquizoafetivo", "palavras_chave": ["esquizoafetivo"]},
-                {"codigo": "delirante", "label": "Transtorno Delirante", "palavras_chave": ["delírio", "transtorno delirante"]},
-                {"codigo": "surto_psicotico", "label": "Surto Psicótico Agudo", "palavras_chave": ["surto psicótico", "primeiro episódio psicótico"]}
+                {"codigo": "delirante", "label": "Transtorno Delirante", "palavras_chave": ["delírio", "transtorno delirante", "delírio persecutório"]},
+                {"codigo": "surto_psicotico", "label": "Surto Psicótico Agudo / 1º Episódio", "palavras_chave": ["surto psicótico", "primeiro episódio psicótico", "pep"]},
+                {"codigo": "psicose_breve", "label": "Transtorno Psicótico Breve", "palavras_chave": ["psicose breve", "transtorno psicótico breve"]}
               ]
             },
             {
@@ -223,9 +312,10 @@
               "palavras_chave": ["dependência química", "uso de substâncias", "drogas"],
               "filhos": [
                 {"codigo": "alcool", "label": "Álcool", "palavras_chave": ["alcoolismo", "álcool", "etilismo", "síndrome de abstinência alcoólica"]},
-                {"codigo": "drogas_ilicitas", "label": "Drogas Ilícitas", "palavras_chave": ["drogas", "crack", "cocaína", "maconha", "heroína"]},
+                {"codigo": "drogas_ilicitas", "label": "Drogas Ilícitas", "palavras_chave": ["drogas", "crack", "cocaína", "maconha", "heroína", "opioides"]},
                 {"codigo": "tabagismo", "label": "Tabagismo", "palavras_chave": ["tabagismo", "nicotina", "cigarro"]},
-                {"codigo": "reducao_danos", "label": "Redução de Danos", "palavras_chave": ["redução de danos", "rd", "estratégia de redução de danos"]}
+                {"codigo": "reducao_danos", "label": "Redução de Danos", "palavras_chave": ["redução de danos", "rd", "estratégia de redução de danos"]},
+                {"codigo": "dependencia_comportamental", "label": "Dependências Comportamentais", "palavras_chave": ["jogo patológico", "dependência de internet", "gaming disorder"]}
               ]
             },
             {
@@ -233,9 +323,37 @@
               "label": "Transtornos da Personalidade",
               "palavras_chave": ["transtorno de personalidade", "personalidade patológica"],
               "filhos": [
-                {"codigo": "borderline", "label": "Borderline", "palavras_chave": ["borderline", "tpb", "personalidade limítrofe"]},
-                {"codigo": "antissocial", "label": "Antissocial", "palavras_chave": ["antissocial", "psicopatia", "sociopatia"]},
-                {"codigo": "narcisista", "label": "Narcisista", "palavras_chave": ["narcisista", "narcisismo patológico"]}
+                {
+                  "codigo": "cluster_a",
+                  "label": "Cluster A (Excêntricos)",
+                  "palavras_chave": ["cluster a", "paranoide", "esquizoide", "esquizotípica"],
+                  "filhos": [
+                    {"codigo": "paranoide", "label": "Transtorno Paranoide", "palavras_chave": ["personalidade paranoide"]},
+                    {"codigo": "esquizoide", "label": "Transtorno Esquizoide", "palavras_chave": ["personalidade esquizoide"]},
+                    {"codigo": "esquizotipica", "label": "Transtorno Esquizotípico", "palavras_chave": ["esquizotípico", "personalidade esquizotípica"]}
+                  ]
+                },
+                {
+                  "codigo": "cluster_b",
+                  "label": "Cluster B (Dramáticos/Erráticos)",
+                  "palavras_chave": ["cluster b", "dramático", "errático"],
+                  "filhos": [
+                    {"codigo": "borderline", "label": "Borderline / TPB", "palavras_chave": ["borderline", "tpb", "personalidade limítrofe", "instabilidade emocional"]},
+                    {"codigo": "antissocial", "label": "Antissocial", "palavras_chave": ["antissocial", "psicopatia", "sociopatia"]},
+                    {"codigo": "narcisista", "label": "Narcisista", "palavras_chave": ["narcisista", "narcisismo patológico"]},
+                    {"codigo": "histrionica", "label": "Histriônica", "palavras_chave": ["histriônica", "personalidade histriônica"]}
+                  ]
+                },
+                {
+                  "codigo": "cluster_c",
+                  "label": "Cluster C (Ansiosos/Temerosos)",
+                  "palavras_chave": ["cluster c", "ansioso", "temeroso"],
+                  "filhos": [
+                    {"codigo": "evitativa", "label": "Evitativa", "palavras_chave": ["personalidade evitativa"]},
+                    {"codigo": "dependente", "label": "Dependente", "palavras_chave": ["personalidade dependente"]},
+                    {"codigo": "obsessivo_compulsiva_pers", "label": "Obsessivo-Compulsiva (Personalidade)", "palavras_chave": ["personalidade obsessiva", "personalidade compulsiva"]}
+                  ]
+                }
               ]
             },
             {
@@ -243,9 +361,41 @@
               "label": "Transtornos Alimentares",
               "palavras_chave": ["transtorno alimentar"],
               "filhos": [
-                {"codigo": "anorexia", "label": "Anorexia Nervosa", "palavras_chave": ["anorexia", "anorexia nervosa"]},
-                {"codigo": "bulimia", "label": "Bulimia Nervosa", "palavras_chave": ["bulimia", "bulimia nervosa", "vômito induzido"]},
-                {"codigo": "compulsao_alimentar", "label": "Transtorno da Compulsão Alimentar", "palavras_chave": ["compulsão alimentar", "tca"]}
+                {"codigo": "anorexia", "label": "Anorexia Nervosa", "palavras_chave": ["anorexia", "anorexia nervosa", "restrição alimentar"]},
+                {"codigo": "bulimia", "label": "Bulimia Nervosa", "palavras_chave": ["bulimia", "bulimia nervosa", "vômito induzido", "compensação"]},
+                {"codigo": "compulsao_alimentar", "label": "Transtorno da Compulsão Alimentar", "palavras_chave": ["compulsão alimentar", "tca", "comer compulsivo"]},
+                {"codigo": "outros_alimentares", "label": "Outros Transtornos Alimentares", "palavras_chave": ["pica", "ruminação", "transtorno alimentar restritivo"]}
+              ]
+            },
+            {
+              "codigo": "dissociativos",
+              "label": "Transtornos Dissociativos",
+              "palavras_chave": ["dissociação", "transtorno dissociativo"],
+              "filhos": [
+                {"codigo": "tdi", "label": "Transtorno Dissociativo de Identidade (TDI)", "palavras_chave": ["tdi", "personalidade múltipla", "transtorno dissociativo de identidade"]},
+                {"codigo": "amnesia_dissociativa", "label": "Amnésia Dissociativa", "palavras_chave": ["amnésia dissociativa", "amnésia psicogênica"]},
+                {"codigo": "despersonalizacao", "label": "Despersonalização e Desrealização", "palavras_chave": ["despersonalização", "desrealização"]}
+              ]
+            },
+            {
+              "codigo": "sono",
+              "label": "Transtornos do Sono",
+              "palavras_chave": ["transtorno do sono", "distúrbio do sono"],
+              "filhos": [
+                {"codigo": "insonia", "label": "Insônia", "palavras_chave": ["insônia", "dificuldade para dormir"]},
+                {"codigo": "narcolepsia", "label": "Narcolepsia", "palavras_chave": ["narcolepsia", "cataplexia"]},
+                {"codigo": "apneia_sono", "label": "Apneia Obstrutiva do Sono", "palavras_chave": ["apneia do sono", "saos", "apneia obstrutiva"]},
+                {"codigo": "parassonia", "label": "Parassonias", "palavras_chave": ["parassonia", "sonambulismo", "pesadelos", "terror noturno"]}
+              ]
+            },
+            {
+              "codigo": "somaticos",
+              "label": "Transtornos de Sintomas Somáticos",
+              "palavras_chave": ["transtorno somático", "somatização"],
+              "filhos": [
+                {"codigo": "somatizacao", "label": "Transtorno de Sintomas Somáticos", "palavras_chave": ["somatização", "sintomas somáticos"]},
+                {"codigo": "hipocondria", "label": "Transtorno de Ansiedade de Doença (Hipocondria)", "palavras_chave": ["hipocondria", "ansiedade de doença"]},
+                {"codigo": "conversao", "label": "Transtorno Conversivo", "palavras_chave": ["conversão", "transtorno conversivo", "sintomas neurológicos funcionais"]}
               ]
             },
             {
@@ -254,9 +404,10 @@
               "palavras_chave": ["suicídio", "autolesão", "comportamento suicida"],
               "filhos": [
                 {"codigo": "fatores_risco_protecao", "label": "Fatores de Risco e Proteção", "palavras_chave": ["fator de risco", "fator de proteção", "suicidalidade"]},
-                {"codigo": "prevencao_suicidio", "label": "Prevenção do Suicídio", "palavras_chave": ["prevenção do suicídio", "setembro amarelo", "posvenção"]},
-                {"codigo": "manejo_crise", "label": "Manejo da Crise Suicida", "palavras_chave": ["crise suicida", "avaliação de risco", "tentativa de suicídio"]},
-                {"codigo": "autolesao_nao_suicida", "label": "Autolesão Não Suicida", "palavras_chave": ["autolesão", "autoagressão", "automutilação"]}
+                {"codigo": "prevencao_suicidio", "label": "Prevenção do Suicídio", "palavras_chave": ["prevenção do suicídio", "setembro amarelo", "cvv"]},
+                {"codigo": "manejo_crise_suicida", "label": "Manejo da Crise Suicida", "palavras_chave": ["crise suicida", "avaliação de risco", "tentativa de suicídio"]},
+                {"codigo": "autolesao_nao_suicida", "label": "Autolesão Não Suicida", "palavras_chave": ["autolesão", "autoagressão", "automutilação"]},
+                {"codigo": "posvencao", "label": "Pós-venção", "palavras_chave": ["pós-venção", "posvenção", "enlutados por suicídio"]}
               ]
             },
             {
@@ -264,11 +415,14 @@
               "label": "Intervenções e Tratamentos",
               "palavras_chave": ["tratamento psicológico", "intervenção em saúde mental"],
               "filhos": [
-                {"codigo": "psicoterapia", "label": "Psicoterapia", "palavras_chave": ["psicoterapia", "setting terapêutico", "vínculo terapêutico"]},
-                {"codigo": "farmacoterapia", "label": "Farmacoterapia (Psicofármacos)", "palavras_chave": ["psicofármaco", "antidepressivo", "antipsicótico", "benzodiazepínico", "estabilizador de humor"]},
+                {"codigo": "psicoterapia", "label": "Psicoterapia (Geral)", "palavras_chave": ["psicoterapia", "setting terapêutico", "vínculo terapêutico", "aliança terapêutica"]},
+                {"codigo": "psicoterapia_breve", "label": "Psicoterapia Breve / Focal", "palavras_chave": ["psicoterapia breve", "psicoterapia focal", "sessão única"]},
+                {"codigo": "farmacoterapia", "label": "Farmacoterapia (Psicofármacos)", "palavras_chave": ["psicofármaco", "antidepressivo", "antipsicótico", "benzodiazepínico", "estabilizador de humor", "isrs"]},
                 {"codigo": "internacao", "label": "Internação Psiquiátrica", "palavras_chave": ["internação psiquiátrica", "internação voluntária", "involuntária", "compulsória"]},
-                {"codigo": "grupos_terapeuticos", "label": "Grupos Terapêuticos", "palavras_chave": ["grupo terapêutico", "terapia de grupo"]},
-                {"codigo": "matriciamento", "label": "Matriciamento e Apoio Matricial", "palavras_chave": ["matriciamento", "apoio matricial", "equipe matricial"]}
+                {"codigo": "grupos_terapeuticos", "label": "Grupos Terapêuticos", "palavras_chave": ["grupo terapêutico", "terapia de grupo", "grupo operativo"]},
+                {"codigo": "matriciamento", "label": "Matriciamento e Apoio Matricial", "palavras_chave": ["matriciamento", "apoio matricial", "equipe matricial"]},
+                {"codigo": "emdr", "label": "EMDR (Trauma)", "palavras_chave": ["emdr", "dessensibilização e reprocessamento"]},
+                {"codigo": "ect", "label": "Eletroconvulsoterapia (ECT)", "palavras_chave": ["eletroconvulsoterapia", "ect", "eletrochoque"]}
               ]
             }
           ]
@@ -287,7 +441,12 @@
                 {"codigo": "conferencia_1986", "label": "8ª Conferência Nacional de Saúde (1986)", "palavras_chave": ["8ª conferência", "oitava conferência de saúde", "1986"]},
                 {"codigo": "cf_1988", "label": "Constituição Federal de 1988", "palavras_chave": ["constituição de 1988", "constituição cidadã", "artigo 196", "saúde como direito"]},
                 {"codigo": "lei_8080", "label": "Lei 8.080/1990", "palavras_chave": ["lei 8080", "lei orgânica da saúde", "los"]},
-                {"codigo": "lei_8142", "label": "Lei 8.142/1990", "palavras_chave": ["lei 8142", "participação social", "controle social"]}
+                {"codigo": "lei_8142", "label": "Lei 8.142/1990", "palavras_chave": ["lei 8142", "participação social", "controle social"]},
+                {"codigo": "nob96", "label": "NOB-SUS 01/96", "palavras_chave": ["nob 96", "norma operacional básica"]},
+                {"codigo": "noas", "label": "NOAS 01/2002", "palavras_chave": ["noas", "norma operacional da assistência"]},
+                {"codigo": "pacto_saude", "label": "Pacto pela Saúde (2006)", "palavras_chave": ["pacto pela saúde", "pacto pela vida", "pacto de gestão"]},
+                {"codigo": "decreto_7508", "label": "Decreto 7.508/2011", "palavras_chave": ["decreto 7508", "contrato organizativo", "coap"]},
+                {"codigo": "lc141", "label": "Lei Complementar 141/2012 (Financiamento)", "palavras_chave": ["lc 141", "lei complementar 141", "financiamento da saúde"]}
               ]
             },
             {
@@ -296,10 +455,11 @@
               "palavras_chave": ["princípios do sus", "diretrizes do sus"],
               "filhos": [
                 {"codigo": "universalidade", "label": "Universalidade", "palavras_chave": ["universalidade", "acesso universal", "saúde para todos", "todas as pessoas tenham acesso", "independente de condição social", "direito de todos"]},
-                {"codigo": "integralidade", "label": "Integralidade", "palavras_chave": ["integralidade", "atenção integral"]},
+                {"codigo": "integralidade", "label": "Integralidade", "palavras_chave": ["integralidade", "atenção integral", "cuidado integral"]},
                 {"codigo": "equidade", "label": "Equidade", "palavras_chave": ["equidade", "tratamento desigual aos desiguais"]},
                 {"codigo": "descentralizacao", "label": "Descentralização e Regionalização", "palavras_chave": ["descentralização", "regionalização", "hierarquização"]},
-                {"codigo": "participacao_social", "label": "Participação Social", "palavras_chave": ["participação social", "participação popular", "controle social"]}
+                {"codigo": "participacao_social", "label": "Participação Social", "palavras_chave": ["participação social", "participação popular", "controle social"]},
+                {"codigo": "resolutividade", "label": "Resolutividade", "palavras_chave": ["resolutividade", "resolutividade do sus"]}
               ]
             },
             {
@@ -308,11 +468,12 @@
               "palavras_chave": ["reforma psiquiátrica", "antimanicomial", "desinstitucionalização"],
               "filhos": [
                 {"codigo": "mtsm", "label": "Movimento dos Trabalhadores em Saúde Mental (1978)", "palavras_chave": ["mtsm", "movimento dos trabalhadores em saúde mental", "1978"]},
-                {"codigo": "basaglia", "label": "Franco Basaglia e a Experiência de Trieste", "palavras_chave": ["basaglia", "franco basaglia", "trieste", "psiquiatria democrática"]},
+                {"codigo": "basaglia", "label": "Franco Basaglia e Experiência de Trieste", "palavras_chave": ["basaglia", "franco basaglia", "trieste", "psiquiatria democrática"]},
                 {"codigo": "manifesto_bauru", "label": "Manifesto de Bauru (1987)", "palavras_chave": ["manifesto de bauru", "bauru", "1987", "por uma sociedade sem manicômios"]},
                 {"codigo": "lei_10216", "label": "Lei 10.216/2001 — Lei Paulo Delgado", "palavras_chave": ["lei 10216", "lei paulo delgado", "direitos das pessoas com transtornos mentais"]},
                 {"codigo": "luta_antimanicomial", "label": "Luta Antimanicomial (18 de maio)", "palavras_chave": ["luta antimanicomial", "18 de maio", "dia da luta antimanicomial"]},
-                {"codigo": "desinstitucionalizacao", "label": "Desinstitucionalização", "palavras_chave": ["desinstitucionalização", "desospitalização", "fechamento de manicômios"]}
+                {"codigo": "desinstitucionalizacao", "label": "Desinstitucionalização", "palavras_chave": ["desinstitucionalização", "desospitalização", "fechamento de manicômios"]},
+                {"codigo": "nise_da_silveira", "label": "Nise da Silveira", "palavras_chave": ["nise da silveira", "casa das palmeiras", "imagens do inconsciente"]}
               ]
             },
             {
@@ -326,9 +487,11 @@
                   "palavras_chave": ["atenção básica", "atenção primária"],
                   "filhos": [
                     {"codigo": "ubs", "label": "UBS — Unidade Básica de Saúde", "palavras_chave": ["ubs", "unidade básica de saúde", "posto de saúde"]},
-                    {"codigo": "esf", "label": "ESF — Estratégia Saúde da Família", "palavras_chave": ["esf", "estratégia saúde da família", "equipe de saúde da família", "agente comunitário"]},
-                    {"codigo": "nasf", "label": "NASF-AB — Núcleo Ampliado de Saúde da Família", "palavras_chave": ["nasf", "nasf-ab", "núcleo ampliado"]},
-                    {"codigo": "apoio_matricial", "label": "Apoio Matricial", "palavras_chave": ["apoio matricial", "matriciamento em saúde mental"]}
+                    {"codigo": "esf", "label": "ESF — Estratégia Saúde da Família", "palavras_chave": ["esf", "estratégia saúde da família", "equipe de saúde da família"]},
+                    {"codigo": "acs", "label": "ACS — Agente Comunitário de Saúde", "palavras_chave": ["acs", "agente comunitário de saúde"]},
+                    {"codigo": "nasf", "label": "NASF-AB — Núcleo Ampliado", "palavras_chave": ["nasf", "nasf-ab", "núcleo ampliado"]},
+                    {"codigo": "apoio_matricial", "label": "Apoio Matricial em Saúde Mental", "palavras_chave": ["apoio matricial", "matriciamento em saúde mental"]},
+                    {"codigo": "consultorio_rua", "label": "Consultório na Rua", "palavras_chave": ["consultório na rua", "população em situação de rua"]}
                   ]
                 },
                 {
@@ -369,7 +532,20 @@
                 {"codigo": "portaria_336", "label": "Portaria 336/2002 (regulamenta CAPS)", "palavras_chave": ["portaria 336", "336/2002", "regulamento do caps"]},
                 {"codigo": "portaria_3088", "label": "Portaria 3.088/2011 (RAPS)", "palavras_chave": ["portaria 3088", "3088/2011", "institui a raps"]},
                 {"codigo": "volta_para_casa", "label": "Programa De Volta Para Casa (PVC)", "palavras_chave": ["de volta para casa", "pvc", "auxílio-reabilitação"]},
-                {"codigo": "politica_ad", "label": "Política para Álcool e Outras Drogas", "palavras_chave": ["política de álcool e drogas", "política nacional sobre drogas"]}
+                {"codigo": "politica_ad", "label": "Política para Álcool e Outras Drogas", "palavras_chave": ["política de álcool e drogas", "política nacional sobre drogas"]},
+                {"codigo": "viver_sem_limite", "label": "Programa Viver sem Limite", "palavras_chave": ["viver sem limite", "plano viver sem limite", "pessoas com deficiência"]}
+              ]
+            },
+            {
+              "codigo": "humanizacao",
+              "label": "Humanização e Clínica Ampliada",
+              "palavras_chave": ["humanização", "pnh", "política nacional de humanização"],
+              "filhos": [
+                {"codigo": "pnh", "label": "PNH — Política Nacional de Humanização", "palavras_chave": ["pnh", "política nacional de humanização", "humanizasus"]},
+                {"codigo": "acolhimento", "label": "Acolhimento (PNH)", "palavras_chave": ["acolhimento", "acolhimento com classificação de risco"]},
+                {"codigo": "clinica_ampliada", "label": "Clínica Ampliada", "palavras_chave": ["clínica ampliada", "gestão ampliada do cuidado"]},
+                {"codigo": "pts", "label": "Projeto Terapêutico Singular (PTS)", "palavras_chave": ["pts", "projeto terapêutico singular"]},
+                {"codigo": "educacao_permanente", "label": "Educação Permanente em Saúde", "palavras_chave": ["educação permanente", "educação continuada em saúde"]}
               ]
             },
             {
@@ -388,8 +564,22 @@
               "palavras_chave": ["saúde mental infantil", "saúde mental do adolescente"],
               "filhos": [
                 {"codigo": "eca", "label": "ECA — Estatuto da Criança e do Adolescente", "palavras_chave": ["eca", "estatuto da criança e do adolescente", "direitos da criança"]},
-                {"codigo": "sm_escola", "label": "Saúde Mental nas Escolas", "palavras_chave": ["saúde mental na escola", "psicologia escolar pública"]},
-                {"codigo": "violencia_crianca", "label": "Violência contra Crianças e Adolescentes", "palavras_chave": ["violência contra crianças", "abuso infantil", "negligência"]}
+                {"codigo": "sm_escola", "label": "Saúde Mental nas Escolas", "palavras_chave": ["saúde mental na escola", "psicologia escolar pública", "pse"]},
+                {"codigo": "violencia_crianca", "label": "Violência contra Crianças e Adolescentes", "palavras_chave": ["violência contra crianças", "abuso infantil", "negligência", "abuso sexual infantil"]}
+              ]
+            },
+            {
+              "codigo": "populacoes_especificas",
+              "label": "Saúde Mental de Populações Específicas",
+              "palavras_chave": ["populações vulneráveis", "população específica"],
+              "filhos": [
+                {"codigo": "sm_mulher", "label": "Saúde Mental da Mulher", "palavras_chave": ["saúde mental da mulher", "violência contra a mulher", "lei maria da penha", "feminicídio"]},
+                {"codigo": "sm_lgbt", "label": "Saúde Mental LGBTQIA+", "palavras_chave": ["lgbtqia", "saúde lgbt", "identidade de gênero", "orientação sexual"]},
+                {"codigo": "sm_indigena", "label": "Saúde Mental Indígena", "palavras_chave": ["saúde indígena", "sesai", "povos originários"]},
+                {"codigo": "sm_populacao_rua", "label": "População em Situação de Rua", "palavras_chave": ["população em situação de rua", "pop rua", "morador de rua"]},
+                {"codigo": "sm_idoso", "label": "Saúde Mental do Idoso", "palavras_chave": ["saúde mental do idoso", "gerontologia", "demência", "alzheimer"]},
+                {"codigo": "sm_trabalhador", "label": "Saúde Mental do Trabalhador", "palavras_chave": ["saúde do trabalhador", "burnout", "assédio moral", "cerest"]},
+                {"codigo": "sm_negros_quilombolas", "label": "Saúde Mental de Negros e Quilombolas", "palavras_chave": ["saúde da população negra", "racismo estrutural", "quilombola"]}
               ]
             },
             {
@@ -403,6 +593,16 @@
               ]
             },
             {
+              "codigo": "violencia",
+              "label": "Violência e Saúde Mental",
+              "palavras_chave": ["violência", "violência e saúde"],
+              "filhos": [
+                {"codigo": "violencia_domestica", "label": "Violência Doméstica e Intrafamiliar", "palavras_chave": ["violência doméstica", "violência intrafamiliar"]},
+                {"codigo": "violencia_genero", "label": "Violência de Gênero", "palavras_chave": ["violência de gênero", "violência contra mulher", "maria da penha"]},
+                {"codigo": "notificacao_violencia", "label": "Notificação Compulsória de Violência", "palavras_chave": ["notificação compulsória", "sinan", "ficha de notificação"]}
+              ]
+            },
+            {
               "codigo": "desafios_contemporaneos",
               "label": "Desafios Contemporâneos",
               "palavras_chave": ["desafios atuais", "saúde mental contemporânea"],
@@ -410,7 +610,7 @@
                 {"codigo": "financiamento", "label": "Financiamento do SUS", "palavras_chave": ["financiamento do sus", "ec 95", "emenda do teto de gastos", "subfinanciamento"]},
                 {"codigo": "retrocessos", "label": "Retrocessos na Política de Saúde Mental", "palavras_chave": ["retrocesso", "desmonte da raps", "nota técnica 11", "comunidades terapêuticas"]},
                 {"codigo": "pandemia_sm", "label": "Saúde Mental e Pandemia COVID-19", "palavras_chave": ["pandemia", "covid-19", "impacto psicossocial", "telessaúde"]},
-                {"codigo": "populacoes_vulneraveis", "label": "Saúde Mental de Populações Vulneráveis", "palavras_chave": ["população em situação de rua", "lgbtqia", "indígena", "quilombola", "saúde mental da mulher"]}
+                {"codigo": "medicalizacao_sociedade", "label": "Medicalização da Sociedade", "palavras_chave": ["medicalização", "medicamentalização", "psiquiatrização da vida"]}
               ]
             }
           ]
