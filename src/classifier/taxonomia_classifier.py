@@ -68,13 +68,28 @@ def _score(matches: int, nivel: int) -> int:
 
 def _load_tree(materia: str, etapa: str = "ef2") -> List[Dict]:
     with _conn() as con:
-        return con.execute(
+        nodes = con.execute(
             """SELECT id, codigo, label, nivel, parent_id, palavras_chave
                FROM taxonomia
                WHERE etapa=? AND materia=?
                ORDER BY nivel""",
             (etapa, materia),
         ).fetchall()
+        # Fallback: se a etapa padrão não tem a matéria, tenta qualquer etapa
+        if not nodes:
+            row = con.execute(
+                "SELECT DISTINCT etapa FROM taxonomia WHERE materia=? LIMIT 1",
+                (materia,),
+            ).fetchone()
+            if row:
+                nodes = con.execute(
+                    """SELECT id, codigo, label, nivel, parent_id, palavras_chave
+                       FROM taxonomia
+                       WHERE etapa=? AND materia=?
+                       ORDER BY nivel""",
+                    (row["etapa"], materia),
+                ).fetchall()
+        return nodes
 
 
 # ── Classificador ─────────────────────────────────────────────────────────────

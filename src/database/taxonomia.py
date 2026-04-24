@@ -102,6 +102,18 @@ def seed_from_json(json_path: Path) -> Dict:
 
 # ── Consulta ──────────────────────────────────────────────────────────────────
 
+def listar_etapas() -> List[Dict]:
+    """Retorna etapas distintas com contagem de nós."""
+    with _conn() as con:
+        return con.execute(
+            """SELECT etapa, COUNT(*) AS total_nos,
+                      COUNT(DISTINCT materia) AS total_materias
+               FROM taxonomia
+               GROUP BY etapa
+               ORDER BY etapa""",
+        ).fetchall()
+
+
 def listar_materias(etapa: str = "ef2") -> List[Dict]:
     with _conn() as con:
         return con.execute(

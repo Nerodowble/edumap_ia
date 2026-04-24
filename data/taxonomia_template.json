@@ -1,0 +1,50 @@
+{
+  "_comentario": "TEMPLATE DE IMPORTACAO DE TAXONOMIA — EduMap. Campos que iniciam com _ são apenas documentação; serão ignorados pelo importador.",
+  "_instrucoes": [
+    "1. 'etapa' é o nível educacional: 'ef1' (Ensino Fundamental I), 'ef2' (Fundamental II), 'em' (Médio), 'superior' (Graduação), ou 'curso_<nome>' para cursos específicos.",
+    "2. 'materias' é uma LISTA de matérias. Cada matéria tem um código único (slug minúsculo, só letras/números/underscore), um label legível, palavras-chave para o classificador, e uma lista de filhos.",
+    "3. Os filhos seguem o mesmo formato recursivamente (até ~6 níveis de profundidade recomendados).",
+    "4. 'palavras_chave' é uma LISTA de strings. São usadas pelo classificador para decidir se uma questão pertence àquele nó. Pode usar termos com ou sem acento, singular ou plural.",
+    "5. Após importar via POST /admin/taxonomia/import-json (ou botão 'Upload de novo JSON' na área admin), a taxonomia passa a ser usada automaticamente nos uploads de novas provas.",
+    "6. O sistema aplica UPSERT: nós já existentes têm label e palavras-chave atualizados; nós novos são inseridos. Nós não listados no JSON NÃO são apagados."
+  ],
+  "versao": "1.0",
+  "etapa": "ef2",
+  "descricao": "Taxonomia mínima de exemplo (Geografia) apenas para demonstrar o formato.",
+  "materias": [
+    {
+      "codigo": "geografia_exemplo",
+      "label": "Geografia (Exemplo)",
+      "palavras_chave": ["geografia", "geográfico"],
+      "filhos": [
+        {
+          "codigo": "geografia_fisica",
+          "label": "Geografia Física",
+          "palavras_chave": ["geografia física", "natureza"],
+          "filhos": [
+            {
+              "codigo": "relevo",
+              "label": "Relevo",
+              "palavras_chave": ["relevo", "planalto", "planície", "depressão", "montanha"],
+              "filhos": [
+                {"codigo": "planalto", "label": "Planalto", "palavras_chave": ["planalto", "chapada"]},
+                {"codigo": "planicie", "label": "Planície", "palavras_chave": ["planície", "várzea"]},
+                {"codigo": "montanha", "label": "Montanha e Serra", "palavras_chave": ["montanha", "serra", "cordilheira"]}
+              ]
+            },
+            {
+              "codigo": "clima",
+              "label": "Clima",
+              "palavras_chave": ["clima", "climático", "temperatura", "umidade"]
+            }
+          ]
+        },
+        {
+          "codigo": "geografia_humana",
+          "label": "Geografia Humana",
+          "palavras_chave": ["geografia humana", "população", "urbanização"]
+        }
+      ]
+    }
+  ]
+}

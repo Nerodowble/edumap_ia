@@ -117,6 +117,18 @@ DELETE /admin/provas/{id}
 ## 6. Aba 🗺️ Taxonomia
 
 A mais rica — permite gerenciar toda a árvore de classificação taxonômica.
+Suporta múltiplas **etapas educacionais** (ef1, ef2, em, superior, cursos).
+
+### 6.0 Seletor de etapa
+No topo da aba, há um dropdown que permite alternar entre as etapas existentes:
+- `Ensino Fundamental I (ef1)`
+- `Ensino Fundamental II (ef2)` — etapa padrão
+- `Ensino Médio (em)`
+- `Ensino Superior (superior)` — ex: Psicologia/SUS
+- `curso_<nome>` — para cursos específicos
+
+Ao trocar de etapa, stats e árvore recarregam automaticamente. A etapa em uso é
+mostrada ao lado do seletor em formato de código (ex: `superior`).
 
 ### 6.1 Estatísticas (topo da aba)
 Cards com:
@@ -136,10 +148,21 @@ primeira instalação.
 
 **📤 Upload de novo JSON**
 Escolhe um arquivo JSON do seu computador e envia para o servidor. O backend
-faz UPSERT (não deleta nós ausentes).
+lê o campo `etapa` do JSON e importa naquela etapa (ef1, ef2, em, superior,
+curso_*). Faz UPSERT (não deleta nós ausentes).
 
-*Quando usar:* importar uma taxonomia editada offline; migrar de outra
-instalação.
+*Quando usar:* importar uma taxonomia editada offline; adicionar taxonomia
+de uma nova etapa (ex: Ensino Superior); migrar de outra instalação.
+
+**📥 Baixar template (JSON exemplo)**
+Baixa um arquivo `taxonomia_template.json` com:
+- Estrutura mínima comentada (instruções nos campos `_comentario` e
+  `_instrucoes` que o importador ignora)
+- Exemplo de matéria com filhos e palavras-chave
+- Todos os campos obrigatórios e opcionais documentados
+
+*Quando usar:* você quer criar uma taxonomia nova (ex: Psicologia, Direito,
+Engenharia) e precisa do esqueleto para preencher.
 
 ### 6.3 Visualização e edição da árvore
 

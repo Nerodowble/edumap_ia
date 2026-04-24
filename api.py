@@ -35,6 +35,7 @@ from ocr.extractor import extract_text_from_file
 from report.relatorio_pdf import gerar_pdf_relatorio
 
 JSON_TAXONOMIA = Path(__file__).parent / "data" / "taxonomia.json"
+JSON_TEMPLATE = Path(__file__).parent / "data" / "taxonomia_template.json"
 
 # ── App ───────────────────────────────────────────────────────────────────────
 app = FastAPI(
@@ -112,6 +113,7 @@ SUBJECT_TO_KEY: Dict[str, str] = {
     "Física": "fisica",        "Química": "quimica",
     "Inglês": "ingles",        "Artes": "artes",
     "Ed. Física": "ed_fisica",
+    "Psicologia, Saúde Mental e SUS": "psicologia_saude_mental_sus",
 }
 
 # ── Schemas ───────────────────────────────────────────────────────────────────
@@ -220,6 +222,27 @@ def admin_seed_taxonomia(user=Depends(get_current_user)):
         raise HTTPException(500, str(exc))
     except Exception as exc:
         raise HTTPException(500, f"Erro no seed: {exc}")
+
+
+@app.get("/admin/taxonomia/etapas", summary="Lista etapas distintas com contagem")
+def admin_taxonomia_etapas(user=Depends(get_current_user)):
+    return db_taxonomia.listar_etapas()
+
+
+@app.get("/admin/taxonomia/template", summary="Baixa template JSON de exemplo")
+def admin_taxonomia_template(user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    if not JSON_TEMPLATE.exists():
+        raise HTTPException(404, "Template não encontrado no servidor.")
+    with open(JSON_TEMPLATE, "r", encoding="utf-8") as f:
+        content = f.read()
+    return Response(
+        content=content,
+        media_type="application/json",
+        headers={
+            "Content-Disposition": 'attachment; filename="taxonomia_template.json"'
+        },
+    )
 
 
 @app.get("/admin/taxonomia/stats", summary="Estatísticas da taxonomia carregada")
