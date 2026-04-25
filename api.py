@@ -231,6 +231,10 @@ class CriarNoBody(BaseModel):
     palavras_chave: list = []
 
 
+class TipoQuestaoBody(BaseModel):
+    tipo: str  # "multipla_escolha" | "verdadeiro_falso"
+
+
 # ── Auth endpoints ────────────────────────────────────────────────────────────
 @app.post("/auth/register", status_code=201, summary="Registra novo usuário")
 def auth_register(body: RegisterBody):
@@ -589,6 +593,22 @@ def get_questoes(prova_id: int, user=Depends(get_current_user)):
     return db.get_questoes_prova(prova_id)
 
 
+@app.put("/provas/{prova_id}/questoes/{questao_id}/tipo",
+         summary="Atualiza tipo da questão (multipla_escolha | verdadeiro_falso)")
+def update_tipo_questao(
+    prova_id: int,
+    questao_id: int,
+    body: TipoQuestaoBody,
+    user=Depends(get_current_user),
+):
+    _require_prova_access(prova_id, user)
+    if body.tipo not in ("multipla_escolha", "verdadeiro_falso"):
+        raise HTTPException(400, "tipo inválido. Use 'multipla_escolha' ou 'verdadeiro_falso'.")
+    if not db.atualizar_tipo_questao(questao_id, body.tipo):
+        raise HTTPException(404, "Questão não encontrada.")
+    return {"ok": True, "tipo": body.tipo}
+
+
 @app.get("/provas/{prova_id}/relatorio/turma", summary="Relatório de desempenho por aluno")
 def get_relatorio_turma(prova_id: int, user=Depends(get_current_user)):
     _require_prova_access(prova_id, user)
@@ -674,17 +694,21 @@ def lancar_respostas(prova_id: int, payload: LancarBulkPayload, user=Depends(get
 
 # ── OCR de gabarito de aluno ──────────────────────────────────────────────────
 def _parse_respostas_ocr(text: str) -> Dict[int, str]:
+    """Extrai pares (número da questão, alternativa) do texto OCR.
+    Aceita A-E (múltipla escolha) e V/F (verdadeiro/falso)."""
     respostas: Dict[int, str] = {}
+    # Inclui V e F nos padrões — letras válidas A-F (com V/F como casos especiais)
     patterns = [
-        r'\b(\d{1,2})\s*[.)\-:]\s*([A-Ea-e])\b',
-        r'\bQ\s*(\d{1,2})\s*[:\-\s]\s*([A-Ea-e])\b',
-        r'\b(\d{1,2})\s+([A-Ea-e])\b',
+        r'\b(\d{1,2})\s*[.)\-:]\s*([A-FVa-fv])\b',
+        r'\bQ\s*(\d{1,2})\s*[:\-\s]\s*([A-FVa-fv])\b',
+        r'\b(\d{1,2})\s+([A-FVa-fv])\b',
     ]
+    valid = "ABCDEFV"
     for pattern in patterns:
         for m in re.finditer(pattern, text, re.IGNORECASE):
             num = int(m.group(1))
             alt = m.group(2).upper()
-            if 1 <= num <= 60 and alt in "ABCDE" and num not in respostas:
+            if 1 <= num <= 60 and alt in valid and num not in respostas:
                 respostas[num] = alt
     return respostas
 

@@ -61,6 +61,7 @@ _PG_SCHEMA = [
         numero           INTEGER,
         texto            TEXT,
         stem             TEXT,
+        tipo             TEXT DEFAULT 'multipla_escolha',
         area_key         TEXT,
         area_display     TEXT,
         subarea_key      TEXT,
@@ -145,6 +146,7 @@ CREATE TABLE IF NOT EXISTS questoes (
     numero           INTEGER,
     texto            TEXT,
     stem             TEXT,
+    tipo             TEXT DEFAULT 'multipla_escolha',
     area_key         TEXT,
     area_display     TEXT,
     subarea_key      TEXT,
@@ -267,6 +269,7 @@ class _Conn:
                 "ALTER TABLE turmas ADD COLUMN IF NOT EXISTS usuario_id BIGINT REFERENCES usuarios(id) ON DELETE SET NULL",
                 "ALTER TABLE questoes ADD COLUMN IF NOT EXISTS taxonomia_codigo TEXT",
                 "ALTER TABLE provas ADD COLUMN IF NOT EXISTS usuario_id BIGINT REFERENCES usuarios(id) ON DELETE SET NULL",
+                "ALTER TABLE questoes ADD COLUMN IF NOT EXISTS tipo TEXT DEFAULT 'multipla_escolha'",
             ]:
                 try:
                     self._cur.execute(alter)
@@ -280,6 +283,7 @@ class _Conn:
                 "ALTER TABLE turmas ADD COLUMN usuario_id INTEGER REFERENCES usuarios(id) ON DELETE SET NULL",
                 "ALTER TABLE questoes ADD COLUMN taxonomia_codigo TEXT",
                 "ALTER TABLE provas ADD COLUMN usuario_id INTEGER REFERENCES usuarios(id) ON DELETE SET NULL",
+                "ALTER TABLE questoes ADD COLUMN tipo TEXT DEFAULT 'multipla_escolha'",
             ]:
                 try:
                     self._con.execute(alter)
@@ -380,15 +384,16 @@ def salvar_prova(
             )
             con.execute(
                 """INSERT INTO questoes
-                   (prova_id, numero, texto, stem, area_key, area_display,
-                    subarea_key, subarea_label,
+                   (prova_id, numero, texto, stem, tipo,
+                    area_key, area_display, subarea_key, subarea_label,
                     bloom_nivel, bloom_nome, bloom_verbo, taxonomia_codigo, bncc_codigos)
-                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (
                     prova_id,
                     q.get("number"),
                     q.get("text", ""),
                     q.get("stem", ""),
+                    q.get("tipo", "multipla_escolha"),
                     q.get("area_key", ""),
                     q.get("area_display", ""),
                     q.get("subarea_key", "geral"),
@@ -484,6 +489,23 @@ def delete_prova(prova_id: int) -> bool:
             return False
         con.execute("DELETE FROM provas WHERE id=?", (prova_id,))
         return True
+
+
+def atualizar_tipo_questao(questao_id: int, tipo: str) -> bool:
+    """Atualiza tipo da questão (multipla_escolha | verdadeiro_falso)."""
+    if tipo not in ("multipla_escolha", "verdadeiro_falso"):
+        return False
+    with _conn() as con:
+        existing = con.execute("SELECT id FROM questoes WHERE id=?", (questao_id,)).fetchone()
+        if not existing:
+            return False
+        con.execute("UPDATE questoes SET tipo=? WHERE id=?", (tipo, questao_id))
+        return True
+
+
+def get_questao(questao_id: int) -> Optional[Dict]:
+    with _conn() as con:
+        return con.execute("SELECT * FROM questoes WHERE id=?", (questao_id,)).fetchone()
 
 
 def get_questoes_prova(prova_id: int) -> List[Dict]:

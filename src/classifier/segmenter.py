@@ -53,6 +53,42 @@ def _split_stem_alts(text: str) -> Dict:
     }
 
 
+def _detect_tipo(stem: str, alternatives: List[str]) -> str:
+    """Detecta se a questão é multipla_escolha ou verdadeiro_falso.
+    Critérios:
+      - Alternativas são exatamente V/F ou Verdadeiro/Falso
+      - OU stem menciona claramente 'verdadeiro e falso' / 'V ou F'
+    """
+    # Limpa as alternativas: remove "(A)", "(B)" etc do início e normaliza
+    alts_clean = []
+    for a in alternatives:
+        # remove prefixo letra (ex: "(A) Verdadeiro" -> "Verdadeiro")
+        cleaned = re.sub(r"^\s*\(?[A-Ea-e]\)?\s*[-.)]?\s*", "", a).strip().lower()
+        alts_clean.append(cleaned)
+
+    vf_words = {"v", "f", "verdadeiro", "falso", "verdadeira", "falsa"}
+    if alts_clean and all(a in vf_words for a in alts_clean):
+        return "verdadeiro_falso"
+
+    stem_lower = stem.lower()
+    # Marcadores típicos de instrução V/F
+    vf_indicators = [
+        "verdadeiro ou falso",
+        "verdadeiro (v) ou falso (f)",
+        "marque v",
+        "marque (v)",
+        "assinale v",
+        "(v) para verdadeiro",
+        " v ou f ",
+        "v para verdadeiro",
+    ]
+    for indicator in vf_indicators:
+        if indicator in stem_lower:
+            return "verdadeiro_falso"
+
+    return "multipla_escolha"
+
+
 def segment_questions(text: str) -> List[Dict]:
     """Split raw OCR text into individual question dicts."""
     lines = text.splitlines()
@@ -101,12 +137,14 @@ def segment_questions(text: str) -> List[Dict]:
         # Descarta chunks sem conteúdo mínimo no stem (cabeçalhos residuais)
         if len((parts["stem"] or "").strip()) < 12 and not parts["alternatives"]:
             continue
+        tipo = _detect_tipo(parts["stem"], parts["alternatives"])
         results.append(
             {
                 "number": c["number"],
                 "text": c["raw"],
                 "stem": parts["stem"],
                 "alternatives": parts["alternatives"],
+                "tipo": tipo,
             }
         )
 
