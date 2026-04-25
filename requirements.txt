@@ -2,10 +2,13 @@
 # Instale com: pip install -r requirements.txt
 
 # OCR e extração de texto
-pymupdf>=1.23.0        # Extração de texto de PDFs digitais
-pdfplumber>=0.10.0     # Fallback para PDFs complexos
-pytesseract>=0.3.10    # OCR para imagens (requer Tesseract instalado no sistema)
-Pillow>=10.0.0         # Processamento de imagens
+pymupdf>=1.23.0              # Extração de texto de PDFs digitais
+pdfplumber>=0.10.0           # Fallback para PDFs complexos
+pytesseract>=0.3.10          # OCR para imagens (requer Tesseract instalado no sistema)
+Pillow>=10.0.0               # Processamento de imagens
+opencv-python-headless>=4.8  # Pré-processamento avançado (deskew, Otsu, denoise)
+numpy>=1.24                   # Suporte a OpenCV
+
 
 # API REST
 fastapi>=0.110.0       # Framework da API
