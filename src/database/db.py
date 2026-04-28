@@ -359,6 +359,45 @@ def listar_alunos(turma_id: int) -> List[Dict]:
         ).fetchall()
 
 
+def get_aluno(aluno_id: int) -> Optional[Dict]:
+    with _conn() as con:
+        return con.execute("SELECT * FROM alunos WHERE id=?", (aluno_id,)).fetchone()
+
+
+def atualizar_aluno(aluno_id: int, nome: str) -> bool:
+    if not nome or not nome.strip():
+        return False
+    with _conn() as con:
+        existing = con.execute("SELECT id FROM alunos WHERE id=?", (aluno_id,)).fetchone()
+        if not existing:
+            return False
+        con.execute("UPDATE alunos SET nome=? WHERE id=?", (nome.strip(), aluno_id))
+        return True
+
+
+def deletar_aluno(aluno_id: int) -> bool:
+    with _conn() as con:
+        existing = con.execute("SELECT id FROM alunos WHERE id=?", (aluno_id,)).fetchone()
+        if not existing:
+            return False
+        con.execute("DELETE FROM alunos WHERE id=?", (aluno_id,))
+        return True
+
+
+def atualizar_turma(turma_id: int, nome: str, escola: str = "", disciplina: str = "") -> bool:
+    if not nome or not nome.strip():
+        return False
+    with _conn() as con:
+        existing = con.execute("SELECT id FROM turmas WHERE id=?", (turma_id,)).fetchone()
+        if not existing:
+            return False
+        con.execute(
+            "UPDATE turmas SET nome=?, escola=?, disciplina=? WHERE id=?",
+            (nome.strip(), escola or "", disciplina or "", turma_id),
+        )
+        return True
+
+
 # ── Provas ────────────────────────────────────────────────────────────────────
 
 def salvar_prova(

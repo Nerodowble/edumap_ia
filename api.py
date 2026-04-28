@@ -182,6 +182,16 @@ class AlunoCreate(BaseModel):
     nome: str
 
 
+class AlunoUpdate(BaseModel):
+    nome: str
+
+
+class TurmaUpdate(BaseModel):
+    nome: str
+    escola: str = ""
+    disciplina: str = ""
+
+
 class RespostaItem(BaseModel):
     resposta: str = ""
     gabarito: str = ""
@@ -443,6 +453,14 @@ def create_turma(body: TurmaCreate, user=Depends(get_current_user)):
     return turma
 
 
+@app.put("/turmas/{turma_id}", summary="Atualiza nome/escola/disciplina de uma turma")
+def update_turma(turma_id: int, body: TurmaUpdate, user=Depends(get_current_user)):
+    _require_turma_access(turma_id, user)
+    if not db.atualizar_turma(turma_id, body.nome, body.escola, body.disciplina):
+        raise HTTPException(400, "Não foi possível atualizar a turma. Verifique se o nome é válido.")
+    return db.get_turma(turma_id)
+
+
 @app.delete("/turmas/{turma_id}", status_code=204, summary="Remove uma turma")
 def delete_turma(turma_id: int, user=Depends(get_current_user)):
     _require_turma_access(turma_id, user)
@@ -461,6 +479,26 @@ def create_aluno(turma_id: int, body: AlunoCreate, user=Depends(get_current_user
     _require_turma_access(turma_id, user)
     aid = db.criar_aluno(body.nome, turma_id)
     return {"id": aid, "nome": body.nome, "turma_id": turma_id}
+
+
+@app.put("/alunos/{aluno_id}", summary="Atualiza o nome de um aluno")
+def update_aluno(aluno_id: int, body: AlunoUpdate, user=Depends(get_current_user)):
+    aluno = db.get_aluno(aluno_id)
+    if not aluno:
+        raise HTTPException(404, "Aluno não encontrado.")
+    _require_turma_access(aluno["turma_id"], user)
+    if not db.atualizar_aluno(aluno_id, body.nome):
+        raise HTTPException(400, "Nome inválido.")
+    return db.get_aluno(aluno_id)
+
+
+@app.delete("/alunos/{aluno_id}", status_code=204, summary="Remove um aluno")
+def delete_aluno(aluno_id: int, user=Depends(get_current_user)):
+    aluno = db.get_aluno(aluno_id)
+    if not aluno:
+        raise HTTPException(404, "Aluno não encontrado.")
+    _require_turma_access(aluno["turma_id"], user)
+    db.deletar_aluno(aluno_id)
 
 
 # ── Provas ────────────────────────────────────────────────────────────────────
