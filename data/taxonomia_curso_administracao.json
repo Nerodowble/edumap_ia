@@ -1,0 +1,1531 @@
+{
+  "versao": "1.0",
+  "etapa": "curso_administracao",
+  "descricao": "Taxonomia para o curso Técnico em Administração - ETEC / Centro Paula Souza. 1º, 2º e 3º módulos.",
+  "materias": [
+    {
+      "codigo": "administracao_marketing",
+      "label": "Administração de Marketing",
+      "palavras_chave": ["marketing", "administração de marketing", "mercadologia", "estratégia de marketing"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_marketing",
+          "label": "Fundamentos de Marketing",
+          "palavras_chave": ["fundamentos do marketing", "conceito de marketing", "evolução do marketing", "kotler"],
+          "filhos": [
+            {"codigo": "conceito_marketing", "label": "Conceito e Evolução do Marketing", "palavras_chave": ["conceito de marketing", "evolução do marketing", "era da produção", "era de vendas", "marketing 1.0", "marketing 2.0", "marketing 3.0", "marketing 4.0", "marketing 5.0"]},
+            {"codigo": "necessidade_desejo_demanda", "label": "Necessidades, Desejos e Demandas", "palavras_chave": ["necessidade", "desejo", "demanda", "necessidades humanas", "valor para o cliente"]},
+            {"codigo": "orientacoes_empresa", "label": "Orientações da Empresa para o Mercado", "palavras_chave": ["orientação para produção", "orientação para vendas", "orientação para o cliente", "orientação para o marketing societal"]},
+            {"codigo": "marketing_holistico", "label": "Marketing Holístico", "palavras_chave": ["marketing holístico", "marketing integrado", "marketing interno", "marketing de relacionamento", "marketing socialmente responsável"]}
+          ]
+        },
+        {
+          "codigo": "ambiente_marketing",
+          "label": "Ambiente de Marketing",
+          "palavras_chave": ["ambiente de marketing", "ambiente empresarial", "macroambiente", "microambiente"],
+          "filhos": [
+            {"codigo": "microambiente", "label": "Microambiente", "palavras_chave": ["microambiente", "fornecedores", "intermediários", "clientes", "concorrentes", "públicos"]},
+            {"codigo": "macroambiente", "label": "Macroambiente", "palavras_chave": ["macroambiente", "ambiente demográfico", "ambiente econômico", "ambiente natural", "ambiente tecnológico", "ambiente político-legal", "ambiente cultural"]},
+            {"codigo": "analise_pestel", "label": "Análise PESTEL", "palavras_chave": ["pestel", "pest", "análise pestel", "fatores políticos econômicos sociais tecnológicos"]}
+          ]
+        },
+        {
+          "codigo": "comportamento_consumidor",
+          "label": "Comportamento do Consumidor",
+          "palavras_chave": ["comportamento do consumidor", "consumidor", "decisão de compra"],
+          "filhos": [
+            {"codigo": "fatores_influencia", "label": "Fatores que Influenciam a Compra", "palavras_chave": ["fatores culturais", "fatores sociais", "fatores pessoais", "fatores psicológicos", "grupos de referência"]},
+            {"codigo": "processo_decisao_compra", "label": "Processo de Decisão de Compra", "palavras_chave": ["processo de decisão", "reconhecimento da necessidade", "busca de informação", "avaliação de alternativas", "decisão de compra", "comportamento pós-compra"]},
+            {"codigo": "papeis_compra", "label": "Papéis no Processo de Compra", "palavras_chave": ["iniciador", "influenciador", "decisor", "comprador", "usuário"]},
+            {"codigo": "b2b_b2c", "label": "B2B, B2C e B2G", "palavras_chave": ["b2b", "b2c", "b2g", "business to business", "business to consumer", "mercado organizacional", "mercado consumidor"]}
+          ]
+        },
+        {
+          "codigo": "segmentacao_posicionamento",
+          "label": "STP — Segmentação, Targeting e Posicionamento",
+          "palavras_chave": ["segmentação", "targeting", "posicionamento", "stp"],
+          "filhos": [
+            {"codigo": "segmentacao_mercado", "label": "Segmentação de Mercado", "palavras_chave": ["segmentação geográfica", "segmentação demográfica", "segmentação psicográfica", "segmentação comportamental", "nicho de mercado"]},
+            {"codigo": "selecao_mercado_alvo", "label": "Seleção do Mercado-Alvo (Targeting)", "palavras_chave": ["mercado-alvo", "público-alvo", "target", "marketing indiferenciado", "marketing diferenciado", "marketing concentrado"]},
+            {"codigo": "posicionamento", "label": "Posicionamento e Diferenciação", "palavras_chave": ["posicionamento", "diferenciação", "proposta de valor", "mapa de posicionamento", "reposicionamento"]},
+            {"codigo": "persona_publico", "label": "Persona e Público-Alvo", "palavras_chave": ["persona", "buyer persona", "perfil do cliente", "icp"]}
+          ]
+        },
+        {
+          "codigo": "mix_marketing",
+          "label": "Mix de Marketing (4Ps)",
+          "palavras_chave": ["mix de marketing", "4ps", "composto mercadológico", "marketing mix"],
+          "filhos": [
+            {
+              "codigo": "produto",
+              "label": "Produto",
+              "palavras_chave": ["produto", "bem", "serviço", "linha de produtos"],
+              "filhos": [
+                {"codigo": "ciclo_vida_produto", "label": "Ciclo de Vida do Produto", "palavras_chave": ["ciclo de vida", "introdução", "crescimento", "maturidade", "declínio"]},
+                {"codigo": "matriz_bcg", "label": "Matriz BCG", "palavras_chave": ["matriz bcg", "estrela", "vaca leiteira", "ponto de interrogação", "abacaxi", "boston consulting group"]},
+                {"codigo": "branding", "label": "Branding e Marca", "palavras_chave": ["branding", "marca", "brand equity", "identidade da marca", "valor da marca", "naming", "logotipo"]},
+                {"codigo": "embalagem_rotulagem", "label": "Embalagem e Rotulagem", "palavras_chave": ["embalagem", "rótulo", "design da embalagem", "packaging"]},
+                {"codigo": "desenvolvimento_novos_produtos", "label": "Desenvolvimento de Novos Produtos", "palavras_chave": ["desenvolvimento de produto", "lançamento", "ndp", "inovação de produto"]}
+              ]
+            },
+            {
+              "codigo": "preco",
+              "label": "Preço",
+              "palavras_chave": ["preço", "precificação", "política de preços"],
+              "filhos": [
+                {"codigo": "estrategias_precificacao", "label": "Estratégias de Precificação", "palavras_chave": ["preço de penetração", "preço de skimming", "desnatamento", "preço psicológico", "preço por valor percebido"]},
+                {"codigo": "formacao_preco", "label": "Formação do Preço", "palavras_chave": ["markup", "margem de contribuição", "custo mais margem", "cost plus", "mark-up"]},
+                {"codigo": "elasticidade_preco", "label": "Elasticidade-Preço da Demanda", "palavras_chave": ["elasticidade preço", "elasticidade da demanda", "preço elástico", "preço inelástico"]},
+                {"codigo": "descontos_condicoes", "label": "Descontos e Condições", "palavras_chave": ["desconto", "promoção de preço", "condições de pagamento"]}
+              ]
+            },
+            {
+              "codigo": "praca",
+              "label": "Praça (Distribuição)",
+              "palavras_chave": ["praça", "distribuição", "canais de distribuição", "ponto de venda"],
+              "filhos": [
+                {"codigo": "canais_distribuicao", "label": "Canais de Distribuição", "palavras_chave": ["canal de distribuição", "canal direto", "canal indireto", "intermediários", "atacado", "varejo"]},
+                {"codigo": "varejo_atacado", "label": "Varejo e Atacado", "palavras_chave": ["varejo", "atacado", "atacarejo", "loja física", "e-commerce"]},
+                {"codigo": "estrategias_distribuicao", "label": "Estratégias de Distribuição", "palavras_chave": ["distribuição intensiva", "distribuição seletiva", "distribuição exclusiva"]},
+                {"codigo": "omnichannel", "label": "Multicanal e Omnichannel", "palavras_chave": ["omnichannel", "multicanal", "experiência integrada", "phygital"]}
+              ]
+            },
+            {
+              "codigo": "promocao",
+              "label": "Promoção (Comunicação)",
+              "palavras_chave": ["promoção", "comunicação integrada", "promotion", "mix de comunicação"],
+              "filhos": [
+                {"codigo": "propaganda_publicidade", "label": "Propaganda e Publicidade", "palavras_chave": ["propaganda", "publicidade", "anúncio", "mídia paga"]},
+                {"codigo": "promocao_vendas", "label": "Promoção de Vendas", "palavras_chave": ["promoção de vendas", "cupom", "amostra grátis", "concursos"]},
+                {"codigo": "relacoes_publicas", "label": "Relações Públicas e Assessoria", "palavras_chave": ["relações públicas", "rp", "assessoria de imprensa", "press release"]},
+                {"codigo": "venda_pessoal", "label": "Venda Pessoal", "palavras_chave": ["venda pessoal", "força de vendas", "vendedor", "atendimento comercial"]},
+                {"codigo": "marketing_direto", "label": "Marketing Direto", "palavras_chave": ["marketing direto", "mala direta", "telemarketing", "e-mail marketing"]},
+                {"codigo": "merchandising", "label": "Merchandising", "palavras_chave": ["merchandising", "exposição no ponto de venda", "vitrine"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "marketing_digital",
+          "label": "Marketing Digital",
+          "palavras_chave": ["marketing digital", "marketing online", "marketing na internet"],
+          "filhos": [
+            {"codigo": "inbound_outbound", "label": "Inbound e Outbound Marketing", "palavras_chave": ["inbound marketing", "outbound marketing", "marketing de atração", "marketing de interrupção"]},
+            {"codigo": "seo_sem", "label": "SEO e SEM", "palavras_chave": ["seo", "sem", "otimização para buscadores", "search engine optimization", "google ads", "palavras-chave"]},
+            {"codigo": "midias_sociais", "label": "Mídias Sociais", "palavras_chave": ["mídias sociais", "redes sociais", "social media", "instagram", "facebook", "tiktok", "linkedin"]},
+            {"codigo": "marketing_conteudo", "label": "Marketing de Conteúdo", "palavras_chave": ["marketing de conteúdo", "content marketing", "blog", "produção de conteúdo"]},
+            {"codigo": "funil_vendas", "label": "Funil de Vendas e Jornada do Cliente", "palavras_chave": ["funil de vendas", "funil de marketing", "topo de funil", "meio de funil", "fundo de funil", "jornada do cliente", "tofu", "mofu", "bofu"]},
+            {"codigo": "automacao_marketing", "label": "Automação de Marketing", "palavras_chave": ["automação de marketing", "rd station", "hubspot", "lead nurturing"]},
+            {"codigo": "influenciadores", "label": "Marketing de Influência", "palavras_chave": ["influenciador digital", "marketing de influência", "influencer", "micro influenciador"]},
+            {"codigo": "metricas_digitais", "label": "Métricas e KPIs Digitais", "palavras_chave": ["cac", "ltv", "roi", "roas", "cpc", "cpm", "ctr", "taxa de conversão", "kpi digital"]}
+          ]
+        },
+        {
+          "codigo": "pesquisa_mercado",
+          "label": "Pesquisa de Mercado",
+          "palavras_chave": ["pesquisa de mercado", "pesquisa mercadológica", "estudo de mercado"],
+          "filhos": [
+            {"codigo": "tipos_pesquisa", "label": "Tipos de Pesquisa", "palavras_chave": ["pesquisa exploratória", "pesquisa descritiva", "pesquisa causal", "pesquisa quantitativa", "pesquisa qualitativa"]},
+            {"codigo": "instrumentos_coleta", "label": "Instrumentos de Coleta", "palavras_chave": ["questionário", "entrevista", "grupo focal", "focus group", "observação"]},
+            {"codigo": "amostragem_mkt", "label": "Amostragem em Pesquisa", "palavras_chave": ["amostra", "amostragem probabilística", "amostragem não probabilística", "tamanho da amostra"]}
+          ]
+        },
+        {
+          "codigo": "crm_relacionamento",
+          "label": "CRM e Relacionamento com o Cliente",
+          "palavras_chave": ["crm", "customer relationship management", "relacionamento com o cliente", "marketing de relacionamento"],
+          "filhos": [
+            {"codigo": "fidelizacao", "label": "Fidelização e Retenção", "palavras_chave": ["fidelização", "retenção de clientes", "programa de fidelidade", "churn"]},
+            {"codigo": "experiencia_cliente", "label": "Experiência do Cliente (CX)", "palavras_chave": ["customer experience", "cx", "experiência do cliente", "nps", "net promoter score", "csat"]},
+            {"codigo": "pos_venda", "label": "Pós-venda e SAC", "palavras_chave": ["pós-venda", "sac", "atendimento ao cliente", "ouvidoria"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "aplicativos_informaticos",
+      "label": "Aplicativos Informáticos",
+      "palavras_chave": ["aplicativos informáticos", "informática", "tecnologia da informação", "softwares administrativos"],
+      "filhos": [
+        {
+          "codigo": "conceitos_informatica",
+          "label": "Conceitos de Informática",
+          "palavras_chave": ["informática básica", "computador", "hardware", "software"],
+          "filhos": [
+            {"codigo": "hardware", "label": "Hardware", "palavras_chave": ["hardware", "processador", "cpu", "memória ram", "disco rígido", "ssd", "placa-mãe", "periféricos"]},
+            {"codigo": "software", "label": "Software", "palavras_chave": ["software", "sistema operacional", "aplicativo", "windows", "linux", "macos", "programa"]},
+            {"codigo": "redes_internet", "label": "Redes e Internet", "palavras_chave": ["rede de computadores", "internet", "intranet", "lan", "wan", "wi-fi", "ip", "navegador"]},
+            {"codigo": "armazenamento_nuvem", "label": "Armazenamento em Nuvem", "palavras_chave": ["nuvem", "cloud", "google drive", "onedrive", "dropbox", "armazenamento em nuvem"]}
+          ]
+        },
+        {
+          "codigo": "editor_texto",
+          "label": "Editor de Texto (Word/Writer)",
+          "palavras_chave": ["editor de texto", "microsoft word", "word", "libreoffice writer", "documento de texto"],
+          "filhos": [
+            {"codigo": "formatacao_texto", "label": "Formatação de Texto", "palavras_chave": ["fonte", "parágrafo", "alinhamento", "espaçamento", "negrito", "itálico", "sublinhado"]},
+            {"codigo": "estilos_modelos", "label": "Estilos e Modelos", "palavras_chave": ["estilos", "template", "modelo", "cabeçalho", "rodapé", "sumário automático"]},
+            {"codigo": "mala_direta", "label": "Mala Direta", "palavras_chave": ["mala direta", "mesclar correspondência", "mail merge"]},
+            {"codigo": "tabelas_objetos", "label": "Tabelas e Objetos", "palavras_chave": ["tabela", "imagem", "gráfico no word", "smartart"]}
+          ]
+        },
+        {
+          "codigo": "planilha_eletronica",
+          "label": "Planilha Eletrônica (Excel/Calc)",
+          "palavras_chave": ["planilha eletrônica", "excel", "microsoft excel", "libreoffice calc", "google sheets"],
+          "filhos": [
+            {"codigo": "conceitos_planilha", "label": "Conceitos Básicos de Planilha", "palavras_chave": ["célula", "linha", "coluna", "intervalo", "pasta de trabalho", "planilha"]},
+            {"codigo": "formulas_funcoes", "label": "Fórmulas e Funções", "palavras_chave": ["fórmula", "função", "soma", "média", "máximo", "mínimo", "cont.se", "somase", "se", "procv", "proch", "procx"]},
+            {"codigo": "formatacao_planilha", "label": "Formatação de Planilhas", "palavras_chave": ["formatação condicional", "formato de número", "formato de moeda", "porcentagem"]},
+            {"codigo": "graficos", "label": "Gráficos e Visualizações", "palavras_chave": ["gráfico de colunas", "gráfico de barras", "gráfico de pizza", "gráfico de linhas", "dashboard"]},
+            {"codigo": "tabela_dinamica", "label": "Tabela Dinâmica", "palavras_chave": ["tabela dinâmica", "pivot table", "tabelas dinâmicas"]},
+            {"codigo": "filtros_classificacao", "label": "Filtros e Classificação", "palavras_chave": ["filtro", "classificar", "ordenar", "filtro avançado"]}
+          ]
+        },
+        {
+          "codigo": "apresentacao",
+          "label": "Apresentações (PowerPoint/Impress)",
+          "palavras_chave": ["powerpoint", "apresentação", "slide", "libreoffice impress", "google slides"],
+          "filhos": [
+            {"codigo": "criacao_slides", "label": "Criação de Slides", "palavras_chave": ["slide", "layout", "tema", "design de slide"]},
+            {"codigo": "animacoes_transicoes", "label": "Animações e Transições", "palavras_chave": ["animação", "transição", "efeitos de slide"]},
+            {"codigo": "boas_praticas_apresentacao", "label": "Boas Práticas de Apresentação", "palavras_chave": ["apresentação eficaz", "storytelling", "público", "comunicação visual"]}
+          ]
+        },
+        {
+          "codigo": "internet_email",
+          "label": "Internet e E-mail Corporativo",
+          "palavras_chave": ["internet", "e-mail", "correio eletrônico", "navegação"],
+          "filhos": [
+            {"codigo": "pesquisa_internet", "label": "Pesquisa na Internet", "palavras_chave": ["mecanismos de busca", "google", "pesquisa avançada", "navegador"]},
+            {"codigo": "email_profissional", "label": "E-mail Profissional", "palavras_chave": ["e-mail", "outlook", "gmail", "etiqueta no e-mail", "assinatura de e-mail"]},
+            {"codigo": "videoconferencia", "label": "Videoconferência e Colaboração", "palavras_chave": ["videoconferência", "zoom", "teams", "google meet", "reunião online"]}
+          ]
+        },
+        {
+          "codigo": "seguranca_digital",
+          "label": "Segurança Digital",
+          "palavras_chave": ["segurança da informação", "segurança digital", "ciberseguranca"],
+          "filhos": [
+            {"codigo": "senhas_autenticacao", "label": "Senhas e Autenticação", "palavras_chave": ["senha forte", "autenticação", "autenticação em dois fatores", "2fa"]},
+            {"codigo": "malware_phishing", "label": "Malware e Phishing", "palavras_chave": ["vírus", "malware", "phishing", "ransomware", "trojan", "antivírus"]},
+            {"codigo": "lgpd_basico", "label": "Noções de LGPD", "palavras_chave": ["lgpd", "lei geral de proteção de dados", "dados pessoais", "consentimento"]},
+            {"codigo": "backup", "label": "Backup e Recuperação", "palavras_chave": ["backup", "cópia de segurança", "recuperação de dados"]}
+          ]
+        },
+        {
+          "codigo": "sistemas_gestao",
+          "label": "Sistemas Integrados de Gestão",
+          "palavras_chave": ["erp", "sistema de gestão", "software empresarial"],
+          "filhos": [
+            {"codigo": "erp", "label": "ERP", "palavras_chave": ["erp", "enterprise resource planning", "sap", "totvs", "protheus"]},
+            {"codigo": "crm_sistema", "label": "CRM (Sistemas)", "palavras_chave": ["crm", "sistema de relacionamento", "salesforce", "pipedrive"]},
+            {"codigo": "automatizacao_escritorio", "label": "Automatização de Escritório", "palavras_chave": ["automação de escritório", "rpa", "macros", "fluxos de trabalho"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "gestao_empreendedora",
+      "label": "Gestão Empreendedora e Inovação",
+      "palavras_chave": ["empreendedorismo", "gestão empreendedora", "inovação", "empreendedor"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_empreendedorismo",
+          "label": "Fundamentos do Empreendedorismo",
+          "palavras_chave": ["empreendedorismo", "perfil empreendedor", "empreendedor de sucesso"],
+          "filhos": [
+            {"codigo": "conceito_empreendedor", "label": "Conceito de Empreendedorismo", "palavras_chave": ["empreendedorismo", "empreender", "schumpeter", "destruição criativa"]},
+            {"codigo": "perfil_empreendedor", "label": "Perfil e Características do Empreendedor", "palavras_chave": ["perfil empreendedor", "características empreendedoras", "iniciativa", "persistência", "comprometimento", "aceitação de riscos"]},
+            {"codigo": "tipos_empreendedorismo", "label": "Tipos de Empreendedorismo", "palavras_chave": ["empreendedorismo por necessidade", "empreendedorismo por oportunidade", "intraempreendedorismo", "empreendedorismo social", "empreendedorismo digital"]},
+            {"codigo": "mitos_empreendedor", "label": "Mitos sobre Empreendedorismo", "palavras_chave": ["mitos do empreendedorismo", "empreendedor nato", "verdades e mitos"]}
+          ]
+        },
+        {
+          "codigo": "identificacao_oportunidades",
+          "label": "Identificação de Oportunidades",
+          "palavras_chave": ["oportunidade de negócio", "identificação de oportunidades", "ideia de negócio"],
+          "filhos": [
+            {"codigo": "ideia_vs_oportunidade", "label": "Ideia versus Oportunidade", "palavras_chave": ["ideia", "oportunidade", "validação de ideia", "diferença entre ideia e oportunidade"]},
+            {"codigo": "analise_mercado", "label": "Análise de Mercado", "palavras_chave": ["análise de mercado", "tamanho de mercado", "tendências de mercado", "demanda potencial"]},
+            {"codigo": "design_thinking", "label": "Design Thinking", "palavras_chave": ["design thinking", "empatia", "ideação", "prototipação", "teste", "dt"]},
+            {"codigo": "criatividade", "label": "Criatividade e Geração de Ideias", "palavras_chave": ["criatividade", "brainstorming", "pensamento divergente", "pensamento convergente"]}
+          ]
+        },
+        {
+          "codigo": "modelo_negocio",
+          "label": "Modelo de Negócio",
+          "palavras_chave": ["modelo de negócio", "business model", "modelagem de negócio"],
+          "filhos": [
+            {"codigo": "canvas", "label": "Business Model Canvas", "palavras_chave": ["canvas", "business model canvas", "bmc", "osterwalder", "9 blocos", "proposta de valor", "segmentos de clientes"]},
+            {"codigo": "proposta_valor", "label": "Proposta de Valor", "palavras_chave": ["proposta de valor", "value proposition canvas", "vpc", "tarefa do cliente", "dores", "ganhos"]},
+            {"codigo": "lean_startup", "label": "Lean Startup", "palavras_chave": ["lean startup", "eric ries", "mvp", "produto mínimo viável", "construir medir aprender", "pivotagem"]},
+            {"codigo": "tipos_modelo_negocio", "label": "Tipos de Modelos de Negócio", "palavras_chave": ["assinatura", "freemium", "marketplace", "saas", "franquia", "modelo de plataforma"]}
+          ]
+        },
+        {
+          "codigo": "plano_negocio",
+          "label": "Plano de Negócios",
+          "palavras_chave": ["plano de negócios", "plano de negócio", "business plan", "elaboração de plano de negócio"],
+          "filhos": [
+            {"codigo": "sumario_executivo", "label": "Sumário Executivo", "palavras_chave": ["sumário executivo", "resumo executivo", "executive summary"]},
+            {"codigo": "analise_mercado_pn", "label": "Análise de Mercado (Plano)", "palavras_chave": ["análise setorial", "concorrência", "fornecedores", "clientes-alvo"]},
+            {"codigo": "plano_marketing_pn", "label": "Plano de Marketing", "palavras_chave": ["plano de marketing", "estratégia comercial", "estratégia de divulgação"]},
+            {"codigo": "plano_operacional_pn", "label": "Plano Operacional", "palavras_chave": ["plano operacional", "processos produtivos", "layout", "capacidade produtiva"]},
+            {"codigo": "plano_financeiro_pn", "label": "Plano Financeiro", "palavras_chave": ["plano financeiro", "investimento inicial", "projeção de receitas", "projeção de despesas", "viabilidade"]},
+            {"codigo": "sebrae_modelos", "label": "Modelos do SEBRAE", "palavras_chave": ["sebrae", "modelo sebrae", "consultoria sebrae"]}
+          ]
+        },
+        {
+          "codigo": "inovacao",
+          "label": "Inovação",
+          "palavras_chave": ["inovação", "inovar", "gestão da inovação"],
+          "filhos": [
+            {"codigo": "tipos_inovacao", "label": "Tipos de Inovação", "palavras_chave": ["inovação de produto", "inovação de processo", "inovação organizacional", "inovação de marketing", "inovação incremental", "inovação radical", "inovação disruptiva"]},
+            {"codigo": "manual_oslo", "label": "Manual de Oslo", "palavras_chave": ["manual de oslo", "ocde inovação"]},
+            {"codigo": "ecossistema_inovacao", "label": "Ecossistema de Inovação", "palavras_chave": ["ecossistema de inovação", "startup", "aceleradora", "incubadora", "vale do silício", "parque tecnológico"]},
+            {"codigo": "open_innovation", "label": "Inovação Aberta", "palavras_chave": ["open innovation", "inovação aberta", "henry chesbrough"]},
+            {"codigo": "transformacao_digital", "label": "Transformação Digital", "palavras_chave": ["transformação digital", "indústria 4.0", "iot", "big data", "digitalização"]}
+          ]
+        },
+        {
+          "codigo": "constituicao_empresa",
+          "label": "Constituição da Empresa",
+          "palavras_chave": ["constituição de empresa", "abrir empresa", "registro de empresa"],
+          "filhos": [
+            {"codigo": "mei", "label": "MEI — Microempreendedor Individual", "palavras_chave": ["mei", "microempreendedor individual", "limite mei", "das mei"]},
+            {"codigo": "me_epp", "label": "ME e EPP", "palavras_chave": ["microempresa", "empresa de pequeno porte", "me", "epp"]},
+            {"codigo": "tipos_societarios", "label": "Tipos Societários", "palavras_chave": ["sociedade limitada", "ltda", "sociedade anônima", "s/a", "eireli", "empresário individual", "sociedade simples"]},
+            {"codigo": "registros_orgaos", "label": "Registros e Órgãos", "palavras_chave": ["junta comercial", "cnpj", "alvará", "inscrição estadual", "inscrição municipal"]}
+          ]
+        },
+        {
+          "codigo": "fontes_financiamento",
+          "label": "Fontes de Financiamento",
+          "palavras_chave": ["financiamento", "captação de recursos", "investimento"],
+          "filhos": [
+            {"codigo": "capital_proprio", "label": "Capital Próprio", "palavras_chave": ["capital próprio", "recursos próprios", "bootstrap", "bootstrapping"]},
+            {"codigo": "capital_terceiros", "label": "Capital de Terceiros", "palavras_chave": ["capital de terceiros", "empréstimo", "financiamento bancário", "bndes"]},
+            {"codigo": "investidor_anjo_vc", "label": "Investidor Anjo e Venture Capital", "palavras_chave": ["investidor anjo", "venture capital", "vc", "private equity", "valuation"]},
+            {"codigo": "crowdfunding", "label": "Crowdfunding", "palavras_chave": ["crowdfunding", "financiamento coletivo", "vakinha"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "introducao_administracao",
+      "label": "Introdução à Administração e aos Negócios",
+      "palavras_chave": ["introdução à administração", "administração", "teoria geral da administração", "tga"],
+      "filhos": [
+        {
+          "codigo": "conceito_administracao",
+          "label": "Conceito e Importância da Administração",
+          "palavras_chave": ["conceito de administração", "definição de administração", "papel do administrador"],
+          "filhos": [
+            {"codigo": "definicao_administracao", "label": "Definição de Administração", "palavras_chave": ["administração", "administrar", "gerenciar", "gestão"]},
+            {"codigo": "habilidades_administrador", "label": "Habilidades do Administrador (Katz)", "palavras_chave": ["habilidades técnicas", "habilidades humanas", "habilidades conceituais", "katz"]},
+            {"codigo": "papeis_mintzberg", "label": "Papéis Gerenciais (Mintzberg)", "palavras_chave": ["papéis do administrador", "mintzberg", "papéis interpessoais", "papéis informacionais", "papéis decisórios"]},
+            {"codigo": "niveis_organizacionais", "label": "Níveis Organizacionais", "palavras_chave": ["nível estratégico", "nível tático", "nível operacional", "pirâmide organizacional"]}
+          ]
+        },
+        {
+          "codigo": "evolucao_pensamento",
+          "label": "Evolução do Pensamento Administrativo",
+          "palavras_chave": ["evolução da administração", "história da administração", "teorias administrativas"],
+          "filhos": [
+            {"codigo": "administracao_cientifica", "label": "Administração Científica (Taylor)", "palavras_chave": ["taylor", "frederick taylor", "administração científica", "taylorismo", "estudo de tempos e movimentos", "homo economicus"]},
+            {"codigo": "fordismo", "label": "Fordismo (Ford)", "palavras_chave": ["ford", "henry ford", "fordismo", "linha de montagem", "produção em massa"]},
+            {"codigo": "teoria_classica", "label": "Teoria Clássica (Fayol)", "palavras_chave": ["fayol", "henri fayol", "teoria clássica", "funções administrativas", "planejar organizar dirigir controlar", "14 princípios", "podc"]},
+            {"codigo": "burocracia_weber", "label": "Teoria da Burocracia (Weber)", "palavras_chave": ["max weber", "burocracia", "weber", "autoridade legal racional", "disfunções da burocracia"]},
+            {"codigo": "relacoes_humanas", "label": "Teoria das Relações Humanas (Mayo)", "palavras_chave": ["elton mayo", "experiência de hawthorne", "relações humanas", "homo social", "grupos informais"]},
+            {"codigo": "teoria_comportamental", "label": "Teoria Comportamental", "palavras_chave": ["teoria comportamental", "teoria x", "teoria y", "mcgregor", "douglas mcgregor", "herzberg"]},
+            {"codigo": "teoria_sistemas", "label": "Teoria de Sistemas", "palavras_chave": ["teoria dos sistemas", "abordagem sistêmica", "bertalanffy", "entrada processamento saída", "feedback"]},
+            {"codigo": "teoria_contingencial", "label": "Teoria Contingencial", "palavras_chave": ["teoria contingencial", "abordagem contingencial", "lawrence e lorsch", "depende"]},
+            {"codigo": "neoclassica", "label": "Teoria Neoclássica", "palavras_chave": ["teoria neoclássica", "peter drucker", "apo", "administração por objetivos"]}
+          ]
+        },
+        {
+          "codigo": "funcoes_administrativas",
+          "label": "Funções Administrativas (PODC)",
+          "palavras_chave": ["funções administrativas", "podc", "planejamento", "organização", "direção", "controle"],
+          "filhos": [
+            {"codigo": "planejamento_func", "label": "Planejamento", "palavras_chave": ["planejamento", "planejar", "objetivos", "metas", "planos"]},
+            {"codigo": "organizacao_func", "label": "Organização", "palavras_chave": ["organização", "organizar", "estrutura organizacional", "divisão do trabalho"]},
+            {"codigo": "direcao_func", "label": "Direção", "palavras_chave": ["direção", "dirigir", "liderança", "comunicação", "motivação"]},
+            {"codigo": "controle_func", "label": "Controle", "palavras_chave": ["controle", "controlar", "medir desempenho", "ações corretivas"]}
+          ]
+        },
+        {
+          "codigo": "areas_funcionais",
+          "label": "Áreas Funcionais da Empresa",
+          "palavras_chave": ["áreas funcionais", "departamentos", "funções empresariais"],
+          "filhos": [
+            {"codigo": "area_producao", "label": "Produção/Operações", "palavras_chave": ["produção", "operações", "manufatura"]},
+            {"codigo": "area_comercial", "label": "Comercial e Marketing", "palavras_chave": ["comercial", "vendas", "marketing"]},
+            {"codigo": "area_financeira", "label": "Financeira", "palavras_chave": ["financeiro", "finanças", "tesouraria"]},
+            {"codigo": "area_rh", "label": "Recursos Humanos", "palavras_chave": ["rh", "recursos humanos", "gestão de pessoas"]},
+            {"codigo": "area_logistica", "label": "Logística e Suprimentos", "palavras_chave": ["logística", "suprimentos", "compras", "materiais"]},
+            {"codigo": "area_ti", "label": "Tecnologia da Informação", "palavras_chave": ["ti", "tecnologia da informação", "sistemas"]}
+          ]
+        },
+        {
+          "codigo": "tipos_empresa",
+          "label": "Tipos de Empresas e Negócios",
+          "palavras_chave": ["tipos de empresa", "classificação de empresas", "negócio"],
+          "filhos": [
+            {"codigo": "porte_empresa", "label": "Porte das Empresas", "palavras_chave": ["microempresa", "pequena empresa", "média empresa", "grande empresa", "porte empresarial"]},
+            {"codigo": "setores_economia", "label": "Setores da Economia", "palavras_chave": ["setor primário", "setor secundário", "setor terciário", "setor quaternário", "agronegócio", "indústria", "comércio", "serviços"]},
+            {"codigo": "empresa_publica_privada", "label": "Empresa Pública, Privada e Mista", "palavras_chave": ["empresa pública", "empresa privada", "economia mista", "sociedade de economia mista", "terceiro setor", "ong"]}
+          ]
+        },
+        {
+          "codigo": "ambiente_organizacional",
+          "label": "Ambiente Organizacional",
+          "palavras_chave": ["ambiente organizacional", "ambiente externo", "ambiente interno"],
+          "filhos": [
+            {"codigo": "stakeholders", "label": "Stakeholders", "palavras_chave": ["stakeholder", "partes interessadas", "shareholders", "acionistas"]},
+            {"codigo": "missao_visao_valores", "label": "Missão, Visão e Valores", "palavras_chave": ["missão", "visão", "valores", "identidade organizacional"]},
+            {"codigo": "cultura_organizacional_intro", "label": "Cultura Organizacional", "palavras_chave": ["cultura organizacional", "clima organizacional", "valores compartilhados"]}
+          ]
+        },
+        {
+          "codigo": "globalizacao_negocios",
+          "label": "Globalização e Negócios",
+          "palavras_chave": ["globalização", "negócios internacionais", "comércio internacional"],
+          "filhos": [
+            {"codigo": "globalizacao", "label": "Globalização", "palavras_chave": ["globalização", "economia global", "mundialização"]},
+            {"codigo": "comercio_exterior_intro", "label": "Comércio Exterior", "palavras_chave": ["comércio exterior", "exportação", "importação", "balança comercial"]},
+            {"codigo": "blocos_economicos", "label": "Blocos Econômicos", "palavras_chave": ["mercosul", "união europeia", "nafta", "brics", "blocos econômicos"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "linguagem_trabalho_tecnologia",
+      "label": "Linguagem, Trabalho e Tecnologia",
+      "palavras_chave": ["linguagem", "comunicação", "trabalho", "tecnologia", "comunicação empresarial"],
+      "filhos": [
+        {
+          "codigo": "comunicacao_organizacional",
+          "label": "Comunicação Organizacional",
+          "palavras_chave": ["comunicação organizacional", "comunicação empresarial", "comunicação interna"],
+          "filhos": [
+            {"codigo": "elementos_comunicacao", "label": "Elementos da Comunicação", "palavras_chave": ["emissor", "receptor", "mensagem", "canal", "código", "ruído", "feedback"]},
+            {"codigo": "barreiras_comunicacao", "label": "Barreiras à Comunicação", "palavras_chave": ["barreira de comunicação", "ruído na comunicação", "filtragem", "percepção seletiva"]},
+            {"codigo": "fluxos_comunicacao", "label": "Fluxos de Comunicação", "palavras_chave": ["comunicação ascendente", "comunicação descendente", "comunicação horizontal", "comunicação diagonal", "comunicação formal", "comunicação informal"]},
+            {"codigo": "comunicacao_verbal_nao_verbal", "label": "Comunicação Verbal e Não Verbal", "palavras_chave": ["comunicação verbal", "comunicação não verbal", "linguagem corporal", "expressão facial"]}
+          ]
+        },
+        {
+          "codigo": "redacao_empresarial",
+          "label": "Redação Empresarial",
+          "palavras_chave": ["redação empresarial", "redação oficial", "documentos empresariais"],
+          "filhos": [
+            {"codigo": "documentos_oficiais", "label": "Tipos de Documentos", "palavras_chave": ["ofício", "memorando", "circular", "ata", "relatório", "carta comercial", "e-mail formal", "comunicado"]},
+            {"codigo": "norma_culta", "label": "Norma Culta e Linguagem Formal", "palavras_chave": ["norma culta", "linguagem formal", "concordância", "regência", "ortografia"]},
+            {"codigo": "clareza_objetividade", "label": "Clareza, Objetividade e Coesão", "palavras_chave": ["clareza", "objetividade", "concisão", "coesão textual", "coerência"]},
+            {"codigo": "manual_redacao_oficial", "label": "Manual de Redação Oficial", "palavras_chave": ["manual de redação oficial", "redação oficial", "padrão ofício"]}
+          ]
+        },
+        {
+          "codigo": "leitura_interpretacao",
+          "label": "Leitura e Interpretação de Textos",
+          "palavras_chave": ["leitura", "interpretação de texto", "compreensão textual"],
+          "filhos": [
+            {"codigo": "tipos_textuais", "label": "Tipos e Gêneros Textuais", "palavras_chave": ["narrativo", "descritivo", "dissertativo", "expositivo", "injuntivo", "gênero textual"]},
+            {"codigo": "intertextualidade", "label": "Intertextualidade e Funções da Linguagem", "palavras_chave": ["intertextualidade", "funções da linguagem", "função referencial", "função emotiva", "função apelativa", "função poética"]}
+          ]
+        },
+        {
+          "codigo": "tecnologia_trabalho",
+          "label": "Tecnologia e Mundo do Trabalho",
+          "palavras_chave": ["tecnologia no trabalho", "mundo do trabalho", "transformações no trabalho"],
+          "filhos": [
+            {"codigo": "revolucoes_industriais", "label": "Revoluções Industriais", "palavras_chave": ["primeira revolução industrial", "segunda revolução industrial", "terceira revolução industrial", "quarta revolução industrial", "indústria 4.0"]},
+            {"codigo": "trabalho_digital", "label": "Trabalho Digital e Home Office", "palavras_chave": ["trabalho remoto", "home office", "teletrabalho", "trabalho híbrido"]},
+            {"codigo": "automacao_emprego", "label": "Automação e Emprego", "palavras_chave": ["automação", "robotização", "inteligência artificial no trabalho", "futuro do trabalho"]},
+            {"codigo": "uberizacao", "label": "Uberização e Gig Economy", "palavras_chave": ["uberização", "gig economy", "economia compartilhada", "plataformas digitais"]}
+          ]
+        },
+        {
+          "codigo": "apresentacoes_orais",
+          "label": "Apresentações Orais e Reuniões",
+          "palavras_chave": ["apresentação oral", "reunião", "oratória", "comunicação em público"],
+          "filhos": [
+            {"codigo": "oratoria", "label": "Oratória e Falar em Público", "palavras_chave": ["oratória", "falar em público", "discurso", "técnicas de apresentação"]},
+            {"codigo": "conducao_reunioes", "label": "Condução de Reuniões", "palavras_chave": ["reunião", "pauta", "ata de reunião", "condução de reuniões eficazes"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "tecnicas_organizacionais",
+      "label": "Técnicas Organizacionais",
+      "palavras_chave": ["técnicas organizacionais", "organização do trabalho", "organização sistemas e métodos", "osm"],
+      "filhos": [
+        {
+          "codigo": "estrutura_organizacional",
+          "label": "Estrutura Organizacional",
+          "palavras_chave": ["estrutura organizacional", "organograma", "tipos de estrutura"],
+          "filhos": [
+            {"codigo": "organograma", "label": "Organograma", "palavras_chave": ["organograma", "representação gráfica", "hierarquia organizacional"]},
+            {"codigo": "estrutura_linear", "label": "Estrutura Linear", "palavras_chave": ["estrutura linear", "linha única", "hierarquia única"]},
+            {"codigo": "estrutura_funcional", "label": "Estrutura Funcional", "palavras_chave": ["estrutura funcional", "especialização funcional"]},
+            {"codigo": "estrutura_matricial", "label": "Estrutura Matricial", "palavras_chave": ["estrutura matricial", "matriz", "dupla subordinação"]},
+            {"codigo": "estrutura_divisional", "label": "Estrutura Divisional", "palavras_chave": ["estrutura divisional", "divisões por produto", "divisões geográficas"]},
+            {"codigo": "estrutura_em_rede", "label": "Estruturas em Rede e Horizontais", "palavras_chave": ["estrutura em rede", "estrutura horizontal", "holacracia", "organização flexível"]},
+            {"codigo": "centralizacao_descentralizacao", "label": "Centralização e Descentralização", "palavras_chave": ["centralização", "descentralização", "delegação"]},
+            {"codigo": "amplitude_controle", "label": "Amplitude de Controle e Cadeia de Comando", "palavras_chave": ["amplitude de controle", "amplitude administrativa", "cadeia de comando", "span of control"]}
+          ]
+        },
+        {
+          "codigo": "departamentalizacao",
+          "label": "Departamentalização",
+          "palavras_chave": ["departamentalização", "departamentos", "agrupamento de atividades"],
+          "filhos": [
+            {"codigo": "depart_funcional", "label": "Departamentalização Funcional", "palavras_chave": ["departamentalização funcional", "por função"]},
+            {"codigo": "depart_produto", "label": "Departamentalização por Produto", "palavras_chave": ["por produto", "por linha de produto"]},
+            {"codigo": "depart_geografica", "label": "Departamentalização Geográfica", "palavras_chave": ["geográfica", "por região", "por território"]},
+            {"codigo": "depart_clientes", "label": "Departamentalização por Clientes", "palavras_chave": ["por cliente", "por segmento de cliente"]},
+            {"codigo": "depart_processos", "label": "Departamentalização por Processos", "palavras_chave": ["por processo", "departamentalização por processos"]},
+            {"codigo": "depart_projetos", "label": "Departamentalização por Projetos", "palavras_chave": ["por projeto", "departamentalização por projetos"]}
+          ]
+        },
+        {
+          "codigo": "processos_organizacionais",
+          "label": "Processos Organizacionais",
+          "palavras_chave": ["processos", "gestão por processos", "bpm", "mapeamento de processos"],
+          "filhos": [
+            {"codigo": "mapeamento_processos", "label": "Mapeamento de Processos", "palavras_chave": ["mapeamento de processos", "fluxograma", "modelagem de processos"]},
+            {"codigo": "fluxograma", "label": "Fluxograma", "palavras_chave": ["fluxograma", "símbolos de fluxograma", "diagrama de fluxo"]},
+            {"codigo": "bpm_bpmn", "label": "BPM e BPMN", "palavras_chave": ["bpm", "business process management", "bpmn", "notação bpmn"]},
+            {"codigo": "padronizacao", "label": "Padronização e Procedimentos", "palavras_chave": ["padronização", "manual de procedimentos", "pop", "procedimento operacional padrão", "sop"]},
+            {"codigo": "melhoria_continua", "label": "Melhoria Contínua (PDCA)", "palavras_chave": ["pdca", "ciclo pdca", "plan do check act", "melhoria contínua", "kaizen"]}
+          ]
+        },
+        {
+          "codigo": "rotinas_administrativas",
+          "label": "Rotinas Administrativas",
+          "palavras_chave": ["rotinas administrativas", "atividades de escritório", "trabalho administrativo"],
+          "filhos": [
+            {"codigo": "atendimento", "label": "Atendimento ao Público", "palavras_chave": ["atendimento", "atendimento ao cliente", "atendimento telefônico", "recepção"]},
+            {"codigo": "agenda_compromissos", "label": "Agenda e Compromissos", "palavras_chave": ["agenda", "controle de compromissos", "secretariado"]},
+            {"codigo": "correspondencia", "label": "Correspondências e Protocolo", "palavras_chave": ["correspondência", "protocolo", "expedição", "recebimento de documentos"]},
+            {"codigo": "arquivologia", "label": "Arquivologia e Gestão de Documentos", "palavras_chave": ["arquivo", "arquivologia", "gestão documental", "arquivo corrente", "arquivo permanente", "tabela de temporalidade"]}
+          ]
+        },
+        {
+          "codigo": "qualidade_total",
+          "label": "Gestão da Qualidade",
+          "palavras_chave": ["qualidade", "gestão da qualidade", "qualidade total", "tqm"],
+          "filhos": [
+            {"codigo": "tqm", "label": "TQM e Gestão da Qualidade Total", "palavras_chave": ["tqm", "total quality management", "qualidade total", "gestão da qualidade total"]},
+            {"codigo": "iso9001", "label": "ISO 9001", "palavras_chave": ["iso 9001", "iso 9000", "sistema de gestão da qualidade", "certificação iso"]},
+            {"codigo": "ferramentas_qualidade", "label": "Ferramentas da Qualidade", "palavras_chave": ["7 ferramentas da qualidade", "diagrama de ishikawa", "espinha de peixe", "diagrama de causa e efeito", "pareto", "5w2h", "diagrama de pareto", "histograma"]},
+            {"codigo": "seis_sigma", "label": "Seis Sigma", "palavras_chave": ["seis sigma", "six sigma", "dmaic", "faixa preta", "black belt", "green belt"]},
+            {"codigo": "cinco_s", "label": "5S", "palavras_chave": ["5s", "cinco s", "seiri", "seiton", "seiso", "seiketsu", "shitsuke", "senso de utilização"]},
+            {"codigo": "gurus_qualidade", "label": "Gurus da Qualidade", "palavras_chave": ["deming", "juran", "ishikawa", "crosby", "feigenbaum", "14 pontos de deming"]}
+          ]
+        },
+        {
+          "codigo": "layout_arranjo",
+          "label": "Layout e Arranjo Físico",
+          "palavras_chave": ["layout", "arranjo físico", "leiaute"],
+          "filhos": [
+            {"codigo": "tipos_layout", "label": "Tipos de Layout", "palavras_chave": ["layout por processo", "layout por produto", "layout posicional", "layout celular", "arranjo físico funcional"]},
+            {"codigo": "ergonomia", "label": "Ergonomia no Trabalho", "palavras_chave": ["ergonomia", "nr 17", "estações de trabalho"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "administracao_producao",
+      "label": "Administração da Produção e Serviços",
+      "palavras_chave": ["administração da produção", "produção e serviços", "operações", "gestão de operações"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_producao",
+          "label": "Fundamentos da Administração da Produção",
+          "palavras_chave": ["fundamentos da produção", "função produção", "sistema de produção"],
+          "filhos": [
+            {"codigo": "sistemas_producao", "label": "Sistemas de Produção", "palavras_chave": ["sistema de produção", "input output", "transformação", "entradas saídas"]},
+            {"codigo": "bens_servicos", "label": "Bens vs Serviços", "palavras_chave": ["bens", "serviços", "intangibilidade", "perecibilidade", "simultaneidade", "heterogeneidade"]},
+            {"codigo": "objetivos_desempenho", "label": "Objetivos de Desempenho", "palavras_chave": ["qualidade", "rapidez", "confiabilidade", "flexibilidade", "custo", "objetivos de desempenho da produção"]}
+          ]
+        },
+        {
+          "codigo": "tipos_processos_producao",
+          "label": "Tipos de Processos Produtivos",
+          "palavras_chave": ["processos produtivos", "tipos de produção", "classificação da produção"],
+          "filhos": [
+            {"codigo": "producao_projeto", "label": "Produção por Projeto", "palavras_chave": ["produção por projeto", "projeto único", "produção sob encomenda"]},
+            {"codigo": "producao_jobbing", "label": "Jobbing", "palavras_chave": ["jobbing", "produção sob medida"]},
+            {"codigo": "producao_lotes", "label": "Produção em Lotes/Bateladas", "palavras_chave": ["produção em lotes", "batelada", "batch"]},
+            {"codigo": "producao_massa", "label": "Produção em Massa", "palavras_chave": ["produção em massa", "produção seriada"]},
+            {"codigo": "producao_continua", "label": "Produção Contínua", "palavras_chave": ["produção contínua", "fluxo contínuo"]}
+          ]
+        },
+        {
+          "codigo": "ppcp",
+          "label": "PCP — Planejamento e Controle da Produção",
+          "palavras_chave": ["pcp", "planejamento e controle da produção", "ppcp"],
+          "filhos": [
+            {"codigo": "previsao_demanda", "label": "Previsão de Demanda", "palavras_chave": ["previsão de demanda", "forecast", "média móvel", "suavização exponencial"]},
+            {"codigo": "capacidade_producao", "label": "Capacidade de Produção", "palavras_chave": ["capacidade produtiva", "capacidade instalada", "gargalo", "teoria das restrições", "toc"]},
+            {"codigo": "sequenciamento", "label": "Sequenciamento e Programação", "palavras_chave": ["sequenciamento", "programação da produção", "scheduling"]},
+            {"codigo": "mrp", "label": "MRP e MRP II", "palavras_chave": ["mrp", "material requirements planning", "mrp ii", "planejamento de necessidades de materiais"]}
+          ]
+        },
+        {
+          "codigo": "lean_manufacturing",
+          "label": "Lean Manufacturing e Just-in-Time",
+          "palavras_chave": ["lean", "lean manufacturing", "produção enxuta", "just in time", "toyota"],
+          "filhos": [
+            {"codigo": "jit", "label": "Just-in-Time (JIT)", "palavras_chave": ["just in time", "jit", "estoque zero", "ohno"]},
+            {"codigo": "kanban", "label": "Kanban", "palavras_chave": ["kanban", "cartão kanban", "puxar produção", "sistema puxado"]},
+            {"codigo": "kaizen", "label": "Kaizen", "palavras_chave": ["kaizen", "melhoria contínua", "melhoria incremental"]},
+            {"codigo": "desperdicios", "label": "7 Desperdícios (Muda)", "palavras_chave": ["muda", "desperdícios", "superprodução", "espera", "transporte", "estoque", "movimentação", "defeitos", "processamento desnecessário"]},
+            {"codigo": "poka_yoke", "label": "Poka-Yoke e Jidoka", "palavras_chave": ["poka yoke", "à prova de erro", "jidoka", "autonomação"]},
+            {"codigo": "fluxo_continuo", "label": "Fluxo Contínuo e VSM", "palavras_chave": ["fluxo contínuo", "value stream mapping", "vsm", "mapeamento do fluxo de valor"]}
+          ]
+        },
+        {
+          "codigo": "administracao_servicos",
+          "label": "Administração de Serviços",
+          "palavras_chave": ["administração de serviços", "operações de serviços", "gestão de serviços"],
+          "filhos": [
+            {"codigo": "caracteristicas_servicos", "label": "Características dos Serviços", "palavras_chave": ["intangibilidade", "inseparabilidade", "variabilidade", "perecibilidade", "características dos serviços"]},
+            {"codigo": "qualidade_servicos", "label": "Qualidade em Serviços", "palavras_chave": ["servqual", "qualidade percebida", "5 gaps", "momento da verdade"]},
+            {"codigo": "blueprint", "label": "Service Blueprint", "palavras_chave": ["service blueprint", "blueprint de serviço", "mapa de serviços"]}
+          ]
+        },
+        {
+          "codigo": "gestao_estoques",
+          "label": "Gestão de Estoques",
+          "palavras_chave": ["estoque", "gestão de estoques", "controle de estoque"],
+          "filhos": [
+            {"codigo": "tipos_estoque", "label": "Tipos de Estoque", "palavras_chave": ["estoque de matéria-prima", "estoque em processo", "estoque de produto acabado", "estoque de segurança"]},
+            {"codigo": "curva_abc", "label": "Curva ABC (Pareto)", "palavras_chave": ["curva abc", "classificação abc", "análise abc", "pareto 80 20"]},
+            {"codigo": "lote_economico", "label": "Lote Econômico de Compra", "palavras_chave": ["lec", "lote econômico", "eoq", "economic order quantity"]},
+            {"codigo": "ponto_pedido", "label": "Ponto de Pedido e Estoque Mínimo", "palavras_chave": ["ponto de pedido", "estoque mínimo", "estoque de segurança", "estoque máximo"]},
+            {"codigo": "giro_estoque", "label": "Giro e Cobertura de Estoque", "palavras_chave": ["giro de estoque", "rotatividade", "cobertura de estoque"]},
+            {"codigo": "inventario", "label": "Inventário e Acuracidade", "palavras_chave": ["inventário", "acuracidade de estoque", "contagem cíclica"]}
+          ]
+        },
+        {
+          "codigo": "manutencao_seguranca",
+          "label": "Manutenção e Segurança",
+          "palavras_chave": ["manutenção", "segurança do trabalho", "tpm"],
+          "filhos": [
+            {"codigo": "tpm", "label": "TPM — Manutenção Produtiva Total", "palavras_chave": ["tpm", "total productive maintenance", "manutenção produtiva total"]},
+            {"codigo": "tipos_manutencao", "label": "Tipos de Manutenção", "palavras_chave": ["manutenção corretiva", "manutenção preventiva", "manutenção preditiva"]},
+            {"codigo": "seguranca_trabalho", "label": "Segurança do Trabalho", "palavras_chave": ["segurança do trabalho", "epi", "equipamento de proteção individual", "nrs", "cipa", "acidente de trabalho"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "administracao_financeira",
+      "label": "Administração Financeira e Orçamentária",
+      "palavras_chave": ["administração financeira", "finanças", "gestão financeira", "orçamento"],
+      "filhos": [
+        {
+          "codigo": "funcoes_financeiras",
+          "label": "Funções da Administração Financeira",
+          "palavras_chave": ["função financeira", "objetivo da administração financeira", "papel do administrador financeiro"],
+          "filhos": [
+            {"codigo": "objetivo_financeiro", "label": "Objetivo da Empresa e Maximização de Valor", "palavras_chave": ["maximização do valor", "maximização do lucro", "objetivo da empresa", "valor da empresa"]},
+            {"codigo": "decisoes_financeiras", "label": "Decisões Financeiras", "palavras_chave": ["decisão de investimento", "decisão de financiamento", "decisão de dividendos"]}
+          ]
+        },
+        {
+          "codigo": "capital_giro",
+          "label": "Capital de Giro",
+          "palavras_chave": ["capital de giro", "ciclo operacional", "ativo circulante"],
+          "filhos": [
+            {"codigo": "ciclo_operacional", "label": "Ciclo Operacional e Financeiro", "palavras_chave": ["ciclo operacional", "ciclo financeiro", "ciclo de caixa"]},
+            {"codigo": "contas_pagar_receber", "label": "Contas a Pagar e a Receber", "palavras_chave": ["contas a pagar", "contas a receber", "prazo médio de pagamento", "prazo médio de recebimento"]},
+            {"codigo": "necessidade_capital_giro", "label": "Necessidade de Capital de Giro (NCG)", "palavras_chave": ["ncg", "necessidade de capital de giro", "ig", "investimento em giro"]}
+          ]
+        },
+        {
+          "codigo": "fluxo_caixa",
+          "label": "Fluxo de Caixa",
+          "palavras_chave": ["fluxo de caixa", "cash flow", "movimentação financeira"],
+          "filhos": [
+            {"codigo": "tipos_fluxo_caixa", "label": "Tipos e Estrutura do Fluxo de Caixa", "palavras_chave": ["fluxo de caixa operacional", "fluxo de caixa de investimento", "fluxo de caixa de financiamento", "fluxo de caixa livre"]},
+            {"codigo": "projecao_fluxo_caixa", "label": "Projeção e DRE Gerencial", "palavras_chave": ["projeção de caixa", "previsão de fluxo de caixa", "dre projetada"]},
+            {"codigo": "metodos_fluxo_caixa", "label": "Método Direto e Indireto", "palavras_chave": ["método direto", "método indireto", "dfc", "demonstração do fluxo de caixa"]}
+          ]
+        },
+        {
+          "codigo": "demonstracoes_contabeis",
+          "label": "Demonstrações Contábeis",
+          "palavras_chave": ["demonstrações contábeis", "demonstrações financeiras", "balanço patrimonial", "dre"],
+          "filhos": [
+            {"codigo": "balanco_patrimonial", "label": "Balanço Patrimonial", "palavras_chave": ["balanço patrimonial", "bp", "ativo", "passivo", "patrimônio líquido"]},
+            {"codigo": "dre", "label": "DRE — Demonstração do Resultado", "palavras_chave": ["dre", "demonstração do resultado do exercício", "receita líquida", "lucro bruto", "lucro líquido"]},
+            {"codigo": "dmpl", "label": "DMPL e DLPA", "palavras_chave": ["dmpl", "demonstração das mutações do patrimônio líquido", "dlpa"]},
+            {"codigo": "notas_explicativas", "label": "Notas Explicativas", "palavras_chave": ["notas explicativas", "demonstrações contábeis complementares"]}
+          ]
+        },
+        {
+          "codigo": "analise_indicadores",
+          "label": "Análise de Indicadores Financeiros",
+          "palavras_chave": ["análise financeira", "indicadores financeiros", "índices financeiros"],
+          "filhos": [
+            {"codigo": "indicadores_liquidez", "label": "Indicadores de Liquidez", "palavras_chave": ["liquidez corrente", "liquidez seca", "liquidez imediata", "liquidez geral"]},
+            {"codigo": "indicadores_endividamento", "label": "Indicadores de Endividamento", "palavras_chave": ["endividamento", "grau de endividamento", "composição do endividamento", "imobilização do pl"]},
+            {"codigo": "indicadores_rentabilidade", "label": "Indicadores de Rentabilidade", "palavras_chave": ["roi", "roe", "roa", "margem bruta", "margem líquida", "margem operacional", "rentabilidade"]},
+            {"codigo": "indicadores_atividade", "label": "Indicadores de Atividade", "palavras_chave": ["giro do ativo", "prazo médio de estocagem", "ciclo financeiro"]},
+            {"codigo": "ebitda", "label": "EBITDA e EBIT", "palavras_chave": ["ebitda", "ebit", "lajida", "lajir", "lucro antes de juros e impostos"]}
+          ]
+        },
+        {
+          "codigo": "matematica_financeira",
+          "label": "Matemática Financeira",
+          "palavras_chave": ["matemática financeira", "juros", "cálculo financeiro"],
+          "filhos": [
+            {"codigo": "juros_simples", "label": "Juros Simples", "palavras_chave": ["juros simples", "regime de capitalização simples", "j = c.i.t"]},
+            {"codigo": "juros_compostos", "label": "Juros Compostos", "palavras_chave": ["juros compostos", "capitalização composta", "montante", "m = c(1+i)^n"]},
+            {"codigo": "taxas_juros", "label": "Taxas de Juros", "palavras_chave": ["taxa nominal", "taxa efetiva", "taxa equivalente", "taxa real"]},
+            {"codigo": "desconto", "label": "Desconto Comercial e Racional", "palavras_chave": ["desconto comercial", "desconto bancário", "desconto racional", "desconto por fora", "desconto por dentro"]},
+            {"codigo": "valor_presente_futuro", "label": "Valor Presente e Valor Futuro", "palavras_chave": ["valor presente", "valor futuro", "vp", "vf", "pv", "fv"]},
+            {"codigo": "sistemas_amortizacao", "label": "Sistemas de Amortização", "palavras_chave": ["sac", "sistema de amortização constante", "price", "tabela price", "sacre", "amortização"]}
+          ]
+        },
+        {
+          "codigo": "orcamento_empresarial",
+          "label": "Orçamento Empresarial",
+          "palavras_chave": ["orçamento", "orçamento empresarial", "budget", "planejamento orçamentário"],
+          "filhos": [
+            {"codigo": "tipos_orcamento", "label": "Tipos de Orçamento", "palavras_chave": ["orçamento de vendas", "orçamento de produção", "orçamento de caixa", "orçamento de despesas", "orçamento de investimentos"]},
+            {"codigo": "elaboracao_orcamento", "label": "Elaboração e Acompanhamento", "palavras_chave": ["elaboração orçamentária", "acompanhamento orçamentário", "variação orçamentária"]},
+            {"codigo": "orcamento_base_zero", "label": "Orçamento Base Zero (OBZ)", "palavras_chave": ["orçamento base zero", "obz", "base zero"]}
+          ]
+        },
+        {
+          "codigo": "avaliacao_investimentos",
+          "label": "Análise e Viabilidade de Investimentos",
+          "palavras_chave": ["análise de investimento", "viabilidade", "projetos de investimento"],
+          "filhos": [
+            {"codigo": "vpl", "label": "VPL — Valor Presente Líquido", "palavras_chave": ["vpl", "valor presente líquido", "npv", "net present value"]},
+            {"codigo": "tir", "label": "TIR — Taxa Interna de Retorno", "palavras_chave": ["tir", "taxa interna de retorno", "irr"]},
+            {"codigo": "payback", "label": "Payback Simples e Descontado", "palavras_chave": ["payback", "payback simples", "payback descontado", "prazo de retorno"]},
+            {"codigo": "tma", "label": "TMA e Custo de Capital", "palavras_chave": ["tma", "taxa mínima de atratividade", "custo de capital", "wacc"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "calculo_financeiro_estatistico",
+      "label": "Cálculo Financeiro e Estatístico",
+      "palavras_chave": ["cálculo financeiro", "estatística", "cálculo estatístico"],
+      "filhos": [
+        {
+          "codigo": "estatistica_descritiva",
+          "label": "Estatística Descritiva",
+          "palavras_chave": ["estatística descritiva", "análise descritiva", "dados estatísticos"],
+          "filhos": [
+            {"codigo": "tipos_variaveis", "label": "Tipos de Variáveis", "palavras_chave": ["variável qualitativa", "variável quantitativa", "discreta", "contínua", "nominal", "ordinal", "intervalar"]},
+            {"codigo": "tabelas_frequencia", "label": "Tabelas de Frequência", "palavras_chave": ["tabela de frequência", "frequência absoluta", "frequência relativa", "frequência acumulada"]},
+            {"codigo": "graficos_estatisticos", "label": "Gráficos Estatísticos", "palavras_chave": ["histograma", "gráfico de barras", "gráfico de setores", "gráfico de pizza", "polígono de frequência", "ogiva"]}
+          ]
+        },
+        {
+          "codigo": "medidas_tendencia_central",
+          "label": "Medidas de Tendência Central",
+          "palavras_chave": ["medidas de tendência central", "média", "mediana", "moda"],
+          "filhos": [
+            {"codigo": "media", "label": "Média Aritmética", "palavras_chave": ["média", "média aritmética", "média ponderada", "média geométrica", "média harmônica"]},
+            {"codigo": "mediana", "label": "Mediana", "palavras_chave": ["mediana", "valor central", "md"]},
+            {"codigo": "moda", "label": "Moda", "palavras_chave": ["moda", "mo", "valor mais frequente", "amodal", "bimodal"]}
+          ]
+        },
+        {
+          "codigo": "medidas_dispersao",
+          "label": "Medidas de Dispersão",
+          "palavras_chave": ["dispersão", "variabilidade", "desvio"],
+          "filhos": [
+            {"codigo": "amplitude", "label": "Amplitude e Quartis", "palavras_chave": ["amplitude", "quartil", "quartis", "amplitude interquartil"]},
+            {"codigo": "variancia", "label": "Variância", "palavras_chave": ["variância", "σ²", "s²"]},
+            {"codigo": "desvio_padrao", "label": "Desvio-Padrão", "palavras_chave": ["desvio padrão", "σ", "desvio-padrão"]},
+            {"codigo": "coeficiente_variacao", "label": "Coeficiente de Variação", "palavras_chave": ["coeficiente de variação", "cv"]}
+          ]
+        },
+        {
+          "codigo": "medidas_posicao",
+          "label": "Medidas de Posição",
+          "palavras_chave": ["medidas separatrizes", "quartis", "decis", "percentis"],
+          "filhos": [
+            {"codigo": "separatrizes", "label": "Quartis, Decis e Percentis", "palavras_chave": ["quartil", "decil", "percentil", "separatrizes"]},
+            {"codigo": "boxplot", "label": "Boxplot e Outliers", "palavras_chave": ["boxplot", "diagrama de caixa", "outlier", "valores atípicos"]}
+          ]
+        },
+        {
+          "codigo": "probabilidade",
+          "label": "Probabilidade",
+          "palavras_chave": ["probabilidade", "eventos", "espaço amostral"],
+          "filhos": [
+            {"codigo": "conceitos_probabilidade", "label": "Conceitos de Probabilidade", "palavras_chave": ["espaço amostral", "evento", "probabilidade clássica", "probabilidade frequentista"]},
+            {"codigo": "regras_probabilidade", "label": "Regras de Probabilidade", "palavras_chave": ["soma de probabilidades", "produto de probabilidades", "probabilidade condicional", "eventos independentes"]},
+            {"codigo": "teorema_bayes", "label": "Teorema de Bayes", "palavras_chave": ["bayes", "teorema de bayes", "probabilidade bayesiana"]}
+          ]
+        },
+        {
+          "codigo": "distribuicoes",
+          "label": "Distribuições de Probabilidade",
+          "palavras_chave": ["distribuição", "distribuição de probabilidade"],
+          "filhos": [
+            {"codigo": "distribuicao_binomial", "label": "Distribuição Binomial", "palavras_chave": ["binomial", "distribuição binomial"]},
+            {"codigo": "distribuicao_poisson", "label": "Distribuição de Poisson", "palavras_chave": ["poisson", "distribuição de poisson"]},
+            {"codigo": "distribuicao_normal", "label": "Distribuição Normal", "palavras_chave": ["normal", "gaussiana", "distribuição normal", "curva normal", "escore z"]}
+          ]
+        },
+        {
+          "codigo": "amostragem",
+          "label": "Amostragem",
+          "palavras_chave": ["amostragem", "amostra", "população"],
+          "filhos": [
+            {"codigo": "tipos_amostragem", "label": "Tipos de Amostragem", "palavras_chave": ["amostragem aleatória simples", "amostragem sistemática", "amostragem estratificada", "amostragem por conglomerados"]},
+            {"codigo": "amostragem_nao_prob", "label": "Amostragem Não Probabilística", "palavras_chave": ["amostragem por conveniência", "amostragem por cotas", "amostragem por julgamento"]},
+            {"codigo": "tamanho_amostra", "label": "Tamanho da Amostra", "palavras_chave": ["tamanho da amostra", "margem de erro", "nível de confiança"]}
+          ]
+        },
+        {
+          "codigo": "regressao_correlacao",
+          "label": "Correlação e Regressão",
+          "palavras_chave": ["correlação", "regressão", "análise de regressão"],
+          "filhos": [
+            {"codigo": "correlacao", "label": "Coeficiente de Correlação", "palavras_chave": ["correlação de pearson", "coeficiente de correlação", "r", "covariância"]},
+            {"codigo": "regressao_linear", "label": "Regressão Linear Simples", "palavras_chave": ["regressão linear", "reta de regressão", "y = a + bx", "mínimos quadrados"]}
+          ]
+        },
+        {
+          "codigo": "calculo_financeiro_aplicado",
+          "label": "Cálculo Financeiro Aplicado",
+          "palavras_chave": ["cálculo financeiro aplicado", "matemática comercial"],
+          "filhos": [
+            {"codigo": "porcentagem", "label": "Porcentagem e Acréscimos", "palavras_chave": ["porcentagem", "percentual", "acréscimo", "decréscimo", "aumento sucessivo"]},
+            {"codigo": "razao_proporcao", "label": "Razão, Proporção e Regra de Três", "palavras_chave": ["razão", "proporção", "regra de três simples", "regra de três composta"]},
+            {"codigo": "indices_correcao", "label": "Índices de Correção Monetária", "palavras_chave": ["correção monetária", "ipca", "igpm", "selic", "tr", "índice de inflação"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "etica_cidadania",
+      "label": "Ética e Cidadania Organizacional",
+      "palavras_chave": ["ética", "cidadania", "ética profissional", "ética organizacional"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_etica",
+          "label": "Fundamentos da Ética",
+          "palavras_chave": ["ética", "moral", "filosofia moral", "valores éticos"],
+          "filhos": [
+            {"codigo": "etica_moral", "label": "Ética e Moral", "palavras_chave": ["ética", "moral", "diferença entre ética e moral", "valores morais"]},
+            {"codigo": "correntes_eticas", "label": "Correntes Éticas", "palavras_chave": ["deontologia", "utilitarismo", "ética das virtudes", "kant", "stuart mill", "aristóteles"]},
+            {"codigo": "dilemas_eticos_organizacionais", "label": "Dilemas Éticos", "palavras_chave": ["dilema ético", "conflito de interesses", "tomada de decisão ética"]}
+          ]
+        },
+        {
+          "codigo": "etica_empresarial",
+          "label": "Ética Empresarial",
+          "palavras_chave": ["ética empresarial", "ética nos negócios", "business ethics"],
+          "filhos": [
+            {"codigo": "codigo_conduta", "label": "Código de Conduta", "palavras_chave": ["código de conduta", "código de ética empresarial", "manual de conduta"]},
+            {"codigo": "compliance", "label": "Compliance e Anticorrupção", "palavras_chave": ["compliance", "lei anticorrupção", "lei 12846", "fcpa", "programa de integridade"]},
+            {"codigo": "assedio_discriminacao", "label": "Assédio e Discriminação", "palavras_chave": ["assédio moral", "assédio sexual", "discriminação", "diversidade", "inclusão"]}
+          ]
+        },
+        {
+          "codigo": "responsabilidade_social",
+          "label": "Responsabilidade Social",
+          "palavras_chave": ["responsabilidade social", "rse", "responsabilidade social corporativa"],
+          "filhos": [
+            {"codigo": "rsc", "label": "Responsabilidade Social Corporativa", "palavras_chave": ["responsabilidade social corporativa", "rsc", "filantropia empresarial"]},
+            {"codigo": "esg", "label": "ESG e Sustentabilidade", "palavras_chave": ["esg", "ambiental social e governança", "sustentabilidade", "triple bottom line", "agenda 2030", "ods"]},
+            {"codigo": "instituto_ethos", "label": "Instituto Ethos e Indicadores", "palavras_chave": ["instituto ethos", "indicadores ethos", "balanço social"]}
+          ]
+        },
+        {
+          "codigo": "cidadania_direitos",
+          "label": "Cidadania e Direitos",
+          "palavras_chave": ["cidadania", "direitos humanos", "direitos do cidadão"],
+          "filhos": [
+            {"codigo": "direitos_humanos", "label": "Direitos Humanos", "palavras_chave": ["direitos humanos", "declaração universal", "dignidade da pessoa humana"]},
+            {"codigo": "constituicao_cidadania", "label": "Constituição e Cidadania", "palavras_chave": ["constituição federal", "constituição cidadã", "direitos e garantias fundamentais"]},
+            {"codigo": "consumidor_cidadao", "label": "Consumidor e Cidadania", "palavras_chave": ["consumidor", "cidadania", "consumo consciente"]}
+          ]
+        },
+        {
+          "codigo": "sustentabilidade_organizacional",
+          "label": "Sustentabilidade Organizacional",
+          "palavras_chave": ["sustentabilidade", "desenvolvimento sustentável", "meio ambiente"],
+          "filhos": [
+            {"codigo": "desenvolvimento_sustentavel", "label": "Desenvolvimento Sustentável", "palavras_chave": ["desenvolvimento sustentável", "relatório brundtland", "futuro comum"]},
+            {"codigo": "logistica_reversa", "label": "Logística Reversa e Resíduos", "palavras_chave": ["logística reversa", "política nacional de resíduos sólidos", "pnrs", "lei 12305", "reciclagem"]},
+            {"codigo": "iso_14001", "label": "ISO 14001 — Gestão Ambiental", "palavras_chave": ["iso 14001", "sistema de gestão ambiental", "sga"]}
+          ]
+        },
+        {
+          "codigo": "governanca_corporativa",
+          "label": "Governança Corporativa",
+          "palavras_chave": ["governança corporativa", "ibgc", "governança"],
+          "filhos": [
+            {"codigo": "principios_governanca", "label": "Princípios da Governança", "palavras_chave": ["transparência", "equidade", "prestação de contas", "accountability", "responsabilidade corporativa"]},
+            {"codigo": "ibgc_codigo", "label": "Código IBGC", "palavras_chave": ["ibgc", "instituto brasileiro de governança corporativa", "código de melhores práticas"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "gestao_pessoas_1",
+      "label": "Gestão de Pessoas I",
+      "palavras_chave": ["gestão de pessoas", "gestão de pessoas i", "recursos humanos", "administração de pessoal"],
+      "filhos": [
+        {
+          "codigo": "evolucao_rh",
+          "label": "Evolução da Gestão de Pessoas",
+          "palavras_chave": ["evolução do rh", "história da gestão de pessoas", "administração de pessoal"],
+          "filhos": [
+            {"codigo": "fases_rh", "label": "Fases da Gestão de Pessoas", "palavras_chave": ["era contábil", "era legal", "era tecnicista", "era da administração de recursos humanos", "era da gestão de pessoas"]},
+            {"codigo": "modelos_gp", "label": "Modelos de Gestão de Pessoas", "palavras_chave": ["modelo de gestão", "operacional", "gerencial", "estratégico"]}
+          ]
+        },
+        {
+          "codigo": "subsistemas_rh",
+          "label": "Subsistemas de RH",
+          "palavras_chave": ["subsistemas de rh", "processos de gestão de pessoas", "chiavenato"],
+          "filhos": [
+            {"codigo": "provisao", "label": "Provisão (Agregar)", "palavras_chave": ["provisão de pessoas", "agregar pessoas", "recrutamento e seleção"]},
+            {"codigo": "aplicacao", "label": "Aplicação", "palavras_chave": ["aplicar pessoas", "descrição de cargos", "avaliação de desempenho"]},
+            {"codigo": "manutencao", "label": "Manutenção (Recompensar)", "palavras_chave": ["manutenção", "recompensar", "remuneração", "benefícios", "higiene"]},
+            {"codigo": "desenvolvimento_rh", "label": "Desenvolvimento (Desenvolver)", "palavras_chave": ["desenvolver pessoas", "treinamento", "desenvolvimento", "educação corporativa"]},
+            {"codigo": "monitoramento", "label": "Monitoramento (Monitorar)", "palavras_chave": ["monitorar pessoas", "banco de dados de rh", "controle de pessoal"]}
+          ]
+        },
+        {
+          "codigo": "recrutamento_selecao",
+          "label": "Recrutamento e Seleção",
+          "palavras_chave": ["recrutamento", "seleção", "r&s", "captação de talentos"],
+          "filhos": [
+            {"codigo": "recrutamento_interno_externo", "label": "Recrutamento Interno e Externo", "palavras_chave": ["recrutamento interno", "recrutamento externo", "recrutamento misto"]},
+            {"codigo": "fontes_recrutamento", "label": "Fontes de Recrutamento", "palavras_chave": ["jornal", "linkedin", "indicação", "agências de emprego", "sites de vagas", "feiras de carreira"]},
+            {"codigo": "tecnicas_selecao", "label": "Técnicas de Seleção", "palavras_chave": ["entrevista de seleção", "dinâmica de grupo", "testes psicológicos", "provas de conhecimento", "assessment"]},
+            {"codigo": "perfil_vaga", "label": "Perfil da Vaga", "palavras_chave": ["perfil profissional", "perfil de competências", "descrição de vaga"]}
+          ]
+        },
+        {
+          "codigo": "integracao_socializacao",
+          "label": "Integração e Socialização",
+          "palavras_chave": ["integração", "socialização", "onboarding"],
+          "filhos": [
+            {"codigo": "onboarding", "label": "Onboarding", "palavras_chave": ["onboarding", "integração de novos colaboradores", "ambientação"]},
+            {"codigo": "manual_colaborador", "label": "Manual do Colaborador", "palavras_chave": ["manual do colaborador", "manual do funcionário", "guia do colaborador"]}
+          ]
+        },
+        {
+          "codigo": "cargos_salarios",
+          "label": "Cargos e Salários (Introdução)",
+          "palavras_chave": ["cargos e salários", "plano de cargos", "descrição de cargos"],
+          "filhos": [
+            {"codigo": "descricao_cargo", "label": "Descrição e Análise de Cargo", "palavras_chave": ["descrição de cargo", "análise de cargo", "atribuições", "responsabilidades"]},
+            {"codigo": "estrutura_salarial", "label": "Estrutura Salarial", "palavras_chave": ["estrutura salarial", "tabela salarial", "faixa salarial", "piso salarial"]},
+            {"codigo": "pesquisa_salarial", "label": "Pesquisa Salarial", "palavras_chave": ["pesquisa salarial", "salário de mercado", "equiparação salarial"]}
+          ]
+        },
+        {
+          "codigo": "rotinas_pessoal",
+          "label": "Rotinas de Pessoal",
+          "palavras_chave": ["rotinas de pessoal", "departamento pessoal", "dp"],
+          "filhos": [
+            {"codigo": "admissao", "label": "Admissão", "palavras_chave": ["admissão", "contratação", "ficha de registro", "documentos admissionais"]},
+            {"codigo": "folha_pagamento", "label": "Folha de Pagamento", "palavras_chave": ["folha de pagamento", "holerite", "contracheque", "salário bruto", "salário líquido"]},
+            {"codigo": "ferias_13", "label": "Férias e 13º Salário", "palavras_chave": ["férias", "13º salário", "décimo terceiro", "período aquisitivo", "abono pecuniário"]},
+            {"codigo": "encargos_sociais", "label": "Encargos Sociais", "palavras_chave": ["inss", "fgts", "irrf", "encargos sociais", "encargos trabalhistas"]},
+            {"codigo": "rescisao", "label": "Rescisão Contratual", "palavras_chave": ["rescisão", "demissão", "aviso prévio", "verbas rescisórias", "homologação"]}
+          ]
+        },
+        {
+          "codigo": "introducao_comportamento",
+          "label": "Introdução ao Comportamento Organizacional",
+          "palavras_chave": ["comportamento organizacional", "co", "comportamento humano nas organizações"],
+          "filhos": [
+            {"codigo": "individuo_organizacao", "label": "Indivíduo na Organização", "palavras_chave": ["personalidade", "percepção", "atitudes", "valores individuais"]},
+            {"codigo": "grupos_equipes", "label": "Grupos e Equipes", "palavras_chave": ["grupo", "equipe", "trabalho em equipe", "team building", "diferença entre grupo e equipe"]},
+            {"codigo": "motivacao_basica", "label": "Motivação (Conceitos Básicos)", "palavras_chave": ["motivação", "necessidades", "maslow", "herzberg", "fatores motivacionais"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "legislacao_empresarial",
+      "label": "Legislação Empresarial",
+      "palavras_chave": ["legislação empresarial", "direito empresarial", "direito comercial"],
+      "filhos": [
+        {
+          "codigo": "direito_basico",
+          "label": "Noções de Direito",
+          "palavras_chave": ["noções de direito", "direito", "hierarquia das leis"],
+          "filhos": [
+            {"codigo": "hierarquia_leis", "label": "Hierarquia das Leis", "palavras_chave": ["constituição", "lei complementar", "lei ordinária", "decreto", "portaria", "hierarquia das normas"]},
+            {"codigo": "ramos_direito", "label": "Ramos do Direito", "palavras_chave": ["direito público", "direito privado", "direito civil", "direito penal", "direito constitucional"]},
+            {"codigo": "fontes_direito", "label": "Fontes do Direito", "palavras_chave": ["lei", "jurisprudência", "doutrina", "costume", "fontes do direito"]}
+          ]
+        },
+        {
+          "codigo": "direito_empresarial",
+          "label": "Direito Empresarial",
+          "palavras_chave": ["direito empresarial", "direito comercial", "código civil empresarial"],
+          "filhos": [
+            {"codigo": "empresario", "label": "Empresário e Empresa", "palavras_chave": ["empresário individual", "empresa", "estabelecimento empresarial", "atividade empresarial"]},
+            {"codigo": "sociedades_empresariais", "label": "Sociedades Empresariais", "palavras_chave": ["sociedade limitada", "sociedade anônima", "sociedade simples", "contrato social", "estatuto social"]},
+            {"codigo": "titulos_credito", "label": "Títulos de Crédito", "palavras_chave": ["título de crédito", "cheque", "nota promissória", "duplicata", "letra de câmbio"]},
+            {"codigo": "falencia_recuperacao", "label": "Falência e Recuperação Judicial", "palavras_chave": ["falência", "recuperação judicial", "recuperação extrajudicial", "lei 11101"]},
+            {"codigo": "propriedade_industrial", "label": "Propriedade Industrial", "palavras_chave": ["marca", "patente", "inpi", "propriedade intelectual", "propriedade industrial"]}
+          ]
+        },
+        {
+          "codigo": "direito_trabalho",
+          "label": "Direito do Trabalho",
+          "palavras_chave": ["direito do trabalho", "clt", "consolidação das leis do trabalho"],
+          "filhos": [
+            {"codigo": "clt", "label": "CLT e Princípios", "palavras_chave": ["clt", "consolidação das leis do trabalho", "decreto-lei 5452", "princípio da proteção"]},
+            {"codigo": "contrato_trabalho", "label": "Contrato de Trabalho", "palavras_chave": ["contrato de trabalho", "vínculo empregatício", "subordinação", "onerosidade", "habitualidade", "pessoalidade"]},
+            {"codigo": "jornada_trabalho", "label": "Jornada de Trabalho", "palavras_chave": ["jornada de trabalho", "hora extra", "banco de horas", "intervalo intrajornada", "descanso semanal remunerado"]},
+            {"codigo": "salario_remuneracao_dt", "label": "Salário e Remuneração", "palavras_chave": ["salário", "remuneração", "salário mínimo", "equiparação salarial"]},
+            {"codigo": "estabilidade", "label": "Estabilidade e Garantias", "palavras_chave": ["estabilidade", "gestante", "cipa", "acidente de trabalho", "garantia de emprego"]},
+            {"codigo": "reforma_trabalhista", "label": "Reforma Trabalhista", "palavras_chave": ["reforma trabalhista", "lei 13467", "negociado sobre o legislado", "contrato intermitente"]},
+            {"codigo": "justica_trabalho", "label": "Justiça do Trabalho", "palavras_chave": ["justiça do trabalho", "reclamação trabalhista", "tst", "trt"]}
+          ]
+        },
+        {
+          "codigo": "direito_tributario",
+          "label": "Direito Tributário",
+          "palavras_chave": ["direito tributário", "tributos", "imposto", "tributação"],
+          "filhos": [
+            {"codigo": "tributos_basico", "label": "Tributos: Impostos, Taxas e Contribuições", "palavras_chave": ["imposto", "taxa", "contribuição de melhoria", "contribuição social", "empréstimo compulsório"]},
+            {"codigo": "impostos_federais", "label": "Impostos Federais", "palavras_chave": ["irpj", "irpf", "ipi", "iof", "pis", "cofins", "csll"]},
+            {"codigo": "impostos_estaduais", "label": "Impostos Estaduais", "palavras_chave": ["icms", "ipva", "itcmd"]},
+            {"codigo": "impostos_municipais", "label": "Impostos Municipais", "palavras_chave": ["iss", "iptu", "itbi"]},
+            {"codigo": "regimes_tributarios", "label": "Regimes Tributários", "palavras_chave": ["simples nacional", "lucro presumido", "lucro real", "lucro arbitrado", "mei tributário"]},
+            {"codigo": "obrigacoes_acessorias", "label": "Obrigações Acessórias", "palavras_chave": ["obrigação acessória", "sped", "nfe", "nota fiscal eletrônica", "ecd", "ecf"]}
+          ]
+        },
+        {
+          "codigo": "direito_consumidor",
+          "label": "Direito do Consumidor",
+          "palavras_chave": ["cdc", "código de defesa do consumidor", "direito do consumidor", "lei 8078"],
+          "filhos": [
+            {"codigo": "cdc_principios", "label": "Princípios do CDC", "palavras_chave": ["vulnerabilidade", "boa-fé", "transparência", "harmonia"]},
+            {"codigo": "direitos_consumidor", "label": "Direitos Básicos do Consumidor", "palavras_chave": ["direitos básicos", "informação adequada", "proteção à saúde", "publicidade enganosa", "publicidade abusiva"]},
+            {"codigo": "garantia_arrependimento", "label": "Garantia e Direito de Arrependimento", "palavras_chave": ["garantia legal", "garantia contratual", "vício do produto", "direito de arrependimento", "7 dias"]},
+            {"codigo": "procon", "label": "Procon e Defesa do Consumidor", "palavras_chave": ["procon", "defesa do consumidor", "reclamação consumidor"]}
+          ]
+        },
+        {
+          "codigo": "direito_civil_empresarial",
+          "label": "Direito Civil Aplicado",
+          "palavras_chave": ["direito civil", "código civil", "contratos"],
+          "filhos": [
+            {"codigo": "contratos_civis", "label": "Contratos", "palavras_chave": ["contrato", "compra e venda", "locação", "prestação de serviços", "comodato", "cláusulas contratuais"]},
+            {"codigo": "responsabilidade_civil", "label": "Responsabilidade Civil", "palavras_chave": ["responsabilidade civil", "dano material", "dano moral", "indenização", "culpa", "dolo"]},
+            {"codigo": "obrigacoes", "label": "Obrigações", "palavras_chave": ["obrigação", "credor", "devedor", "prestação"]}
+          ]
+        },
+        {
+          "codigo": "lgpd_empresarial",
+          "label": "LGPD nas Empresas",
+          "palavras_chave": ["lgpd", "lei geral de proteção de dados", "lei 13709", "proteção de dados"],
+          "filhos": [
+            {"codigo": "principios_lgpd", "label": "Princípios da LGPD", "palavras_chave": ["finalidade", "adequação", "necessidade", "consentimento", "transparência lgpd"]},
+            {"codigo": "anpd", "label": "ANPD e Sanções", "palavras_chave": ["anpd", "autoridade nacional de proteção de dados", "sanções lgpd", "multa lgpd"]},
+            {"codigo": "dpo", "label": "DPO e Tratamento de Dados", "palavras_chave": ["dpo", "data protection officer", "encarregado de dados", "tratamento de dados"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "administracao_rh",
+      "label": "Administração de Recursos Humanos (Gestão de Pessoas II)",
+      "palavras_chave": ["gestão de pessoas ii", "administração de recursos humanos estratégica", "rh estratégico", "gestão estratégica de pessoas"],
+      "filhos": [
+        {
+          "codigo": "rh_estrategico",
+          "label": "Gestão Estratégica de Pessoas",
+          "palavras_chave": ["rh estratégico", "gestão estratégica de pessoas", "estratégia de rh"],
+          "filhos": [
+            {"codigo": "alinhamento_estrategico", "label": "Alinhamento Estratégico", "palavras_chave": ["alinhamento estratégico", "estratégia organizacional", "estratégia de pessoas"]},
+            {"codigo": "rh_business_partner", "label": "RH Business Partner", "palavras_chave": ["business partner", "hrbp", "parceiro de negócio de rh", "ulrich"]},
+            {"codigo": "people_analytics", "label": "People Analytics", "palavras_chave": ["people analytics", "indicadores de rh", "métricas de rh", "hr analytics", "dados de rh"]}
+          ]
+        },
+        {
+          "codigo": "gestao_competencias",
+          "label": "Gestão por Competências",
+          "palavras_chave": ["gestão por competências", "competências", "cha"],
+          "filhos": [
+            {"codigo": "cha", "label": "CHA — Conhecimentos, Habilidades e Atitudes", "palavras_chave": ["cha", "conhecimentos habilidades atitudes", "modelo cha"]},
+            {"codigo": "mapeamento_competencias", "label": "Mapeamento de Competências", "palavras_chave": ["mapeamento de competências", "identificação de competências", "matriz de competências"]},
+            {"codigo": "competencias_tecnicas_comportamentais", "label": "Competências Técnicas e Comportamentais", "palavras_chave": ["competências técnicas", "competências comportamentais", "soft skills", "hard skills"]},
+            {"codigo": "trilhas_carreira", "label": "Trilhas de Carreira", "palavras_chave": ["trilha de carreira", "plano de carreira", "carreira em y", "carreira em w"]}
+          ]
+        },
+        {
+          "codigo": "treinamento_desenvolvimento",
+          "label": "Treinamento e Desenvolvimento (T&D)",
+          "palavras_chave": ["treinamento", "desenvolvimento", "t&d", "capacitação", "educação corporativa"],
+          "filhos": [
+            {"codigo": "lnt", "label": "Levantamento de Necessidades de Treinamento", "palavras_chave": ["lnt", "levantamento de necessidades", "diagnóstico de treinamento"]},
+            {"codigo": "tipos_treinamento", "label": "Tipos de Treinamento", "palavras_chave": ["treinamento técnico", "treinamento comportamental", "on the job", "off the job", "e-learning"]},
+            {"codigo": "avaliacao_treinamento", "label": "Avaliação de Treinamento (Kirkpatrick)", "palavras_chave": ["kirkpatrick", "avaliação de reação", "avaliação de aprendizagem", "avaliação de comportamento", "avaliação de resultados", "quatro níveis"]},
+            {"codigo": "universidade_corporativa", "label": "Universidade Corporativa", "palavras_chave": ["universidade corporativa", "uc", "educação corporativa"]},
+            {"codigo": "desenvolvimento_lideres", "label": "Desenvolvimento de Líderes", "palavras_chave": ["desenvolvimento de líderes", "leadership development", "coaching executivo", "mentoring"]}
+          ]
+        },
+        {
+          "codigo": "avaliacao_desempenho",
+          "label": "Avaliação de Desempenho",
+          "palavras_chave": ["avaliação de desempenho", "performance", "feedback"],
+          "filhos": [
+            {"codigo": "metodos_avaliacao", "label": "Métodos de Avaliação", "palavras_chave": ["escalas gráficas", "incidentes críticos", "escolha forçada", "comparação binária", "frases descritivas"]},
+            {"codigo": "avaliacao_360", "label": "Avaliação 360 Graus", "palavras_chave": ["avaliação 360", "360 graus", "feedback múltiplo"]},
+            {"codigo": "okr_kpi_avaliacao", "label": "OKR e KPI", "palavras_chave": ["okr", "objectives and key results", "kpi", "key performance indicator", "metas e resultados"]},
+            {"codigo": "feedback", "label": "Feedback e PDI", "palavras_chave": ["feedback", "pdi", "plano de desenvolvimento individual", "feedforward"]},
+            {"codigo": "nine_box", "label": "Nine Box", "palavras_chave": ["nine box", "9 box", "matriz nine box", "matriz de potencial e desempenho"]}
+          ]
+        },
+        {
+          "codigo": "remuneracao_beneficios",
+          "label": "Remuneração e Benefícios",
+          "palavras_chave": ["remuneração", "benefícios", "compensação", "salários estratégicos"],
+          "filhos": [
+            {"codigo": "remuneracao_estrategica", "label": "Remuneração Estratégica", "palavras_chave": ["remuneração estratégica", "remuneração funcional", "remuneração por competências", "remuneração variável"]},
+            {"codigo": "remuneracao_variavel", "label": "Remuneração Variável", "palavras_chave": ["ppr", "participação nos lucros e resultados", "bônus", "comissão", "stock options"]},
+            {"codigo": "beneficios", "label": "Benefícios", "palavras_chave": ["benefícios", "vale-refeição", "vale-alimentação", "plano de saúde", "vale-transporte", "auxílio creche"]},
+            {"codigo": "salario_emocional", "label": "Salário Emocional", "palavras_chave": ["salário emocional", "qualidade de vida", "flexibilidade no trabalho"]}
+          ]
+        },
+        {
+          "codigo": "clima_cultura",
+          "label": "Clima e Cultura Organizacional",
+          "palavras_chave": ["clima organizacional", "cultura organizacional", "ambiente de trabalho"],
+          "filhos": [
+            {"codigo": "cultura_organizacional", "label": "Cultura Organizacional", "palavras_chave": ["cultura organizacional", "valores", "ritos", "mitos", "tabus", "schein", "edgar schein", "níveis da cultura"]},
+            {"codigo": "tipos_cultura", "label": "Tipos de Cultura (Handy / Hofstede)", "palavras_chave": ["charles handy", "hofstede", "dimensões culturais", "cultura de poder", "cultura de papéis", "cultura de tarefa", "cultura de pessoa"]},
+            {"codigo": "pesquisa_clima", "label": "Pesquisa de Clima", "palavras_chave": ["pesquisa de clima", "diagnóstico de clima", "great place to work", "gptw"]},
+            {"codigo": "engajamento", "label": "Engajamento de Pessoas", "palavras_chave": ["engajamento", "employee engagement", "comprometimento organizacional"]}
+          ]
+        },
+        {
+          "codigo": "lideranca",
+          "label": "Liderança",
+          "palavras_chave": ["liderança", "líder", "estilo de liderança"],
+          "filhos": [
+            {"codigo": "teorias_lideranca", "label": "Teorias de Liderança", "palavras_chave": ["teoria dos traços", "teoria comportamental", "teoria situacional", "blake e mouton", "grid gerencial"]},
+            {"codigo": "lideranca_situacional", "label": "Liderança Situacional (Hersey-Blanchard)", "palavras_chave": ["hersey", "blanchard", "liderança situacional", "e1 e2 e3 e4", "maturidade do liderado"]},
+            {"codigo": "lideranca_transformacional", "label": "Liderança Transformacional e Transacional", "palavras_chave": ["liderança transformacional", "liderança transacional", "bass", "burns"]},
+            {"codigo": "lideranca_servidora", "label": "Liderança Servidora e Coaching", "palavras_chave": ["liderança servidora", "servant leadership", "líder coach", "greenleaf"]}
+          ]
+        },
+        {
+          "codigo": "motivacao_avancada",
+          "label": "Motivação (Avançado)",
+          "palavras_chave": ["motivação", "teorias motivacionais"],
+          "filhos": [
+            {"codigo": "maslow_alderfer", "label": "Maslow e Alderfer (ERC)", "palavras_chave": ["maslow", "hierarquia das necessidades", "alderfer", "erc", "existência relacionamento crescimento"]},
+            {"codigo": "herzberg", "label": "Herzberg — Dois Fatores", "palavras_chave": ["herzberg", "teoria dos dois fatores", "fatores higiênicos", "fatores motivacionais"]},
+            {"codigo": "mcclelland", "label": "McClelland — Necessidades Adquiridas", "palavras_chave": ["mcclelland", "necessidade de realização", "necessidade de afiliação", "necessidade de poder"]},
+            {"codigo": "vroom", "label": "Teoria da Expectativa (Vroom)", "palavras_chave": ["vroom", "teoria da expectativa", "expectância", "instrumentalidade", "valência"]},
+            {"codigo": "equidade_adams", "label": "Teoria da Equidade (Adams)", "palavras_chave": ["adams", "teoria da equidade", "justiça percebida"]},
+            {"codigo": "estabelecimento_metas", "label": "Estabelecimento de Metas (Locke)", "palavras_chave": ["locke", "teoria do estabelecimento de metas", "smart"]}
+          ]
+        },
+        {
+          "codigo": "conflitos_negociacao_rh",
+          "label": "Gestão de Conflitos",
+          "palavras_chave": ["gestão de conflitos", "conflito", "mediação"],
+          "filhos": [
+            {"codigo": "tipos_conflito", "label": "Tipos de Conflito", "palavras_chave": ["conflito funcional", "conflito disfuncional", "conflito de tarefa", "conflito de relacionamento"]},
+            {"codigo": "estilos_resolucao", "label": "Estilos de Resolução (Thomas-Kilmann)", "palavras_chave": ["thomas-kilmann", "competição", "colaboração", "compromisso", "acomodação", "evitação"]},
+            {"codigo": "mediacao_negociacao_rh", "label": "Mediação e Negociação", "palavras_chave": ["mediação", "negociação", "conciliação", "arbitragem"]}
+          ]
+        },
+        {
+          "codigo": "saude_qualidade_vida",
+          "label": "Saúde, Segurança e Qualidade de Vida",
+          "palavras_chave": ["qualidade de vida no trabalho", "qvt", "saúde ocupacional", "segurança do trabalho"],
+          "filhos": [
+            {"codigo": "qvt", "label": "QVT — Qualidade de Vida no Trabalho", "palavras_chave": ["qvt", "qualidade de vida no trabalho", "walton"]},
+            {"codigo": "estresse_burnout", "label": "Estresse e Burnout", "palavras_chave": ["estresse ocupacional", "burnout", "esgotamento profissional", "síndrome de burnout"]},
+            {"codigo": "sst", "label": "SST e Programas (PCMSO, PGR)", "palavras_chave": ["sst", "saúde e segurança do trabalho", "pcmso", "pgr", "ppra", "nrs"]}
+          ]
+        },
+        {
+          "codigo": "diversidade_inclusao",
+          "label": "Diversidade e Inclusão",
+          "palavras_chave": ["diversidade", "inclusão", "d&i"],
+          "filhos": [
+            {"codigo": "diversidade_organizacional", "label": "Diversidade Organizacional", "palavras_chave": ["diversidade de gênero", "diversidade étnico-racial", "lgbtqia+", "pcd", "geracional"]},
+            {"codigo": "vieses_inconscientes", "label": "Vieses Inconscientes", "palavras_chave": ["viés inconsciente", "unconscious bias", "preconceito implícito"]},
+            {"codigo": "equidade_inclusao", "label": "Equidade e Inclusão", "palavras_chave": ["equidade no trabalho", "inclusão", "pertencimento", "belonging"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "gestao_custos_precos",
+      "label": "Gestão de Custos e Preços",
+      "palavras_chave": ["gestão de custos", "custos", "formação de preço", "contabilidade de custos"],
+      "filhos": [
+        {
+          "codigo": "conceitos_custos",
+          "label": "Conceitos de Custos",
+          "palavras_chave": ["conceito de custos", "terminologia de custos", "classificação de custos"],
+          "filhos": [
+            {"codigo": "gastos_custos_despesas", "label": "Gasto, Custo, Despesa, Investimento", "palavras_chave": ["gasto", "custo", "despesa", "investimento", "perda", "desembolso"]},
+            {"codigo": "custos_diretos_indiretos", "label": "Custos Diretos e Indiretos", "palavras_chave": ["custo direto", "custo indireto", "matéria-prima direta", "mão de obra direta", "cif"]},
+            {"codigo": "custos_fixos_variaveis", "label": "Custos Fixos e Variáveis", "palavras_chave": ["custo fixo", "custo variável", "custo semifixo", "custo semivariável"]},
+            {"codigo": "custos_produto_periodo", "label": "Custos do Produto e do Período", "palavras_chave": ["custo do produto", "custo do período", "cpv", "custo dos produtos vendidos"]}
+          ]
+        },
+        {
+          "codigo": "metodos_custeio",
+          "label": "Métodos de Custeio",
+          "palavras_chave": ["método de custeio", "sistema de custeio", "custeio"],
+          "filhos": [
+            {"codigo": "custeio_absorcao", "label": "Custeio por Absorção", "palavras_chave": ["custeio por absorção", "absorção integral", "custos fixos absorvidos"]},
+            {"codigo": "custeio_variavel", "label": "Custeio Variável/Direto", "palavras_chave": ["custeio variável", "custeio direto", "margem de contribuição"]},
+            {"codigo": "abc_custeio", "label": "ABC — Activity Based Costing", "palavras_chave": ["abc", "custeio abc", "activity based costing", "custeio baseado em atividades", "direcionadores de custo", "cost drivers"]},
+            {"codigo": "custeio_padrao", "label": "Custeio-Padrão", "palavras_chave": ["custo-padrão", "custeio padrão", "variações de custos"]},
+            {"codigo": "rkw", "label": "RKW e Pleno", "palavras_chave": ["rkw", "custeio pleno", "reichskuratorium für wirtschaftlichkeit"]}
+          ]
+        },
+        {
+          "codigo": "margem_contribuicao",
+          "label": "Margem de Contribuição",
+          "palavras_chave": ["margem de contribuição", "mc"],
+          "filhos": [
+            {"codigo": "calculo_mc", "label": "Cálculo da Margem de Contribuição", "palavras_chave": ["margem de contribuição unitária", "margem de contribuição total", "razão de contribuição"]},
+            {"codigo": "decisao_mix", "label": "Decisão de Mix com MC", "palavras_chave": ["mix de produtos", "fator limitante", "decisão de produção"]}
+          ]
+        },
+        {
+          "codigo": "ponto_equilibrio",
+          "label": "Ponto de Equilíbrio",
+          "palavras_chave": ["ponto de equilíbrio", "break even point", "pe"],
+          "filhos": [
+            {"codigo": "pe_contabil", "label": "PE Contábil", "palavras_chave": ["ponto de equilíbrio contábil", "pec"]},
+            {"codigo": "pe_economico", "label": "PE Econômico", "palavras_chave": ["ponto de equilíbrio econômico", "pee", "custo de oportunidade"]},
+            {"codigo": "pe_financeiro", "label": "PE Financeiro", "palavras_chave": ["ponto de equilíbrio financeiro", "pef", "depreciação"]},
+            {"codigo": "margem_seguranca", "label": "Margem de Segurança e Alavancagem Operacional", "palavras_chave": ["margem de segurança", "alavancagem operacional", "gao"]}
+          ]
+        },
+        {
+          "codigo": "formacao_preco_venda",
+          "label": "Formação do Preço de Venda",
+          "palavras_chave": ["formação do preço de venda", "preço de venda", "precificação"],
+          "filhos": [
+            {"codigo": "markup_divisor_multiplicador", "label": "Markup Divisor e Multiplicador", "palavras_chave": ["markup", "markup divisor", "markup multiplicador", "taxa de marcação"]},
+            {"codigo": "preco_baseado_custo", "label": "Preço Baseado em Custo", "palavras_chave": ["custo mais margem", "cost plus", "preço baseado em custo"]},
+            {"codigo": "preco_baseado_mercado", "label": "Preço Baseado em Mercado", "palavras_chave": ["preço de mercado", "preço da concorrência", "preço por valor"]},
+            {"codigo": "tributacao_no_preco", "label": "Tributação no Preço", "palavras_chave": ["icms no preço", "pis cofins", "iss no preço", "impostos sobre vendas"]}
+          ]
+        },
+        {
+          "codigo": "controle_custos",
+          "label": "Controle e Análise de Custos",
+          "palavras_chave": ["controle de custos", "análise de custos", "redução de custos"],
+          "filhos": [
+            {"codigo": "analise_cvp", "label": "Análise Custo-Volume-Lucro (CVL)", "palavras_chave": ["custo volume lucro", "cvl", "análise cvl", "análise cvp"]},
+            {"codigo": "centros_custo", "label": "Centros de Custo", "palavras_chave": ["centro de custo", "departamentalização de custos", "rateio de custos"]},
+            {"codigo": "rateio", "label": "Critérios de Rateio", "palavras_chave": ["rateio", "base de rateio", "critério de rateio", "alocação"]},
+            {"codigo": "reducao_custos", "label": "Estratégias de Redução de Custos", "palavras_chave": ["redução de custos", "corte de custos", "engenharia de valor", "target costing", "custo-meta"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "logistica_negociacoes",
+      "label": "Logística Empresarial e Negociações Internacionais",
+      "palavras_chave": ["logística", "logística empresarial", "supply chain", "comércio internacional", "negociações internacionais"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_logistica",
+          "label": "Fundamentos de Logística",
+          "palavras_chave": ["fundamentos da logística", "conceito de logística", "logística integrada"],
+          "filhos": [
+            {"codigo": "definicao_logistica", "label": "Definição e Objetivos", "palavras_chave": ["logística", "definição de logística", "8 cs da logística", "produto certo lugar certo"]},
+            {"codigo": "evolucao_logistica", "label": "Evolução da Logística", "palavras_chave": ["fragmentação", "integração interna", "integração externa", "scm", "supply chain"]},
+            {"codigo": "atividades_logistica", "label": "Atividades Logísticas", "palavras_chave": ["transporte", "armazenagem", "movimentação", "processamento de pedidos"]}
+          ]
+        },
+        {
+          "codigo": "supply_chain",
+          "label": "Cadeia de Suprimentos (SCM)",
+          "palavras_chave": ["cadeia de suprimentos", "supply chain management", "scm"],
+          "filhos": [
+            {"codigo": "gestao_cadeia", "label": "Gestão da Cadeia de Suprimentos", "palavras_chave": ["gestão da cadeia de suprimentos", "elos da cadeia", "fornecedores nivel 1", "tier 1"]},
+            {"codigo": "scm_estrategico", "label": "SCM Estratégico", "palavras_chave": ["estratégia de cadeia", "cadeia enxuta", "cadeia ágil", "cadeia responsiva"]},
+            {"codigo": "efeito_chicote", "label": "Efeito Chicote (Bullwhip)", "palavras_chave": ["efeito chicote", "bullwhip effect", "amplificação da demanda"]}
+          ]
+        },
+        {
+          "codigo": "armazenagem_movimentacao",
+          "label": "Armazenagem e Movimentação",
+          "palavras_chave": ["armazenagem", "armazém", "centro de distribuição", "cd"],
+          "filhos": [
+            {"codigo": "tipos_armazem", "label": "Tipos de Armazéns e CDs", "palavras_chave": ["centro de distribuição", "armazém geral", "depósito", "cross docking"]},
+            {"codigo": "layout_armazem", "label": "Layout de Armazém", "palavras_chave": ["layout de armazém", "endereçamento", "porta-paletes", "estanteria"]},
+            {"codigo": "movimentacao_materiais", "label": "Movimentação de Materiais", "palavras_chave": ["empilhadeira", "paleteira", "movimentação", "unitização", "palete"]},
+            {"codigo": "wms", "label": "WMS — Warehouse Management System", "palavras_chave": ["wms", "sistema de gestão de armazém", "warehouse management"]}
+          ]
+        },
+        {
+          "codigo": "transporte",
+          "label": "Transporte e Distribuição",
+          "palavras_chave": ["transporte", "distribuição física", "modais"],
+          "filhos": [
+            {"codigo": "modais_transporte", "label": "Modais de Transporte", "palavras_chave": ["rodoviário", "ferroviário", "aquaviário", "aéreo", "dutoviário", "modal de transporte"]},
+            {"codigo": "intermodal_multimodal", "label": "Intermodal e Multimodal", "palavras_chave": ["intermodal", "multimodal", "otm", "operador de transporte multimodal"]},
+            {"codigo": "roteirizacao", "label": "Roteirização", "palavras_chave": ["roteirização", "roteiro de entrega", "tsp", "problema do caixeiro viajante"]},
+            {"codigo": "custos_transporte", "label": "Custos de Transporte", "palavras_chave": ["frete", "ctrc", "custos de frete", "cubagem"]}
+          ]
+        },
+        {
+          "codigo": "compras_suprimentos",
+          "label": "Compras e Suprimentos",
+          "palavras_chave": ["compras", "suprimentos", "procurement", "sourcing"],
+          "filhos": [
+            {"codigo": "processo_compras", "label": "Processo de Compras", "palavras_chave": ["requisição de compra", "cotação", "pedido de compra", "homologação de fornecedor"]},
+            {"codigo": "selecao_fornecedores", "label": "Seleção e Avaliação de Fornecedores", "palavras_chave": ["seleção de fornecedor", "avaliação de fornecedor", "homologação", "qualificação de fornecedor"]},
+            {"codigo": "negociacao_compras", "label": "Negociação com Fornecedores", "palavras_chave": ["negociação com fornecedor", "poder de barganha", "contrato de fornecimento"]}
+          ]
+        },
+        {
+          "codigo": "logistica_reversa_dist",
+          "label": "Logística Reversa",
+          "palavras_chave": ["logística reversa", "retorno de produtos", "pós-consumo"],
+          "filhos": [
+            {"codigo": "fluxos_reversos", "label": "Fluxos Reversos", "palavras_chave": ["pós-venda", "pós-consumo", "devolução", "recall"]},
+            {"codigo": "sustentabilidade_logistica", "label": "Sustentabilidade e Green Logistics", "palavras_chave": ["green logistics", "logística verde", "logística sustentável", "reciclagem na logística"]}
+          ]
+        },
+        {
+          "codigo": "comercio_exterior",
+          "label": "Comércio Exterior",
+          "palavras_chave": ["comércio exterior", "exportação", "importação", "comex"],
+          "filhos": [
+            {"codigo": "exportacao", "label": "Processo de Exportação", "palavras_chave": ["exportação", "registro de exportador", "drawback", "siscomex", "due"]},
+            {"codigo": "importacao", "label": "Processo de Importação", "palavras_chave": ["importação", "di", "declaração de importação", "li", "licenciamento de importação", "desembaraço aduaneiro"]},
+            {"codigo": "siscomex_aduana", "label": "SISCOMEX e Aduana", "palavras_chave": ["siscomex", "aduana", "receita federal", "portal único"]},
+            {"codigo": "tributacao_comex", "label": "Tributação no Comércio Exterior", "palavras_chave": ["imposto de importação", "ii", "ipi importação", "icms importação", "afrmm"]}
+          ]
+        },
+        {
+          "codigo": "incoterms",
+          "label": "Incoterms",
+          "palavras_chave": ["incoterms", "termos internacionais de comércio", "icc"],
+          "filhos": [
+            {"codigo": "incoterms_grupos", "label": "Grupos E, F, C, D", "palavras_chave": ["grupo e", "grupo f", "grupo c", "grupo d", "exw", "fca", "fas", "fob", "cfr", "cif", "cpt", "cip", "dap", "dpu", "ddp"]},
+            {"codigo": "incoterms_2020", "label": "Incoterms 2020", "palavras_chave": ["incoterms 2020", "atualização incoterms", "dpu novo"]}
+          ]
+        },
+        {
+          "codigo": "negociacoes_internacionais",
+          "label": "Negociações Internacionais",
+          "palavras_chave": ["negociações internacionais", "negociação internacional", "comércio internacional"],
+          "filhos": [
+            {"codigo": "tecnicas_negociacao", "label": "Técnicas de Negociação", "palavras_chave": ["negociação", "win-win", "ganha-ganha", "batna", "matna", "zopa", "harvard"]},
+            {"codigo": "diferencas_culturais", "label": "Diferenças Culturais (Hofstede)", "palavras_chave": ["hofstede", "diferenças culturais", "comunicação intercultural", "cultura nacional"]},
+            {"codigo": "blocos_acordos", "label": "Blocos e Acordos Internacionais", "palavras_chave": ["mercosul", "omc", "alca", "acordo bilateral", "acordo multilateral"]},
+            {"codigo": "cambio_pagamentos", "label": "Câmbio e Pagamentos Internacionais", "palavras_chave": ["câmbio", "taxa de câmbio", "carta de crédito", "swift", "remessa internacional", "cobrança internacional"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "planejamento_estrategico",
+      "label": "Planejamento Empresarial e Estratégico",
+      "palavras_chave": ["planejamento estratégico", "estratégia empresarial", "planejamento empresarial"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_planejamento",
+          "label": "Fundamentos do Planejamento",
+          "palavras_chave": ["fundamentos do planejamento", "tipos de planejamento", "níveis de planejamento"],
+          "filhos": [
+            {"codigo": "niveis_planejamento", "label": "Níveis: Estratégico, Tático e Operacional", "palavras_chave": ["planejamento estratégico", "planejamento tático", "planejamento operacional", "níveis de planejamento"]},
+            {"codigo": "horizonte_tempo", "label": "Horizonte de Tempo", "palavras_chave": ["curto prazo", "médio prazo", "longo prazo", "horizonte de planejamento"]},
+            {"codigo": "vantagens_planejamento", "label": "Vantagens do Planejamento", "palavras_chave": ["vantagens do planejamento", "benefícios do planejamento estratégico"]}
+          ]
+        },
+        {
+          "codigo": "identidade_organizacional",
+          "label": "Identidade Organizacional",
+          "palavras_chave": ["identidade organizacional", "missão visão valores", "negócio da empresa"],
+          "filhos": [
+            {"codigo": "negocio", "label": "Definição do Negócio", "palavras_chave": ["definição do negócio", "core business", "ramo de atuação"]},
+            {"codigo": "missao", "label": "Missão", "palavras_chave": ["missão", "razão de ser", "propósito organizacional"]},
+            {"codigo": "visao", "label": "Visão", "palavras_chave": ["visão", "visão de futuro", "onde queremos chegar"]},
+            {"codigo": "valores", "label": "Valores", "palavras_chave": ["valores organizacionais", "princípios", "valores corporativos"]}
+          ]
+        },
+        {
+          "codigo": "analise_estrategica",
+          "label": "Análise Estratégica",
+          "palavras_chave": ["análise estratégica", "diagnóstico estratégico", "análise de cenário"],
+          "filhos": [
+            {"codigo": "swot", "label": "Análise SWOT/FOFA", "palavras_chave": ["swot", "fofa", "forças", "fraquezas", "oportunidades", "ameaças", "matriz swot"]},
+            {"codigo": "cinco_forcas_porter", "label": "5 Forças de Porter", "palavras_chave": ["porter", "cinco forças de porter", "5 forças", "ameaça de novos entrantes", "rivalidade", "poder de barganha", "produtos substitutos"]},
+            {"codigo": "cadeia_valor_porter", "label": "Cadeia de Valor (Porter)", "palavras_chave": ["cadeia de valor", "atividades primárias", "atividades de apoio", "valor agregado"]},
+            {"codigo": "pestel_estrategico", "label": "Análise PESTEL", "palavras_chave": ["pestel", "pest", "análise do macroambiente", "fatores políticos econômicos sociais tecnológicos ambientais legais"]},
+            {"codigo": "matriz_bcg_estrategica", "label": "Matriz BCG", "palavras_chave": ["matriz bcg", "estrela", "vaca leiteira", "abacaxi", "ponto de interrogação", "portfólio de produtos"]},
+            {"codigo": "matriz_ge", "label": "Matriz GE/McKinsey", "palavras_chave": ["matriz ge", "matriz mckinsey", "atratividade do mercado"]},
+            {"codigo": "matriz_ansoff", "label": "Matriz de Ansoff", "palavras_chave": ["ansoff", "matriz produto mercado", "penetração de mercado", "desenvolvimento de produto", "desenvolvimento de mercado", "diversificação"]},
+            {"codigo": "benchmarking", "label": "Benchmarking", "palavras_chave": ["benchmarking", "comparação com concorrentes", "melhores práticas"]}
+          ]
+        },
+        {
+          "codigo": "estrategias_genericas",
+          "label": "Estratégias Genéricas e Competitivas",
+          "palavras_chave": ["estratégia competitiva", "estratégias genéricas", "porter"],
+          "filhos": [
+            {"codigo": "estrategias_porter", "label": "Estratégias Genéricas de Porter", "palavras_chave": ["liderança em custo", "diferenciação", "enfoque", "estratégias genéricas"]},
+            {"codigo": "estrategia_oceano_azul", "label": "Estratégia do Oceano Azul", "palavras_chave": ["oceano azul", "oceano vermelho", "kim e mauborgne"]},
+            {"codigo": "estrategia_competitiva_avancada", "label": "Vantagem Competitiva Sustentável", "palavras_chave": ["vantagem competitiva", "vantagem competitiva sustentável", "vbr", "visão baseada em recursos"]},
+            {"codigo": "matriz_grand_strategy", "label": "Matriz Grand Strategy", "palavras_chave": ["grand strategy", "estratégias amplas", "crescimento estabilidade retração"]}
+          ]
+        },
+        {
+          "codigo": "objetivos_metas",
+          "label": "Objetivos, Metas e Indicadores",
+          "palavras_chave": ["objetivos", "metas", "indicadores", "kpis"],
+          "filhos": [
+            {"codigo": "smart", "label": "Metas SMART", "palavras_chave": ["smart", "específicas", "mensuráveis", "atingíveis", "relevantes", "temporais"]},
+            {"codigo": "okr", "label": "OKR — Objectives and Key Results", "palavras_chave": ["okr", "objectives and key results", "objetivos e resultados-chave", "google", "doerr"]},
+            {"codigo": "kpis_estrategicos", "label": "KPIs Estratégicos", "palavras_chave": ["kpi", "key performance indicator", "indicadores-chave", "indicadores estratégicos"]}
+          ]
+        },
+        {
+          "codigo": "balanced_scorecard",
+          "label": "Balanced Scorecard (BSC)",
+          "palavras_chave": ["balanced scorecard", "bsc", "kaplan e norton"],
+          "filhos": [
+            {"codigo": "perspectivas_bsc", "label": "Perspectivas do BSC", "palavras_chave": ["perspectiva financeira", "perspectiva do cliente", "perspectiva de processos internos", "perspectiva de aprendizagem e crescimento"]},
+            {"codigo": "mapa_estrategico", "label": "Mapa Estratégico", "palavras_chave": ["mapa estratégico", "relações de causa e efeito", "strategy map"]},
+            {"codigo": "kaplan_norton", "label": "Kaplan e Norton", "palavras_chave": ["robert kaplan", "david norton", "criadores do bsc"]}
+          ]
+        },
+        {
+          "codigo": "implementacao_estrategia",
+          "label": "Implementação e Controle Estratégico",
+          "palavras_chave": ["implementação estratégica", "execução da estratégia", "controle estratégico"],
+          "filhos": [
+            {"codigo": "execucao_estrategica", "label": "Execução da Estratégia", "palavras_chave": ["execução estratégica", "implantação", "gap de execução"]},
+            {"codigo": "5w2h", "label": "5W2H e Plano de Ação", "palavras_chave": ["5w2h", "plano de ação", "what why where when who how how much"]},
+            {"codigo": "gestao_mudanca", "label": "Gestão da Mudança", "palavras_chave": ["gestão da mudança", "change management", "kotter", "8 passos de kotter", "resistência à mudança"]},
+            {"codigo": "controle_estrategico", "label": "Controle Estratégico", "palavras_chave": ["controle estratégico", "monitoramento", "revisão estratégica"]}
+          ]
+        },
+        {
+          "codigo": "gestao_projetos",
+          "label": "Gestão de Projetos",
+          "palavras_chave": ["gestão de projetos", "projetos", "pmbok", "pmi"],
+          "filhos": [
+            {"codigo": "pmbok", "label": "PMBOK e Grupos de Processos", "palavras_chave": ["pmbok", "pmi", "iniciação", "planejamento", "execução", "monitoramento e controle", "encerramento"]},
+            {"codigo": "areas_conhecimento", "label": "Áreas de Conhecimento", "palavras_chave": ["escopo", "tempo", "custos", "qualidade", "rh", "comunicações", "riscos", "aquisições", "stakeholders"]},
+            {"codigo": "metodologias_ageis", "label": "Metodologias Ágeis", "palavras_chave": ["ágil", "agile", "scrum", "kanban", "sprint", "product owner", "scrum master", "xp"]},
+            {"codigo": "cronograma_gantt", "label": "Cronograma e Gantt", "palavras_chave": ["cronograma", "gráfico de gantt", "wbs", "edt", "estrutura analítica do projeto", "caminho crítico", "cpm", "pert"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "tcc",
+      "label": "Trabalho de Conclusão de Curso (TCC) em Administração",
+      "palavras_chave": ["tcc", "trabalho de conclusão de curso", "monografia", "projeto integrador"],
+      "filhos": [
+        {
+          "codigo": "introducao_tcc",
+          "label": "Introdução ao TCC",
+          "palavras_chave": ["introdução tcc", "tema tcc", "delimitação"],
+          "filhos": [
+            {"codigo": "escolha_tema", "label": "Escolha do Tema", "palavras_chave": ["escolha do tema", "delimitação do tema", "linha de pesquisa", "viabilidade do tema"]},
+            {"codigo": "problema_pesquisa", "label": "Problema de Pesquisa", "palavras_chave": ["problema de pesquisa", "pergunta de pesquisa", "questão de pesquisa"]},
+            {"codigo": "objetivos_tcc", "label": "Objetivos Geral e Específicos", "palavras_chave": ["objetivo geral", "objetivos específicos", "verbos de objetivo", "verbo no infinitivo"]},
+            {"codigo": "justificativa", "label": "Justificativa", "palavras_chave": ["justificativa", "relevância", "importância da pesquisa"]},
+            {"codigo": "hipoteses", "label": "Hipóteses", "palavras_chave": ["hipótese", "hipóteses de pesquisa", "hipótese nula", "hipótese alternativa"]}
+          ]
+        },
+        {
+          "codigo": "fundamentacao_teorica",
+          "label": "Fundamentação Teórica",
+          "palavras_chave": ["fundamentação teórica", "referencial teórico", "revisão de literatura"],
+          "filhos": [
+            {"codigo": "revisao_literatura", "label": "Revisão de Literatura", "palavras_chave": ["revisão de literatura", "revisão bibliográfica", "estado da arte", "revisão sistemática"]},
+            {"codigo": "fontes_pesquisa", "label": "Fontes de Pesquisa", "palavras_chave": ["fontes primárias", "fontes secundárias", "scielo", "google acadêmico", "periódicos capes", "spell"]},
+            {"codigo": "fichamento", "label": "Fichamento e Resumos", "palavras_chave": ["fichamento", "fichas de leitura", "resumo crítico"]},
+            {"codigo": "plagio", "label": "Plágio e Integridade Acadêmica", "palavras_chave": ["plágio", "plágio acadêmico", "integridade", "copy and paste", "auto-plágio"]}
+          ]
+        },
+        {
+          "codigo": "metodologia_tcc",
+          "label": "Metodologia da Pesquisa",
+          "palavras_chave": ["metodologia", "método de pesquisa", "metodologia científica"],
+          "filhos": [
+            {"codigo": "tipos_pesquisa_tcc", "label": "Tipos de Pesquisa", "palavras_chave": ["pesquisa exploratória", "pesquisa descritiva", "pesquisa explicativa", "pesquisa aplicada", "pesquisa básica"]},
+            {"codigo": "abordagens_pesquisa", "label": "Abordagens Qualitativa e Quantitativa", "palavras_chave": ["abordagem qualitativa", "abordagem quantitativa", "abordagem mista", "métodos mistos"]},
+            {"codigo": "procedimentos_tecnicos", "label": "Procedimentos Técnicos", "palavras_chave": ["estudo de caso", "pesquisa bibliográfica", "pesquisa documental", "pesquisa-ação", "survey", "experimental"]},
+            {"codigo": "instrumentos_coleta_tcc", "label": "Instrumentos de Coleta de Dados", "palavras_chave": ["questionário", "entrevista", "observação", "grupo focal", "formulário"]},
+            {"codigo": "analise_dados", "label": "Análise dos Dados", "palavras_chave": ["análise de dados", "análise de conteúdo", "bardin", "análise estatística", "análise qualitativa"]}
+          ]
+        },
+        {
+          "codigo": "desenvolvimento_tcc",
+          "label": "Desenvolvimento do TCC",
+          "palavras_chave": ["desenvolvimento do tcc", "estudo de caso", "aplicação prática"],
+          "filhos": [
+            {"codigo": "diagnostico_empresa", "label": "Diagnóstico da Empresa", "palavras_chave": ["diagnóstico empresarial", "diagnóstico organizacional", "perfil da empresa"]},
+            {"codigo": "proposta_intervencao", "label": "Proposta de Intervenção", "palavras_chave": ["proposta de melhoria", "intervenção", "plano de ação", "recomendações"]},
+            {"codigo": "resultados_discussao", "label": "Resultados e Discussão", "palavras_chave": ["resultados", "discussão", "análise dos resultados", "interpretação"]}
+          ]
+        },
+        {
+          "codigo": "validacao_tcc",
+          "label": "Validação e Avaliação",
+          "palavras_chave": ["validação", "avaliação do tcc", "viabilidade"],
+          "filhos": [
+            {"codigo": "validacao_metodologica", "label": "Validação Metodológica", "palavras_chave": ["validade", "confiabilidade", "rigor científico", "triangulação"]},
+            {"codigo": "viabilidade_proposta", "label": "Viabilidade da Proposta", "palavras_chave": ["viabilidade técnica", "viabilidade financeira", "viabilidade operacional"]},
+            {"codigo": "indicadores_resultados", "label": "Indicadores e Resultados Esperados", "palavras_chave": ["indicadores de resultado", "métricas", "resultados esperados", "kpis do projeto"]}
+          ]
+        },
+        {
+          "codigo": "estrutura_normas",
+          "label": "Estrutura e Normas ABNT",
+          "palavras_chave": ["abnt", "normas abnt", "estrutura do tcc", "formatação"],
+          "filhos": [
+            {"codigo": "elementos_pre_textuais", "label": "Elementos Pré-Textuais", "palavras_chave": ["capa", "folha de rosto", "resumo", "abstract", "sumário", "lista de figuras", "lista de tabelas", "dedicatória", "agradecimentos"]},
+            {"codigo": "elementos_textuais", "label": "Elementos Textuais", "palavras_chave": ["introdução", "desenvolvimento", "conclusão", "capítulos"]},
+            {"codigo": "elementos_pos_textuais", "label": "Elementos Pós-Textuais", "palavras_chave": ["referências", "apêndices", "anexos", "glossário"]},
+            {"codigo": "citacoes", "label": "Citações ABNT NBR 10520", "palavras_chave": ["citação direta", "citação indireta", "nbr 10520", "apud", "et al", "citação curta", "citação longa"]},
+            {"codigo": "referencias", "label": "Referências ABNT NBR 6023", "palavras_chave": ["referências", "nbr 6023", "lista de referências", "bibliografia"]},
+            {"codigo": "formatacao_abnt", "label": "Formatação Geral", "palavras_chave": ["margens", "espaçamento", "fonte", "times new roman", "arial", "1.5 entre linhas", "papel a4"]}
+          ]
+        },
+        {
+          "codigo": "apresentacao_tcc",
+          "label": "Apresentação e Defesa do TCC",
+          "palavras_chave": ["apresentação do tcc", "defesa do tcc", "banca examinadora"],
+          "filhos": [
+            {"codigo": "preparacao_defesa", "label": "Preparação da Defesa", "palavras_chave": ["preparação para defesa", "slides do tcc", "ensaio", "tempo de apresentação"]},
+            {"codigo": "banca_examinadora", "label": "Banca Examinadora", "palavras_chave": ["banca examinadora", "membros da banca", "arguição", "perguntas da banca"]},
+            {"codigo": "criterios_avaliacao_tcc", "label": "Critérios de Avaliação", "palavras_chave": ["critérios de avaliação", "rubrica do tcc", "nota do tcc", "aprovação"]},
+            {"codigo": "ajustes_finais", "label": "Ajustes Finais e Entrega", "palavras_chave": ["versão final", "depósito do tcc", "ajustes da banca", "entrega definitiva"]}
+          ]
+        }
+      ]
+    }
+  ]
+}

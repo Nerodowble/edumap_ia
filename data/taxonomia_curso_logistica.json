@@ -1,0 +1,826 @@
+{
+  "versao": "1.0",
+  "etapa": "curso_logistica",
+  "descricao": "Taxonomia para o curso Técnico em Logística - ETEC / Centro Paula Souza. 1º, 2º e 3º módulos.",
+  "materias": [
+    {
+      "codigo": "administracao_producao_operacoes",
+      "label": "Administração da Produção e Operações",
+      "palavras_chave": ["administração da produção", "gestão da produção", "produção e operações", "operações", "sistema produtivo"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_producao",
+          "label": "Fundamentos da Produção e Operações",
+          "palavras_chave": ["fundamentos da produção", "função produção", "operações industriais", "transformação de insumos"],
+          "filhos": [
+            {"codigo": "evolucao_historica", "label": "Evolução Histórica da Produção", "palavras_chave": ["revolução industrial", "taylorismo", "fordismo", "toyotismo", "produção artesanal", "produção em massa"]},
+            {"codigo": "objetivos_desempenho", "label": "Objetivos de Desempenho", "palavras_chave": ["qualidade", "rapidez", "confiabilidade", "flexibilidade", "custo", "cinco objetivos de desempenho", "slack"]},
+            {"codigo": "tipos_processos_producao", "label": "Tipos de Processos Produtivos", "palavras_chave": ["processo contínuo", "processo em lotes", "produção por projeto", "produção em massa", "jobbing", "job shop"]},
+            {"codigo": "input_output", "label": "Modelo Input-Transformação-Output", "palavras_chave": ["input", "output", "transformação", "recursos transformados", "recursos transformadores"]}
+          ]
+        },
+        {
+          "codigo": "planejamento_capacidade",
+          "label": "Planejamento da Capacidade Produtiva",
+          "palavras_chave": ["capacidade produtiva", "planejamento de capacidade", "capacidade instalada", "capacidade efetiva"],
+          "filhos": [
+            {"codigo": "medicao_capacidade", "label": "Medição de Capacidade", "palavras_chave": ["capacidade nominal", "capacidade efetiva", "capacidade realizada", "utilização", "eficiência"]},
+            {"codigo": "gargalos", "label": "Gargalos e Restrições", "palavras_chave": ["gargalo", "restrição", "teoria das restrições", "toc", "goldratt"]},
+            {"codigo": "balanceamento_linha", "label": "Balanceamento de Linha", "palavras_chave": ["balanceamento de linha", "tempo de ciclo", "estações de trabalho", "takt time"]}
+          ]
+        },
+        {
+          "codigo": "arranjo_fisico",
+          "label": "Arranjo Físico (Layout)",
+          "palavras_chave": ["arranjo físico", "layout industrial", "layout produtivo"],
+          "filhos": [
+            {"codigo": "layout_produto", "label": "Layout por Produto (Linha)", "palavras_chave": ["layout por produto", "linha de montagem", "produção em linha"]},
+            {"codigo": "layout_processo", "label": "Layout por Processo (Funcional)", "palavras_chave": ["layout por processo", "layout funcional", "agrupamento por função"]},
+            {"codigo": "layout_celular", "label": "Layout Celular", "palavras_chave": ["layout celular", "célula de manufatura", "tecnologia de grupo"]},
+            {"codigo": "layout_posicional", "label": "Layout Posicional (Fixo)", "palavras_chave": ["layout posicional", "layout fixo", "construção naval", "obra civil"]}
+          ]
+        },
+        {
+          "codigo": "qualidade_producao",
+          "label": "Gestão da Qualidade na Produção",
+          "palavras_chave": ["gestão da qualidade", "qualidade total", "tqm", "controle de qualidade"],
+          "filhos": [
+            {"codigo": "gurus_qualidade", "label": "Gurus da Qualidade", "palavras_chave": ["deming", "juran", "crosby", "ishikawa", "feigenbaum", "ciclo pdca"]},
+            {"codigo": "ferramentas_qualidade", "label": "Ferramentas da Qualidade", "palavras_chave": ["diagrama de ishikawa", "espinha de peixe", "pareto", "histograma", "5 porquês", "5w2h", "diagrama de dispersão"]},
+            {"codigo": "iso_normas", "label": "ISO e Normas", "palavras_chave": ["iso 9001", "iso 14001", "certificação", "norma técnica", "abnt"]},
+            {"codigo": "seis_sigma", "label": "Seis Sigma (Six Sigma)", "palavras_chave": ["seis sigma", "six sigma", "dmaic", "black belt", "green belt", "redução de variabilidade"]}
+          ]
+        },
+        {
+          "codigo": "lean_manufacturing",
+          "label": "Lean Manufacturing (Manufatura Enxuta)",
+          "palavras_chave": ["lean manufacturing", "manufatura enxuta", "sistema toyota de produção", "stp"],
+          "filhos": [
+            {"codigo": "jit", "label": "Just in Time (JIT)", "palavras_chave": ["just in time", "jit", "produção puxada", "estoque zero"]},
+            {"codigo": "kanban_lean", "label": "Kanban", "palavras_chave": ["kanban", "cartão kanban", "sinalização visual", "pull system"]},
+            {"codigo": "kaizen", "label": "Kaizen e Melhoria Contínua", "palavras_chave": ["kaizen", "melhoria contínua", "pequenas melhorias"]},
+            {"codigo": "cinco_s", "label": "5S", "palavras_chave": ["5s", "seiri", "seiton", "seiso", "seiketsu", "shitsuke", "organização do trabalho"]},
+            {"codigo": "desperdicios", "label": "Sete Desperdícios (Mudas)", "palavras_chave": ["sete desperdícios", "muda", "superprodução", "espera", "transporte desnecessário", "estoque excessivo"]},
+            {"codigo": "poka_yoke", "label": "Poka-Yoke", "palavras_chave": ["poka-yoke", "à prova de erro", "dispositivo antierro"]}
+          ]
+        },
+        {
+          "codigo": "indicadores_producao",
+          "label": "Indicadores de Produção",
+          "palavras_chave": ["indicadores", "kpi", "performance", "métricas de produção"],
+          "filhos": [
+            {"codigo": "oee", "label": "OEE - Eficiência Global do Equipamento", "palavras_chave": ["oee", "eficiência global", "disponibilidade", "performance do equipamento", "qualidade do equipamento"]},
+            {"codigo": "produtividade", "label": "Produtividade", "palavras_chave": ["produtividade", "produção por hora", "homem-hora", "rendimento"]},
+            {"codigo": "tempo_setup", "label": "Tempo de Setup e SMED", "palavras_chave": ["setup", "smed", "troca rápida de ferramenta", "single minute exchange"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "aplicativos_informaticos",
+      "label": "Aplicativos Informáticos Aplicados à Logística",
+      "palavras_chave": ["aplicativos informáticos", "informática logística", "softwares logísticos", "ti aplicada"],
+      "filhos": [
+        {
+          "codigo": "ferramentas_office",
+          "label": "Ferramentas de Escritório",
+          "palavras_chave": ["pacote office", "microsoft office", "libreoffice", "google workspace"],
+          "filhos": [
+            {"codigo": "planilhas_eletronicas", "label": "Planilhas Eletrônicas (Excel)", "palavras_chave": ["excel", "planilha eletrônica", "fórmulas", "funções", "tabela dinâmica", "procv", "soma", "se", "gráficos"]},
+            {"codigo": "editor_texto", "label": "Editor de Texto (Word)", "palavras_chave": ["word", "editor de texto", "formatação de documento", "relatório"]},
+            {"codigo": "apresentacoes", "label": "Apresentações (PowerPoint)", "palavras_chave": ["powerpoint", "slides", "apresentação", "ppt"]}
+          ]
+        },
+        {
+          "codigo": "sistemas_corporativos",
+          "label": "Sistemas Corporativos",
+          "palavras_chave": ["sistemas corporativos", "sistemas integrados", "software de gestão"],
+          "filhos": [
+            {"codigo": "erp", "label": "ERP - Enterprise Resource Planning", "palavras_chave": ["erp", "sistema integrado", "sap", "totvs", "oracle", "planejamento de recursos empresariais"]},
+            {"codigo": "wms", "label": "WMS - Warehouse Management System", "palavras_chave": ["wms", "gerenciamento de armazém", "sistema de armazenagem", "controle de estoque informatizado"]},
+            {"codigo": "tms", "label": "TMS - Transportation Management System", "palavras_chave": ["tms", "gerenciamento de transporte", "roteirização", "gestão de frota"]},
+            {"codigo": "crm", "label": "CRM - Customer Relationship Management", "palavras_chave": ["crm", "gestão de relacionamento", "atendimento ao cliente"]}
+          ]
+        },
+        {
+          "codigo": "tecnologias_identificacao",
+          "label": "Tecnologias de Identificação",
+          "palavras_chave": ["tecnologia de identificação", "rastreabilidade", "auto identificação"],
+          "filhos": [
+            {"codigo": "codigo_barras", "label": "Código de Barras", "palavras_chave": ["código de barras", "ean", "ean-13", "leitor óptico", "scanner"]},
+            {"codigo": "qr_code", "label": "QR Code", "palavras_chave": ["qr code", "qrcode", "código bidimensional"]},
+            {"codigo": "rfid", "label": "RFID - Identificação por Radiofrequência", "palavras_chave": ["rfid", "radiofrequência", "etiqueta inteligente", "tag rfid"]},
+            {"codigo": "edi", "label": "EDI - Intercâmbio Eletrônico de Dados", "palavras_chave": ["edi", "intercâmbio eletrônico", "troca de dados entre empresas"]}
+          ]
+        },
+        {
+          "codigo": "internet_redes",
+          "label": "Internet, Redes e Segurança",
+          "palavras_chave": ["internet", "redes de computadores", "segurança da informação"],
+          "filhos": [
+            {"codigo": "internet_basico", "label": "Conceitos de Internet", "palavras_chave": ["internet", "navegador", "url", "http", "https", "e-mail"]},
+            {"codigo": "computacao_nuvem", "label": "Computação em Nuvem", "palavras_chave": ["nuvem", "cloud computing", "saas", "iaas", "paas"]},
+            {"codigo": "lgpd", "label": "LGPD e Proteção de Dados", "palavras_chave": ["lgpd", "lei geral de proteção de dados", "privacidade", "dados pessoais"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "fundamentos_logistica",
+      "label": "Fundamentos de Logística",
+      "palavras_chave": ["fundamentos de logística", "logística empresarial", "introdução à logística"],
+      "filhos": [
+        {
+          "codigo": "conceitos_basicos_logistica",
+          "label": "Conceitos Básicos de Logística",
+          "palavras_chave": ["conceito de logística", "definição de logística", "logística integrada"],
+          "filhos": [
+            {"codigo": "historia_logistica", "label": "História e Evolução da Logística", "palavras_chave": ["história da logística", "logística militar", "evolução logística", "origem da logística"]},
+            {"codigo": "sete_rs", "label": "7 Rs da Logística", "palavras_chave": ["sete rs", "7 rs", "produto certo", "quantidade certa", "hora certa", "lugar certo", "condição certa", "cliente certo", "custo certo"]},
+            {"codigo": "atividades_logisticas", "label": "Atividades Primárias e de Apoio", "palavras_chave": ["atividades primárias", "atividades de apoio", "ballou", "transporte", "manutenção de estoques", "processamento de pedidos"]},
+            {"codigo": "missao_logistica", "label": "Missão e Objetivos da Logística", "palavras_chave": ["missão da logística", "nível de serviço", "trade-off", "compromisso logístico"]}
+          ]
+        },
+        {
+          "codigo": "supply_chain",
+          "label": "Cadeia de Suprimentos (SCM)",
+          "palavras_chave": ["cadeia de suprimentos", "supply chain", "scm", "gestão da cadeia"],
+          "filhos": [
+            {"codigo": "definicao_scm", "label": "Definição e Escopo do SCM", "palavras_chave": ["scm", "supply chain management", "elos da cadeia", "fornecedor", "cliente final"]},
+            {"codigo": "integracao_cadeia", "label": "Integração da Cadeia", "palavras_chave": ["integração da cadeia", "colaboração", "parceria estratégica", "supply chain integrado"]},
+            {"codigo": "efeito_chicote", "label": "Efeito Chicote (Bullwhip)", "palavras_chave": ["efeito chicote", "bullwhip", "amplificação da demanda", "distorção de informação"]},
+            {"codigo": "elos_cadeia", "label": "Elos da Cadeia", "palavras_chave": ["fornecedores", "fabricantes", "distribuidores", "varejistas", "consumidor final", "elos"]}
+          ]
+        },
+        {
+          "codigo": "logistica_interna_externa",
+          "label": "Logística Interna e Externa",
+          "palavras_chave": ["logística interna", "logística externa", "intralogística", "inbound", "outbound"],
+          "filhos": [
+            {"codigo": "inbound", "label": "Inbound Logistics (Suprimento)", "palavras_chave": ["inbound", "logística de suprimento", "recebimento", "entrada de materiais"]},
+            {"codigo": "outbound", "label": "Outbound Logistics (Distribuição)", "palavras_chave": ["outbound", "logística de distribuição", "expedição", "saída de produtos"]},
+            {"codigo": "intralogistica", "label": "Intralogística", "palavras_chave": ["intralogística", "movimentação interna", "fluxo interno"]}
+          ]
+        },
+        {
+          "codigo": "logistica_servicos",
+          "label": "Logística e Nível de Serviço",
+          "palavras_chave": ["nível de serviço logístico", "serviço ao cliente", "satisfação do cliente"],
+          "filhos": [
+            {"codigo": "indicadores_servico", "label": "Indicadores de Nível de Serviço", "palavras_chave": ["otif", "on time in full", "fill rate", "pedido perfeito"]},
+            {"codigo": "ciclo_pedido", "label": "Ciclo do Pedido", "palavras_chave": ["ciclo do pedido", "lead time do pedido", "processamento de pedidos"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "linguagem_trabalho_tecnologia",
+      "label": "Linguagem, Trabalho e Tecnologia",
+      "palavras_chave": ["linguagem", "comunicação", "redação técnica", "leitura e escrita"],
+      "filhos": [
+        {
+          "codigo": "comunicacao_profissional",
+          "label": "Comunicação Profissional",
+          "palavras_chave": ["comunicação no trabalho", "comunicação empresarial", "linguagem profissional"]
+        },
+        {
+          "codigo": "redacao_tecnica",
+          "label": "Redação Técnica e Documentos",
+          "palavras_chave": ["redação técnica", "memorando", "ofício", "ata", "relatório técnico", "e-mail profissional"]
+        },
+        {
+          "codigo": "leitura_interpretacao",
+          "label": "Leitura e Interpretação de Textos",
+          "palavras_chave": ["leitura", "interpretação de texto", "compreensão textual", "gêneros textuais"]
+        },
+        {
+          "codigo": "tecnologia_linguagem",
+          "label": "Tecnologia e Sociedade",
+          "palavras_chave": ["tecnologia e sociedade", "mundo do trabalho", "transformações tecnológicas", "indústria 4.0"]
+        },
+        {
+          "codigo": "mundo_trabalho",
+          "label": "Mundo do Trabalho",
+          "palavras_chave": ["mundo do trabalho", "mercado de trabalho", "currículo", "entrevista de emprego", "postura profissional"]
+        }
+      ]
+    },
+    {
+      "codigo": "movimentacao_expedicao_distribuicao",
+      "label": "Movimentação, Expedição e Distribuição",
+      "palavras_chave": ["movimentação de materiais", "expedição", "distribuição", "armazenagem"],
+      "filhos": [
+        {
+          "codigo": "armazenagem",
+          "label": "Armazenagem",
+          "palavras_chave": ["armazenagem", "armazém", "depósito", "centro de distribuição", "cd"],
+          "filhos": [
+            {"codigo": "tipos_armazem", "label": "Tipos de Armazém", "palavras_chave": ["armazém próprio", "armazém público", "armazém alfandegado", "armazém geral", "armazém contratado"]},
+            {"codigo": "layout_armazem", "label": "Layout de Armazém", "palavras_chave": ["layout do armazém", "fluxo em u", "fluxo em linha reta", "fluxo em l", "endereçamento"]},
+            {"codigo": "estruturas_armazenagem", "label": "Estruturas de Armazenagem", "palavras_chave": ["porta-pallet", "drive-in", "drive-thru", "estante leve", "cantilever", "flow rack", "mezanino"]},
+            {"codigo": "endereçamento_armazem", "label": "Endereçamento e Localização", "palavras_chave": ["endereçamento", "localização fixa", "localização aleatória", "picking"]}
+          ]
+        },
+        {
+          "codigo": "movimentacao_materiais",
+          "label": "Movimentação de Materiais",
+          "palavras_chave": ["movimentação de materiais", "equipamentos de movimentação", "transporte interno"],
+          "filhos": [
+            {"codigo": "equipamentos_movimentacao", "label": "Equipamentos de Movimentação", "palavras_chave": ["empilhadeira", "paleteira", "transpaleteira", "transportador de correia", "esteira", "ponte rolante", "agv"]},
+            {"codigo": "principios_movimentacao", "label": "Princípios de Movimentação", "palavras_chave": ["princípios de movimentação", "menor distância", "fluxo contínuo", "unitização"]},
+            {"codigo": "seguranca_movimentacao", "label": "Segurança na Movimentação", "palavras_chave": ["segurança do trabalho", "epi", "nr-11", "operação de empilhadeira"]}
+          ]
+        },
+        {
+          "codigo": "embalagem_unitizacao",
+          "label": "Embalagem e Unitização",
+          "palavras_chave": ["embalagem", "unitização", "acondicionamento"],
+          "filhos": [
+            {"codigo": "tipos_embalagem", "label": "Tipos de Embalagem", "palavras_chave": ["embalagem primária", "embalagem secundária", "embalagem terciária", "embalagem de consumo", "embalagem de transporte"]},
+            {"codigo": "paletizacao", "label": "Paletização", "palavras_chave": ["palete", "pallet", "paletização", "pbr", "padrão brasileiro", "pbr-1"]},
+            {"codigo": "conteinerizacao", "label": "Conteinerização", "palavras_chave": ["container", "contêiner", "conteinerização", "ttu", "dry box", "reefer", "20 pés", "40 pés"]},
+            {"codigo": "funcoes_embalagem", "label": "Funções da Embalagem", "palavras_chave": ["função de proteção", "função de comunicação", "função de marketing", "função logística"]}
+          ]
+        },
+        {
+          "codigo": "expedicao",
+          "label": "Expedição",
+          "palavras_chave": ["expedição", "saída de mercadoria", "carregamento", "conferência de expedição"],
+          "filhos": [
+            {"codigo": "separacao_pedidos", "label": "Separação de Pedidos (Picking)", "palavras_chave": ["picking", "separação de pedidos", "picking discreto", "picking por zona", "picking por onda", "voice picking", "pick to light"]},
+            {"codigo": "conferencia_expedicao", "label": "Conferência e Conferição", "palavras_chave": ["conferência", "checagem", "double check", "auditoria de expedição"]},
+            {"codigo": "documentos_expedicao", "label": "Documentos de Expedição", "palavras_chave": ["nota fiscal", "nf-e", "romaneio", "cte", "conhecimento de transporte", "manifesto de carga"]}
+          ]
+        },
+        {
+          "codigo": "distribuicao",
+          "label": "Distribuição Física",
+          "palavras_chave": ["distribuição física", "canais de distribuição", "rede de distribuição"],
+          "filhos": [
+            {"codigo": "canais_distribuicao", "label": "Canais de Distribuição", "palavras_chave": ["canal direto", "canal indireto", "varejista", "atacadista", "distribuidor"]},
+            {"codigo": "centro_distribuicao", "label": "Centros de Distribuição", "palavras_chave": ["cd", "centro de distribuição", "hub logístico", "cross docking"]},
+            {"codigo": "cross_docking", "label": "Cross Docking", "palavras_chave": ["cross docking", "cross-docking", "transbordo", "consolidação rápida"]},
+            {"codigo": "ultima_milha", "label": "Última Milha (Last Mile)", "palavras_chave": ["última milha", "last mile", "entrega final", "entrega ao consumidor"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "custos_logisticos",
+      "label": "Custos Logísticos",
+      "palavras_chave": ["custos logísticos", "custos da logística", "análise de custos"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_custos",
+          "label": "Fundamentos de Custos",
+          "palavras_chave": ["custos", "contabilidade de custos", "terminologia de custos"],
+          "filhos": [
+            {"codigo": "classificacao_custos", "label": "Classificação dos Custos", "palavras_chave": ["custo fixo", "custo variável", "custo direto", "custo indireto", "custo semivariável"]},
+            {"codigo": "custos_despesas", "label": "Custos, Despesas e Gastos", "palavras_chave": ["custo", "despesa", "gasto", "investimento", "perda", "desembolso"]},
+            {"codigo": "margem_contribuicao", "label": "Margem de Contribuição e Ponto de Equilíbrio", "palavras_chave": ["margem de contribuição", "ponto de equilíbrio", "break even", "ponto de ruptura"]}
+          ]
+        },
+        {
+          "codigo": "custos_transporte",
+          "label": "Custos de Transporte",
+          "palavras_chave": ["custo de transporte", "custo de frete", "componentes do frete"],
+          "filhos": [
+            {"codigo": "componentes_frete", "label": "Componentes do Frete", "palavras_chave": ["frete peso", "frete valor", "gris", "pedágio", "ad valorem", "frete por tonelada"]},
+            {"codigo": "custo_quilometro", "label": "Custo por Quilômetro Rodado", "palavras_chave": ["custo por km", "custo por quilômetro", "custo fixo veicular", "custo variável veicular"]},
+            {"codigo": "custo_combustivel", "label": "Custo de Combustível e Manutenção", "palavras_chave": ["combustível", "diesel", "manutenção de frota", "pneus", "depreciação"]}
+          ]
+        },
+        {
+          "codigo": "custos_armazenagem",
+          "label": "Custos de Armazenagem",
+          "palavras_chave": ["custo de armazenagem", "custo de estocagem", "custo de manter estoque"],
+          "filhos": [
+            {"codigo": "custo_oportunidade", "label": "Custo de Oportunidade do Capital", "palavras_chave": ["custo de oportunidade", "capital empatado", "rentabilidade do capital"]},
+            {"codigo": "custo_obsolescencia", "label": "Obsolescência e Perdas", "palavras_chave": ["obsolescência", "perda", "deterioração", "validade vencida", "shrinkage"]},
+            {"codigo": "custo_movimentacao_interna", "label": "Custos de Movimentação Interna", "palavras_chave": ["movimentação interna", "mão de obra de armazém", "energia", "depreciação de equipamentos"]}
+          ]
+        },
+        {
+          "codigo": "metodos_custeio",
+          "label": "Métodos de Custeio",
+          "palavras_chave": ["método de custeio", "sistema de custeio", "alocação de custos"],
+          "filhos": [
+            {"codigo": "custeio_absorcao", "label": "Custeio por Absorção", "palavras_chave": ["custeio por absorção", "absorção total", "rateio de custos indiretos"]},
+            {"codigo": "custeio_variavel", "label": "Custeio Variável (Direto)", "palavras_chave": ["custeio variável", "custeio direto", "margem de contribuição"]},
+            {"codigo": "abc_costing", "label": "ABC Costing (Custeio Baseado em Atividades)", "palavras_chave": ["abc costing", "custeio baseado em atividades", "activity based costing", "direcionadores de custo"]}
+          ]
+        },
+        {
+          "codigo": "formacao_preco",
+          "label": "Formação de Preço e Análise",
+          "palavras_chave": ["formação de preço", "precificação", "markup"],
+          "filhos": [
+            {"codigo": "markup", "label": "Markup e Margem", "palavras_chave": ["markup", "margem de lucro", "preço de venda"]},
+            {"codigo": "analise_rentabilidade", "label": "Análise de Rentabilidade", "palavras_chave": ["rentabilidade", "lucratividade", "retorno", "roi", "roa"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "etica_cidadania",
+      "label": "Ética e Cidadania Organizacional",
+      "palavras_chave": ["ética", "cidadania", "ética profissional", "responsabilidade social"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_etica",
+          "label": "Fundamentos da Ética",
+          "palavras_chave": ["ética", "moral", "valores", "princípios éticos"]
+        },
+        {
+          "codigo": "etica_profissional",
+          "label": "Ética Profissional",
+          "palavras_chave": ["ética profissional", "código de ética", "conduta profissional", "ética no trabalho"]
+        },
+        {
+          "codigo": "cidadania_direitos",
+          "label": "Cidadania e Direitos",
+          "palavras_chave": ["cidadania", "direitos humanos", "direitos do consumidor", "constituição"]
+        },
+        {
+          "codigo": "responsabilidade_social",
+          "label": "Responsabilidade Social e ESG",
+          "palavras_chave": ["responsabilidade social", "rse", "esg", "ambiental social governança", "sustentabilidade corporativa"]
+        },
+        {
+          "codigo": "diversidade_inclusao",
+          "label": "Diversidade e Inclusão",
+          "palavras_chave": ["diversidade", "inclusão", "equidade", "ambiente inclusivo", "assédio moral"]
+        },
+        {
+          "codigo": "compliance_governanca",
+          "label": "Compliance e Governança",
+          "palavras_chave": ["compliance", "governança corporativa", "anticorrupção", "lei anticorrupção", "transparência"]
+        }
+      ]
+    },
+    {
+      "codigo": "gestao_transporte_cargas",
+      "label": "Gestão do Transporte de Cargas",
+      "palavras_chave": ["gestão de transporte", "transporte de cargas", "modais de transporte"],
+      "filhos": [
+        {
+          "codigo": "modais_transporte",
+          "label": "Modais de Transporte",
+          "palavras_chave": ["modais", "modal", "modos de transporte"],
+          "filhos": [
+            {"codigo": "rodoviario", "label": "Modal Rodoviário", "palavras_chave": ["rodoviário", "caminhão", "rodovia", "transporte de carga rodoviário", "antt"]},
+            {"codigo": "ferroviario", "label": "Modal Ferroviário", "palavras_chave": ["ferroviário", "trem", "ferrovia", "vagão", "locomotiva", "malha ferroviária"]},
+            {"codigo": "aquaviario", "label": "Modal Aquaviário", "palavras_chave": ["aquaviário", "marítimo", "fluvial", "navio", "navegação", "cabotagem", "longo curso", "antaq"]},
+            {"codigo": "aereo", "label": "Modal Aéreo", "palavras_chave": ["aéreo", "avião", "transporte aéreo de carga", "aeroporto", "anac"]},
+            {"codigo": "dutoviario", "label": "Modal Dutoviário", "palavras_chave": ["dutoviário", "duto", "oleoduto", "gasoduto", "mineroduto"]},
+            {"codigo": "comparacao_modais", "label": "Comparação entre Modais", "palavras_chave": ["comparação de modais", "matriz de transporte", "custo por modal", "velocidade", "capacidade"]}
+          ]
+        },
+        {
+          "codigo": "multimodal_intermodal",
+          "label": "Transporte Multimodal e Intermodal",
+          "palavras_chave": ["multimodal", "intermodal", "transporte combinado"],
+          "filhos": [
+            {"codigo": "multimodal", "label": "Transporte Multimodal", "palavras_chave": ["multimodal", "otm", "operador de transporte multimodal", "documento único"]},
+            {"codigo": "intermodal", "label": "Transporte Intermodal", "palavras_chave": ["intermodal", "vários modais", "documentos separados", "transbordo entre modais"]}
+          ]
+        },
+        {
+          "codigo": "gestao_frota",
+          "label": "Gestão de Frota",
+          "palavras_chave": ["gestão de frota", "frota", "veículo de transporte"],
+          "filhos": [
+            {"codigo": "frota_propria_terceirizada", "label": "Frota Própria vs Terceirizada", "palavras_chave": ["frota própria", "frota terceirizada", "outsourcing", "agregado"]},
+            {"codigo": "manutencao_frota", "label": "Manutenção de Frota", "palavras_chave": ["manutenção preventiva", "manutenção corretiva", "manutenção preditiva", "plano de manutenção"]},
+            {"codigo": "rastreamento", "label": "Rastreamento e Telemetria", "palavras_chave": ["rastreamento", "gps", "telemetria", "monitoramento de frota"]}
+          ]
+        },
+        {
+          "codigo": "roteirizacao",
+          "label": "Roteirização e Programação",
+          "palavras_chave": ["roteirização", "rota", "programação de entregas"],
+          "filhos": [
+            {"codigo": "softwares_roteirizacao", "label": "Softwares de Roteirização", "palavras_chave": ["software de roteirização", "roteirizador", "otimização de rotas"]},
+            {"codigo": "problema_caixeiro", "label": "Problema do Caixeiro Viajante", "palavras_chave": ["caixeiro viajante", "tsp", "menor caminho", "otimização combinatória"]},
+            {"codigo": "consolidacao_carga", "label": "Consolidação de Carga", "palavras_chave": ["consolidação de carga", "ltl", "ftl", "carga fracionada", "carga lotação"]}
+          ]
+        },
+        {
+          "codigo": "legislacao_transporte",
+          "label": "Legislação e Documentação de Transporte",
+          "palavras_chave": ["legislação de transporte", "documentos de transporte"],
+          "filhos": [
+            {"codigo": "cte", "label": "CT-e (Conhecimento de Transporte Eletrônico)", "palavras_chave": ["cte", "ct-e", "conhecimento de transporte", "documento fiscal de transporte"]},
+            {"codigo": "mdfe", "label": "MDF-e (Manifesto de Documentos Fiscais)", "palavras_chave": ["mdf-e", "mdfe", "manifesto eletrônico", "manifesto de carga"]},
+            {"codigo": "lei_motorista", "label": "Lei do Motorista", "palavras_chave": ["lei do motorista", "lei 13.103", "jornada do motorista", "tempo de direção"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "ppcp",
+      "label": "Planejamento, Programação e Controle da Produção (PPCP)",
+      "palavras_chave": ["ppcp", "pcp", "planejamento da produção", "controle da produção"],
+      "filhos": [
+        {
+          "codigo": "previsao_demanda",
+          "label": "Previsão de Demanda",
+          "palavras_chave": ["previsão de demanda", "forecasting", "projeção de vendas"],
+          "filhos": [
+            {"codigo": "metodos_qualitativos", "label": "Métodos Qualitativos", "palavras_chave": ["método qualitativo", "opinião de especialistas", "delphi", "pesquisa de mercado"]},
+            {"codigo": "metodos_quantitativos", "label": "Métodos Quantitativos", "palavras_chave": ["método quantitativo", "série temporal", "média móvel", "suavização exponencial", "regressão"]},
+            {"codigo": "sazonalidade_tendencia", "label": "Sazonalidade e Tendência", "palavras_chave": ["sazonalidade", "tendência", "ciclo", "componentes da demanda"]},
+            {"codigo": "erro_previsao", "label": "Erro de Previsão", "palavras_chave": ["erro de previsão", "mad", "mape", "viés", "acurácia da previsão"]}
+          ]
+        },
+        {
+          "codigo": "planejamento_agregado",
+          "label": "Planejamento Agregado",
+          "palavras_chave": ["planejamento agregado", "plano agregado", "estratégia de produção"],
+          "filhos": [
+            {"codigo": "estrategias_planejamento", "label": "Estratégias do Planejamento Agregado", "palavras_chave": ["estratégia de acompanhamento", "estratégia de nivelamento", "estratégia mista", "chase strategy", "level strategy"]},
+            {"codigo": "mps", "label": "MPS - Plano Mestre de Produção", "palavras_chave": ["mps", "master production schedule", "plano mestre", "programa mestre de produção"]}
+          ]
+        },
+        {
+          "codigo": "mrp",
+          "label": "MRP - Planejamento das Necessidades de Materiais",
+          "palavras_chave": ["mrp", "material requirements planning", "necessidades de materiais"],
+          "filhos": [
+            {"codigo": "lista_materiais", "label": "Lista de Materiais (BOM)", "palavras_chave": ["bom", "lista de materiais", "estrutura do produto", "árvore do produto"]},
+            {"codigo": "lead_time_producao", "label": "Lead Time de Produção", "palavras_chave": ["lead time de produção", "tempo de ressuprimento", "tempo de fabricação"]},
+            {"codigo": "mrp_ii", "label": "MRP II", "palavras_chave": ["mrp ii", "manufacturing resource planning", "planejamento de recursos de manufatura"]}
+          ]
+        },
+        {
+          "codigo": "programacao_producao",
+          "label": "Programação da Produção",
+          "palavras_chave": ["programação da produção", "sequenciamento", "schedule de produção"],
+          "filhos": [
+            {"codigo": "sequenciamento_ordens", "label": "Sequenciamento de Ordens", "palavras_chave": ["sequenciamento", "regras de prioridade", "fifo", "spt", "edd", "menor tempo de processamento"]},
+            {"codigo": "gantt", "label": "Gráfico de Gantt", "palavras_chave": ["gráfico de gantt", "gantt", "cronograma", "diagrama de barras"]},
+            {"codigo": "pert_cpm", "label": "PERT/CPM", "palavras_chave": ["pert", "cpm", "caminho crítico", "rede de atividades"]}
+          ]
+        },
+        {
+          "codigo": "controle_producao",
+          "label": "Controle da Produção",
+          "palavras_chave": ["controle de produção", "acompanhamento da produção", "monitoramento"],
+          "filhos": [
+            {"codigo": "ordem_producao", "label": "Ordem de Produção (OP)", "palavras_chave": ["ordem de produção", "op", "apontamento de produção"]},
+            {"codigo": "indicadores_ppcp", "label": "Indicadores de PPCP", "palavras_chave": ["aderência ao plano", "produtividade", "lead time", "wip", "work in process"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "suprimentos_estoques",
+      "label": "Suprimentos e Gestão de Estoques",
+      "palavras_chave": ["suprimentos", "gestão de estoques", "compras", "administração de materiais"],
+      "filhos": [
+        {
+          "codigo": "gestao_compras",
+          "label": "Gestão de Compras",
+          "palavras_chave": ["compras", "aquisição", "procurement", "sourcing"],
+          "filhos": [
+            {"codigo": "processo_compras", "label": "Processo de Compras", "palavras_chave": ["processo de compras", "solicitação de compra", "cotação", "pedido de compra"]},
+            {"codigo": "selecao_fornecedores", "label": "Seleção e Avaliação de Fornecedores", "palavras_chave": ["seleção de fornecedores", "avaliação de fornecedores", "homologação", "qualificação de fornecedor"]},
+            {"codigo": "negociacao_compras", "label": "Negociação em Compras", "palavras_chave": ["negociação", "técnicas de negociação", "barganha", "win-win"]},
+            {"codigo": "compras_estrategicas", "label": "Compras Estratégicas e Matriz de Kraljic", "palavras_chave": ["compras estratégicas", "matriz de kraljic", "item estratégico", "item de alavancagem", "item gargalo", "item não crítico"]}
+          ]
+        },
+        {
+          "codigo": "fundamentos_estoque",
+          "label": "Fundamentos de Estoque",
+          "palavras_chave": ["estoque", "inventário", "fundamentos de estoque"],
+          "filhos": [
+            {"codigo": "funcoes_estoque", "label": "Funções do Estoque", "palavras_chave": ["função do estoque", "estoque de antecipação", "estoque de ciclo", "estoque pulmão", "estoque de segurança"]},
+            {"codigo": "tipos_estoque", "label": "Tipos de Estoque", "palavras_chave": ["matéria-prima", "produto em processo", "wip", "produto acabado", "mro", "estoque de manutenção"]},
+            {"codigo": "fifo_lifo", "label": "FIFO, LIFO e PEPS, UEPS", "palavras_chave": ["fifo", "lifo", "peps", "ueps", "primeiro que entra primeiro que sai", "avaliação de estoque"]},
+            {"codigo": "media_ponderada", "label": "Custo Médio Ponderado", "palavras_chave": ["custo médio", "média ponderada", "preço médio", "avaliação por média"]}
+          ]
+        },
+        {
+          "codigo": "modelos_reposicao",
+          "label": "Modelos de Reposição",
+          "palavras_chave": ["reposição de estoque", "ressuprimento", "modelos de estoque"],
+          "filhos": [
+            {"codigo": "ponto_pedido", "label": "Ponto de Pedido", "palavras_chave": ["ponto de pedido", "pp", "ponto de reposição", "nível de ressuprimento"]},
+            {"codigo": "lote_economico", "label": "Lote Econômico de Compra (EOQ)", "palavras_chave": ["lote econômico", "eoq", "economic order quantity", "fórmula de wilson", "lec"]},
+            {"codigo": "estoque_seguranca", "label": "Estoque de Segurança", "palavras_chave": ["estoque de segurança", "ss", "safety stock", "estoque mínimo"]},
+            {"codigo": "revisao_periodica", "label": "Sistema de Revisão Periódica", "palavras_chave": ["revisão periódica", "modelo p", "intervalo fixo de revisão"]},
+            {"codigo": "min_max", "label": "Sistema Mínimo-Máximo", "palavras_chave": ["mínimo-máximo", "min-max", "estoque mínimo", "estoque máximo"]}
+          ]
+        },
+        {
+          "codigo": "classificacao_estoques",
+          "label": "Classificação de Estoques",
+          "palavras_chave": ["classificação de estoques", "análise de estoque"],
+          "filhos": [
+            {"codigo": "curva_abc", "label": "Curva ABC (Pareto)", "palavras_chave": ["curva abc", "análise abc", "pareto", "classe a", "classe b", "classe c", "80-20"]},
+            {"codigo": "xyz", "label": "Classificação XYZ", "palavras_chave": ["classificação xyz", "criticidade", "imprescindibilidade"]},
+            {"codigo": "matriz_abc_xyz", "label": "Matriz ABC-XYZ", "palavras_chave": ["matriz abc-xyz", "abc xyz combinado"]}
+          ]
+        },
+        {
+          "codigo": "inventario",
+          "label": "Inventário Físico",
+          "palavras_chave": ["inventário físico", "contagem de estoque", "acurácia"],
+          "filhos": [
+            {"codigo": "tipos_inventario", "label": "Tipos de Inventário", "palavras_chave": ["inventário geral", "inventário rotativo", "inventário cíclico", "inventário por amostragem"]},
+            {"codigo": "acuracia_estoque", "label": "Acurácia de Estoque", "palavras_chave": ["acurácia", "acurácia de estoque", "divergência", "ajuste de inventário"]}
+          ]
+        },
+        {
+          "codigo": "indicadores_estoque",
+          "label": "Indicadores de Estoque",
+          "palavras_chave": ["indicadores de estoque", "métricas de estoque", "kpi de estoque"],
+          "filhos": [
+            {"codigo": "giro_estoque", "label": "Giro de Estoque", "palavras_chave": ["giro de estoque", "rotatividade", "turnover"]},
+            {"codigo": "cobertura_estoque", "label": "Cobertura de Estoque", "palavras_chave": ["cobertura de estoque", "dias de cobertura", "antigiro"]},
+            {"codigo": "nivel_servico_estoque", "label": "Nível de Serviço de Estoque", "palavras_chave": ["nível de serviço", "fill rate", "ruptura de estoque", "stockout"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "logistica_internacional",
+      "label": "Logística Internacional e Economia",
+      "palavras_chave": ["logística internacional", "comércio exterior", "comex", "economia"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_comex",
+          "label": "Fundamentos do Comércio Exterior",
+          "palavras_chave": ["comércio exterior", "comex", "comércio internacional", "exportação", "importação"],
+          "filhos": [
+            {"codigo": "globalizacao", "label": "Globalização e Blocos Econômicos", "palavras_chave": ["globalização", "blocos econômicos", "mercosul", "união europeia", "nafta", "usmca", "apec"]},
+            {"codigo": "balanca_comercial", "label": "Balança Comercial", "palavras_chave": ["balança comercial", "saldo comercial", "superávit", "déficit comercial", "exportações e importações"]},
+            {"codigo": "barreiras_comerciais", "label": "Barreiras Comerciais", "palavras_chave": ["barreiras tarifárias", "barreiras não tarifárias", "tarifa", "imposto de importação", "cota"]}
+          ]
+        },
+        {
+          "codigo": "incoterms",
+          "label": "Incoterms 2020",
+          "palavras_chave": ["incoterms", "incoterms 2020", "termos internacionais de comércio"],
+          "filhos": [
+            {"codigo": "exw", "label": "EXW (Ex Works)", "palavras_chave": ["exw", "ex works", "na fábrica"]},
+            {"codigo": "fca_fas_fob", "label": "FCA, FAS e FOB", "palavras_chave": ["fca", "free carrier", "fas", "free alongside ship", "fob", "free on board"]},
+            {"codigo": "cfr_cif_cpt_cip", "label": "CFR, CIF, CPT e CIP", "palavras_chave": ["cfr", "cost and freight", "cif", "cost insurance freight", "cpt", "cip", "carriage paid to"]},
+            {"codigo": "dap_dpu_ddp", "label": "DAP, DPU e DDP", "palavras_chave": ["dap", "delivered at place", "dpu", "delivered place unloaded", "ddp", "delivered duty paid"]},
+            {"codigo": "grupos_incoterms", "label": "Grupos E, F, C e D", "palavras_chave": ["grupo e", "grupo f", "grupo c", "grupo d", "responsabilidades incoterms"]}
+          ]
+        },
+        {
+          "codigo": "operacoes_comex",
+          "label": "Operações de Comércio Exterior",
+          "palavras_chave": ["operações de comex", "exportar", "importar", "processo de exportação"],
+          "filhos": [
+            {"codigo": "exportacao", "label": "Processo de Exportação", "palavras_chave": ["exportação", "drawback", "regimes aduaneiros especiais", "siscomex"]},
+            {"codigo": "importacao", "label": "Processo de Importação", "palavras_chave": ["importação", "li", "licença de importação", "di", "declaração de importação"]},
+            {"codigo": "despacho_aduaneiro", "label": "Despacho Aduaneiro", "palavras_chave": ["despacho aduaneiro", "despachante", "alfândega", "receita federal", "canal verde", "canal amarelo", "canal vermelho"]},
+            {"codigo": "ncm", "label": "NCM e Classificação Fiscal", "palavras_chave": ["ncm", "nomenclatura comum do mercosul", "classificação fiscal", "sistema harmonizado", "sh"]},
+            {"codigo": "tributos_comex", "label": "Tributos no Comércio Exterior", "palavras_chave": ["imposto de importação", "ii", "ipi", "pis-importação", "cofins-importação", "icms importação"]}
+          ]
+        },
+        {
+          "codigo": "cambio",
+          "label": "Câmbio e Pagamentos Internacionais",
+          "palavras_chave": ["câmbio", "taxa de câmbio", "dólar", "moeda estrangeira"],
+          "filhos": [
+            {"codigo": "taxa_cambio", "label": "Taxa de Câmbio e Cotações", "palavras_chave": ["taxa de câmbio", "ptax", "câmbio comercial", "câmbio turismo", "spot", "forward"]},
+            {"codigo": "contrato_cambio", "label": "Contrato de Câmbio", "palavras_chave": ["contrato de câmbio", "fechamento de câmbio", "siscomex câmbio"]},
+            {"codigo": "modalidades_pagamento", "label": "Modalidades de Pagamento Internacional", "palavras_chave": ["carta de crédito", "remessa antecipada", "remessa direta", "cobrança documentária", "swift"]}
+          ]
+        },
+        {
+          "codigo": "economia_aplicada",
+          "label": "Economia Aplicada à Logística",
+          "palavras_chave": ["economia", "macroeconomia", "microeconomia"],
+          "filhos": [
+            {"codigo": "oferta_demanda", "label": "Oferta e Demanda", "palavras_chave": ["oferta", "demanda", "lei da oferta e demanda", "elasticidade", "equilíbrio de mercado"]},
+            {"codigo": "indicadores_economicos", "label": "Indicadores Econômicos", "palavras_chave": ["pib", "inflação", "ipca", "selic", "desemprego"]},
+            {"codigo": "mercado_estruturas", "label": "Estruturas de Mercado", "palavras_chave": ["concorrência perfeita", "monopólio", "oligopólio", "concorrência monopolística"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "logistica_reversa_sustentabilidade",
+      "label": "Logística Reversa e Sustentabilidade",
+      "palavras_chave": ["logística reversa", "sustentabilidade", "meio ambiente", "logística verde"],
+      "filhos": [
+        {
+          "codigo": "conceitos_log_reversa",
+          "label": "Conceitos de Logística Reversa",
+          "palavras_chave": ["logística reversa", "fluxo reverso", "retorno de produtos"],
+          "filhos": [
+            {"codigo": "logistica_pos_consumo", "label": "Logística Reversa de Pós-Consumo", "palavras_chave": ["pós-consumo", "fim de vida útil", "descarte", "produtos pós-consumo"]},
+            {"codigo": "logistica_pos_venda", "label": "Logística Reversa de Pós-Venda", "palavras_chave": ["pós-venda", "devolução", "troca", "garantia", "recall"]},
+            {"codigo": "motivadores_log_reversa", "label": "Motivadores da Logística Reversa", "palavras_chave": ["motivadores", "legislação ambiental", "imagem corporativa", "recuperação de valor", "obrigação legal"]}
+          ]
+        },
+        {
+          "codigo": "canais_reversos",
+          "label": "Canais Reversos",
+          "palavras_chave": ["canais reversos", "fluxo de retorno"],
+          "filhos": [
+            {"codigo": "reuso", "label": "Reuso e Reaproveitamento", "palavras_chave": ["reuso", "reaproveitamento", "segunda mão", "remanufatura"]},
+            {"codigo": "reciclagem", "label": "Reciclagem", "palavras_chave": ["reciclagem", "material reciclável", "coleta seletiva", "cooperativas de catadores"]},
+            {"codigo": "desmonte", "label": "Desmonte e Recuperação", "palavras_chave": ["desmonte", "recuperação de peças", "canibalização", "remanufatura"]},
+            {"codigo": "destino_final", "label": "Destinação Final", "palavras_chave": ["destino final", "aterro sanitário", "incineração", "descarte adequado"]}
+          ]
+        },
+        {
+          "codigo": "legislacao_ambiental",
+          "label": "Legislação Ambiental",
+          "palavras_chave": ["legislação ambiental", "lei ambiental", "responsabilidade ambiental"],
+          "filhos": [
+            {"codigo": "pnrs", "label": "PNRS - Política Nacional de Resíduos Sólidos", "palavras_chave": ["pnrs", "política nacional de resíduos sólidos", "lei 12.305", "resíduos sólidos"]},
+            {"codigo": "logistica_reversa_obrigatoria", "label": "Setores com Logística Reversa Obrigatória", "palavras_chave": ["pneus", "pilhas e baterias", "óleo lubrificante", "agrotóxicos", "eletroeletrônicos", "lâmpadas fluorescentes", "embalagens"]},
+            {"codigo": "acordo_setorial", "label": "Acordo Setorial e Termo de Compromisso", "palavras_chave": ["acordo setorial", "termo de compromisso", "responsabilidade compartilhada"]}
+          ]
+        },
+        {
+          "codigo": "sustentabilidade_logistica",
+          "label": "Sustentabilidade na Logística",
+          "palavras_chave": ["sustentabilidade", "logística sustentável", "logística verde", "green logistics"],
+          "filhos": [
+            {"codigo": "trip_bottom_line", "label": "Triple Bottom Line", "palavras_chave": ["triple bottom line", "tripé da sustentabilidade", "social ambiental econômico", "3p", "people planet profit"]},
+            {"codigo": "pegada_carbono", "label": "Pegada de Carbono", "palavras_chave": ["pegada de carbono", "emissões de co2", "gases do efeito estufa", "carbon footprint"]},
+            {"codigo": "economia_circular", "label": "Economia Circular", "palavras_chave": ["economia circular", "ciclos fechados", "berço ao berço", "cradle to cradle"]},
+            {"codigo": "esg_log", "label": "ESG e Logística", "palavras_chave": ["esg", "ambiental social governança", "investimento responsável", "relatórios de sustentabilidade"]}
+          ]
+        },
+        {
+          "codigo": "embalagens_sustentaveis",
+          "label": "Embalagens Sustentáveis",
+          "palavras_chave": ["embalagem sustentável", "embalagem retornável", "embalagem biodegradável"],
+          "filhos": [
+            {"codigo": "embalagem_retornavel", "label": "Embalagens Retornáveis", "palavras_chave": ["embalagem retornável", "vasilhame", "pool de paletes", "reutilização"]},
+            {"codigo": "materiais_biodegradaveis", "label": "Materiais Biodegradáveis", "palavras_chave": ["biodegradável", "compostável", "bioplástico", "papel reciclado"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "planejamento_estrategico",
+      "label": "Planejamento Estratégico e Logístico",
+      "palavras_chave": ["planejamento estratégico", "estratégia empresarial", "planejamento logístico"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_estrategia",
+          "label": "Fundamentos do Planejamento Estratégico",
+          "palavras_chave": ["planejamento estratégico", "estratégia", "níveis de planejamento"],
+          "filhos": [
+            {"codigo": "niveis_planejamento", "label": "Níveis de Planejamento", "palavras_chave": ["planejamento estratégico", "planejamento tático", "planejamento operacional"]},
+            {"codigo": "missao_visao_valores", "label": "Missão, Visão e Valores", "palavras_chave": ["missão", "visão", "valores", "identidade organizacional", "propósito"]},
+            {"codigo": "objetivos_metas", "label": "Objetivos e Metas (SMART)", "palavras_chave": ["objetivo", "meta", "smart", "específico mensurável atingível relevante temporal"]}
+          ]
+        },
+        {
+          "codigo": "analise_ambiente",
+          "label": "Análise do Ambiente",
+          "palavras_chave": ["análise do ambiente", "diagnóstico estratégico", "ambiente externo", "ambiente interno"],
+          "filhos": [
+            {"codigo": "swot", "label": "Análise SWOT (FOFA)", "palavras_chave": ["swot", "fofa", "forças fraquezas oportunidades ameaças", "análise interna externa"]},
+            {"codigo": "cinco_forcas_porter", "label": "5 Forças de Porter", "palavras_chave": ["cinco forças", "porter", "rivalidade entre concorrentes", "novos entrantes", "produtos substitutos", "poder de barganha"]},
+            {"codigo": "pestel", "label": "Análise PESTEL", "palavras_chave": ["pestel", "pest", "política", "econômica", "social", "tecnológica", "ambiental", "legal"]},
+            {"codigo": "matriz_bcg", "label": "Matriz BCG", "palavras_chave": ["matriz bcg", "estrela", "vaca leiteira", "abacaxi", "ponto de interrogação"]}
+          ]
+        },
+        {
+          "codigo": "estrategias_competitivas",
+          "label": "Estratégias Competitivas",
+          "palavras_chave": ["estratégia competitiva", "vantagem competitiva", "porter"],
+          "filhos": [
+            {"codigo": "lideranca_custo", "label": "Liderança em Custo", "palavras_chave": ["liderança em custo", "estratégia de custo baixo"]},
+            {"codigo": "diferenciacao", "label": "Diferenciação", "palavras_chave": ["diferenciação", "estratégia de diferenciação", "valor agregado"]},
+            {"codigo": "foco_nicho", "label": "Foco / Nicho", "palavras_chave": ["foco", "nicho de mercado", "segmentação"]}
+          ]
+        },
+        {
+          "codigo": "estrategia_logistica",
+          "label": "Estratégia Logística",
+          "palavras_chave": ["estratégia logística", "planejamento logístico", "decisões logísticas"],
+          "filhos": [
+            {"codigo": "localizacao_instalacoes", "label": "Localização de Instalações", "palavras_chave": ["localização de instalações", "centróide", "métodos de localização", "fatores locacionais"]},
+            {"codigo": "make_or_buy", "label": "Make or Buy / Outsourcing", "palavras_chave": ["make or buy", "fazer ou comprar", "terceirização", "outsourcing", "operador logístico"]},
+            {"codigo": "operador_logistico", "label": "Operadores Logísticos (3PL, 4PL)", "palavras_chave": ["3pl", "4pl", "operador logístico", "third party logistics", "fourth party logistics"]},
+            {"codigo": "rede_logistica", "label": "Projeto da Rede Logística", "palavras_chave": ["rede logística", "projeto de rede", "número de cds", "centralização", "descentralização"]}
+          ]
+        },
+        {
+          "codigo": "indicadores_estrategicos",
+          "label": "Indicadores Estratégicos",
+          "palavras_chave": ["indicadores estratégicos", "bsc", "kpi"],
+          "filhos": [
+            {"codigo": "bsc", "label": "Balanced Scorecard (BSC)", "palavras_chave": ["bsc", "balanced scorecard", "kaplan e norton", "perspectivas do bsc", "financeira", "clientes", "processos internos", "aprendizado"]},
+            {"codigo": "okr", "label": "OKR", "palavras_chave": ["okr", "objectives and key results", "objetivos e resultados-chave"]},
+            {"codigo": "kpi_logistico", "label": "KPIs Logísticos", "palavras_chave": ["kpi", "key performance indicator", "indicador de desempenho", "métricas"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "sistemas_informacao_logistica",
+      "label": "Sistemas de Informação Logística",
+      "palavras_chave": ["sistemas de informação", "ti logística", "sil", "tecnologia da informação"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_si",
+          "label": "Fundamentos de Sistemas de Informação",
+          "palavras_chave": ["sistemas de informação", "si", "dados informação conhecimento"],
+          "filhos": [
+            {"codigo": "dado_informacao_conhecimento", "label": "Dado, Informação e Conhecimento", "palavras_chave": ["dado", "informação", "conhecimento", "pirâmide do conhecimento"]},
+            {"codigo": "tipos_si", "label": "Tipos de Sistemas de Informação", "palavras_chave": ["sad", "sig", "sae", "sistema de apoio à decisão", "sistema de informação gerencial", "sistema de automação de escritório"]}
+          ]
+        },
+        {
+          "codigo": "sistemas_logisticos",
+          "label": "Sistemas Logísticos Integrados",
+          "palavras_chave": ["sistemas logísticos", "softwares logísticos", "integração de sistemas"],
+          "filhos": [
+            {"codigo": "erp_logistica", "label": "ERP Aplicado à Logística", "palavras_chave": ["erp", "sap", "totvs", "oracle", "módulo logístico do erp", "integração de processos"]},
+            {"codigo": "wms_detalhado", "label": "WMS - Sistema de Gerenciamento de Armazéns", "palavras_chave": ["wms", "warehouse management system", "endereçamento", "picking automatizado", "controle de inventário"]},
+            {"codigo": "tms_detalhado", "label": "TMS - Sistema de Gerenciamento de Transporte", "palavras_chave": ["tms", "transportation management system", "roteirização", "frete", "gestão de transporte"]},
+            {"codigo": "yms", "label": "YMS - Yard Management System", "palavras_chave": ["yms", "yard management", "gestão de pátio", "gestão de docas"]},
+            {"codigo": "ms", "label": "MES e Apoio à Produção", "palavras_chave": ["mes", "manufacturing execution system", "execução da manufatura", "chão de fábrica"]}
+          ]
+        },
+        {
+          "codigo": "tecnologias_emergentes",
+          "label": "Tecnologias Emergentes na Logística",
+          "palavras_chave": ["tecnologias emergentes", "indústria 4.0", "transformação digital"],
+          "filhos": [
+            {"codigo": "iot_logistico", "label": "IoT - Internet das Coisas Logística", "palavras_chave": ["iot", "internet das coisas", "sensores", "dispositivos conectados", "iot logístico"]},
+            {"codigo": "big_data_analytics", "label": "Big Data e Analytics", "palavras_chave": ["big data", "analytics", "análise de dados", "dados massivos", "data driven"]},
+            {"codigo": "inteligencia_artificial", "label": "Inteligência Artificial e Machine Learning", "palavras_chave": ["inteligência artificial", "ia", "machine learning", "aprendizado de máquina", "previsão por ia"]},
+            {"codigo": "blockchain", "label": "Blockchain em Logística", "palavras_chave": ["blockchain", "rastreabilidade", "contrato inteligente", "smart contract"]},
+            {"codigo": "torre_controle", "label": "Torre de Controle Logística", "palavras_chave": ["torre de controle", "control tower", "visibilidade da cadeia", "monitoramento em tempo real"]},
+            {"codigo": "automacao_robotica", "label": "Automação e Robótica", "palavras_chave": ["automação", "robótica", "agv", "amr", "robô móvel autônomo", "drones"]}
+          ]
+        },
+        {
+          "codigo": "rastreabilidade_si",
+          "label": "Rastreabilidade e Visibilidade",
+          "palavras_chave": ["rastreabilidade", "tracking", "visibilidade da cadeia"],
+          "filhos": [
+            {"codigo": "track_trace", "label": "Track & Trace", "palavras_chave": ["track and trace", "rastreamento", "monitoramento de carga"]},
+            {"codigo": "edi_si", "label": "EDI e Integração de Dados", "palavras_chave": ["edi", "intercâmbio eletrônico", "api", "integração de sistemas"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "tcc_logistica",
+      "label": "Trabalho de Conclusão de Curso (TCC) em Logística",
+      "palavras_chave": ["tcc", "trabalho de conclusão", "projeto integrador", "trabalho final"],
+      "filhos": [
+        {
+          "codigo": "metodologia_pesquisa",
+          "label": "Metodologia da Pesquisa",
+          "palavras_chave": ["metodologia", "metodologia científica", "pesquisa acadêmica"],
+          "filhos": [
+            {"codigo": "tipos_pesquisa", "label": "Tipos de Pesquisa", "palavras_chave": ["pesquisa qualitativa", "pesquisa quantitativa", "pesquisa exploratória", "pesquisa descritiva", "pesquisa explicativa", "estudo de caso"]},
+            {"codigo": "abnt", "label": "Normas ABNT", "palavras_chave": ["abnt", "nbr 14724", "nbr 6023", "normas técnicas", "formatação acadêmica"]},
+            {"codigo": "coleta_dados", "label": "Coleta de Dados", "palavras_chave": ["coleta de dados", "questionário", "entrevista", "observação", "pesquisa de campo"]},
+            {"codigo": "analise_dados", "label": "Análise de Dados", "palavras_chave": ["análise de dados", "análise qualitativa", "análise quantitativa", "tratamento estatístico"]}
+          ]
+        },
+        {
+          "codigo": "estrutura_tcc",
+          "label": "Estrutura do TCC",
+          "palavras_chave": ["estrutura do tcc", "partes do tcc", "elementos pré-textuais", "elementos textuais"],
+          "filhos": [
+            {"codigo": "introducao_tcc", "label": "Introdução", "palavras_chave": ["introdução", "problema de pesquisa", "objetivos", "justificativa", "hipótese"]},
+            {"codigo": "fundamentacao_teorica", "label": "Fundamentação Teórica / Referencial Teórico", "palavras_chave": ["fundamentação teórica", "referencial teórico", "revisão de literatura", "embasamento"]},
+            {"codigo": "metodologia_tcc", "label": "Metodologia", "palavras_chave": ["metodologia da pesquisa", "procedimentos metodológicos", "método de pesquisa"]},
+            {"codigo": "desenvolvimento_tcc", "label": "Desenvolvimento", "palavras_chave": ["desenvolvimento", "estudo de caso", "diagnóstico", "proposta"]},
+            {"codigo": "resultados_discussao", "label": "Resultados e Discussão", "palavras_chave": ["resultados", "discussão dos resultados", "análise dos resultados"]},
+            {"codigo": "conclusao_tcc", "label": "Conclusão e Considerações Finais", "palavras_chave": ["conclusão", "considerações finais", "limitações", "trabalhos futuros"]},
+            {"codigo": "referencias_anexos", "label": "Referências, Apêndices e Anexos", "palavras_chave": ["referências bibliográficas", "apêndice", "anexo", "citações"]}
+          ]
+        },
+        {
+          "codigo": "validacao_apresentacao",
+          "label": "Validação e Apresentação",
+          "palavras_chave": ["validação", "apresentação", "banca examinadora"],
+          "filhos": [
+            {"codigo": "validacao_proposta", "label": "Validação da Proposta", "palavras_chave": ["validação", "teste de hipótese", "verificação", "comprovação"]},
+            {"codigo": "apresentacao_banca", "label": "Apresentação à Banca", "palavras_chave": ["apresentação", "banca examinadora", "defesa de tcc", "arguição"]},
+            {"codigo": "etica_pesquisa", "label": "Ética na Pesquisa", "palavras_chave": ["ética em pesquisa", "plágio", "originalidade", "consentimento informado"]}
+          ]
+        },
+        {
+          "codigo": "projeto_integrador",
+          "label": "Projeto Integrador",
+          "palavras_chave": ["projeto integrador", "interdisciplinaridade", "integração de saberes"],
+          "filhos": [
+            {"codigo": "identificacao_problema", "label": "Identificação do Problema", "palavras_chave": ["problema empresarial", "diagnóstico organizacional", "análise situacional"]},
+            {"codigo": "proposta_solucao", "label": "Proposta de Solução", "palavras_chave": ["proposta de melhoria", "plano de ação", "implementação", "viabilidade"]}
+          ]
+        }
+      ]
+    }
+  ]
+}

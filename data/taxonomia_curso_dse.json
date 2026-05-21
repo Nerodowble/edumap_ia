@@ -1,0 +1,1772 @@
+{
+  "versao": "1.0",
+  "etapa": "curso_dse",
+  "descricao": "Taxonomia para o curso Técnico em Desenvolvimento de Sistemas (DSE) - ETEC / Centro Paula Souza. 1º, 2º e 3º módulos.",
+  "materias": [
+    {
+      "codigo": "analise_projeto_sistemas",
+      "label": "Análise e Projeto de Sistemas",
+      "palavras_chave": ["análise de sistemas", "análise e projeto", "projeto de sistemas", "engenharia de software", "aps", "modelagem de sistemas"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_engenharia_software",
+          "label": "Fundamentos de Engenharia de Software",
+          "palavras_chave": ["engenharia de software", "ciclo de vida do software", "ciclo de vida", "processo de software", "es"],
+          "filhos": [
+            {"codigo": "definicao_es", "label": "Definição de Engenharia de Software", "palavras_chave": ["definição de engenharia de software", "conceito de es", "pressman", "sommerville"]},
+            {"codigo": "atividades_processo", "label": "Atividades do Processo de Software", "palavras_chave": ["especificação", "projeto", "implementação", "validação", "evolução"]},
+            {"codigo": "qualidade_software", "label": "Qualidade de Software (Visão Geral)", "palavras_chave": ["qualidade de software", "iso 9126", "iso 25010", "atributos de qualidade"]},
+            {"codigo": "crise_software", "label": "Crise do Software", "palavras_chave": ["crise do software", "software em atraso", "estouro de orçamento"]}
+          ]
+        },
+        {
+          "codigo": "ciclo_de_vida",
+          "label": "Modelos de Ciclo de Vida",
+          "palavras_chave": ["ciclo de vida", "modelo de processo", "metodologia de desenvolvimento", "modelos de desenvolvimento"],
+          "filhos": [
+            {"codigo": "cascata", "label": "Modelo Cascata", "palavras_chave": ["cascata", "waterfall", "modelo sequencial", "modelo clássico"]},
+            {"codigo": "iterativo_incremental", "label": "Iterativo e Incremental", "palavras_chave": ["iterativo", "incremental", "iterativo e incremental", "desenvolvimento incremental"]},
+            {"codigo": "prototipacao", "label": "Prototipação", "palavras_chave": ["prototipação", "protótipo", "prototipagem", "throwaway prototype"]},
+            {"codigo": "espiral", "label": "Modelo Espiral (Boehm)", "palavras_chave": ["espiral", "boehm", "modelo espiral", "análise de risco"]},
+            {"codigo": "rup", "label": "RUP — Rational Unified Process", "palavras_chave": ["rup", "rational unified process", "processo unificado"]},
+            {"codigo": "v_model", "label": "Modelo V", "palavras_chave": ["modelo v", "v-model", "verificação e validação"]}
+          ]
+        },
+        {
+          "codigo": "metodologias_ageis",
+          "label": "Metodologias Ágeis",
+          "palavras_chave": ["metodologias ágeis", "ágil", "agile", "manifesto ágil", "métodos ágeis"],
+          "filhos": [
+            {"codigo": "manifesto_agil", "label": "Manifesto Ágil", "palavras_chave": ["manifesto ágil", "manifesto agile", "valores ágeis", "12 princípios ágeis"]},
+            {
+              "codigo": "scrum",
+              "label": "Scrum",
+              "palavras_chave": ["scrum", "scrum master", "product owner", "po"],
+              "filhos": [
+                {"codigo": "papeis_scrum", "label": "Papéis (Scrum Master, PO, Dev)", "palavras_chave": ["scrum master", "product owner", "time de desenvolvimento", "dev team"]},
+                {"codigo": "eventos_scrum", "label": "Eventos (Sprint, Daily, Review, Retrospectiva)", "palavras_chave": ["sprint", "daily", "daily scrum", "sprint review", "retrospectiva", "sprint planning"]},
+                {"codigo": "artefatos_scrum", "label": "Artefatos (Product Backlog, Sprint Backlog, Incremento)", "palavras_chave": ["product backlog", "sprint backlog", "incremento", "backlog do produto"]},
+                {"codigo": "user_story", "label": "User Stories e Critérios de Aceite", "palavras_chave": ["user story", "história de usuário", "critério de aceite", "como usuário eu quero"]},
+                {"codigo": "story_points", "label": "Story Points e Estimativas", "palavras_chave": ["story points", "planning poker", "estimativa ágil", "velocidade do time"]}
+              ]
+            },
+            {"codigo": "kanban", "label": "Kanban", "palavras_chave": ["kanban", "quadro kanban", "wip", "work in progress", "fluxo contínuo"]},
+            {"codigo": "xp", "label": "XP — Extreme Programming", "palavras_chave": ["xp", "extreme programming", "programação extrema", "pair programming"]},
+            {"codigo": "lean", "label": "Lean Software Development", "palavras_chave": ["lean", "lean software", "eliminação de desperdícios"]},
+            {"codigo": "devops_cultura", "label": "DevOps (Cultura)", "palavras_chave": ["devops", "cultura devops", "integração contínua", "entrega contínua"]}
+          ]
+        },
+        {
+          "codigo": "requisitos",
+          "label": "Engenharia de Requisitos",
+          "palavras_chave": ["requisitos", "engenharia de requisitos", "levantamento de requisitos", "elicitação"],
+          "filhos": [
+            {"codigo": "requisitos_funcionais", "label": "Requisitos Funcionais", "palavras_chave": ["requisito funcional", "rf", "requisitos funcionais", "funcionalidade"]},
+            {"codigo": "requisitos_nao_funcionais", "label": "Requisitos Não Funcionais", "palavras_chave": ["requisito não funcional", "rnf", "requisitos não funcionais", "desempenho", "segurança", "usabilidade"]},
+            {"codigo": "elicitacao", "label": "Elicitação de Requisitos", "palavras_chave": ["elicitação", "entrevista", "questionário", "workshop", "observação", "brainstorming"]},
+            {"codigo": "analise_requisitos", "label": "Análise e Negociação", "palavras_chave": ["análise de requisitos", "negociação de requisitos", "priorização", "moscow"]},
+            {"codigo": "especificacao_requisitos", "label": "Especificação (Documento de Requisitos)", "palavras_chave": ["documento de requisitos", "erse", "especificação de requisitos"]},
+            {"codigo": "validacao_requisitos", "label": "Validação e Verificação de Requisitos", "palavras_chave": ["validação de requisitos", "rastreabilidade"]},
+            {"codigo": "gerencia_requisitos", "label": "Gerência de Mudanças de Requisitos", "palavras_chave": ["gerência de requisitos", "mudança de requisitos", "controle de mudanças"]}
+          ]
+        },
+        {
+          "codigo": "uml",
+          "label": "UML — Unified Modeling Language",
+          "palavras_chave": ["uml", "unified modeling language", "modelagem uml", "diagrama uml"],
+          "filhos": [
+            {"codigo": "uml_introducao", "label": "Introdução à UML", "palavras_chave": ["uml visão geral", "omg", "história da uml"]},
+            {
+              "codigo": "diagramas_estruturais",
+              "label": "Diagramas Estruturais",
+              "palavras_chave": ["diagrama estrutural", "diagramas estruturais"],
+              "filhos": [
+                {"codigo": "classes", "label": "Diagrama de Classes", "palavras_chave": ["diagrama de classes", "classe uml", "atributo", "método", "associação", "agregação", "composição", "multiplicidade"]},
+                {"codigo": "objetos", "label": "Diagrama de Objetos", "palavras_chave": ["diagrama de objetos", "instância de classe"]},
+                {"codigo": "componentes", "label": "Diagrama de Componentes", "palavras_chave": ["diagrama de componentes", "componente uml"]},
+                {"codigo": "implantacao", "label": "Diagrama de Implantação", "palavras_chave": ["diagrama de implantação", "diagrama de deployment", "nó de implantação"]},
+                {"codigo": "pacotes", "label": "Diagrama de Pacotes", "palavras_chave": ["diagrama de pacotes", "package diagram"]}
+              ]
+            },
+            {
+              "codigo": "diagramas_comportamentais",
+              "label": "Diagramas Comportamentais",
+              "palavras_chave": ["diagrama comportamental", "diagramas dinâmicos"],
+              "filhos": [
+                {"codigo": "casos_uso", "label": "Diagrama de Casos de Uso", "palavras_chave": ["caso de uso", "use case", "ator", "diagrama de casos de uso"]},
+                {"codigo": "atividades", "label": "Diagrama de Atividades", "palavras_chave": ["diagrama de atividades", "atividade uml", "fluxo de controle"]},
+                {"codigo": "sequencia", "label": "Diagrama de Sequência", "palavras_chave": ["diagrama de sequência", "linha de vida", "mensagem síncrona"]},
+                {"codigo": "comunicacao", "label": "Diagrama de Comunicação", "palavras_chave": ["diagrama de comunicação", "diagrama de colaboração"]},
+                {"codigo": "maquina_estados", "label": "Diagrama de Máquina de Estados", "palavras_chave": ["máquina de estados", "diagrama de estados", "statechart"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "modelagem_processo_negocio",
+          "label": "Modelagem de Processos de Negócio",
+          "palavras_chave": ["modelagem de processos", "processo de negócio", "bpm", "bpmn"],
+          "filhos": [
+            {"codigo": "bpmn", "label": "BPMN", "palavras_chave": ["bpmn", "business process model and notation"]},
+            {"codigo": "fluxograma", "label": "Fluxograma", "palavras_chave": ["fluxograma", "fluxo de processo"]}
+          ]
+        },
+        {
+          "codigo": "arquitetura_software",
+          "label": "Arquitetura de Software",
+          "palavras_chave": ["arquitetura de software", "padrão arquitetural", "estilo arquitetural"],
+          "filhos": [
+            {"codigo": "mvc", "label": "MVC — Model View Controller", "palavras_chave": ["mvc", "model view controller", "padrão mvc"]},
+            {"codigo": "camadas", "label": "Arquitetura em Camadas", "palavras_chave": ["camadas", "arquitetura em camadas", "n-tier", "três camadas"]},
+            {"codigo": "cliente_servidor", "label": "Cliente-Servidor", "palavras_chave": ["cliente-servidor", "client-server"]},
+            {"codigo": "microservicos_intro", "label": "Microsserviços (Introdução)", "palavras_chave": ["microsserviços", "microservices", "arquitetura de microsserviços"]},
+            {"codigo": "monolitico", "label": "Arquitetura Monolítica", "palavras_chave": ["monolítico", "aplicação monolítica"]}
+          ]
+        },
+        {
+          "codigo": "gestao_projetos_software",
+          "label": "Gestão de Projetos de Software",
+          "palavras_chave": ["gestão de projetos", "gerenciamento de projetos", "pmbok", "gerência de projetos"],
+          "filhos": [
+            {"codigo": "escopo_prazo_custo", "label": "Escopo, Prazo e Custo", "palavras_chave": ["escopo do projeto", "prazo", "custo", "tripla restrição"]},
+            {"codigo": "cronograma", "label": "Cronograma e Gantt", "palavras_chave": ["cronograma", "diagrama de gantt", "gantt"]},
+            {"codigo": "riscos_projeto", "label": "Gestão de Riscos", "palavras_chave": ["gestão de riscos", "matriz de risco", "risco do projeto"]},
+            {"codigo": "stakeholders", "label": "Stakeholders", "palavras_chave": ["stakeholder", "partes interessadas"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "design_digital",
+      "label": "Design Digital",
+      "palavras_chave": ["design digital", "design", "design gráfico", "ux", "ui"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_design",
+          "label": "Fundamentos do Design",
+          "palavras_chave": ["fundamentos do design", "princípios do design", "design básico"],
+          "filhos": [
+            {"codigo": "principios_design", "label": "Princípios do Design", "palavras_chave": ["princípios do design", "equilíbrio", "contraste", "hierarquia", "repetição", "alinhamento", "proximidade"]},
+            {"codigo": "gestalt_design", "label": "Leis da Gestalt no Design", "palavras_chave": ["gestalt", "leis da gestalt", "proximidade", "semelhança", "continuidade", "fechamento"]},
+            {"codigo": "composicao_visual", "label": "Composição Visual", "palavras_chave": ["composição visual", "regra dos terços", "ponto focal"]},
+            {"codigo": "grid_layout", "label": "Grid e Layout", "palavras_chave": ["grid", "grade", "layout", "diagramação"]}
+          ]
+        },
+        {
+          "codigo": "teoria_cor",
+          "label": "Teoria das Cores",
+          "palavras_chave": ["cor", "cores", "teoria das cores", "color theory"],
+          "filhos": [
+            {"codigo": "modelos_cor", "label": "Modelos de Cor (RGB, CMYK, HSL)", "palavras_chave": ["rgb", "cmyk", "hsl", "hsv", "modelo de cor", "espaço de cor"]},
+            {"codigo": "circulo_cromatico", "label": "Círculo Cromático", "palavras_chave": ["círculo cromático", "cores primárias", "cores secundárias", "cores complementares"]},
+            {"codigo": "psicologia_cores", "label": "Psicologia das Cores", "palavras_chave": ["psicologia das cores", "significado das cores", "cor quente", "cor fria"]},
+            {"codigo": "harmonia_cores", "label": "Harmonia Cromática", "palavras_chave": ["harmonia cromática", "paleta de cores", "análoga", "complementar", "triádica"]},
+            {"codigo": "acessibilidade_cor", "label": "Acessibilidade e Contraste de Cor", "palavras_chave": ["contraste de cor", "wcag", "daltonismo", "acessibilidade cromática"]}
+          ]
+        },
+        {
+          "codigo": "tipografia",
+          "label": "Tipografia",
+          "palavras_chave": ["tipografia", "tipográfico", "fonte", "tipo"],
+          "filhos": [
+            {"codigo": "classificacao_tipografica", "label": "Classificação Tipográfica", "palavras_chave": ["serifa", "sem serifa", "sans serif", "monoespaçada", "script"]},
+            {"codigo": "anatomia_letra", "label": "Anatomia da Letra", "palavras_chave": ["anatomia da letra", "altura-x", "ascendente", "descendente", "caixa-alta"]},
+            {"codigo": "hierarquia_tipografica", "label": "Hierarquia Tipográfica", "palavras_chave": ["hierarquia tipográfica", "título", "subtítulo", "corpo de texto"]},
+            {"codigo": "legibilidade", "label": "Legibilidade e Leiturabilidade", "palavras_chave": ["legibilidade", "leiturabilidade", "kerning", "tracking", "leading", "entrelinha"]}
+          ]
+        },
+        {
+          "codigo": "imagem_digital",
+          "label": "Imagem Digital",
+          "palavras_chave": ["imagem digital", "imagem", "pixel"],
+          "filhos": [
+            {"codigo": "raster_vetorial", "label": "Raster vs Vetorial", "palavras_chave": ["raster", "bitmap", "vetorial", "pixel", "vetor"]},
+            {"codigo": "resolucao_dpi", "label": "Resolução e DPI", "palavras_chave": ["resolução", "dpi", "ppi", "pixels por polegada"]},
+            {"codigo": "formatos_imagem", "label": "Formatos de Imagem (JPG, PNG, SVG, GIF, WebP)", "palavras_chave": ["jpg", "jpeg", "png", "svg", "gif", "webp", "formato de imagem"]},
+            {"codigo": "compressao_imagem", "label": "Compressão de Imagem", "palavras_chave": ["compressão de imagem", "compressão com perda", "compressão sem perda", "lossy", "lossless"]}
+          ]
+        },
+        {
+          "codigo": "ferramentas_design",
+          "label": "Ferramentas de Design",
+          "palavras_chave": ["ferramenta de design", "software de design", "editor gráfico"],
+          "filhos": [
+            {"codigo": "photoshop", "label": "Adobe Photoshop", "palavras_chave": ["photoshop", "adobe photoshop", "editor de imagem"]},
+            {"codigo": "illustrator", "label": "Adobe Illustrator", "palavras_chave": ["illustrator", "adobe illustrator", "ilustração vetorial"]},
+            {"codigo": "figma", "label": "Figma", "palavras_chave": ["figma", "design colaborativo", "protótipo figma"]},
+            {"codigo": "adobe_xd", "label": "Adobe XD", "palavras_chave": ["adobe xd", "xd"]},
+            {"codigo": "canva", "label": "Canva", "palavras_chave": ["canva", "design online"]},
+            {"codigo": "gimp_inkscape", "label": "GIMP e Inkscape", "palavras_chave": ["gimp", "inkscape", "software livre design"]}
+          ]
+        },
+        {
+          "codigo": "ux_ui",
+          "label": "UX e UI Design",
+          "palavras_chave": ["ux", "ui", "experiência do usuário", "interface do usuário", "ux design", "ui design"],
+          "filhos": [
+            {"codigo": "ux_diferenca_ui", "label": "Diferença entre UX e UI", "palavras_chave": ["ux vs ui", "diferença ux ui", "experiência versus interface"]},
+            {"codigo": "design_centrado_usuario", "label": "Design Centrado no Usuário (DCU)", "palavras_chave": ["design centrado no usuário", "dcu", "user-centered design", "ucd"]},
+            {"codigo": "persona", "label": "Persona", "palavras_chave": ["persona", "personas", "perfil de usuário", "user persona"]},
+            {"codigo": "jornada_usuario", "label": "Jornada do Usuário", "palavras_chave": ["jornada do usuário", "user journey", "mapa de jornada"]},
+            {"codigo": "wireframe", "label": "Wireframe", "palavras_chave": ["wireframe", "esqueleto da tela", "wireframing"]},
+            {"codigo": "prototipo", "label": "Protótipo (Baixa e Alta Fidelidade)", "palavras_chave": ["protótipo", "protótipo baixa fidelidade", "alta fidelidade", "prototipagem"]},
+            {"codigo": "heuristicas_nielsen", "label": "Heurísticas de Nielsen", "palavras_chave": ["heurísticas de nielsen", "10 heurísticas", "jakob nielsen", "usabilidade heurística"]},
+            {"codigo": "teste_usabilidade", "label": "Teste de Usabilidade", "palavras_chave": ["teste de usabilidade", "usabilidade", "testes com usuários"]},
+            {"codigo": "acessibilidade_web", "label": "Acessibilidade Web (WCAG)", "palavras_chave": ["acessibilidade", "wcag", "a11y", "leitor de tela", "inclusão digital"]}
+          ]
+        },
+        {
+          "codigo": "design_responsivo",
+          "label": "Design Responsivo",
+          "palavras_chave": ["design responsivo", "responsivo", "mobile first", "responsive design"],
+          "filhos": [
+            {"codigo": "mobile_first", "label": "Mobile First", "palavras_chave": ["mobile first", "primeiro o mobile"]},
+            {"codigo": "breakpoints", "label": "Breakpoints", "palavras_chave": ["breakpoint", "pontos de quebra", "media query"]},
+            {"codigo": "grid_responsivo", "label": "Grid Responsivo", "palavras_chave": ["grid responsivo", "12 colunas", "flexbox", "css grid"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "fundamentos_informatica",
+      "label": "Fundamentos da Informática",
+      "palavras_chave": ["fundamentos da informática", "informática básica", "introdução à informática", "computação"],
+      "filhos": [
+        {
+          "codigo": "historia_computacao",
+          "label": "História da Computação",
+          "palavras_chave": ["história da computação", "história do computador", "evolução da computação"],
+          "filhos": [
+            {"codigo": "geracoes_computadores", "label": "Gerações de Computadores", "palavras_chave": ["gerações de computadores", "primeira geração", "válvulas", "transistores", "circuitos integrados", "microprocessador"]},
+            {"codigo": "pioneiros", "label": "Pioneiros (Babbage, Turing, Von Neumann)", "palavras_chave": ["charles babbage", "alan turing", "von neumann", "ada lovelace"]},
+            {"codigo": "marcas_historicas", "label": "Marcos Históricos (ENIAC, IBM, PC)", "palavras_chave": ["eniac", "ibm", "personal computer", "microcomputador"]}
+          ]
+        },
+        {
+          "codigo": "hardware",
+          "label": "Hardware",
+          "palavras_chave": ["hardware", "componente físico", "peça do computador"],
+          "filhos": [
+            {
+              "codigo": "componentes_basicos",
+              "label": "Componentes Básicos",
+              "palavras_chave": ["componente básico", "peças do computador"],
+              "filhos": [
+                {"codigo": "cpu", "label": "CPU / Processador", "palavras_chave": ["cpu", "processador", "unidade central de processamento", "núcleo", "core", "clock", "ghz"]},
+                {"codigo": "memoria_ram", "label": "Memória RAM", "palavras_chave": ["ram", "memória ram", "memória principal", "ddr", "memória volátil"]},
+                {"codigo": "memoria_rom", "label": "Memória ROM", "palavras_chave": ["rom", "memória rom", "bios", "uefi", "memória somente leitura"]},
+                {"codigo": "armazenamento", "label": "Armazenamento (HD, SSD, NVMe)", "palavras_chave": ["hd", "hdd", "ssd", "nvme", "disco rígido", "armazenamento secundário"]},
+                {"codigo": "placa_mae", "label": "Placa-mãe", "palavras_chave": ["placa-mãe", "placa mãe", "motherboard", "chipset"]},
+                {"codigo": "fonte_alimentacao", "label": "Fonte de Alimentação", "palavras_chave": ["fonte de alimentação", "psu", "power supply"]},
+                {"codigo": "gpu", "label": "GPU / Placa de Vídeo", "palavras_chave": ["gpu", "placa de vídeo", "vga", "graphics processing unit"]}
+              ]
+            },
+            {"codigo": "perifericos", "label": "Periféricos (Entrada/Saída)", "palavras_chave": ["periférico", "entrada e saída", "e/s", "i/o", "teclado", "mouse", "monitor", "impressora"]},
+            {"codigo": "barramentos", "label": "Barramentos (PCI, USB, SATA)", "palavras_chave": ["barramento", "pci", "pcie", "usb", "sata", "bus"]},
+            {"codigo": "arquitetura_von_neumann", "label": "Arquitetura de Von Neumann", "palavras_chave": ["von neumann", "arquitetura de von neumann", "modelo de von neumann"]}
+          ]
+        },
+        {
+          "codigo": "software",
+          "label": "Software",
+          "palavras_chave": ["software", "programa", "aplicativo"],
+          "filhos": [
+            {"codigo": "tipos_software", "label": "Tipos de Software", "palavras_chave": ["software básico", "software aplicativo", "software utilitário", "firmware"]},
+            {"codigo": "licencas_software", "label": "Licenças de Software", "palavras_chave": ["licença de software", "software livre", "open source", "código aberto", "proprietário", "freeware", "gpl", "mit"]},
+            {"codigo": "aplicativos_escritorio", "label": "Aplicativos de Escritório", "palavras_chave": ["microsoft office", "word", "excel", "powerpoint", "libreoffice", "google docs", "planilha"]}
+          ]
+        },
+        {
+          "codigo": "sistemas_operacionais",
+          "label": "Sistemas Operacionais",
+          "palavras_chave": ["sistema operacional", "so", "operating system", "os"],
+          "filhos": [
+            {"codigo": "funcoes_so", "label": "Funções do SO", "palavras_chave": ["funções do sistema operacional", "gerenciamento de processos", "gerenciamento de memória", "escalonamento"]},
+            {"codigo": "windows", "label": "Windows", "palavras_chave": ["windows", "microsoft windows", "windows 10", "windows 11"]},
+            {"codigo": "linux", "label": "Linux", "palavras_chave": ["linux", "ubuntu", "debian", "fedora", "distribuição linux", "kernel linux"]},
+            {"codigo": "macos", "label": "macOS", "palavras_chave": ["macos", "mac os", "os x", "apple"]},
+            {"codigo": "android_ios_so", "label": "Android e iOS", "palavras_chave": ["android", "ios", "sistema operacional móvel"]},
+            {"codigo": "linha_comando", "label": "Linha de Comando / Terminal", "palavras_chave": ["linha de comando", "terminal", "shell", "bash", "powershell", "cmd", "prompt de comando"]},
+            {"codigo": "sistema_arquivos", "label": "Sistema de Arquivos", "palavras_chave": ["sistema de arquivos", "ntfs", "fat32", "ext4", "diretório", "pasta"]}
+          ]
+        },
+        {
+          "codigo": "representacao_dados",
+          "label": "Representação de Dados",
+          "palavras_chave": ["representação de dados", "sistemas de numeração", "dados digitais"],
+          "filhos": [
+            {"codigo": "binario", "label": "Sistema Binário", "palavras_chave": ["binário", "base 2", "bit", "byte"]},
+            {"codigo": "decimal_hex_octal", "label": "Decimal, Hexadecimal e Octal", "palavras_chave": ["decimal", "hexadecimal", "octal", "base 16", "base 8", "base 10"]},
+            {"codigo": "conversao_bases", "label": "Conversão entre Bases", "palavras_chave": ["conversão de base", "conversão binário decimal", "conversão hexadecimal"]},
+            {"codigo": "ascii_unicode", "label": "ASCII e Unicode", "palavras_chave": ["ascii", "unicode", "utf-8", "utf-16", "codificação de caracteres"]},
+            {"codigo": "unidades_medida", "label": "Unidades de Medida (KB, MB, GB, TB)", "palavras_chave": ["bit", "byte", "kilobyte", "megabyte", "gigabyte", "terabyte", "kb", "mb", "gb", "tb"]}
+          ]
+        },
+        {
+          "codigo": "redes_basico",
+          "label": "Redes de Computadores (Básico)",
+          "palavras_chave": ["rede de computadores", "redes", "internet básica"],
+          "filhos": [
+            {"codigo": "tipos_rede", "label": "Tipos de Rede (LAN, MAN, WAN)", "palavras_chave": ["lan", "man", "wan", "rede local", "rede metropolitana", "rede de longa distância"]},
+            {"codigo": "topologias", "label": "Topologias de Rede", "palavras_chave": ["topologia de rede", "estrela", "barramento", "anel", "malha"]},
+            {"codigo": "internet_intro", "label": "Internet e Navegação", "palavras_chave": ["internet", "navegador", "browser", "www", "world wide web", "url"]},
+            {"codigo": "wifi_ethernet", "label": "Wi-Fi e Ethernet", "palavras_chave": ["wifi", "wi-fi", "ethernet", "cabo de rede", "rede sem fio"]}
+          ]
+        },
+        {
+          "codigo": "seguranca_basica",
+          "label": "Segurança Básica da Informação",
+          "palavras_chave": ["segurança da informação", "segurança digital", "cibersegurança básica"],
+          "filhos": [
+            {"codigo": "senhas", "label": "Senhas e Autenticação", "palavras_chave": ["senha", "password", "autenticação", "senha forte", "gerenciador de senhas"]},
+            {"codigo": "malware_basico", "label": "Malware (Vírus, Worm, Trojan)", "palavras_chave": ["malware", "vírus", "worm", "trojan", "cavalo de troia", "ransomware", "spyware"]},
+            {"codigo": "phishing_basico", "label": "Phishing e Engenharia Social", "palavras_chave": ["phishing", "engenharia social", "golpe digital", "fraude online"]},
+            {"codigo": "backup", "label": "Backup", "palavras_chave": ["backup", "cópia de segurança", "restore", "restauração"]},
+            {"codigo": "antivirus", "label": "Antivírus e Firewall", "palavras_chave": ["antivírus", "antivirus", "firewall"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "linguagem_trabalho_tecnologia",
+      "label": "Linguagem, Trabalho e Tecnologia",
+      "palavras_chave": ["linguagem trabalho e tecnologia", "comunicação no trabalho", "tecnologia e sociedade"],
+      "filhos": [
+        {
+          "codigo": "comunicacao",
+          "label": "Comunicação Profissional",
+          "palavras_chave": ["comunicação", "comunicação profissional", "comunicação no trabalho"],
+          "filhos": [
+            {"codigo": "elementos_comunicacao", "label": "Elementos da Comunicação", "palavras_chave": ["emissor", "receptor", "mensagem", "canal", "código", "ruído"]},
+            {"codigo": "comunicacao_verbal", "label": "Comunicação Verbal e Não Verbal", "palavras_chave": ["comunicação verbal", "comunicação não verbal", "linguagem corporal"]},
+            {"codigo": "comunicacao_assertiva", "label": "Comunicação Assertiva", "palavras_chave": ["assertividade", "comunicação assertiva", "feedback"]},
+            {"codigo": "escuta_ativa", "label": "Escuta Ativa", "palavras_chave": ["escuta ativa", "saber ouvir"]}
+          ]
+        },
+        {
+          "codigo": "linguagem_formal",
+          "label": "Linguagem Formal e Técnica",
+          "palavras_chave": ["linguagem formal", "linguagem técnica", "norma culta"],
+          "filhos": [
+            {"codigo": "gramatica_aplicada", "label": "Gramática Aplicada", "palavras_chave": ["gramática", "ortografia", "pontuação", "concordância"]},
+            {"codigo": "redacao_tecnica", "label": "Redação Técnica", "palavras_chave": ["redação técnica", "texto técnico", "clareza", "objetividade"]},
+            {"codigo": "vocabulario_tecnico", "label": "Vocabulário Técnico de TI", "palavras_chave": ["jargão técnico", "vocabulário de ti", "termos técnicos"]}
+          ]
+        },
+        {
+          "codigo": "documentos_profissionais",
+          "label": "Documentos Profissionais",
+          "palavras_chave": ["documento profissional", "documentos empresariais"],
+          "filhos": [
+            {"codigo": "email_profissional", "label": "E-mail Profissional", "palavras_chave": ["e-mail profissional", "email corporativo", "etiqueta de email"]},
+            {"codigo": "memorando_oficio", "label": "Memorando e Ofício", "palavras_chave": ["memorando", "ofício", "documento oficial"]},
+            {"codigo": "relatorio", "label": "Relatório Técnico", "palavras_chave": ["relatório", "relatório técnico", "estrutura de relatório"]},
+            {"codigo": "ata_reuniao", "label": "Ata de Reunião", "palavras_chave": ["ata", "ata de reunião"]},
+            {"codigo": "curriculum_vitae", "label": "Currículo (CV)", "palavras_chave": ["currículo", "cv", "curriculum vitae", "linkedin"]}
+          ]
+        },
+        {
+          "codigo": "mundo_trabalho",
+          "label": "Mundo do Trabalho",
+          "palavras_chave": ["mundo do trabalho", "mercado de trabalho", "trabalho"],
+          "filhos": [
+            {"codigo": "evolucao_trabalho", "label": "Evolução do Trabalho", "palavras_chave": ["história do trabalho", "evolução do trabalho", "revolução industrial"]},
+            {"codigo": "mercado_ti", "label": "Mercado de Trabalho em TI", "palavras_chave": ["mercado de ti", "carreiras em ti", "perfis profissionais"]},
+            {"codigo": "perfil_profissional", "label": "Perfil Profissional", "palavras_chave": ["perfil profissional", "soft skills", "hard skills", "competências"]},
+            {"codigo": "empreendedorismo", "label": "Empreendedorismo", "palavras_chave": ["empreendedorismo", "empreendedor", "startup", "mei"]}
+          ]
+        },
+        {
+          "codigo": "tecnologia_sociedade",
+          "label": "Tecnologia e Sociedade",
+          "palavras_chave": ["tecnologia e sociedade", "impacto da tecnologia", "sociedade da informação"],
+          "filhos": [
+            {"codigo": "inclusao_digital", "label": "Inclusão e Exclusão Digital", "palavras_chave": ["inclusão digital", "exclusão digital", "divisão digital", "letramento digital"]},
+            {"codigo": "trabalho_remoto", "label": "Trabalho Remoto e Híbrido", "palavras_chave": ["trabalho remoto", "home office", "híbrido", "teletrabalho"]},
+            {"codigo": "automacao_emprego", "label": "Automação e Futuro do Emprego", "palavras_chave": ["automação", "futuro do trabalho", "robotização", "ia e empregos"]},
+            {"codigo": "industria_4", "label": "Indústria 4.0", "palavras_chave": ["indústria 4.0", "quarta revolução industrial", "iot industrial"]}
+          ]
+        },
+        {
+          "codigo": "apresentacao_publica",
+          "label": "Apresentação Pública",
+          "palavras_chave": ["apresentação pública", "oratória", "falar em público"],
+          "filhos": [
+            {"codigo": "tecnicas_apresentacao", "label": "Técnicas de Apresentação", "palavras_chave": ["técnica de apresentação", "slide", "powerpoint", "pitch"]},
+            {"codigo": "linguagem_corporal", "label": "Linguagem Corporal", "palavras_chave": ["linguagem corporal", "postura", "gestos"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "tecnicas_programacao_algoritmos",
+      "label": "Técnicas de Programação e Algoritmos",
+      "palavras_chave": ["algoritmo", "algoritmos", "lógica de programação", "técnicas de programação", "pseudocódigo"],
+      "filhos": [
+        {
+          "codigo": "logica_programacao",
+          "label": "Lógica de Programação",
+          "palavras_chave": ["lógica de programação", "raciocínio lógico", "resolução de problemas"],
+          "filhos": [
+            {"codigo": "conceito_algoritmo", "label": "Conceito de Algoritmo", "palavras_chave": ["conceito de algoritmo", "definição de algoritmo", "passo a passo"]},
+            {"codigo": "fluxograma_algoritmo", "label": "Fluxograma", "palavras_chave": ["fluxograma", "diagrama de fluxo", "símbolos de fluxograma"]},
+            {"codigo": "pseudocodigo", "label": "Pseudocódigo (Portugol)", "palavras_chave": ["pseudocódigo", "portugol", "português estruturado", "visualg"]},
+            {"codigo": "logica_proposicional", "label": "Lógica Proposicional Aplicada", "palavras_chave": ["proposição", "lógica proposicional", "tabela verdade"]}
+          ]
+        },
+        {
+          "codigo": "tipos_dados",
+          "label": "Tipos de Dados e Variáveis",
+          "palavras_chave": ["tipo de dado", "variável", "tipos primitivos", "dados"],
+          "filhos": [
+            {"codigo": "inteiro", "label": "Inteiro", "palavras_chave": ["inteiro", "int", "integer", "número inteiro"]},
+            {"codigo": "real_float", "label": "Real / Float", "palavras_chave": ["real", "float", "double", "ponto flutuante", "número decimal"]},
+            {"codigo": "caractere_string", "label": "Caractere e String", "palavras_chave": ["caractere", "char", "string", "cadeia de caracteres", "texto"]},
+            {"codigo": "logico_booleano", "label": "Lógico / Booleano", "palavras_chave": ["lógico", "booleano", "bool", "true", "false", "verdadeiro", "falso"]},
+            {"codigo": "constante", "label": "Constantes", "palavras_chave": ["constante", "const", "valor fixo"]},
+            {"codigo": "declaracao_atribuicao", "label": "Declaração e Atribuição", "palavras_chave": ["declaração de variável", "atribuição", "operador de atribuição"]}
+          ]
+        },
+        {
+          "codigo": "operadores",
+          "label": "Operadores",
+          "palavras_chave": ["operador", "operadores"],
+          "filhos": [
+            {"codigo": "aritmeticos", "label": "Operadores Aritméticos", "palavras_chave": ["operador aritmético", "soma", "subtração", "multiplicação", "divisão", "módulo", "resto"]},
+            {"codigo": "relacionais", "label": "Operadores Relacionais", "palavras_chave": ["operador relacional", "maior que", "menor que", "igual", "diferente", "comparação"]},
+            {"codigo": "logicos", "label": "Operadores Lógicos", "palavras_chave": ["operador lógico", "and", "or", "not", "e", "ou", "não"]},
+            {"codigo": "precedencia", "label": "Precedência de Operadores", "palavras_chave": ["precedência", "ordem de avaliação", "associatividade"]}
+          ]
+        },
+        {
+          "codigo": "estruturas_controle",
+          "label": "Estruturas de Controle",
+          "palavras_chave": ["estrutura de controle", "controle de fluxo"],
+          "filhos": [
+            {
+              "codigo": "condicionais",
+              "label": "Estruturas Condicionais",
+              "palavras_chave": ["condicional", "estrutura condicional", "desvio condicional"],
+              "filhos": [
+                {"codigo": "if_else", "label": "Se / Senão (if/else)", "palavras_chave": ["if", "else", "se", "senão", "se-então", "if-else"]},
+                {"codigo": "if_aninhado", "label": "If Aninhado", "palavras_chave": ["if aninhado", "se aninhado", "elseif", "else if"]},
+                {"codigo": "switch_case", "label": "Escolha / Switch-Case", "palavras_chave": ["switch", "case", "escolha", "selecione caso"]},
+                {"codigo": "operador_ternario", "label": "Operador Ternário", "palavras_chave": ["operador ternário", "ternário", "expressão condicional"]}
+              ]
+            },
+            {
+              "codigo": "repeticao",
+              "label": "Estruturas de Repetição",
+              "palavras_chave": ["loop", "laço", "repetição", "estrutura de repetição"],
+              "filhos": [
+                {"codigo": "for", "label": "Para / For", "palavras_chave": ["for", "para", "laço for", "loop for", "contador"]},
+                {"codigo": "while", "label": "Enquanto / While", "palavras_chave": ["while", "enquanto", "laço while", "loop while"]},
+                {"codigo": "do_while", "label": "Faça-Enquanto / Do-While", "palavras_chave": ["do while", "faça enquanto", "repita-até"]},
+                {"codigo": "break_continue", "label": "Break e Continue", "palavras_chave": ["break", "continue", "interromper", "pular iteração"]},
+                {"codigo": "laco_aninhado", "label": "Laços Aninhados", "palavras_chave": ["laço aninhado", "loop aninhado", "for dentro de for"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "vetores_matrizes",
+          "label": "Vetores e Matrizes",
+          "palavras_chave": ["vetor", "matriz", "array", "arranjo"],
+          "filhos": [
+            {"codigo": "vetor_unidimensional", "label": "Vetor (Array 1D)", "palavras_chave": ["vetor", "array unidimensional", "índice de vetor"]},
+            {"codigo": "matriz_2d", "label": "Matriz (Array 2D)", "palavras_chave": ["matriz", "array bidimensional", "linha e coluna", "matriz 2d"]},
+            {"codigo": "percorrer_vetor", "label": "Percorrer Vetor / Matriz", "palavras_chave": ["percorrer vetor", "iterar array", "varredura de matriz"]},
+            {"codigo": "busca_linear_algoritmo", "label": "Busca Linear", "palavras_chave": ["busca linear", "busca sequencial"]},
+            {"codigo": "ordenacao_intro", "label": "Algoritmos Básicos de Ordenação", "palavras_chave": ["bubble sort", "ordenação", "selection sort", "insertion sort"]}
+          ]
+        },
+        {
+          "codigo": "subprogramas",
+          "label": "Subprogramas (Funções e Procedimentos)",
+          "palavras_chave": ["função", "procedimento", "subprograma", "rotina"],
+          "filhos": [
+            {"codigo": "definicao_funcao", "label": "Definição e Chamada de Função", "palavras_chave": ["definir função", "chamar função", "invocar"]},
+            {"codigo": "parametros", "label": "Parâmetros e Argumentos", "palavras_chave": ["parâmetro", "argumento", "passagem por valor", "passagem por referência"]},
+            {"codigo": "retorno", "label": "Valor de Retorno", "palavras_chave": ["retorno", "return", "função com retorno", "void"]},
+            {"codigo": "escopo_variavel", "label": "Escopo de Variáveis", "palavras_chave": ["escopo", "variável local", "variável global"]},
+            {"codigo": "recursividade", "label": "Recursividade", "palavras_chave": ["recursividade", "recursão", "função recursiva", "fatorial recursivo"]}
+          ]
+        },
+        {
+          "codigo": "modularizacao",
+          "label": "Modularização",
+          "palavras_chave": ["modularização", "modular", "modularidade"],
+          "filhos": [
+            {"codigo": "decomposicao", "label": "Decomposição de Problemas", "palavras_chave": ["decomposição", "dividir e conquistar", "top-down"]},
+            {"codigo": "reuso_codigo", "label": "Reuso de Código", "palavras_chave": ["reuso", "reutilização de código", "biblioteca"]}
+          ]
+        },
+        {
+          "codigo": "boas_praticas_codigo",
+          "label": "Boas Práticas de Programação",
+          "palavras_chave": ["boas práticas", "clean code", "código limpo"],
+          "filhos": [
+            {"codigo": "indentacao", "label": "Indentação e Formatação", "palavras_chave": ["indentação", "identação", "formatação de código"]},
+            {"codigo": "nomenclatura", "label": "Nomenclatura de Variáveis", "palavras_chave": ["nome de variável", "camelcase", "snake_case", "convenção de nomes"]},
+            {"codigo": "comentarios", "label": "Comentários no Código", "palavras_chave": ["comentário", "documentação inline"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "banco_dados_1",
+      "label": "Banco de Dados I",
+      "palavras_chave": ["banco de dados", "bd", "bd i", "banco de dados i", "database", "sgbd"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_bd",
+          "label": "Fundamentos de Banco de Dados",
+          "palavras_chave": ["fundamentos de banco de dados", "conceito de banco de dados"],
+          "filhos": [
+            {"codigo": "conceito_bd", "label": "Conceito de Banco de Dados", "palavras_chave": ["definição de banco de dados", "conceito de bd", "dados versus informação"]},
+            {"codigo": "sgbd", "label": "SGBD — Sistema Gerenciador", "palavras_chave": ["sgbd", "dbms", "sistema gerenciador de banco de dados"]},
+            {"codigo": "vantagens_bd", "label": "Vantagens do uso de BD", "palavras_chave": ["vantagens do banco de dados", "consistência", "compartilhamento de dados"]},
+            {"codigo": "usuarios_bd", "label": "Usuários de um BD (DBA, Analista, Usuário Final)", "palavras_chave": ["dba", "administrador de banco de dados", "usuário final"]},
+            {"codigo": "arquitetura_tres_esquemas", "label": "Arquitetura de Três Esquemas", "palavras_chave": ["arquitetura ansi-sparc", "três esquemas", "esquema externo", "esquema conceitual", "esquema interno"]},
+            {"codigo": "independencia_dados", "label": "Independência de Dados", "palavras_chave": ["independência lógica", "independência física", "independência de dados"]}
+          ]
+        },
+        {
+          "codigo": "modelos_dados",
+          "label": "Modelos de Dados",
+          "palavras_chave": ["modelo de dados", "modelagem de dados"],
+          "filhos": [
+            {"codigo": "modelo_hierarquico", "label": "Modelo Hierárquico", "palavras_chave": ["hierárquico", "modelo hierárquico"]},
+            {"codigo": "modelo_rede", "label": "Modelo em Rede", "palavras_chave": ["modelo em rede", "codasyl"]},
+            {"codigo": "modelo_relacional", "label": "Modelo Relacional", "palavras_chave": ["modelo relacional", "relacional", "codd", "tabela", "tupla", "atributo"]},
+            {"codigo": "modelo_orientado_objetos", "label": "Modelo Orientado a Objetos", "palavras_chave": ["modelo orientado a objetos", "oodb"]},
+            {"codigo": "modelo_objeto_relacional", "label": "Modelo Objeto-Relacional", "palavras_chave": ["objeto-relacional", "object-relational"]}
+          ]
+        },
+        {
+          "codigo": "modelagem_conceitual",
+          "label": "Modelagem Conceitual (MER)",
+          "palavras_chave": ["modelo entidade relacionamento", "mer", "der", "diagrama entidade-relacionamento", "modelagem conceitual"],
+          "filhos": [
+            {"codigo": "entidade", "label": "Entidade", "palavras_chave": ["entidade", "entidade forte", "entidade fraca"]},
+            {"codigo": "atributo_mer", "label": "Atributos", "palavras_chave": ["atributo", "atributo simples", "atributo composto", "atributo multivalorado", "atributo derivado"]},
+            {"codigo": "relacionamento", "label": "Relacionamento", "palavras_chave": ["relacionamento", "ligação entre entidades"]},
+            {"codigo": "cardinalidade", "label": "Cardinalidade", "palavras_chave": ["cardinalidade", "1:1", "1:n", "um para um", "um para muitos", "muitos para muitos", "n:n"]},
+            {"codigo": "chave_primaria_mer", "label": "Chave Primária / Identificador", "palavras_chave": ["chave primária", "primary key", "identificador único"]},
+            {"codigo": "generalizacao_especializacao", "label": "Generalização e Especialização", "palavras_chave": ["generalização", "especialização", "herança em mer", "isa"]},
+            {"codigo": "modelo_logico", "label": "Modelo Lógico", "palavras_chave": ["modelo lógico", "tradução para o relacional", "mapeamento mer para relacional"]}
+          ]
+        },
+        {
+          "codigo": "modelo_relacional_aprofundado",
+          "label": "Modelo Relacional",
+          "palavras_chave": ["modelo relacional", "álgebra relacional", "esquema relacional"],
+          "filhos": [
+            {"codigo": "tabela_relacao", "label": "Tabela / Relação", "palavras_chave": ["tabela", "relação", "linha", "coluna", "registro"]},
+            {"codigo": "chave_primaria", "label": "Chave Primária", "palavras_chave": ["chave primária", "primary key", "pk"]},
+            {"codigo": "chave_estrangeira", "label": "Chave Estrangeira", "palavras_chave": ["chave estrangeira", "foreign key", "fk", "integridade referencial"]},
+            {"codigo": "chave_candidata", "label": "Chave Candidata e Superchave", "palavras_chave": ["chave candidata", "superchave"]},
+            {"codigo": "integridade", "label": "Restrições de Integridade", "palavras_chave": ["integridade de entidade", "integridade referencial", "restrição de domínio", "constraint"]},
+            {"codigo": "algebra_relacional", "label": "Álgebra Relacional", "palavras_chave": ["álgebra relacional", "seleção", "projeção", "junção", "produto cartesiano", "união", "diferença"]}
+          ]
+        },
+        {
+          "codigo": "sql_basico",
+          "label": "SQL — Básico",
+          "palavras_chave": ["sql", "structured query language", "linguagem de consulta"],
+          "filhos": [
+            {
+              "codigo": "ddl",
+              "label": "DDL — Linguagem de Definição",
+              "palavras_chave": ["ddl", "data definition language"],
+              "filhos": [
+                {"codigo": "create_table", "label": "CREATE TABLE", "palavras_chave": ["create table", "criar tabela"]},
+                {"codigo": "alter_table", "label": "ALTER TABLE", "palavras_chave": ["alter table", "alterar tabela", "add column"]},
+                {"codigo": "drop_table", "label": "DROP TABLE", "palavras_chave": ["drop table", "excluir tabela"]},
+                {"codigo": "truncate", "label": "TRUNCATE", "palavras_chave": ["truncate", "limpar tabela"]}
+              ]
+            },
+            {
+              "codigo": "dml",
+              "label": "DML — Linguagem de Manipulação",
+              "palavras_chave": ["dml", "data manipulation language"],
+              "filhos": [
+                {"codigo": "insert", "label": "INSERT", "palavras_chave": ["insert", "inserir registro", "insert into"]},
+                {"codigo": "update", "label": "UPDATE", "palavras_chave": ["update", "atualizar registro"]},
+                {"codigo": "delete", "label": "DELETE", "palavras_chave": ["delete", "excluir registro", "delete from"]}
+              ]
+            },
+            {
+              "codigo": "dql",
+              "label": "DQL — Consultas (SELECT)",
+              "palavras_chave": ["select", "consulta", "dql", "data query language"],
+              "filhos": [
+                {"codigo": "select_basico", "label": "SELECT Básico", "palavras_chave": ["select", "select from", "consulta básica"]},
+                {"codigo": "where", "label": "Cláusula WHERE", "palavras_chave": ["where", "filtro", "condição de consulta"]},
+                {"codigo": "order_by", "label": "ORDER BY", "palavras_chave": ["order by", "ordenar resultado", "asc", "desc"]},
+                {"codigo": "distinct", "label": "DISTINCT", "palavras_chave": ["distinct", "valores únicos", "sem repetição"]},
+                {"codigo": "operadores_sql", "label": "Operadores (LIKE, IN, BETWEEN, IS NULL)", "palavras_chave": ["like", "in", "between", "is null", "operador sql"]},
+                {"codigo": "funcoes_agregacao", "label": "Funções de Agregação (COUNT, SUM, AVG, MIN, MAX)", "palavras_chave": ["count", "sum", "avg", "min", "max", "função de agregação"]},
+                {"codigo": "group_by_having", "label": "GROUP BY e HAVING", "palavras_chave": ["group by", "having", "agrupamento", "agrupar por"]},
+                {"codigo": "joins_basico", "label": "JOINs (INNER, LEFT, RIGHT)", "palavras_chave": ["inner join", "left join", "right join", "junção", "join sql"]},
+                {"codigo": "subquery_basica", "label": "Subconsultas (Básico)", "palavras_chave": ["subquery", "subconsulta", "consulta aninhada"]}
+              ]
+            },
+            {"codigo": "dcl", "label": "DCL — Controle de Acesso (GRANT, REVOKE)", "palavras_chave": ["dcl", "grant", "revoke", "permissão sql"]}
+          ]
+        },
+        {
+          "codigo": "sgbds_populares",
+          "label": "SGBDs Populares",
+          "palavras_chave": ["sgbd popular", "principais sgbds"],
+          "filhos": [
+            {"codigo": "mysql", "label": "MySQL", "palavras_chave": ["mysql", "mariadb"]},
+            {"codigo": "postgresql", "label": "PostgreSQL", "palavras_chave": ["postgresql", "postgres"]},
+            {"codigo": "sql_server", "label": "SQL Server", "palavras_chave": ["sql server", "microsoft sql server", "mssql"]},
+            {"codigo": "oracle", "label": "Oracle Database", "palavras_chave": ["oracle", "oracle database", "oracle db"]},
+            {"codigo": "sqlite", "label": "SQLite", "palavras_chave": ["sqlite", "banco embarcado"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "desenvolvimento_sistemas",
+      "label": "Desenvolvimento de Sistemas",
+      "palavras_chave": ["desenvolvimento de sistemas", "desenvolvimento web", "desenvolvimento de software"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_web",
+          "label": "Fundamentos da Web",
+          "palavras_chave": ["fundamentos da web", "web básica", "world wide web"],
+          "filhos": [
+            {"codigo": "historia_web", "label": "História da Web", "palavras_chave": ["história da web", "tim berners-lee", "web 1.0", "web 2.0", "web 3.0"]},
+            {"codigo": "cliente_servidor_web", "label": "Modelo Cliente-Servidor Web", "palavras_chave": ["cliente-servidor web", "navegador e servidor", "request response"]},
+            {"codigo": "http_basico", "label": "HTTP / HTTPS (Básico)", "palavras_chave": ["http", "https", "protocolo http", "método get", "método post"]},
+            {"codigo": "url", "label": "URL e DNS", "palavras_chave": ["url", "dns", "domínio", "uri"]}
+          ]
+        },
+        {
+          "codigo": "html",
+          "label": "HTML",
+          "palavras_chave": ["html", "html5", "linguagem de marcação", "marcação"],
+          "filhos": [
+            {"codigo": "html_estrutura", "label": "Estrutura Básica de Página HTML", "palavras_chave": ["doctype", "html head body", "estrutura html"]},
+            {"codigo": "tags_basicas", "label": "Tags Básicas (h1-h6, p, a, img)", "palavras_chave": ["tag h1", "parágrafo", "link", "âncora", "imagem html", "tag a", "img"]},
+            {"codigo": "listas_html", "label": "Listas (ul, ol, dl)", "palavras_chave": ["lista html", "ul", "ol", "li", "lista ordenada", "lista não ordenada"]},
+            {"codigo": "tabelas_html", "label": "Tabelas HTML", "palavras_chave": ["tabela html", "table", "tr", "td", "th"]},
+            {"codigo": "formularios", "label": "Formulários (form, input)", "palavras_chave": ["form", "formulário html", "input", "textarea", "select", "submit"]},
+            {"codigo": "semantic_html", "label": "HTML Semântico", "palavras_chave": ["html semântico", "header", "footer", "nav", "section", "article", "aside"]},
+            {"codigo": "midias_html", "label": "Mídias (video, audio)", "palavras_chave": ["video html", "audio html", "tag video", "tag audio"]}
+          ]
+        },
+        {
+          "codigo": "css",
+          "label": "CSS",
+          "palavras_chave": ["css", "css3", "folha de estilo", "estilização"],
+          "filhos": [
+            {"codigo": "seletores_css", "label": "Seletores CSS", "palavras_chave": ["seletor css", "seletor de classe", "seletor de id", "seletor de tag", "pseudo-classe"]},
+            {"codigo": "propriedades_basicas", "label": "Propriedades Básicas (color, font, background)", "palavras_chave": ["color", "background", "font-size", "font-family", "propriedade css"]},
+            {"codigo": "box_model", "label": "Box Model", "palavras_chave": ["box model", "margin", "padding", "border", "content"]},
+            {"codigo": "flexbox", "label": "Flexbox", "palavras_chave": ["flexbox", "display flex", "flex-direction", "justify-content", "align-items"]},
+            {"codigo": "css_grid", "label": "CSS Grid", "palavras_chave": ["css grid", "grid-template-columns", "grid-template-rows", "grid-area"]},
+            {"codigo": "media_queries", "label": "Media Queries (Responsivo)", "palavras_chave": ["media query", "responsivo css", "@media"]},
+            {"codigo": "frameworks_css", "label": "Frameworks CSS (Bootstrap, Tailwind)", "palavras_chave": ["bootstrap", "tailwind", "tailwind css", "framework css"]}
+          ]
+        },
+        {
+          "codigo": "javascript",
+          "label": "JavaScript (Cliente)",
+          "palavras_chave": ["javascript", "js", "ecmascript"],
+          "filhos": [
+            {"codigo": "js_basico", "label": "Sintaxe Básica", "palavras_chave": ["sintaxe javascript", "var", "let", "const", "tipos js"]},
+            {"codigo": "js_estruturas", "label": "Estruturas de Controle em JS", "palavras_chave": ["if javascript", "for javascript", "while javascript"]},
+            {"codigo": "js_funcoes", "label": "Funções e Arrow Functions", "palavras_chave": ["função javascript", "arrow function", "callback"]},
+            {"codigo": "dom", "label": "DOM (Document Object Model)", "palavras_chave": ["dom", "document object model", "getelementbyid", "queryselector"]},
+            {"codigo": "eventos_js", "label": "Eventos JavaScript", "palavras_chave": ["evento javascript", "addeventlistener", "click", "onload"]},
+            {"codigo": "ajax_fetch", "label": "AJAX e Fetch API", "palavras_chave": ["ajax", "fetch", "xmlhttprequest", "fetch api"]},
+            {"codigo": "json_js", "label": "JSON", "palavras_chave": ["json", "javascript object notation"]},
+            {"codigo": "frameworks_js", "label": "Frameworks (React, Vue, Angular)", "palavras_chave": ["react", "vue", "vuejs", "angular", "framework javascript"]}
+          ]
+        },
+        {
+          "codigo": "back_end",
+          "label": "Back-end / Server-side",
+          "palavras_chave": ["back-end", "backend", "servidor", "server-side"],
+          "filhos": [
+            {"codigo": "node_js", "label": "Node.js", "palavras_chave": ["node.js", "nodejs", "node", "express", "express.js"]},
+            {"codigo": "php_intro", "label": "PHP", "palavras_chave": ["php", "linguagem php", "laravel"]},
+            {"codigo": "python_web", "label": "Python (Django/Flask)", "palavras_chave": ["django", "flask", "fastapi", "python web"]},
+            {"codigo": "java_web", "label": "Java (Spring)", "palavras_chave": ["spring", "spring boot", "java web", "jsp", "servlet"]},
+            {"codigo": "rotas_servidor", "label": "Rotas e Endpoints", "palavras_chave": ["rota", "endpoint", "routing"]}
+          ]
+        },
+        {
+          "codigo": "versionamento",
+          "label": "Versionamento de Código (Git)",
+          "palavras_chave": ["git", "versionamento", "controle de versão", "github"],
+          "filhos": [
+            {"codigo": "git_comandos", "label": "Comandos Git Básicos", "palavras_chave": ["git init", "git add", "git commit", "git push", "git pull", "git clone"]},
+            {"codigo": "branches", "label": "Branches e Merge", "palavras_chave": ["branch", "merge", "git branch", "git merge", "git checkout"]},
+            {"codigo": "github_gitlab", "label": "GitHub / GitLab / Bitbucket", "palavras_chave": ["github", "gitlab", "bitbucket", "pull request", "merge request"]},
+            {"codigo": "conflitos", "label": "Resolução de Conflitos", "palavras_chave": ["conflito git", "merge conflict", "resolver conflito"]}
+          ]
+        },
+        {
+          "codigo": "deploy_intro",
+          "label": "Deploy e Hospedagem",
+          "palavras_chave": ["deploy", "hospedagem", "publicação"],
+          "filhos": [
+            {"codigo": "servidor_web", "label": "Servidor Web (Apache, Nginx)", "palavras_chave": ["apache", "nginx", "servidor web"]},
+            {"codigo": "hospedagem_cloud", "label": "Hospedagem em Nuvem", "palavras_chave": ["cloud", "nuvem", "aws", "azure", "google cloud", "heroku", "vercel", "netlify"]},
+            {"codigo": "dominio_hospedagem", "label": "Domínio e Hospedagem", "palavras_chave": ["domínio", "registro de domínio", "hospedagem compartilhada"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "estrutura_dados",
+      "label": "Estrutura de Dados",
+      "palavras_chave": ["estrutura de dados", "estruturas de dados", "data structures"],
+      "filhos": [
+        {
+          "codigo": "complexidade",
+          "label": "Análise de Complexidade",
+          "palavras_chave": ["complexidade", "complexidade de algoritmos", "análise de algoritmos"],
+          "filhos": [
+            {"codigo": "notacao_o", "label": "Notação Big O", "palavras_chave": ["big o", "notação o", "o de n", "o(n)", "o(log n)", "o(n^2)", "complexidade assintótica"]},
+            {"codigo": "tempo_espaco", "label": "Complexidade de Tempo e Espaço", "palavras_chave": ["complexidade de tempo", "complexidade de espaço", "tempo de execução"]},
+            {"codigo": "melhor_pior_caso", "label": "Melhor, Pior e Caso Médio", "palavras_chave": ["pior caso", "melhor caso", "caso médio", "best case", "worst case"]}
+          ]
+        },
+        {
+          "codigo": "arrays_listas",
+          "label": "Arrays e Listas",
+          "palavras_chave": ["array", "lista", "vetor"],
+          "filhos": [
+            {"codigo": "array_estatico", "label": "Array Estático", "palavras_chave": ["array estático", "vetor estático", "tamanho fixo"]},
+            {"codigo": "array_dinamico", "label": "Array Dinâmico", "palavras_chave": ["array dinâmico", "arraylist", "vetor dinâmico"]},
+            {
+              "codigo": "lista_encadeada",
+              "label": "Lista Encadeada",
+              "palavras_chave": ["lista encadeada", "linked list", "lista ligada"],
+              "filhos": [
+                {"codigo": "lista_simples", "label": "Lista Simplesmente Encadeada", "palavras_chave": ["lista simplesmente encadeada", "singly linked list"]},
+                {"codigo": "lista_duplamente", "label": "Lista Duplamente Encadeada", "palavras_chave": ["lista duplamente encadeada", "doubly linked list"]},
+                {"codigo": "lista_circular", "label": "Lista Circular", "palavras_chave": ["lista circular", "circular linked list"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "pilhas_filas",
+          "label": "Pilhas e Filas",
+          "palavras_chave": ["pilha", "fila"],
+          "filhos": [
+            {"codigo": "pilha", "label": "Pilha (Stack)", "palavras_chave": ["pilha", "stack", "lifo", "last in first out", "push", "pop"]},
+            {"codigo": "fila", "label": "Fila (Queue)", "palavras_chave": ["fila", "queue", "fifo", "first in first out", "enqueue", "dequeue"]},
+            {"codigo": "deque", "label": "Deque", "palavras_chave": ["deque", "fila dupla", "double-ended queue"]},
+            {"codigo": "fila_prioridade", "label": "Fila de Prioridade", "palavras_chave": ["fila de prioridade", "priority queue", "heap"]},
+            {"codigo": "aplicacoes_pilha_fila", "label": "Aplicações (Notação Pós-fixa, BFS)", "palavras_chave": ["notação polonesa", "pós-fixa", "expressão posfixa"]}
+          ]
+        },
+        {
+          "codigo": "arvores",
+          "label": "Árvores",
+          "palavras_chave": ["árvore", "tree", "estrutura em árvore"],
+          "filhos": [
+            {"codigo": "conceitos_arvore", "label": "Conceitos (Raiz, Nó, Folha, Altura)", "palavras_chave": ["raiz", "nó", "folha", "altura da árvore", "profundidade"]},
+            {
+              "codigo": "arvore_binaria",
+              "label": "Árvore Binária",
+              "palavras_chave": ["árvore binária", "binary tree"],
+              "filhos": [
+                {"codigo": "abb", "label": "Árvore Binária de Busca (ABB / BST)", "palavras_chave": ["abb", "árvore binária de busca", "bst", "binary search tree"]},
+                {"codigo": "percursos_arvore", "label": "Percursos (Pré, In, Pós-ordem)", "palavras_chave": ["pré-ordem", "in-ordem", "pós-ordem", "percurso de árvore", "traversal"]}
+              ]
+            },
+            {"codigo": "arvore_avl", "label": "Árvore AVL", "palavras_chave": ["avl", "árvore avl", "árvore balanceada", "rotação avl"]},
+            {"codigo": "arvore_rubro_negra", "label": "Árvore Rubro-Negra", "palavras_chave": ["árvore rubro-negra", "red-black tree", "rubro negra"]},
+            {"codigo": "arvore_b", "label": "Árvore B e B+", "palavras_chave": ["árvore b", "árvore b+", "b-tree", "b+ tree", "índice de banco de dados"]},
+            {"codigo": "heap", "label": "Heap (Árvore Heap)", "palavras_chave": ["heap", "min heap", "max heap", "heap binário"]},
+            {"codigo": "trie", "label": "Trie (Árvore de Prefixos)", "palavras_chave": ["trie", "árvore de prefixos", "prefix tree"]}
+          ]
+        },
+        {
+          "codigo": "grafos",
+          "label": "Grafos",
+          "palavras_chave": ["grafo", "graph", "teoria dos grafos"],
+          "filhos": [
+            {"codigo": "conceitos_grafo", "label": "Conceitos (Vértice, Aresta, Grau)", "palavras_chave": ["vértice", "aresta", "grau", "grafo direcionado", "grafo não direcionado"]},
+            {"codigo": "representacao_grafo", "label": "Representação (Matriz e Lista de Adjacência)", "palavras_chave": ["matriz de adjacência", "lista de adjacência", "representação de grafo"]},
+            {"codigo": "busca_grafo", "label": "Busca em Grafos (BFS, DFS)", "palavras_chave": ["bfs", "dfs", "busca em largura", "busca em profundidade", "breadth-first", "depth-first"]},
+            {"codigo": "dijkstra", "label": "Caminho Mínimo (Dijkstra)", "palavras_chave": ["dijkstra", "algoritmo de dijkstra", "caminho mínimo", "menor caminho"]},
+            {"codigo": "kruskal_prim", "label": "Árvore Geradora Mínima (Kruskal, Prim)", "palavras_chave": ["kruskal", "prim", "agm", "árvore geradora mínima"]},
+            {"codigo": "grafo_ponderado", "label": "Grafo Ponderado", "palavras_chave": ["grafo ponderado", "peso de aresta"]}
+          ]
+        },
+        {
+          "codigo": "hashing",
+          "label": "Hashing e Tabelas Hash",
+          "palavras_chave": ["hash", "hashing", "tabela hash", "hashmap"],
+          "filhos": [
+            {"codigo": "funcao_hash", "label": "Função Hash", "palavras_chave": ["função hash", "hash function"]},
+            {"codigo": "colisao", "label": "Colisão e Tratamento", "palavras_chave": ["colisão hash", "encadeamento separado", "endereçamento aberto", "sondagem linear"]},
+            {"codigo": "hashmap_estrutura", "label": "HashMap / HashTable", "palavras_chave": ["hashmap", "hashtable", "dicionário", "mapa"]}
+          ]
+        },
+        {
+          "codigo": "ordenacao",
+          "label": "Algoritmos de Ordenação",
+          "palavras_chave": ["ordenação", "sorting", "algoritmo de ordenação"],
+          "filhos": [
+            {"codigo": "bubble_sort", "label": "Bubble Sort", "palavras_chave": ["bubble sort", "ordenação por bolha"]},
+            {"codigo": "selection_sort", "label": "Selection Sort", "palavras_chave": ["selection sort", "ordenação por seleção"]},
+            {"codigo": "insertion_sort", "label": "Insertion Sort", "palavras_chave": ["insertion sort", "ordenação por inserção"]},
+            {"codigo": "merge_sort", "label": "Merge Sort", "palavras_chave": ["merge sort", "ordenação por intercalação"]},
+            {"codigo": "quick_sort", "label": "Quick Sort", "palavras_chave": ["quick sort", "quicksort", "ordenação rápida", "pivô"]},
+            {"codigo": "heap_sort", "label": "Heap Sort", "palavras_chave": ["heap sort", "heapsort"]},
+            {"codigo": "comparacao_ordenacao", "label": "Comparação de Algoritmos de Ordenação", "palavras_chave": ["comparação de ordenação", "estabilidade", "ordenação in-place"]}
+          ]
+        },
+        {
+          "codigo": "busca",
+          "label": "Algoritmos de Busca",
+          "palavras_chave": ["busca", "search", "pesquisa"],
+          "filhos": [
+            {"codigo": "busca_linear", "label": "Busca Linear / Sequencial", "palavras_chave": ["busca linear", "busca sequencial", "linear search"]},
+            {"codigo": "busca_binaria", "label": "Busca Binária", "palavras_chave": ["busca binária", "binary search", "vetor ordenado"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "etica_cidadania",
+      "label": "Ética e Cidadania Organizacional",
+      "palavras_chave": ["ética e cidadania", "ética profissional", "cidadania organizacional", "ética"],
+      "filhos": [
+        {
+          "codigo": "conceitos_etica",
+          "label": "Conceitos de Ética e Moral",
+          "palavras_chave": ["ética", "moral", "valores"],
+          "filhos": [
+            {"codigo": "etica_vs_moral", "label": "Ética x Moral", "palavras_chave": ["ética versus moral", "diferença ética e moral"]},
+            {"codigo": "valores_principios", "label": "Valores e Princípios", "palavras_chave": ["valores", "princípios", "valores éticos"]},
+            {"codigo": "etica_aristotelica", "label": "Bases Filosóficas (Aristóteles, Kant, Utilitarismo)", "palavras_chave": ["aristóteles", "kant", "imperativo categórico", "utilitarismo", "ética das virtudes"]}
+          ]
+        },
+        {
+          "codigo": "etica_profissional_ti",
+          "label": "Ética Profissional em TI",
+          "palavras_chave": ["ética profissional em ti", "ética em tecnologia", "ética computacional"],
+          "filhos": [
+            {"codigo": "codigo_conduta_ti", "label": "Códigos de Conduta (ACM, IEEE, SBC)", "palavras_chave": ["código de ética da acm", "código ieee", "sbc", "código de conduta profissional"]},
+            {"codigo": "propriedade_intelectual", "label": "Propriedade Intelectual e Direitos Autorais", "palavras_chave": ["propriedade intelectual", "direitos autorais", "copyright", "licença de software"]},
+            {"codigo": "pirataria", "label": "Pirataria e Plágio", "palavras_chave": ["pirataria", "plágio", "software pirata"]},
+            {"codigo": "responsabilidade_tecnica", "label": "Responsabilidade Técnica do Profissional", "palavras_chave": ["responsabilidade técnica", "responsabilidade profissional", "obrigações do profissional"]}
+          ]
+        },
+        {
+          "codigo": "cidadania",
+          "label": "Cidadania",
+          "palavras_chave": ["cidadania", "cidadão", "direitos e deveres"],
+          "filhos": [
+            {"codigo": "direitos_humanos", "label": "Direitos Humanos", "palavras_chave": ["direitos humanos", "declaração universal dos direitos humanos"]},
+            {"codigo": "direitos_cidadao", "label": "Direitos e Deveres do Cidadão", "palavras_chave": ["direitos do cidadão", "deveres do cidadão", "constituição"]},
+            {"codigo": "lgpd", "label": "LGPD — Lei Geral de Proteção de Dados", "palavras_chave": ["lgpd", "proteção de dados pessoais", "lei 13.709", "dados pessoais"]},
+            {"codigo": "marco_civil_internet", "label": "Marco Civil da Internet", "palavras_chave": ["marco civil da internet", "lei 12.965", "neutralidade de rede"]},
+            {"codigo": "crimes_ciberneticos", "label": "Crimes Cibernéticos (Lei Carolina Dieckmann)", "palavras_chave": ["crime cibernético", "lei carolina dieckmann", "lei 12.737", "invasão de dispositivo"]}
+          ]
+        },
+        {
+          "codigo": "diversidade_inclusao",
+          "label": "Diversidade e Inclusão",
+          "palavras_chave": ["diversidade", "inclusão", "respeito à diferença"],
+          "filhos": [
+            {"codigo": "acessibilidade_inclusao", "label": "Acessibilidade Digital", "palavras_chave": ["acessibilidade", "lei brasileira de inclusão", "lbi", "tecnologia assistiva"]},
+            {"codigo": "diversidade_genero", "label": "Diversidade de Gênero em TI", "palavras_chave": ["mulheres em ti", "diversidade de gênero", "equidade"]},
+            {"codigo": "diversidade_racial", "label": "Diversidade Racial", "palavras_chave": ["diversidade racial", "racismo", "igualdade racial"]}
+          ]
+        },
+        {
+          "codigo": "ambiente_organizacional",
+          "label": "Ambiente Organizacional",
+          "palavras_chave": ["ambiente organizacional", "cultura organizacional", "clima organizacional"],
+          "filhos": [
+            {"codigo": "cultura_organizacional", "label": "Cultura Organizacional", "palavras_chave": ["cultura organizacional", "valores da empresa", "missão e visão"]},
+            {"codigo": "trabalho_equipe", "label": "Trabalho em Equipe", "palavras_chave": ["trabalho em equipe", "colaboração", "cooperação"]},
+            {"codigo": "lideranca", "label": "Liderança", "palavras_chave": ["liderança", "líder", "tipos de liderança"]},
+            {"codigo": "conflitos_organizacional", "label": "Gestão de Conflitos", "palavras_chave": ["gestão de conflitos", "mediação", "negociação"]},
+            {"codigo": "assedio", "label": "Assédio Moral e Sexual", "palavras_chave": ["assédio moral", "assédio sexual", "ambiente de trabalho saudável"]}
+          ]
+        },
+        {
+          "codigo": "sustentabilidade",
+          "label": "Sustentabilidade e Responsabilidade Social",
+          "palavras_chave": ["sustentabilidade", "responsabilidade social", "ods", "esg"],
+          "filhos": [
+            {"codigo": "ti_verde", "label": "TI Verde / Green IT", "palavras_chave": ["ti verde", "green it", "computação sustentável", "lixo eletrônico"]},
+            {"codigo": "ods", "label": "Objetivos de Desenvolvimento Sustentável (ODS)", "palavras_chave": ["ods", "agenda 2030", "objetivos de desenvolvimento sustentável", "onu"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "programacao_computadores_1",
+      "label": "Programação de Computadores I",
+      "palavras_chave": ["programação de computadores i", "pc i", "programação i", "linguagem de programação", "java", "python", "c#"],
+      "filhos": [
+        {
+          "codigo": "introducao_linguagem",
+          "label": "Introdução à Linguagem de Programação",
+          "palavras_chave": ["introdução à linguagem", "configuração do ambiente", "ide"],
+          "filhos": [
+            {"codigo": "compilador_interpretador", "label": "Compilador e Interpretador", "palavras_chave": ["compilador", "interpretador", "linguagem compilada", "linguagem interpretada", "bytecode", "jvm"]},
+            {"codigo": "ide", "label": "Ambiente de Desenvolvimento (IDE)", "palavras_chave": ["ide", "ambiente integrado", "eclipse", "intellij", "vscode", "visual studio code", "netbeans", "pycharm"]},
+            {"codigo": "primeiro_programa", "label": "Primeiro Programa (Hello World)", "palavras_chave": ["hello world", "primeiro programa", "main", "função main"]},
+            {"codigo": "estrutura_programa", "label": "Estrutura Básica de um Programa", "palavras_chave": ["estrutura de programa", "imports", "package", "main"]}
+          ]
+        },
+        {
+          "codigo": "tipos_variaveis_linguagem",
+          "label": "Tipos de Dados e Variáveis",
+          "palavras_chave": ["tipos de dados", "variáveis", "declaração de variável"],
+          "filhos": [
+            {"codigo": "tipos_primitivos", "label": "Tipos Primitivos", "palavras_chave": ["int", "long", "float", "double", "boolean", "char", "byte", "short"]},
+            {"codigo": "string_tipo", "label": "Strings", "palavras_chave": ["string", "manipulação de string", "concatenação", "length", "substring"]},
+            {"codigo": "conversao_tipos", "label": "Conversão de Tipos (Casting)", "palavras_chave": ["casting", "type cast", "conversão de tipos", "parseint", "tostring"]},
+            {"codigo": "constante_final", "label": "Constantes / final", "palavras_chave": ["constante", "final", "const", "valor imutável"]}
+          ]
+        },
+        {
+          "codigo": "io_basico",
+          "label": "Entrada e Saída",
+          "palavras_chave": ["entrada e saída", "input", "output", "i/o"],
+          "filhos": [
+            {"codigo": "leitura_teclado", "label": "Leitura de Teclado (Scanner / input)", "palavras_chave": ["scanner", "bufferedreader", "input", "leitura do teclado", "readline"]},
+            {"codigo": "saida_tela", "label": "Saída em Tela (print / println)", "palavras_chave": ["print", "println", "system.out", "console.log", "saída em tela"]},
+            {"codigo": "formatacao_io", "label": "Formatação de Saída", "palavras_chave": ["printf", "format", "%d", "%s", "format string", "f-string"]}
+          ]
+        },
+        {
+          "codigo": "controle_fluxo_pc1",
+          "label": "Controle de Fluxo",
+          "palavras_chave": ["controle de fluxo", "estruturas condicionais", "loops"],
+          "filhos": [
+            {"codigo": "if_else_pc1", "label": "If / Else / Else If", "palavras_chave": ["if else", "else if", "if aninhado"]},
+            {"codigo": "switch_pc1", "label": "Switch / Case", "palavras_chave": ["switch case", "break case", "default"]},
+            {"codigo": "for_pc1", "label": "For", "palavras_chave": ["for", "for tradicional", "for each", "foreach"]},
+            {"codigo": "while_pc1", "label": "While", "palavras_chave": ["while loop", "laço while"]},
+            {"codigo": "do_while_pc1", "label": "Do-While", "palavras_chave": ["do while", "do-while"]}
+          ]
+        },
+        {
+          "codigo": "vetores_arrays_pc1",
+          "label": "Vetores (Arrays)",
+          "palavras_chave": ["array", "vetor", "arrays"],
+          "filhos": [
+            {"codigo": "array_declaracao", "label": "Declaração e Inicialização", "palavras_chave": ["new array", "declaração de array", "inicialização de vetor"]},
+            {"codigo": "array_manipulacao", "label": "Acesso e Manipulação", "palavras_chave": ["acesso por índice", "length", "atualizar array"]},
+            {"codigo": "array_multi", "label": "Arrays Multidimensionais", "palavras_chave": ["array multidimensional", "matriz", "array 2d"]},
+            {"codigo": "arraylist_list", "label": "ArrayList / List", "palavras_chave": ["arraylist", "list", "lista dinâmica", "add", "remove"]}
+          ]
+        },
+        {
+          "codigo": "funcoes_metodos_pc1",
+          "label": "Funções / Métodos",
+          "palavras_chave": ["função", "método", "metodo", "method"],
+          "filhos": [
+            {"codigo": "declaracao_metodo", "label": "Declaração de Métodos", "palavras_chave": ["declaração de método", "assinatura do método"]},
+            {"codigo": "parametros_argumentos", "label": "Parâmetros e Argumentos", "palavras_chave": ["parâmetros", "argumentos", "passagem de parâmetro"]},
+            {"codigo": "retorno_metodo", "label": "Retorno de Métodos", "palavras_chave": ["return", "valor de retorno", "void", "tipo de retorno"]},
+            {"codigo": "sobrecarga_metodo", "label": "Sobrecarga de Métodos", "palavras_chave": ["sobrecarga", "overload", "overloading"]},
+            {"codigo": "metodo_estatico", "label": "Métodos Estáticos vs Instância", "palavras_chave": ["static", "método estático", "método de instância"]}
+          ]
+        },
+        {
+          "codigo": "manipulacao_string",
+          "label": "Manipulação de Strings",
+          "palavras_chave": ["string", "manipulação de string", "métodos de string"],
+          "filhos": [
+            {"codigo": "metodos_string", "label": "Métodos de String", "palavras_chave": ["length", "substring", "indexof", "tolowercase", "touppercase", "trim", "replace", "split"]},
+            {"codigo": "comparacao_string", "label": "Comparação de Strings", "palavras_chave": ["equals", "equalsignorecase", "compareto", "comparação de string"]},
+            {"codigo": "stringbuilder", "label": "StringBuilder / StringBuffer", "palavras_chave": ["stringbuilder", "stringbuffer", "append"]}
+          ]
+        },
+        {
+          "codigo": "manipulacao_arquivo_pc1",
+          "label": "Manipulação Básica de Arquivos",
+          "palavras_chave": ["arquivo", "leitura de arquivo", "escrita em arquivo", "file"],
+          "filhos": [
+            {"codigo": "leitura_arquivo", "label": "Leitura de Arquivo Texto", "palavras_chave": ["filereader", "bufferedreader", "leitura de arquivo", "open file"]},
+            {"codigo": "escrita_arquivo", "label": "Escrita em Arquivo Texto", "palavras_chave": ["filewriter", "bufferedwriter", "write file"]},
+            {"codigo": "csv_basico", "label": "Manipulação Básica de CSV", "palavras_chave": ["csv", "arquivo csv", "separar por vírgula"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "sistemas_embarcados",
+      "label": "Sistemas Embarcados",
+      "palavras_chave": ["sistemas embarcados", "embedded systems", "embarcado", "iot"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_embarcados",
+          "label": "Fundamentos de Sistemas Embarcados",
+          "palavras_chave": ["fundamentos de embarcados", "definição de sistema embarcado"],
+          "filhos": [
+            {"codigo": "definicao_embarcado", "label": "Definição e Características", "palavras_chave": ["definição de embarcado", "características de sistema embarcado", "tempo real", "recursos limitados"]},
+            {"codigo": "aplicacoes_embarcado", "label": "Aplicações (Automotivo, Médico, IoT)", "palavras_chave": ["aplicações embarcadas", "automotivo", "equipamento médico", "eletrodoméstico"]},
+            {"codigo": "diferenca_pc", "label": "Diferenças para Sistemas de Propósito Geral", "palavras_chave": ["diferença para pc", "propósito específico", "propósito geral"]}
+          ]
+        },
+        {
+          "codigo": "microcontroladores",
+          "label": "Microcontroladores e Microprocessadores",
+          "palavras_chave": ["microcontrolador", "microprocessador", "mcu", "mpu"],
+          "filhos": [
+            {"codigo": "diferenca_mcu_mpu", "label": "Microcontrolador x Microprocessador", "palavras_chave": ["microcontrolador versus microprocessador", "mcu vs mpu"]},
+            {"codigo": "arquitetura_avr_arm", "label": "Arquiteturas (AVR, ARM, PIC)", "palavras_chave": ["avr", "arm", "pic", "arquitetura risc"]},
+            {"codigo": "memoria_flash_eeprom", "label": "Memória Flash, RAM e EEPROM", "palavras_chave": ["flash", "eeprom", "ram em embarcado", "memória não volátil"]}
+          ]
+        },
+        {
+          "codigo": "arduino",
+          "label": "Arduino",
+          "palavras_chave": ["arduino", "uno", "arduino uno", "arduino mega", "arduino nano"],
+          "filhos": [
+            {"codigo": "placas_arduino", "label": "Placas Arduino (UNO, Mega, Nano)", "palavras_chave": ["arduino uno", "arduino mega", "arduino nano", "atmega328"]},
+            {"codigo": "ide_arduino", "label": "Arduino IDE", "palavras_chave": ["arduino ide", "sketch", "compilar e enviar"]},
+            {"codigo": "linguagem_arduino", "label": "Linguagem Arduino (C/C++)", "palavras_chave": ["linguagem arduino", "setup", "loop", "pinmode", "digitalwrite", "analogread"]},
+            {"codigo": "shields_arduino", "label": "Shields e Módulos", "palavras_chave": ["shield arduino", "módulos arduino", "ethernet shield"]}
+          ]
+        },
+        {
+          "codigo": "raspberry_pi",
+          "label": "Raspberry Pi",
+          "palavras_chave": ["raspberry pi", "raspberry", "rpi", "raspberry pi pico"],
+          "filhos": [
+            {"codigo": "modelos_raspberry", "label": "Modelos (Pi 3, 4, 5, Pico)", "palavras_chave": ["raspberry pi 3", "raspberry pi 4", "raspberry pi 5", "raspberry pi pico"]},
+            {"codigo": "raspbian", "label": "Raspberry Pi OS (Raspbian)", "palavras_chave": ["raspbian", "raspberry pi os", "linux embarcado"]},
+            {"codigo": "python_raspberry", "label": "Programação em Python no Raspberry", "palavras_chave": ["python raspberry", "rpi.gpio", "gpiozero"]}
+          ]
+        },
+        {
+          "codigo": "gpio_perifericos_emb",
+          "label": "GPIO e Periféricos",
+          "palavras_chave": ["gpio", "general purpose io", "pino digital", "pino analógico"],
+          "filhos": [
+            {"codigo": "digital_io", "label": "Entrada e Saída Digital", "palavras_chave": ["entrada digital", "saída digital", "high low", "0 e 1"]},
+            {"codigo": "analog_io", "label": "Entrada e Saída Analógica (ADC, DAC)", "palavras_chave": ["adc", "dac", "conversor analógico-digital", "entrada analógica"]},
+            {"codigo": "pwm", "label": "PWM (Modulação por Largura de Pulso)", "palavras_chave": ["pwm", "modulação por largura de pulso", "controle de brilho", "controle de motor"]},
+            {"codigo": "interrupcoes", "label": "Interrupções", "palavras_chave": ["interrupção", "isr", "interrupt service routine"]},
+            {"codigo": "comunicacao_serial", "label": "Comunicação Serial (UART, I2C, SPI)", "palavras_chave": ["uart", "i2c", "spi", "comunicação serial", "rs232", "rs485"]}
+          ]
+        },
+        {
+          "codigo": "sensores_atuadores",
+          "label": "Sensores e Atuadores",
+          "palavras_chave": ["sensor", "atuador", "sensores e atuadores"],
+          "filhos": [
+            {"codigo": "sensor_temperatura", "label": "Sensores de Temperatura (LM35, DHT11/22)", "palavras_chave": ["lm35", "dht11", "dht22", "sensor de temperatura", "sensor de umidade"]},
+            {"codigo": "sensor_luminosidade", "label": "Sensor de Luminosidade (LDR)", "palavras_chave": ["ldr", "fotorresistor", "sensor de luz"]},
+            {"codigo": "sensor_movimento", "label": "Sensor de Movimento e Presença (PIR)", "palavras_chave": ["pir", "sensor de presença", "sensor de movimento"]},
+            {"codigo": "sensor_distancia", "label": "Sensor de Distância (Ultrassônico HC-SR04)", "palavras_chave": ["hc-sr04", "ultrassônico", "sensor de distância"]},
+            {"codigo": "atuador_led", "label": "LEDs", "palavras_chave": ["led", "diodo emissor de luz", "led rgb"]},
+            {"codigo": "motor_servo", "label": "Motores e Servos", "palavras_chave": ["motor dc", "servo motor", "motor de passo", "stepper"]},
+            {"codigo": "rele", "label": "Relé", "palavras_chave": ["relé", "rele", "acionamento de carga"]}
+          ]
+        },
+        {
+          "codigo": "iot",
+          "label": "Internet das Coisas (IoT)",
+          "palavras_chave": ["iot", "internet of things", "internet das coisas"],
+          "filhos": [
+            {"codigo": "conceito_iot", "label": "Conceito e Arquitetura IoT", "palavras_chave": ["conceito de iot", "arquitetura iot", "edge computing", "fog computing"]},
+            {"codigo": "esp32_esp8266", "label": "ESP32 / ESP8266", "palavras_chave": ["esp32", "esp8266", "nodemcu", "wifi embarcado"]},
+            {"codigo": "protocolos_iot", "label": "Protocolos (MQTT, CoAP, HTTP)", "palavras_chave": ["mqtt", "coap", "broker mqtt", "protocolo iot"]},
+            {"codigo": "plataformas_iot", "label": "Plataformas IoT (ThingSpeak, AWS IoT)", "palavras_chave": ["thingspeak", "aws iot", "google iot", "blynk"]}
+          ]
+        },
+        {
+          "codigo": "rtos",
+          "label": "Sistemas Operacionais de Tempo Real (RTOS)",
+          "palavras_chave": ["rtos", "real time operating system", "sistema de tempo real"],
+          "filhos": [
+            {"codigo": "rtos_conceito", "label": "Conceitos de Tempo Real", "palavras_chave": ["tempo real hard", "tempo real soft", "deadline"]},
+            {"codigo": "freertos", "label": "FreeRTOS", "palavras_chave": ["freertos", "tarefa rtos", "task rtos"]},
+            {"codigo": "escalonamento_rtos", "label": "Escalonamento de Tarefas", "palavras_chave": ["escalonamento", "preemptivo", "round robin", "prioridade"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "banco_dados_2",
+      "label": "Banco de Dados II",
+      "palavras_chave": ["banco de dados ii", "bd 2", "banco de dados 2", "bd ii"],
+      "filhos": [
+        {
+          "codigo": "normalizacao",
+          "label": "Normalização",
+          "palavras_chave": ["normalização", "formas normais", "normalizar"],
+          "filhos": [
+            {"codigo": "dependencia_funcional", "label": "Dependência Funcional", "palavras_chave": ["dependência funcional", "df", "dependência transitiva", "dependência parcial"]},
+            {"codigo": "1fn", "label": "Primeira Forma Normal (1FN)", "palavras_chave": ["1fn", "primeira forma normal", "atributo atômico"]},
+            {"codigo": "2fn", "label": "Segunda Forma Normal (2FN)", "palavras_chave": ["2fn", "segunda forma normal", "dependência parcial"]},
+            {"codigo": "3fn", "label": "Terceira Forma Normal (3FN)", "palavras_chave": ["3fn", "terceira forma normal", "dependência transitiva"]},
+            {"codigo": "bcnf", "label": "Forma Normal de Boyce-Codd (BCNF)", "palavras_chave": ["bcnf", "boyce-codd", "forma normal de boyce codd"]},
+            {"codigo": "4fn_5fn", "label": "4ª e 5ª Formas Normais", "palavras_chave": ["4fn", "5fn", "quarta forma normal", "quinta forma normal", "dependência multivalorada"]},
+            {"codigo": "desnormalizacao", "label": "Desnormalização", "palavras_chave": ["desnormalização", "denormalização", "data warehouse"]}
+          ]
+        },
+        {
+          "codigo": "sql_avancado",
+          "label": "SQL Avançado",
+          "palavras_chave": ["sql avançado", "consultas complexas"],
+          "filhos": [
+            {"codigo": "joins_avancado", "label": "JOINs Avançados (FULL, CROSS, SELF)", "palavras_chave": ["full join", "full outer join", "cross join", "self join"]},
+            {"codigo": "subqueries_avancado", "label": "Subconsultas Correlacionadas", "palavras_chave": ["subconsulta correlacionada", "exists", "not exists"]},
+            {"codigo": "cte", "label": "CTE — Common Table Expressions", "palavras_chave": ["cte", "common table expression", "with clause"]},
+            {"codigo": "window_functions", "label": "Funções de Janela (Window Functions)", "palavras_chave": ["window function", "função de janela", "over", "partition by", "row_number", "rank"]},
+            {"codigo": "case_when", "label": "CASE WHEN", "palavras_chave": ["case when", "case sql", "expressão condicional sql"]},
+            {"codigo": "pivot", "label": "PIVOT / UNPIVOT", "palavras_chave": ["pivot", "unpivot", "tabela pivô"]}
+          ]
+        },
+        {
+          "codigo": "indices",
+          "label": "Índices",
+          "palavras_chave": ["índice", "index", "indexação"],
+          "filhos": [
+            {"codigo": "indice_btree", "label": "Índices B-Tree", "palavras_chave": ["b-tree", "índice b-tree", "índice padrão"]},
+            {"codigo": "indice_hash", "label": "Índices Hash", "palavras_chave": ["índice hash", "hash index"]},
+            {"codigo": "indice_clusterizado", "label": "Índice Clusterizado e Não Clusterizado", "palavras_chave": ["índice clusterizado", "clustered index", "não clusterizado", "nonclustered"]},
+            {"codigo": "indice_composto", "label": "Índice Composto", "palavras_chave": ["índice composto", "composite index", "índice multicoluna"]},
+            {"codigo": "indice_quando_usar", "label": "Quando Usar Índices", "palavras_chave": ["quando indexar", "indexação seletiva", "custo de índice"]}
+          ]
+        },
+        {
+          "codigo": "procedimentos_funcoes_sgbd",
+          "label": "Procedimentos, Funções e Triggers",
+          "palavras_chave": ["procedure", "stored procedure", "function sql", "trigger", "gatilho"],
+          "filhos": [
+            {"codigo": "stored_procedure", "label": "Stored Procedures", "palavras_chave": ["stored procedure", "procedimento armazenado", "procedure"]},
+            {"codigo": "function_sql", "label": "Funções (UDF)", "palavras_chave": ["udf", "função armazenada", "create function"]},
+            {"codigo": "trigger", "label": "Triggers (Gatilhos)", "palavras_chave": ["trigger", "gatilho", "before insert", "after insert", "after update"]},
+            {"codigo": "view", "label": "Views (Visões)", "palavras_chave": ["view", "visão", "create view", "visão materializada"]},
+            {"codigo": "pl_sql", "label": "PL/SQL e T-SQL", "palavras_chave": ["pl/sql", "plsql", "t-sql", "transact sql"]}
+          ]
+        },
+        {
+          "codigo": "transacoes_acid",
+          "label": "Transações e ACID",
+          "palavras_chave": ["transação", "transactions", "acid"],
+          "filhos": [
+            {"codigo": "conceito_transacao", "label": "Conceito de Transação", "palavras_chave": ["transação", "begin transaction", "commit", "rollback"]},
+            {"codigo": "propriedades_acid", "label": "Propriedades ACID", "palavras_chave": ["acid", "atomicidade", "consistência", "isolamento", "durabilidade"]},
+            {"codigo": "niveis_isolamento", "label": "Níveis de Isolamento", "palavras_chave": ["read uncommitted", "read committed", "repeatable read", "serializable", "isolamento de transação"]},
+            {"codigo": "deadlock", "label": "Deadlock", "palavras_chave": ["deadlock", "impasse", "espera circular"]},
+            {"codigo": "controle_concorrencia", "label": "Controle de Concorrência", "palavras_chave": ["controle de concorrência", "lock", "bloqueio", "mvcc"]}
+          ]
+        },
+        {
+          "codigo": "nosql",
+          "label": "Bancos NoSQL",
+          "palavras_chave": ["nosql", "banco não relacional", "banco não-relacional"],
+          "filhos": [
+            {"codigo": "tipos_nosql", "label": "Tipos de NoSQL", "palavras_chave": ["chave-valor", "documento", "colunar", "grafo", "tipos de nosql"]},
+            {"codigo": "mongodb", "label": "MongoDB (Documento)", "palavras_chave": ["mongodb", "documento json", "bson", "collection"]},
+            {"codigo": "redis", "label": "Redis (Chave-Valor)", "palavras_chave": ["redis", "chave-valor", "key-value store", "cache em memória"]},
+            {"codigo": "cassandra", "label": "Cassandra (Colunar)", "palavras_chave": ["cassandra", "banco colunar", "wide column"]},
+            {"codigo": "neo4j", "label": "Neo4j (Grafo)", "palavras_chave": ["neo4j", "banco de grafos", "cypher"]},
+            {"codigo": "teorema_cap", "label": "Teorema CAP", "palavras_chave": ["teorema cap", "consistência disponibilidade partição", "cap theorem"]},
+            {"codigo": "base", "label": "BASE (vs ACID)", "palavras_chave": ["base", "basically available", "eventually consistent"]}
+          ]
+        },
+        {
+          "codigo": "administracao_bd",
+          "label": "Administração de Banco de Dados",
+          "palavras_chave": ["administração de bd", "dba", "tuning"],
+          "filhos": [
+            {"codigo": "backup_restore", "label": "Backup e Restore", "palavras_chave": ["backup de banco", "restore", "dump", "ponto de recuperação"]},
+            {"codigo": "tuning", "label": "Tuning de Consultas", "palavras_chave": ["tuning", "otimização de consulta", "explain", "plano de execução"]},
+            {"codigo": "seguranca_bd", "label": "Segurança em BD (Usuários e Permissões)", "palavras_chave": ["segurança de banco", "grant", "revoke", "role sql", "permissão de banco"]},
+            {"codigo": "replicacao", "label": "Replicação", "palavras_chave": ["replicação", "master slave", "replica de banco"]},
+            {"codigo": "sharding", "label": "Sharding e Particionamento", "palavras_chave": ["sharding", "particionamento", "partição horizontal"]}
+          ]
+        },
+        {
+          "codigo": "data_warehouse",
+          "label": "Data Warehouse e BI",
+          "palavras_chave": ["data warehouse", "dw", "business intelligence", "bi"],
+          "filhos": [
+            {"codigo": "olap_oltp", "label": "OLTP x OLAP", "palavras_chave": ["oltp", "olap", "transacional versus analítico"]},
+            {"codigo": "etl", "label": "ETL — Extract, Transform, Load", "palavras_chave": ["etl", "extract transform load", "pipeline de dados"]},
+            {"codigo": "modelagem_dimensional", "label": "Modelagem Dimensional (Estrela, Floco)", "palavras_chave": ["modelo estrela", "star schema", "floco de neve", "snowflake schema", "fato", "dimensão"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "dispositivos_moveis",
+      "label": "Desenvolvimento para Dispositivos Móveis",
+      "palavras_chave": ["desenvolvimento móvel", "mobile", "android", "ios", "aplicativo móvel"],
+      "filhos": [
+        {
+          "codigo": "intro_mobile",
+          "label": "Introdução ao Desenvolvimento Móvel",
+          "palavras_chave": ["introdução mobile", "plataformas móveis"],
+          "filhos": [
+            {"codigo": "mercado_mobile", "label": "Mercado e Plataformas", "palavras_chave": ["mercado mobile", "android x ios", "play store", "app store"]},
+            {"codigo": "tipos_apps", "label": "Tipos de Apps (Nativo, Híbrido, Web, PWA)", "palavras_chave": ["app nativo", "app híbrido", "web app", "pwa", "progressive web app"]},
+            {"codigo": "ciclo_vida_app", "label": "Ciclo de Vida de Aplicações Móveis", "palavras_chave": ["ciclo de vida do app", "estado da activity", "onstart", "onresume", "onpause"]}
+          ]
+        },
+        {
+          "codigo": "android",
+          "label": "Desenvolvimento Android",
+          "palavras_chave": ["android", "android studio", "kotlin", "java android"],
+          "filhos": [
+            {"codigo": "android_studio", "label": "Android Studio", "palavras_chave": ["android studio", "gradle", "emulador android", "avd"]},
+            {"codigo": "kotlin", "label": "Kotlin", "palavras_chave": ["kotlin", "linguagem kotlin", "null safety"]},
+            {"codigo": "activity_fragment", "label": "Activities e Fragments", "palavras_chave": ["activity", "fragment", "intent", "onCreate"]},
+            {"codigo": "layouts_android", "label": "Layouts (XML, ConstraintLayout)", "palavras_chave": ["layout android", "linearlayout", "constraintlayout", "relativelayout", "xml layout"]},
+            {"codigo": "jetpack_compose", "label": "Jetpack Compose", "palavras_chave": ["jetpack compose", "compose ui", "composable"]},
+            {"codigo": "permissoes_android", "label": "Permissões Android", "palavras_chave": ["permissão android", "androidmanifest", "runtime permission"]},
+            {"codigo": "recyclerview", "label": "RecyclerView e ListView", "palavras_chave": ["recyclerview", "listview", "adapter", "viewholder"]},
+            {"codigo": "navigation_android", "label": "Navigation Component", "palavras_chave": ["navigation component", "navhost", "navegação android"]}
+          ]
+        },
+        {
+          "codigo": "ios",
+          "label": "Desenvolvimento iOS",
+          "palavras_chave": ["ios", "iphone", "ipad", "apple"],
+          "filhos": [
+            {"codigo": "swift", "label": "Swift", "palavras_chave": ["swift", "linguagem swift", "swift ui"]},
+            {"codigo": "xcode", "label": "Xcode", "palavras_chave": ["xcode", "simulador ios", "ide apple"]},
+            {"codigo": "swiftui_uikit", "label": "SwiftUI e UIKit", "palavras_chave": ["swiftui", "uikit", "viewcontroller", "storyboard"]}
+          ]
+        },
+        {
+          "codigo": "multiplataforma",
+          "label": "Frameworks Multiplataforma",
+          "palavras_chave": ["multiplataforma", "cross-platform", "framework híbrido"],
+          "filhos": [
+            {"codigo": "react_native", "label": "React Native", "palavras_chave": ["react native", "rn", "javascript mobile"]},
+            {"codigo": "flutter", "label": "Flutter", "palavras_chave": ["flutter", "dart", "widget flutter"]},
+            {"codigo": "ionic", "label": "Ionic", "palavras_chave": ["ionic", "ionic framework", "capacitor", "cordova"]},
+            {"codigo": "xamarin_maui", "label": "Xamarin / .NET MAUI", "palavras_chave": ["xamarin", "maui", ".net maui"]}
+          ]
+        },
+        {
+          "codigo": "persistencia_mobile",
+          "label": "Persistência de Dados Mobile",
+          "palavras_chave": ["persistência mobile", "armazenamento local"],
+          "filhos": [
+            {"codigo": "sqlite_mobile", "label": "SQLite em Mobile", "palavras_chave": ["sqlite android", "sqlite ios", "banco local"]},
+            {"codigo": "room", "label": "Room (Android)", "palavras_chave": ["room", "android room", "room database"]},
+            {"codigo": "core_data", "label": "Core Data (iOS)", "palavras_chave": ["core data", "ios persistência"]},
+            {"codigo": "shared_preferences", "label": "SharedPreferences / UserDefaults", "palavras_chave": ["sharedpreferences", "userdefaults", "preferências do usuário"]}
+          ]
+        },
+        {
+          "codigo": "api_mobile",
+          "label": "Consumo de APIs em Mobile",
+          "palavras_chave": ["api mobile", "rest mobile", "consumo de api"],
+          "filhos": [
+            {"codigo": "retrofit", "label": "Retrofit (Android)", "palavras_chave": ["retrofit", "biblioteca retrofit"]},
+            {"codigo": "alamofire", "label": "Alamofire (iOS)", "palavras_chave": ["alamofire", "ios http"]},
+            {"codigo": "json_mobile", "label": "JSON e Parsing", "palavras_chave": ["json mobile", "gson", "moshi", "codable"]}
+          ]
+        },
+        {
+          "codigo": "recursos_dispositivo",
+          "label": "Recursos do Dispositivo",
+          "palavras_chave": ["recursos do dispositivo", "sensores mobile", "hardware mobile"],
+          "filhos": [
+            {"codigo": "geolocalizacao_mobile", "label": "Geolocalização e GPS", "palavras_chave": ["gps", "geolocalização", "location services", "fusedlocation"]},
+            {"codigo": "camera_mobile", "label": "Câmera", "palavras_chave": ["câmera mobile", "camera api", "camerax"]},
+            {"codigo": "notificacoes_push", "label": "Notificações Push", "palavras_chave": ["push notification", "fcm", "firebase cloud messaging", "apns"]},
+            {"codigo": "sensores_mobile", "label": "Sensores (Acelerômetro, Giroscópio)", "palavras_chave": ["acelerômetro", "giroscópio", "sensor mobile"]}
+          ]
+        },
+        {
+          "codigo": "publicacao_app",
+          "label": "Publicação de Aplicativos",
+          "palavras_chave": ["publicação de app", "publicar aplicativo", "store"],
+          "filhos": [
+            {"codigo": "play_store", "label": "Google Play Store", "palavras_chave": ["play store", "google play", "publicar android"]},
+            {"codigo": "app_store", "label": "Apple App Store", "palavras_chave": ["app store", "apple store", "publicar ios"]},
+            {"codigo": "assinatura_app", "label": "Assinatura de Apps", "palavras_chave": ["assinatura digital", "apk signing", "keystore"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "internet_protocolos_seguranca",
+      "label": "Internet, Protocolos e Segurança de Sistemas",
+      "palavras_chave": ["internet protocolos e segurança", "segurança de sistemas", "redes e segurança", "ips"],
+      "filhos": [
+        {
+          "codigo": "redes_avancado",
+          "label": "Redes de Computadores",
+          "palavras_chave": ["rede de computadores", "redes", "networking"],
+          "filhos": [
+            {"codigo": "modelo_osi", "label": "Modelo OSI", "palavras_chave": ["modelo osi", "sete camadas", "camada física", "camada de enlace", "camada de rede", "camada de transporte", "camada de aplicação"]},
+            {"codigo": "modelo_tcp_ip", "label": "Modelo TCP/IP", "palavras_chave": ["tcp/ip", "modelo tcp ip", "quatro camadas", "stack tcp ip"]},
+            {"codigo": "endereco_ip", "label": "Endereçamento IP (IPv4, IPv6)", "palavras_chave": ["ipv4", "ipv6", "endereço ip", "máscara de sub-rede", "cidr"]},
+            {"codigo": "sub_redes", "label": "Sub-redes e Roteamento", "palavras_chave": ["sub-rede", "subrede", "subnetting", "roteamento", "router"]},
+            {"codigo": "dhcp", "label": "DHCP", "palavras_chave": ["dhcp", "atribuição dinâmica", "ip dinâmico"]},
+            {"codigo": "nat", "label": "NAT", "palavras_chave": ["nat", "network address translation", "tradução de endereço"]},
+            {"codigo": "topologias_avancado", "label": "Topologias e Equipamentos", "palavras_chave": ["switch", "router", "hub", "access point", "topologia"]}
+          ]
+        },
+        {
+          "codigo": "protocolos",
+          "label": "Protocolos de Comunicação",
+          "palavras_chave": ["protocolo", "protocolos de rede"],
+          "filhos": [
+            {"codigo": "tcp_udp", "label": "TCP e UDP", "palavras_chave": ["tcp", "udp", "transmission control protocol", "user datagram protocol", "conexão e sem conexão"]},
+            {"codigo": "http_https_avancado", "label": "HTTP / HTTPS", "palavras_chave": ["http", "https", "métodos http", "get", "post", "put", "delete", "patch", "status code", "status http"]},
+            {"codigo": "ftp_sftp", "label": "FTP e SFTP", "palavras_chave": ["ftp", "sftp", "file transfer protocol"]},
+            {"codigo": "smtp_pop_imap", "label": "SMTP, POP3 e IMAP", "palavras_chave": ["smtp", "pop3", "imap", "protocolo de email"]},
+            {"codigo": "dns_protocolo", "label": "DNS", "palavras_chave": ["dns", "domain name system", "resolução de nomes"]},
+            {"codigo": "ssh_telnet", "label": "SSH e Telnet", "palavras_chave": ["ssh", "telnet", "acesso remoto"]},
+            {"codigo": "websocket", "label": "WebSocket", "palavras_chave": ["websocket", "comunicação em tempo real", "ws"]}
+          ]
+        },
+        {
+          "codigo": "apis_servicos",
+          "label": "APIs e Web Services",
+          "palavras_chave": ["api", "web service", "rest", "soap"],
+          "filhos": [
+            {"codigo": "rest", "label": "REST e RESTful", "palavras_chave": ["rest", "restful", "api rest", "recurso", "uri rest"]},
+            {"codigo": "soap", "label": "SOAP", "palavras_chave": ["soap", "wsdl", "xml soap"]},
+            {"codigo": "graphql", "label": "GraphQL", "palavras_chave": ["graphql", "query graphql", "mutation"]},
+            {"codigo": "json_xml", "label": "JSON e XML", "palavras_chave": ["json", "xml", "serialização", "data interchange"]},
+            {"codigo": "documentacao_api", "label": "Documentação de API (Swagger/OpenAPI)", "palavras_chave": ["swagger", "openapi", "documentação de api", "postman"]}
+          ]
+        },
+        {
+          "codigo": "seguranca_info",
+          "label": "Segurança da Informação",
+          "palavras_chave": ["segurança da informação", "infosec", "cibersegurança"],
+          "filhos": [
+            {"codigo": "cid_triade", "label": "Tríade CID (Confidencialidade, Integridade, Disponibilidade)", "palavras_chave": ["cid", "tríade cid", "confidencialidade", "integridade", "disponibilidade", "cia triad"]},
+            {"codigo": "ameacas_vulnerabilidades", "label": "Ameaças e Vulnerabilidades", "palavras_chave": ["ameaça", "vulnerabilidade", "risco", "ataque cibernético"]},
+            {"codigo": "tipos_ataques", "label": "Tipos de Ataques (DDoS, MITM, Brute Force)", "palavras_chave": ["ddos", "negação de serviço", "man in the middle", "mitm", "brute force", "força bruta"]},
+            {"codigo": "malware_avancado", "label": "Malwares (Ransomware, Spyware, Rootkit)", "palavras_chave": ["malware", "ransomware", "spyware", "rootkit", "keylogger"]},
+            {"codigo": "phishing_engenharia", "label": "Phishing e Engenharia Social", "palavras_chave": ["phishing", "engenharia social", "spear phishing", "spoofing"]},
+            {"codigo": "owasp", "label": "OWASP Top 10", "palavras_chave": ["owasp", "owasp top 10", "sql injection", "xss", "cross-site scripting", "csrf"]},
+            {"codigo": "pen_test", "label": "Pen Test e Hacking Ético", "palavras_chave": ["pen test", "penetration test", "hacking ético", "ethical hacking", "pentest"]}
+          ]
+        },
+        {
+          "codigo": "criptografia",
+          "label": "Criptografia",
+          "palavras_chave": ["criptografia", "cifragem", "encryption"],
+          "filhos": [
+            {"codigo": "cripto_simetrica", "label": "Criptografia Simétrica", "palavras_chave": ["criptografia simétrica", "aes", "des", "chave única"]},
+            {"codigo": "cripto_assimetrica", "label": "Criptografia Assimétrica", "palavras_chave": ["criptografia assimétrica", "rsa", "chave pública", "chave privada"]},
+            {"codigo": "hash_funcoes", "label": "Funções Hash (MD5, SHA)", "palavras_chave": ["md5", "sha1", "sha256", "hash criptográfico", "função de hash"]},
+            {"codigo": "assinatura_digital", "label": "Assinatura Digital", "palavras_chave": ["assinatura digital", "certificado digital", "icp-brasil"]},
+            {"codigo": "ssl_tls", "label": "SSL / TLS", "palavras_chave": ["ssl", "tls", "https tls", "handshake tls", "certificado ssl"]}
+          ]
+        },
+        {
+          "codigo": "controle_acesso",
+          "label": "Autenticação e Controle de Acesso",
+          "palavras_chave": ["autenticação", "controle de acesso", "autorização"],
+          "filhos": [
+            {"codigo": "autenticacao_basica", "label": "Métodos de Autenticação", "palavras_chave": ["autenticação", "senha", "biometria", "token", "mfa", "2fa", "autenticação multifator"]},
+            {"codigo": "oauth_jwt", "label": "OAuth e JWT", "palavras_chave": ["oauth", "oauth 2.0", "jwt", "json web token", "bearer token"]},
+            {"codigo": "rbac", "label": "Controle Baseado em Papéis (RBAC)", "palavras_chave": ["rbac", "role based access control", "controle por papel"]},
+            {"codigo": "sso", "label": "SSO — Single Sign-On", "palavras_chave": ["sso", "single sign on", "login único"]}
+          ]
+        },
+        {
+          "codigo": "seguranca_aplicacao",
+          "label": "Segurança em Aplicações",
+          "palavras_chave": ["segurança em aplicações", "aplicação segura", "secure coding"],
+          "filhos": [
+            {"codigo": "sql_injection", "label": "SQL Injection", "palavras_chave": ["sql injection", "injeção de sql", "sqli"]},
+            {"codigo": "xss", "label": "Cross-Site Scripting (XSS)", "palavras_chave": ["xss", "cross-site scripting", "stored xss", "reflected xss"]},
+            {"codigo": "csrf", "label": "CSRF — Cross-Site Request Forgery", "palavras_chave": ["csrf", "cross-site request forgery", "token csrf"]},
+            {"codigo": "validacao_entrada", "label": "Validação de Entrada", "palavras_chave": ["validação de entrada", "sanitização", "input validation"]},
+            {"codigo": "https_ssl_aplicacao", "label": "HTTPS em Aplicações", "palavras_chave": ["https", "certificado", "lets encrypt"]}
+          ]
+        },
+        {
+          "codigo": "firewall_ids",
+          "label": "Firewall, IDS e IPS",
+          "palavras_chave": ["firewall", "ids", "ips", "sistemas de detecção"],
+          "filhos": [
+            {"codigo": "firewall_tipos", "label": "Tipos de Firewall", "palavras_chave": ["firewall stateless", "firewall stateful", "firewall de aplicação", "waf"]},
+            {"codigo": "ids_ips_def", "label": "IDS e IPS", "palavras_chave": ["ids", "ips", "intrusion detection system", "intrusion prevention system"]},
+            {"codigo": "vpn", "label": "VPN", "palavras_chave": ["vpn", "virtual private network", "rede privada virtual", "túnel vpn"]}
+          ]
+        },
+        {
+          "codigo": "normas_seguranca",
+          "label": "Normas e Legislação de Segurança",
+          "palavras_chave": ["norma de segurança", "iso 27001", "lgpd segurança"],
+          "filhos": [
+            {"codigo": "iso_27001", "label": "ISO/IEC 27001 e 27002", "palavras_chave": ["iso 27001", "iso 27002", "sgsi", "sistema de gestão de segurança"]},
+            {"codigo": "lgpd_seg", "label": "LGPD em Segurança", "palavras_chave": ["lgpd", "lei geral de proteção de dados", "dados pessoais", "anpd"]},
+            {"codigo": "pci_dss", "label": "PCI-DSS", "palavras_chave": ["pci-dss", "pci dss", "padrão de cartão"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "qualidade_teste_software",
+      "label": "Qualidade e Teste de Software",
+      "palavras_chave": ["qualidade de software", "teste de software", "testes", "qa", "qualidade"],
+      "filhos": [
+        {
+          "codigo": "qualidade_conceitos",
+          "label": "Conceitos de Qualidade",
+          "palavras_chave": ["conceito de qualidade", "qualidade total"],
+          "filhos": [
+            {"codigo": "definicao_qualidade", "label": "Definição de Qualidade de Software", "palavras_chave": ["definição de qualidade", "qualidade segundo iso", "qualidade percebida"]},
+            {"codigo": "iso_25010", "label": "ISO/IEC 25010", "palavras_chave": ["iso 25010", "iso 9126", "atributos de qualidade", "funcionalidade", "confiabilidade", "usabilidade", "eficiência", "manutenibilidade", "portabilidade"]},
+            {"codigo": "modelos_maturidade", "label": "Modelos de Maturidade (CMMI, MPS.BR)", "palavras_chave": ["cmmi", "mps.br", "mps-br", "capability maturity", "modelo de maturidade"]},
+            {"codigo": "qualidade_processo", "label": "Qualidade de Processo x Produto", "palavras_chave": ["qualidade de processo", "qualidade de produto"]}
+          ]
+        },
+        {
+          "codigo": "tipos_teste",
+          "label": "Tipos de Teste",
+          "palavras_chave": ["tipos de teste", "categorias de teste"],
+          "filhos": [
+            {"codigo": "teste_unitario", "label": "Teste Unitário", "palavras_chave": ["teste unitário", "unit test", "junit", "pytest", "nunit"]},
+            {"codigo": "teste_integracao", "label": "Teste de Integração", "palavras_chave": ["teste de integração", "integration test"]},
+            {"codigo": "teste_sistema", "label": "Teste de Sistema", "palavras_chave": ["teste de sistema", "system test"]},
+            {"codigo": "teste_aceitacao", "label": "Teste de Aceitação (UAT)", "palavras_chave": ["teste de aceitação", "uat", "user acceptance testing"]},
+            {"codigo": "teste_regressao", "label": "Teste de Regressão", "palavras_chave": ["teste de regressão", "regression test"]},
+            {"codigo": "teste_carga", "label": "Teste de Carga e Desempenho", "palavras_chave": ["teste de carga", "teste de performance", "teste de stress", "jmeter"]},
+            {"codigo": "teste_seguranca_qa", "label": "Teste de Segurança", "palavras_chave": ["teste de segurança", "security testing", "pentest qa"]},
+            {"codigo": "teste_usabilidade_qa", "label": "Teste de Usabilidade", "palavras_chave": ["teste de usabilidade", "usability testing"]},
+            {"codigo": "teste_caixa_branca", "label": "Caixa Branca x Caixa Preta", "palavras_chave": ["caixa branca", "caixa preta", "white box", "black box", "caixa cinza"]},
+            {"codigo": "smoke_sanity", "label": "Smoke Test e Sanity Test", "palavras_chave": ["smoke test", "sanity test", "teste de fumaça"]}
+          ]
+        },
+        {
+          "codigo": "tecnicas_teste",
+          "label": "Técnicas de Teste",
+          "palavras_chave": ["técnicas de teste", "estratégia de teste"],
+          "filhos": [
+            {"codigo": "particao_equivalencia", "label": "Partição de Equivalência", "palavras_chave": ["partição de equivalência", "classe de equivalência"]},
+            {"codigo": "valor_limite", "label": "Análise de Valor-Limite", "palavras_chave": ["valor limite", "boundary value", "análise de fronteira"]},
+            {"codigo": "tabela_decisao", "label": "Tabela de Decisão", "palavras_chave": ["tabela de decisão", "decision table"]},
+            {"codigo": "cobertura_codigo", "label": "Cobertura de Código", "palavras_chave": ["cobertura de código", "code coverage", "branch coverage", "line coverage"]}
+          ]
+        },
+        {
+          "codigo": "tdd_bdd",
+          "label": "TDD e BDD",
+          "palavras_chave": ["tdd", "bdd", "test driven development", "behavior driven"],
+          "filhos": [
+            {"codigo": "tdd_ciclo", "label": "TDD — Ciclo Red-Green-Refactor", "palavras_chave": ["tdd", "red green refactor", "test driven development", "test first"]},
+            {"codigo": "bdd_gherkin", "label": "BDD com Gherkin", "palavras_chave": ["bdd", "gherkin", "given when then", "cucumber", "behave"]}
+          ]
+        },
+        {
+          "codigo": "frameworks_teste",
+          "label": "Frameworks e Ferramentas de Teste",
+          "palavras_chave": ["framework de teste", "ferramenta de teste"],
+          "filhos": [
+            {"codigo": "junit", "label": "JUnit (Java)", "palavras_chave": ["junit", "junit 5", "@test", "assertequals"]},
+            {"codigo": "pytest_unittest", "label": "Pytest / Unittest (Python)", "palavras_chave": ["pytest", "unittest", "python test"]},
+            {"codigo": "selenium", "label": "Selenium", "palavras_chave": ["selenium", "webdriver", "automação de testes web"]},
+            {"codigo": "mockito", "label": "Mockito e Mocks", "palavras_chave": ["mockito", "mock", "stub", "test double"]},
+            {"codigo": "cypress_playwright", "label": "Cypress e Playwright", "palavras_chave": ["cypress", "playwright", "teste e2e", "end-to-end"]},
+            {"codigo": "postman_api_test", "label": "Postman para Teste de API", "palavras_chave": ["postman", "teste de api", "newman"]}
+          ]
+        },
+        {
+          "codigo": "automacao_testes",
+          "label": "Automação de Testes",
+          "palavras_chave": ["automação de testes", "automação de qa"],
+          "filhos": [
+            {"codigo": "piramide_testes", "label": "Pirâmide de Testes", "palavras_chave": ["pirâmide de testes", "test pyramid", "estratégia de automação"]},
+            {"codigo": "ci_cd_testes", "label": "CI/CD e Testes", "palavras_chave": ["ci cd", "integração contínua", "entrega contínua", "github actions", "jenkins", "gitlab ci"]},
+            {"codigo": "test_runner", "label": "Test Runners", "palavras_chave": ["test runner", "executor de teste"]}
+          ]
+        },
+        {
+          "codigo": "defeitos_bug",
+          "label": "Defeitos e Bug Tracking",
+          "palavras_chave": ["bug", "defeito", "bug tracking", "ciclo de vida do bug"],
+          "filhos": [
+            {"codigo": "ciclo_bug", "label": "Ciclo de Vida do Defeito", "palavras_chave": ["ciclo de vida do bug", "novo aberto resolvido fechado", "severidade", "prioridade"]},
+            {"codigo": "ferramentas_bug", "label": "Ferramentas (Jira, Bugzilla, Trello)", "palavras_chave": ["jira", "bugzilla", "trello", "azure boards", "redmine"]},
+            {"codigo": "reproducao_bug", "label": "Reprodução de Bug", "palavras_chave": ["reproduzir bug", "passos para reprodução", "evidência de bug"]}
+          ]
+        },
+        {
+          "codigo": "documentacao_teste",
+          "label": "Documentação de Teste",
+          "palavras_chave": ["documentação de teste", "plano de teste"],
+          "filhos": [
+            {"codigo": "plano_teste", "label": "Plano de Teste", "palavras_chave": ["plano de teste", "test plan"]},
+            {"codigo": "caso_teste", "label": "Caso de Teste", "palavras_chave": ["caso de teste", "test case", "passo de teste"]},
+            {"codigo": "roteiro_teste", "label": "Roteiro / Script de Teste", "palavras_chave": ["roteiro de teste", "script de teste"]},
+            {"codigo": "relatorio_teste", "label": "Relatório de Teste", "palavras_chave": ["relatório de teste", "test report"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "programacao_computadores_2",
+      "label": "Programação de Computadores II",
+      "palavras_chave": ["programação de computadores ii", "pc ii", "programação ii", "poo", "orientação a objetos"],
+      "filhos": [
+        {
+          "codigo": "poo_fundamentos",
+          "label": "Fundamentos da Orientação a Objetos",
+          "palavras_chave": ["poo", "orientação a objetos", "oo", "oop", "object-oriented"],
+          "filhos": [
+            {"codigo": "paradigma_oo", "label": "Paradigma OO vs Estruturado", "palavras_chave": ["paradigma orientado a objetos", "paradigma estruturado", "paradigmas de programação"]},
+            {"codigo": "objeto_classe", "label": "Objeto e Classe", "palavras_chave": ["objeto", "classe", "instância", "instanciação", "new"]},
+            {"codigo": "atributo_metodo_oo", "label": "Atributos e Métodos", "palavras_chave": ["atributo de classe", "método de classe", "membro de classe"]},
+            {"codigo": "construtor_destrutor", "label": "Construtores e Destrutores", "palavras_chave": ["construtor", "constructor", "destrutor", "this", "super"]},
+            {"codigo": "getters_setters", "label": "Getters e Setters", "palavras_chave": ["getter", "setter", "accessor", "mutator", "propriedade"]}
+          ]
+        },
+        {
+          "codigo": "pilares_poo",
+          "label": "Pilares da POO",
+          "palavras_chave": ["pilares da poo", "quatro pilares"],
+          "filhos": [
+            {
+              "codigo": "encapsulamento",
+              "label": "Encapsulamento",
+              "palavras_chave": ["encapsulamento", "encapsular", "ocultação de informação"],
+              "filhos": [
+                {"codigo": "modificadores_acesso", "label": "Modificadores de Acesso", "palavras_chave": ["public", "private", "protected", "default", "modificador de acesso", "package-private"]},
+                {"codigo": "visibilidade", "label": "Visibilidade de Membros", "palavras_chave": ["visibilidade", "acesso a membros", "escopo de classe"]}
+              ]
+            },
+            {
+              "codigo": "heranca",
+              "label": "Herança",
+              "palavras_chave": ["herança", "herdar", "inheritance", "extends"],
+              "filhos": [
+                {"codigo": "superclasse_subclasse", "label": "Superclasse e Subclasse", "palavras_chave": ["superclasse", "subclasse", "classe pai", "classe filha", "classe base", "classe derivada"]},
+                {"codigo": "heranca_multipla", "label": "Herança Múltipla", "palavras_chave": ["herança múltipla", "multiple inheritance", "diamond problem"]},
+                {"codigo": "override", "label": "Sobrescrita de Métodos", "palavras_chave": ["override", "sobrescrita", "@override", "redefinição de método"]},
+                {"codigo": "super_keyword", "label": "Palavra-chave super", "palavras_chave": ["super", "chamada à superclasse"]}
+              ]
+            },
+            {
+              "codigo": "polimorfismo",
+              "label": "Polimorfismo",
+              "palavras_chave": ["polimorfismo", "polimórfico"],
+              "filhos": [
+                {"codigo": "polimorfismo_sobrecarga", "label": "Polimorfismo por Sobrecarga", "palavras_chave": ["sobrecarga", "overload", "overloading", "polimorfismo estático", "polimorfismo de compilação"]},
+                {"codigo": "polimorfismo_sobrescrita", "label": "Polimorfismo por Sobrescrita", "palavras_chave": ["override polimorfismo", "polimorfismo dinâmico", "polimorfismo em tempo de execução"]},
+                {"codigo": "upcast_downcast", "label": "Upcasting e Downcasting", "palavras_chave": ["upcasting", "downcasting", "cast de objeto", "instanceof"]}
+              ]
+            },
+            {
+              "codigo": "abstracao",
+              "label": "Abstração",
+              "palavras_chave": ["abstração", "classe abstrata", "abstract"],
+              "filhos": [
+                {"codigo": "classe_abstrata", "label": "Classe Abstrata", "palavras_chave": ["classe abstrata", "abstract class", "método abstrato"]},
+                {"codigo": "interface_oo", "label": "Interface", "palavras_chave": ["interface", "implements", "contrato", "default method"]},
+                {"codigo": "interface_x_abstrata", "label": "Interface x Classe Abstrata", "palavras_chave": ["interface versus classe abstrata", "diferença interface e abstrata"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "relacionamentos_oo",
+          "label": "Relacionamentos entre Classes",
+          "palavras_chave": ["relacionamento entre classes", "associação", "composição"],
+          "filhos": [
+            {"codigo": "associacao_oo", "label": "Associação", "palavras_chave": ["associação", "relacionamento simples"]},
+            {"codigo": "agregacao_oo", "label": "Agregação", "palavras_chave": ["agregação", "tem-um", "agregation"]},
+            {"codigo": "composicao_oo", "label": "Composição", "palavras_chave": ["composição", "todo-parte", "composition"]},
+            {"codigo": "dependencia_oo", "label": "Dependência", "palavras_chave": ["dependência", "uses-a"]}
+          ]
+        },
+        {
+          "codigo": "excecoes",
+          "label": "Tratamento de Exceções",
+          "palavras_chave": ["exceção", "exception", "tratamento de exceções"],
+          "filhos": [
+            {"codigo": "try_catch", "label": "Try / Catch / Finally", "palavras_chave": ["try catch", "try-catch", "finally", "captura de exceção"]},
+            {"codigo": "throw_throws", "label": "Throw e Throws", "palavras_chave": ["throw", "throws", "lançar exceção", "propagação de exceção"]},
+            {"codigo": "checked_unchecked", "label": "Checked vs Unchecked Exceptions", "palavras_chave": ["checked exception", "unchecked exception", "runtime exception"]},
+            {"codigo": "criar_excecao", "label": "Criar Exceções Personalizadas", "palavras_chave": ["exceção customizada", "exception personalizada", "extends exception"]}
+          ]
+        },
+        {
+          "codigo": "padroes_projeto",
+          "label": "Padrões de Projeto (Design Patterns)",
+          "palavras_chave": ["design pattern", "padrão de projeto", "padrões gof"],
+          "filhos": [
+            {"codigo": "gof_intro", "label": "Padrões GoF (Visão Geral)", "palavras_chave": ["gof", "gang of four", "padrões de projeto", "criacional", "estrutural", "comportamental"]},
+            {
+              "codigo": "padroes_criacionais",
+              "label": "Padrões Criacionais",
+              "palavras_chave": ["padrão criacional", "criação de objetos"],
+              "filhos": [
+                {"codigo": "singleton", "label": "Singleton", "palavras_chave": ["singleton", "instância única"]},
+                {"codigo": "factory", "label": "Factory Method e Abstract Factory", "palavras_chave": ["factory", "factory method", "abstract factory", "fábrica"]},
+                {"codigo": "builder", "label": "Builder", "palavras_chave": ["builder", "construtor encadeado", "fluent builder"]},
+                {"codigo": "prototype", "label": "Prototype", "palavras_chave": ["prototype", "clonagem de objeto"]}
+              ]
+            },
+            {
+              "codigo": "padroes_estruturais",
+              "label": "Padrões Estruturais",
+              "palavras_chave": ["padrão estrutural"],
+              "filhos": [
+                {"codigo": "adapter", "label": "Adapter", "palavras_chave": ["adapter", "adaptador"]},
+                {"codigo": "facade", "label": "Facade", "palavras_chave": ["facade", "fachada"]},
+                {"codigo": "decorator", "label": "Decorator", "palavras_chave": ["decorator", "decorador"]},
+                {"codigo": "proxy", "label": "Proxy", "palavras_chave": ["proxy", "procurador"]}
+              ]
+            },
+            {
+              "codigo": "padroes_comportamentais",
+              "label": "Padrões Comportamentais",
+              "palavras_chave": ["padrão comportamental"],
+              "filhos": [
+                {"codigo": "observer", "label": "Observer", "palavras_chave": ["observer", "observador", "publish subscribe"]},
+                {"codigo": "strategy", "label": "Strategy", "palavras_chave": ["strategy", "estratégia"]},
+                {"codigo": "iterator", "label": "Iterator", "palavras_chave": ["iterator", "iterador"]},
+                {"codigo": "command", "label": "Command", "palavras_chave": ["command", "comando"]},
+                {"codigo": "template_method", "label": "Template Method", "palavras_chave": ["template method", "método template"]}
+              ]
+            },
+            {"codigo": "mvc_padrao", "label": "MVC (Padrão)", "palavras_chave": ["mvc", "model view controller"]},
+            {"codigo": "dao_repository", "label": "DAO e Repository", "palavras_chave": ["dao", "data access object", "repository pattern"]}
+          ]
+        },
+        {
+          "codigo": "solid",
+          "label": "Princípios SOLID",
+          "palavras_chave": ["solid", "princípios solid", "boas práticas oo"],
+          "filhos": [
+            {"codigo": "srp", "label": "SRP — Responsabilidade Única", "palavras_chave": ["srp", "single responsibility principle", "responsabilidade única"]},
+            {"codigo": "ocp", "label": "OCP — Aberto/Fechado", "palavras_chave": ["ocp", "open closed", "aberto fechado", "open-closed principle"]},
+            {"codigo": "lsp", "label": "LSP — Liskov", "palavras_chave": ["lsp", "liskov", "substituição de liskov"]},
+            {"codigo": "isp", "label": "ISP — Segregação de Interface", "palavras_chave": ["isp", "interface segregation", "segregação de interface"]},
+            {"codigo": "dip", "label": "DIP — Inversão de Dependência", "palavras_chave": ["dip", "dependency inversion", "inversão de dependência", "ioc", "injeção de dependência"]}
+          ]
+        },
+        {
+          "codigo": "colecoes_pc2",
+          "label": "Coleções e Genéricos",
+          "palavras_chave": ["coleções", "collections", "genéricos", "generics"],
+          "filhos": [
+            {"codigo": "list_set_map", "label": "List, Set, Map", "palavras_chave": ["arraylist", "linkedlist", "hashset", "treeset", "hashmap", "treemap", "collection framework"]},
+            {"codigo": "iteradores", "label": "Iteradores", "palavras_chave": ["iterator", "iterator pattern", "for-each"]},
+            {"codigo": "generics", "label": "Tipos Genéricos", "palavras_chave": ["generic", "generics", "tipo parametrizado", "<t>"]},
+            {"codigo": "lambda_streams", "label": "Lambdas e Streams", "palavras_chave": ["lambda", "expressão lambda", "stream api", "filter map reduce", "programação funcional"]}
+          ]
+        },
+        {
+          "codigo": "poo_arquivos_serializacao",
+          "label": "Arquivos e Serialização (OO)",
+          "palavras_chave": ["serialização", "serializable", "persistência de objetos"],
+          "filhos": [
+            {"codigo": "io_streams", "label": "I/O Streams Orientados a Objeto", "palavras_chave": ["inputstream", "outputstream", "reader", "writer"]},
+            {"codigo": "serializacao_oo", "label": "Serialização de Objetos", "palavras_chave": ["serializable", "objectoutputstream", "objectinputstream", "serialização"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "tcc",
+      "label": "Trabalho de Conclusão de Curso (TCC) em Desenvolvimento de Sistemas",
+      "palavras_chave": ["tcc", "trabalho de conclusão de curso", "trabalho de conclusão", "tcc em ds"],
+      "filhos": [
+        {
+          "codigo": "metodologia_pesquisa",
+          "label": "Metodologia de Pesquisa",
+          "palavras_chave": ["metodologia de pesquisa", "método científico", "pesquisa científica"],
+          "filhos": [
+            {"codigo": "tipos_pesquisa", "label": "Tipos de Pesquisa", "palavras_chave": ["pesquisa qualitativa", "pesquisa quantitativa", "pesquisa exploratória", "pesquisa descritiva", "pesquisa aplicada"]},
+            {"codigo": "metodos_cientificos", "label": "Métodos Científicos", "palavras_chave": ["método dedutivo", "método indutivo", "hipotético-dedutivo", "estudo de caso"]},
+            {"codigo": "definicao_problema", "label": "Definição do Problema de Pesquisa", "palavras_chave": ["problema de pesquisa", "pergunta de pesquisa", "delimitação do tema"]},
+            {"codigo": "objetivos_pesquisa", "label": "Objetivos (Geral e Específicos)", "palavras_chave": ["objetivo geral", "objetivos específicos", "verbo de objetivo"]},
+            {"codigo": "justificativa", "label": "Justificativa", "palavras_chave": ["justificativa", "relevância", "importância da pesquisa"]},
+            {"codigo": "hipoteses", "label": "Hipóteses", "palavras_chave": ["hipótese", "h0", "h1", "hipótese nula", "hipótese alternativa"]}
+          ]
+        },
+        {
+          "codigo": "estrutura_tcc",
+          "label": "Estrutura do TCC",
+          "palavras_chave": ["estrutura do tcc", "partes do tcc", "estrutura do trabalho"],
+          "filhos": [
+            {"codigo": "elementos_pre_textuais", "label": "Elementos Pré-Textuais", "palavras_chave": ["capa", "folha de rosto", "resumo", "abstract", "sumário", "dedicatória", "agradecimentos", "lista de figuras"]},
+            {"codigo": "introducao_tcc", "label": "Introdução", "palavras_chave": ["introdução do tcc", "contextualização", "apresentação do tema"]},
+            {"codigo": "fundamentacao_teorica", "label": "Fundamentação Teórica / Referencial", "palavras_chave": ["fundamentação teórica", "referencial teórico", "revisão de literatura", "revisão bibliográfica"]},
+            {"codigo": "metodologia_tcc", "label": "Metodologia", "palavras_chave": ["metodologia do tcc", "procedimentos metodológicos", "materiais e métodos"]},
+            {"codigo": "desenvolvimento_tcc", "label": "Desenvolvimento / Implementação", "palavras_chave": ["desenvolvimento do projeto", "implementação", "arquitetura do sistema", "tecnologias utilizadas"]},
+            {"codigo": "resultados_discussao", "label": "Resultados e Discussão", "palavras_chave": ["resultados", "discussão", "análise dos resultados", "validação"]},
+            {"codigo": "conclusao_tcc", "label": "Conclusão e Trabalhos Futuros", "palavras_chave": ["conclusão", "considerações finais", "trabalhos futuros"]},
+            {"codigo": "elementos_pos_textuais", "label": "Elementos Pós-Textuais", "palavras_chave": ["referências", "anexos", "apêndices", "bibliografia"]}
+          ]
+        },
+        {
+          "codigo": "normas_abnt",
+          "label": "Normas ABNT",
+          "palavras_chave": ["abnt", "normas abnt", "normalização de trabalho acadêmico"],
+          "filhos": [
+            {"codigo": "abnt_6023", "label": "ABNT NBR 6023 — Referências", "palavras_chave": ["abnt 6023", "nbr 6023", "referências bibliográficas"]},
+            {"codigo": "abnt_10520", "label": "ABNT NBR 10520 — Citações", "palavras_chave": ["abnt 10520", "nbr 10520", "citação direta", "citação indireta", "apud"]},
+            {"codigo": "abnt_14724", "label": "ABNT NBR 14724 — Trabalhos Acadêmicos", "palavras_chave": ["abnt 14724", "nbr 14724", "estrutura de trabalho acadêmico"]},
+            {"codigo": "formatacao_abnt", "label": "Formatação (Margens, Fonte, Espaçamento)", "palavras_chave": ["margem abnt", "fonte arial", "fonte times new roman", "espaçamento 1,5", "formatação abnt"]}
+          ]
+        },
+        {
+          "codigo": "desenvolvimento_projeto_tcc",
+          "label": "Desenvolvimento do Projeto",
+          "palavras_chave": ["desenvolvimento do projeto", "implementação do tcc", "projeto prático"],
+          "filhos": [
+            {"codigo": "escolha_tecnologia", "label": "Escolha de Tecnologias", "palavras_chave": ["escolha de tecnologia", "stack tecnológica", "justificativa de tecnologia"]},
+            {"codigo": "cronograma_tcc", "label": "Cronograma do Projeto", "palavras_chave": ["cronograma", "diagrama de gantt", "etapas do projeto"]},
+            {"codigo": "modelagem_sistema_tcc", "label": "Modelagem do Sistema", "palavras_chave": ["modelagem do sistema", "diagramas uml", "modelagem de dados tcc"]},
+            {"codigo": "prototipacao_tcc", "label": "Prototipação", "palavras_chave": ["protótipo", "prototipação", "mock up", "wireframe"]},
+            {"codigo": "implementacao_codigo", "label": "Codificação e Versionamento", "palavras_chave": ["codificação", "implementação", "git", "github tcc"]}
+          ]
+        },
+        {
+          "codigo": "validacao_tcc",
+          "label": "Validação e Testes do Projeto",
+          "palavras_chave": ["validação do projeto", "testes do tcc", "verificação do sistema"],
+          "filhos": [
+            {"codigo": "teste_sistema_tcc", "label": "Testes do Sistema", "palavras_chave": ["plano de teste tcc", "casos de teste", "execução de testes"]},
+            {"codigo": "validacao_usuario", "label": "Validação com Usuários", "palavras_chave": ["validação com usuário", "feedback de usuário", "questionário", "entrevista de validação"]},
+            {"codigo": "analise_resultados", "label": "Análise de Resultados", "palavras_chave": ["análise de dados", "gráficos", "estatísticas", "interpretação"]}
+          ]
+        },
+        {
+          "codigo": "apresentacao_tcc",
+          "label": "Apresentação e Defesa",
+          "palavras_chave": ["apresentação do tcc", "defesa do tcc", "banca examinadora"],
+          "filhos": [
+            {"codigo": "banca_examinadora", "label": "Banca Examinadora", "palavras_chave": ["banca", "banca examinadora", "avaliadores"]},
+            {"codigo": "slides_tcc", "label": "Slides e Material de Apresentação", "palavras_chave": ["slides tcc", "powerpoint", "apresentação visual"]},
+            {"codigo": "oratoria_tcc", "label": "Oratória e Postura", "palavras_chave": ["oratória", "postura na apresentação", "controle do nervosismo"]},
+            {"codigo": "perguntas_banca", "label": "Respondendo à Banca", "palavras_chave": ["arguição", "responder perguntas", "perguntas da banca"]}
+          ]
+        },
+        {
+          "codigo": "etica_tcc",
+          "label": "Ética e Integridade Acadêmica",
+          "palavras_chave": ["ética acadêmica", "integridade acadêmica", "plágio acadêmico"],
+          "filhos": [
+            {"codigo": "plagio", "label": "Plágio e como Evitar", "palavras_chave": ["plágio", "evitar plágio", "auto plágio", "copia"]},
+            {"codigo": "citacoes_corretas", "label": "Citações Corretas", "palavras_chave": ["citação correta", "parafrasear", "atribuir autoria"]},
+            {"codigo": "direitos_autorais_tcc", "label": "Direitos Autorais", "palavras_chave": ["direitos autorais", "licença de uso", "creative commons"]}
+          ]
+        }
+      ]
+    }
+  ]
+}

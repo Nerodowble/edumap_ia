@@ -1,0 +1,1272 @@
+{
+  "versao": "1.0",
+  "etapa": "curso_financas",
+  "descricao": "Taxonomia para o curso Técnico em Finanças - ETEC / Centro Paula Souza. 1º, 2º e 3º módulos.",
+  "materias": [
+    {
+      "codigo": "contabilidade_geral",
+      "label": "Contabilidade Geral",
+      "palavras_chave": ["contabilidade", "contábil", "ciências contábeis", "escrituração contábil"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_contabeis",
+          "label": "Fundamentos e Princípios Contábeis",
+          "palavras_chave": ["princípios contábeis", "fundamentos da contabilidade", "objeto da contabilidade", "patrimônio"],
+          "filhos": [
+            {"codigo": "principios_cpc", "label": "Princípios e Pronunciamentos (CPC / NBC)", "palavras_chave": ["cpc", "comitê de pronunciamentos contábeis", "nbc", "normas brasileiras de contabilidade", "cfc"]},
+            {"codigo": "entidade_continuidade", "label": "Entidade e Continuidade", "palavras_chave": ["princípio da entidade", "continuidade", "going concern"]},
+            {"codigo": "regime_competencia_caixa", "label": "Regime de Competência vs Caixa", "palavras_chave": ["regime de competência", "regime de caixa", "competência dos exercícios", "accrual"]},
+            {"codigo": "oportunidade_prudencia", "label": "Oportunidade e Prudência", "palavras_chave": ["oportunidade", "prudência", "conservadorismo contábil"]},
+            {"codigo": "registro_valor_original", "label": "Registro pelo Valor Original", "palavras_chave": ["valor original", "custo histórico", "registro contábil"]},
+            {"codigo": "usuarios_demonstracoes", "label": "Usuários das Informações Contábeis", "palavras_chave": ["usuários da contabilidade", "stakeholders contábeis", "investidores"]}
+          ]
+        },
+        {
+          "codigo": "patrimonio_contabil",
+          "label": "Patrimônio e Equação Patrimonial",
+          "palavras_chave": ["patrimônio", "equação patrimonial", "patrimônio líquido"],
+          "filhos": [
+            {"codigo": "ativo", "label": "Ativo (Bens e Direitos)", "palavras_chave": ["ativo", "bens", "direitos", "ativo circulante", "ativo não circulante"]},
+            {"codigo": "passivo", "label": "Passivo (Obrigações)", "palavras_chave": ["passivo", "obrigações", "passivo circulante", "passivo não circulante", "exigível"]},
+            {"codigo": "patrimonio_liquido", "label": "Patrimônio Líquido", "palavras_chave": ["patrimônio líquido", "pl", "capital social", "reservas", "lucros acumulados"]},
+            {"codigo": "situacao_liquida", "label": "Situação Líquida Patrimonial", "palavras_chave": ["situação líquida", "ativa", "passiva", "compensada", "deficitária"]},
+            {"codigo": "equacao_fundamental", "label": "Equação Fundamental da Contabilidade", "palavras_chave": ["ativo igual passivo mais pl", "equação fundamental", "a=p+pl"]}
+          ]
+        },
+        {
+          "codigo": "metodo_partidas_dobradas",
+          "label": "Método das Partidas Dobradas",
+          "palavras_chave": ["partidas dobradas", "método contábil", "débito e crédito"],
+          "filhos": [
+            {"codigo": "debito_credito", "label": "Débito e Crédito", "palavras_chave": ["débito", "crédito", "lançamento contábil", "natureza devedora", "natureza credora"]},
+            {"codigo": "lancamentos_contabeis", "label": "Lançamentos Contábeis", "palavras_chave": ["lançamento contábil", "tipos de lançamento", "lançamento de primeira fórmula", "fórmulas de lançamento"]},
+            {"codigo": "razonete", "label": "Razonete e Razão", "palavras_chave": ["razonete", "livro razão", "ficha razão", "t conta"]},
+            {"codigo": "livro_diario", "label": "Livro Diário", "palavras_chave": ["livro diário", "diário contábil", "histórico do lançamento"]},
+            {"codigo": "balancete_verificacao", "label": "Balancete de Verificação", "palavras_chave": ["balancete", "balancete de verificação", "saldo devedor", "saldo credor"]}
+          ]
+        },
+        {
+          "codigo": "plano_contas",
+          "label": "Plano de Contas",
+          "palavras_chave": ["plano de contas", "estrutura de contas", "elenco de contas"],
+          "filhos": [
+            {"codigo": "contas_patrimoniais", "label": "Contas Patrimoniais", "palavras_chave": ["contas patrimoniais", "contas do ativo", "contas do passivo"]},
+            {"codigo": "contas_resultado", "label": "Contas de Resultado", "palavras_chave": ["contas de resultado", "contas de receita", "contas de despesa"]},
+            {"codigo": "codificacao_contas", "label": "Codificação e Classificação", "palavras_chave": ["código de conta", "classificação contábil", "grupo de contas", "subgrupo"]}
+          ]
+        },
+        {
+          "codigo": "operacoes_contabeis",
+          "label": "Operações Contábeis Típicas",
+          "palavras_chave": ["operações contábeis", "fatos contábeis"],
+          "filhos": [
+            {"codigo": "compras_vendas", "label": "Compras e Vendas de Mercadorias", "palavras_chave": ["compra de mercadorias", "venda de mercadorias", "cmv", "custo da mercadoria vendida"]},
+            {"codigo": "estoques", "label": "Estoques (PEPS, UEPS, Média)", "palavras_chave": ["estoque", "peps", "ueps", "fifo", "lifo", "média ponderada", "inventário"]},
+            {"codigo": "depreciacao_amortizacao", "label": "Depreciação, Amortização e Exaustão", "palavras_chave": ["depreciação", "amortização", "exaustão", "vida útil", "valor residual"]},
+            {"codigo": "provisoes", "label": "Provisões e Estimativas", "palavras_chave": ["provisão", "pcld", "provisão para devedores duvidosos", "provisão de férias", "13º salário"]},
+            {"codigo": "folha_pagamento", "label": "Folha de Pagamento e Encargos", "palavras_chave": ["folha de pagamento", "salários", "encargos sociais", "inss", "fgts"]},
+            {"codigo": "duplicatas_descontadas", "label": "Duplicatas a Receber e Descontadas", "palavras_chave": ["duplicatas a receber", "duplicatas descontadas", "desconto de duplicatas"]}
+          ]
+        },
+        {
+          "codigo": "demonstracoes_contabeis",
+          "label": "Demonstrações Contábeis",
+          "palavras_chave": ["demonstrações contábeis", "demonstrações financeiras", "relatórios contábeis"],
+          "filhos": [
+            {"codigo": "balanco_patrimonial", "label": "Balanço Patrimonial (BP)", "palavras_chave": ["balanço patrimonial", "bp", "demonstrativo patrimonial"]},
+            {"codigo": "dre", "label": "DRE — Demonstração do Resultado do Exercício", "palavras_chave": ["dre", "demonstração do resultado", "resultado do exercício", "lucro líquido", "lucro bruto"]},
+            {"codigo": "dfc", "label": "DFC — Demonstração dos Fluxos de Caixa", "palavras_chave": ["dfc", "fluxo de caixa", "método direto", "método indireto", "atividades operacionais", "atividades de investimento", "atividades de financiamento"]},
+            {"codigo": "dmpl", "label": "DMPL — Demonstração das Mutações do Patrimônio Líquido", "palavras_chave": ["dmpl", "mutações do patrimônio líquido", "variação do pl"]},
+            {"codigo": "dlpa", "label": "DLPA — Demonstração de Lucros ou Prejuízos Acumulados", "palavras_chave": ["dlpa", "lucros acumulados", "prejuízos acumulados"]},
+            {"codigo": "dva", "label": "DVA — Demonstração do Valor Adicionado", "palavras_chave": ["dva", "valor adicionado", "distribuição da riqueza"]},
+            {"codigo": "notas_explicativas", "label": "Notas Explicativas", "palavras_chave": ["notas explicativas", "ne", "divulgação contábil"]},
+            {"codigo": "dre_abrangente", "label": "DRA — Demonstração do Resultado Abrangente", "palavras_chave": ["dra", "resultado abrangente", "other comprehensive income"]}
+          ]
+        },
+        {
+          "codigo": "encerramento_apuracao",
+          "label": "Encerramento e Apuração do Resultado",
+          "palavras_chave": ["apuração do resultado", "encerramento do exercício"],
+          "filhos": [
+            {"codigo": "ajustes_encerramento", "label": "Ajustes de Encerramento", "palavras_chave": ["ajustes de encerramento", "ajustes contábeis", "lançamentos de ajuste"]},
+            {"codigo": "are", "label": "ARE — Apuração do Resultado do Exercício", "palavras_chave": ["are", "apuração do resultado", "transferência de saldos"]},
+            {"codigo": "destinacao_lucro", "label": "Destinação do Lucro", "palavras_chave": ["destinação do lucro", "reserva legal", "dividendos", "juros sobre capital próprio"]}
+          ]
+        },
+        {
+          "codigo": "ifrs_convergencia",
+          "label": "IFRS e Convergência Contábil",
+          "palavras_chave": ["ifrs", "convergência contábil", "padrões internacionais", "iasb"],
+          "filhos": [
+            {"codigo": "ifrs_basico", "label": "Padrões IFRS", "palavras_chave": ["ifrs", "international financial reporting standards", "harmonização contábil"]},
+            {"codigo": "lei_11638", "label": "Lei 11.638/2007", "palavras_chave": ["lei 11638", "convergência internacional", "alteração da lei 6404"]},
+            {"codigo": "cpc_pme", "label": "CPC PME", "palavras_chave": ["cpc pme", "pequenas e médias empresas", "contabilidade simplificada"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "fundamentos_economia",
+      "label": "Fundamentos de Economia e Mercados",
+      "palavras_chave": ["economia", "econômico", "fundamentos econômicos", "mercado"],
+      "filhos": [
+        {
+          "codigo": "conceitos_economia",
+          "label": "Conceitos Básicos de Economia",
+          "palavras_chave": ["conceitos econômicos", "introdução à economia", "ciência econômica"],
+          "filhos": [
+            {"codigo": "escassez_escolha", "label": "Escassez, Escolha e Custo de Oportunidade", "palavras_chave": ["escassez", "custo de oportunidade", "trade-off", "necessidades ilimitadas"]},
+            {"codigo": "fatores_producao", "label": "Fatores de Produção", "palavras_chave": ["fatores de produção", "terra trabalho capital", "tecnologia", "recursos produtivos"]},
+            {"codigo": "agentes_economicos", "label": "Agentes Econômicos", "palavras_chave": ["agentes econômicos", "famílias", "empresas", "governo", "setor externo"]},
+            {"codigo": "fluxo_circular", "label": "Fluxo Circular da Renda", "palavras_chave": ["fluxo circular", "fluxo circular da renda", "mercado de bens", "mercado de fatores"]},
+            {"codigo": "sistemas_economicos", "label": "Sistemas Econômicos", "palavras_chave": ["capitalismo", "socialismo", "economia de mercado", "economia mista", "economia planificada"]}
+          ]
+        },
+        {
+          "codigo": "microeconomia",
+          "label": "Microeconomia",
+          "palavras_chave": ["microeconomia", "comportamento do consumidor", "teoria da firma"],
+          "filhos": [
+            {"codigo": "oferta_demanda", "label": "Oferta e Demanda", "palavras_chave": ["oferta", "demanda", "lei da oferta", "lei da demanda", "equilíbrio de mercado", "preço de equilíbrio"]},
+            {"codigo": "elasticidade", "label": "Elasticidade", "palavras_chave": ["elasticidade", "elasticidade-preço", "elasticidade-renda", "demanda elástica", "demanda inelástica"]},
+            {"codigo": "estruturas_mercado", "label": "Estruturas de Mercado", "palavras_chave": ["concorrência perfeita", "monopólio", "oligopólio", "concorrência monopolística", "monopsônio"]},
+            {"codigo": "teoria_consumidor", "label": "Teoria do Consumidor", "palavras_chave": ["utilidade marginal", "curva de indiferença", "restrição orçamentária", "maximização da utilidade"]},
+            {"codigo": "teoria_firma", "label": "Teoria da Firma e Custos", "palavras_chave": ["custos de produção", "custo fixo", "custo variável", "custo marginal", "economias de escala"]}
+          ]
+        },
+        {
+          "codigo": "macroeconomia",
+          "label": "Macroeconomia",
+          "palavras_chave": ["macroeconomia", "agregados econômicos"],
+          "filhos": [
+            {"codigo": "pib", "label": "PIB e Contas Nacionais", "palavras_chave": ["pib", "produto interno bruto", "pnb", "produto nacional bruto", "contas nacionais", "renda nacional"]},
+            {"codigo": "inflacao", "label": "Inflação e Índices de Preços", "palavras_chave": ["inflação", "deflação", "ipca", "igp-m", "inpc", "índice de preços ao consumidor", "hiperinflação"]},
+            {"codigo": "desemprego", "label": "Desemprego e Mercado de Trabalho", "palavras_chave": ["desemprego", "taxa de desemprego", "pea", "pia", "desemprego estrutural", "friccional"]},
+            {"codigo": "politica_monetaria", "label": "Política Monetária", "palavras_chave": ["política monetária", "selic", "taxa básica de juros", "compulsório", "open market", "copom"]},
+            {"codigo": "politica_fiscal", "label": "Política Fiscal", "palavras_chave": ["política fiscal", "gastos públicos", "tributação", "dívida pública", "superávit primário"]},
+            {"codigo": "politica_cambial", "label": "Política Cambial", "palavras_chave": ["política cambial", "câmbio fixo", "câmbio flutuante", "intervenção no câmbio"]},
+            {"codigo": "balanco_pagamentos", "label": "Balanço de Pagamentos", "palavras_chave": ["balanço de pagamentos", "balança comercial", "conta corrente", "conta capital", "reservas internacionais"]}
+          ]
+        },
+        {
+          "codigo": "instituicoes_financeiras",
+          "label": "Sistema Financeiro Nacional (SFN)",
+          "palavras_chave": ["sistema financeiro nacional", "sfn", "órgãos reguladores"],
+          "filhos": [
+            {"codigo": "cmn", "label": "CMN — Conselho Monetário Nacional", "palavras_chave": ["cmn", "conselho monetário nacional"]},
+            {"codigo": "bacen", "label": "BACEN — Banco Central do Brasil", "palavras_chave": ["bacen", "banco central", "banco central do brasil", "bcb"]},
+            {"codigo": "cvm", "label": "CVM — Comissão de Valores Mobiliários", "palavras_chave": ["cvm", "comissão de valores mobiliários", "regulação do mercado"]},
+            {"codigo": "susep", "label": "SUSEP — Superintendência de Seguros Privados", "palavras_chave": ["susep", "seguros privados", "regulação de seguros"]},
+            {"codigo": "previc", "label": "PREVIC — Previdência Complementar", "palavras_chave": ["previc", "previdência complementar", "fundos de pensão"]},
+            {"codigo": "instituicoes_bancarias", "label": "Instituições Bancárias", "palavras_chave": ["banco comercial", "banco múltiplo", "banco de investimento", "cooperativa de crédito", "caixa econômica"]}
+          ]
+        },
+        {
+          "codigo": "mercado_economia_global",
+          "label": "Mercados e Economia Global",
+          "palavras_chave": ["mercado global", "economia internacional", "globalização"],
+          "filhos": [
+            {"codigo": "comercio_internacional", "label": "Comércio Internacional", "palavras_chave": ["comércio internacional", "exportação", "importação", "vantagem comparativa"]},
+            {"codigo": "blocos_economicos", "label": "Blocos Econômicos", "palavras_chave": ["mercosul", "união europeia", "nafta", "brics", "integração regional"]},
+            {"codigo": "globalizacao", "label": "Globalização Econômica", "palavras_chave": ["globalização", "interdependência econômica", "multinacionais"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "informatica_aplicada",
+      "label": "Informática Aplicada às Finanças",
+      "palavras_chave": ["informática", "computador", "tecnologia aplicada", "software financeiro"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_informatica",
+          "label": "Fundamentos de Informática",
+          "palavras_chave": ["hardware", "software", "sistema operacional"],
+          "filhos": [
+            {"codigo": "hardware_basico", "label": "Hardware Básico", "palavras_chave": ["hardware", "cpu", "memória", "armazenamento", "periféricos"]},
+            {"codigo": "sistemas_operacionais", "label": "Sistemas Operacionais", "palavras_chave": ["windows", "linux", "sistema operacional", "interface gráfica"]},
+            {"codigo": "redes_internet", "label": "Redes e Internet", "palavras_chave": ["rede de computadores", "internet", "intranet", "protocolo tcp/ip", "wi-fi"]}
+          ]
+        },
+        {
+          "codigo": "planilhas_eletronicas",
+          "label": "Planilhas Eletrônicas (Excel)",
+          "palavras_chave": ["excel", "planilha eletrônica", "microsoft excel", "calc", "libreoffice"],
+          "filhos": [
+            {"codigo": "formulas_basicas", "label": "Fórmulas Básicas", "palavras_chave": ["soma", "média", "máximo", "mínimo", "contar", "fórmula de soma", "operador aritmético"]},
+            {"codigo": "funcoes_logicas", "label": "Funções Lógicas", "palavras_chave": ["se", "função se", "e", "ou", "não", "ses", "ifs", "função lógica"]},
+            {"codigo": "funcoes_busca", "label": "Funções de Busca (PROCV, PROCH, ÍNDICE)", "palavras_chave": ["procv", "proch", "vlookup", "hlookup", "índice", "corresp", "índice e corresp", "procx"]},
+            {"codigo": "funcoes_estatisticas", "label": "Funções Estatísticas (SOMASE, CONT.SE)", "palavras_chave": ["somase", "somases", "cont.se", "cont.ses", "média.se", "sumif", "countif"]},
+            {"codigo": "funcoes_financeiras", "label": "Funções Financeiras", "palavras_chave": ["vp", "vf", "pgto", "taxa", "nper", "vpl", "tir", "função financeira do excel"]},
+            {"codigo": "tabelas_dinamicas", "label": "Tabelas Dinâmicas", "palavras_chave": ["tabela dinâmica", "pivot table", "campos de tabela dinâmica", "dashboard"]},
+            {"codigo": "graficos", "label": "Gráficos e Visualizações", "palavras_chave": ["gráfico", "gráfico de pizza", "gráfico de barras", "gráfico de linha", "visualização de dados"]},
+            {"codigo": "formatacao_condicional", "label": "Formatação Condicional", "palavras_chave": ["formatação condicional", "regras de formatação", "destaque de células"]},
+            {"codigo": "macros_vba", "label": "Macros e VBA (Introdução)", "palavras_chave": ["macro", "vba", "visual basic for applications", "automação no excel"]}
+          ]
+        },
+        {
+          "codigo": "editor_texto",
+          "label": "Editor de Texto e Apresentações",
+          "palavras_chave": ["word", "writer", "editor de texto", "apresentação"],
+          "filhos": [
+            {"codigo": "word_processing", "label": "Processamento de Texto", "palavras_chave": ["word", "documento", "formatação de texto", "estilo de parágrafo"]},
+            {"codigo": "powerpoint", "label": "Apresentações", "palavras_chave": ["powerpoint", "slides", "apresentação", "impress"]}
+          ]
+        },
+        {
+          "codigo": "sistemas_gestao",
+          "label": "Sistemas de Gestão Empresarial",
+          "palavras_chave": ["erp", "sistema de gestão", "software empresarial"],
+          "filhos": [
+            {"codigo": "erp_basico", "label": "ERP — Enterprise Resource Planning", "palavras_chave": ["erp", "sap", "totvs", "protheus", "sistema integrado de gestão"]},
+            {"codigo": "sistemas_contabeis", "label": "Sistemas Contábeis", "palavras_chave": ["software contábil", "sistema contábil", "domínio", "contmatic"]},
+            {"codigo": "internet_banking", "label": "Internet Banking e Pagamentos Digitais", "palavras_chave": ["internet banking", "pix", "boleto bancário", "ted", "doc", "pagamento eletrônico"]}
+          ]
+        },
+        {
+          "codigo": "seguranca_informacao",
+          "label": "Segurança da Informação",
+          "palavras_chave": ["segurança da informação", "cibersegurança", "lgpd"],
+          "filhos": [
+            {"codigo": "lgpd", "label": "LGPD — Lei Geral de Proteção de Dados", "palavras_chave": ["lgpd", "lei geral de proteção de dados", "lei 13709", "dados pessoais"]},
+            {"codigo": "senhas_autenticacao", "label": "Senhas e Autenticação", "palavras_chave": ["senha forte", "autenticação", "dois fatores", "2fa", "biometria"]},
+            {"codigo": "phishing_fraudes", "label": "Phishing e Fraudes Digitais", "palavras_chave": ["phishing", "fraude digital", "engenharia social", "malware"]},
+            {"codigo": "backup", "label": "Backup e Recuperação", "palavras_chave": ["backup", "cópia de segurança", "nuvem", "cloud"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "intro_atividades_financeiras",
+      "label": "Introdução às Atividades Financeiras",
+      "palavras_chave": ["atividades financeiras", "introdução às finanças", "finanças básicas"],
+      "filhos": [
+        {
+          "codigo": "conceitos_financas",
+          "label": "Conceitos Básicos de Finanças",
+          "palavras_chave": ["conceito de finanças", "função financeira", "administração financeira"],
+          "filhos": [
+            {"codigo": "objetivos_financas", "label": "Objetivos da Administração Financeira", "palavras_chave": ["maximização do valor", "maximização do lucro", "valor da empresa"]},
+            {"codigo": "funcoes_financeiras", "label": "Funções do Administrador Financeiro", "palavras_chave": ["administrador financeiro", "tesoureiro", "controller", "decisões financeiras"]},
+            {"codigo": "areas_atuacao_financas", "label": "Áreas de Atuação em Finanças", "palavras_chave": ["mercado financeiro", "tesouraria", "contas a pagar", "contas a receber", "auditoria"]}
+          ]
+        },
+        {
+          "codigo": "rotinas_financeiras",
+          "label": "Rotinas Financeiras Operacionais",
+          "palavras_chave": ["rotina financeira", "operação financeira", "departamento financeiro"],
+          "filhos": [
+            {"codigo": "contas_pagar", "label": "Contas a Pagar", "palavras_chave": ["contas a pagar", "pagamentos", "fornecedores", "obrigações"]},
+            {"codigo": "contas_receber", "label": "Contas a Receber", "palavras_chave": ["contas a receber", "recebimentos", "clientes", "cobrança"]},
+            {"codigo": "fluxo_caixa_basico", "label": "Fluxo de Caixa Operacional", "palavras_chave": ["fluxo de caixa", "entrada e saída", "saldo de caixa", "caixa diário"]},
+            {"codigo": "conciliacao_bancaria", "label": "Conciliação Bancária", "palavras_chave": ["conciliação bancária", "extrato bancário", "saldo bancário"]},
+            {"codigo": "cobranca", "label": "Cobrança e Inadimplência", "palavras_chave": ["cobrança", "inadimplência", "negativação", "spc", "serasa", "boleto de cobrança"]}
+          ]
+        },
+        {
+          "codigo": "documentos_financeiros",
+          "label": "Documentos Financeiros",
+          "palavras_chave": ["documento financeiro", "título de crédito"],
+          "filhos": [
+            {"codigo": "cheque", "label": "Cheque", "palavras_chave": ["cheque", "cheque nominal", "cheque cruzado", "cheque pré-datado"]},
+            {"codigo": "duplicata", "label": "Duplicata", "palavras_chave": ["duplicata", "duplicata mercantil", "duplicata de serviço"]},
+            {"codigo": "nota_promissoria", "label": "Nota Promissória", "palavras_chave": ["nota promissória", "promissória", "título de crédito"]},
+            {"codigo": "boleto_bancario", "label": "Boleto Bancário", "palavras_chave": ["boleto", "boleto bancário", "código de barras"]},
+            {"codigo": "nota_fiscal", "label": "Nota Fiscal", "palavras_chave": ["nota fiscal", "nf", "nf-e", "nota fiscal eletrônica"]}
+          ]
+        },
+        {
+          "codigo": "operacoes_bancarias",
+          "label": "Operações Bancárias Básicas",
+          "palavras_chave": ["operação bancária", "produtos bancários"],
+          "filhos": [
+            {"codigo": "conta_corrente", "label": "Conta Corrente e Poupança", "palavras_chave": ["conta corrente", "conta poupança", "depósito", "saque"]},
+            {"codigo": "transferencias", "label": "Transferências (TED, DOC, PIX)", "palavras_chave": ["ted", "doc", "pix", "transferência eletrônica", "transferência bancária"]},
+            {"codigo": "cartoes", "label": "Cartões de Crédito e Débito", "palavras_chave": ["cartão de crédito", "cartão de débito", "fatura", "limite", "anuidade"]},
+            {"codigo": "credito_basico", "label": "Crédito e Empréstimos", "palavras_chave": ["empréstimo", "financiamento", "crédito pessoal", "consignado", "cdc"]}
+          ]
+        },
+        {
+          "codigo": "financas_pessoais",
+          "label": "Finanças Pessoais e Educação Financeira",
+          "palavras_chave": ["finanças pessoais", "educação financeira", "orçamento doméstico"],
+          "filhos": [
+            {"codigo": "orcamento_pessoal", "label": "Orçamento Pessoal", "palavras_chave": ["orçamento pessoal", "controle de gastos", "receita e despesa pessoal"]},
+            {"codigo": "endividamento_pessoal", "label": "Endividamento e Crédito Pessoal", "palavras_chave": ["endividamento", "superendividamento", "renegociação de dívida"]},
+            {"codigo": "poupanca_investimento_pessoal", "label": "Poupança e Investimento Pessoal", "palavras_chave": ["poupança", "investimento pessoal", "reserva de emergência"]},
+            {"codigo": "aposentadoria_planejamento", "label": "Planejamento de Aposentadoria", "palavras_chave": ["aposentadoria", "previdência privada", "pgbl", "vgbl"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "linguagem_trabalho_tecnologia",
+      "label": "Linguagem, Trabalho e Tecnologia",
+      "palavras_chave": ["linguagem", "comunicação", "tecnologia", "trabalho"],
+      "filhos": [
+        {
+          "codigo": "comunicacao_empresarial",
+          "label": "Comunicação Empresarial",
+          "palavras_chave": ["comunicação empresarial", "comunicação organizacional", "comunicação no trabalho"],
+          "filhos": [
+            {"codigo": "redacao_oficial", "label": "Redação Oficial e Empresarial", "palavras_chave": ["redação oficial", "ofício", "memorando", "carta comercial", "circular"]},
+            {"codigo": "email_profissional", "label": "E-mail Profissional", "palavras_chave": ["e-mail profissional", "comunicação por email", "etiqueta digital"]},
+            {"codigo": "relatorios_tecnicos", "label": "Relatórios Técnicos", "palavras_chave": ["relatório técnico", "relatório empresarial", "estrutura do relatório"]},
+            {"codigo": "apresentacao_oral", "label": "Apresentação Oral", "palavras_chave": ["apresentação oral", "oratória", "comunicação verbal", "pitch"]}
+          ]
+        },
+        {
+          "codigo": "lingua_portuguesa_aplicada",
+          "label": "Língua Portuguesa Aplicada",
+          "palavras_chave": ["língua portuguesa", "gramática", "norma culta"],
+          "filhos": [
+            {"codigo": "gramatica_normativa", "label": "Gramática Normativa", "palavras_chave": ["gramática", "concordância", "regência", "crase", "pontuação"]},
+            {"codigo": "coesao_coerencia", "label": "Coesão e Coerência Textual", "palavras_chave": ["coesão textual", "coerência", "conectivos", "argumentação"]},
+            {"codigo": "leitura_interpretacao", "label": "Leitura e Interpretação de Texto", "palavras_chave": ["interpretação de texto", "leitura crítica", "compreensão textual"]}
+          ]
+        },
+        {
+          "codigo": "mundo_trabalho",
+          "label": "Mundo do Trabalho",
+          "palavras_chave": ["mundo do trabalho", "mercado de trabalho", "carreira profissional"],
+          "filhos": [
+            {"codigo": "perfil_profissional", "label": "Perfil Profissional", "palavras_chave": ["perfil profissional", "competências", "habilidades", "soft skills"]},
+            {"codigo": "curriculo_lattes", "label": "Currículo e Entrevista", "palavras_chave": ["currículo", "cv", "entrevista de emprego", "lattes", "linkedin"]},
+            {"codigo": "empregabilidade", "label": "Empregabilidade", "palavras_chave": ["empregabilidade", "transição de carreira", "recolocação"]},
+            {"codigo": "trabalho_equipe", "label": "Trabalho em Equipe", "palavras_chave": ["trabalho em equipe", "colaboração", "cooperação", "liderança"]}
+          ]
+        },
+        {
+          "codigo": "tecnologia_sociedade",
+          "label": "Tecnologia e Sociedade",
+          "palavras_chave": ["tecnologia e sociedade", "transformação digital", "indústria 4.0"],
+          "filhos": [
+            {"codigo": "transformacao_digital", "label": "Transformação Digital", "palavras_chave": ["transformação digital", "digitalização", "automação"]},
+            {"codigo": "fintechs", "label": "Fintechs e Inovação Financeira", "palavras_chave": ["fintech", "inovação financeira", "open banking", "open finance"]},
+            {"codigo": "etica_digital", "label": "Ética Digital", "palavras_chave": ["ética digital", "fake news", "cidadania digital"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "matematica_financeira",
+      "label": "Matemática Financeira",
+      "palavras_chave": ["matemática financeira", "cálculo financeiro", "operações financeiras matemáticas"],
+      "filhos": [
+        {
+          "codigo": "razao_proporcao",
+          "label": "Razão, Proporção e Porcentagem",
+          "palavras_chave": ["razão", "proporção", "porcentagem", "regra de três"],
+          "filhos": [
+            {"codigo": "porcentagem_aplicada", "label": "Porcentagem Aplicada", "palavras_chave": ["porcentagem", "percentual", "acréscimo", "decréscimo", "aumento percentual"]},
+            {"codigo": "regra_tres", "label": "Regra de Três (Simples e Composta)", "palavras_chave": ["regra de três simples", "regra de três composta", "grandezas proporcionais", "grandezas inversamente proporcionais"]}
+          ]
+        },
+        {
+          "codigo": "juros_simples",
+          "label": "Juros Simples",
+          "palavras_chave": ["juros simples", "regime simples", "capitalização simples"],
+          "filhos": [
+            {"codigo": "calculo_juros_simples", "label": "Cálculo de Juros Simples", "palavras_chave": ["fórmula j = c.i.t", "principal", "taxa", "tempo", "montante simples"]},
+            {"codigo": "desconto_simples", "label": "Desconto Simples", "palavras_chave": ["desconto simples", "desconto comercial", "desconto racional", "desconto bancário"]},
+            {"codigo": "taxas_equivalentes_simples", "label": "Taxas Proporcionais (Simples)", "palavras_chave": ["taxa proporcional", "taxas equivalentes simples", "conversão de taxa simples"]}
+          ]
+        },
+        {
+          "codigo": "juros_compostos",
+          "label": "Juros Compostos",
+          "palavras_chave": ["juros compostos", "regime composto", "capitalização composta"],
+          "filhos": [
+            {"codigo": "calculo_juros_compostos", "label": "Cálculo de Juros Compostos", "palavras_chave": ["m = c (1+i)^n", "montante composto", "juros sobre juros"]},
+            {"codigo": "desconto_composto", "label": "Desconto Composto", "palavras_chave": ["desconto composto", "desconto racional composto"]},
+            {"codigo": "taxas_equivalentes_compostas", "label": "Taxas Equivalentes Compostas", "palavras_chave": ["taxa equivalente", "taxa nominal", "taxa efetiva", "taxa real", "fisher"]},
+            {"codigo": "capitalizacao_continua", "label": "Capitalização Contínua", "palavras_chave": ["capitalização contínua", "número de euler", "juros contínuos"]}
+          ]
+        },
+        {
+          "codigo": "series_uniformes",
+          "label": "Séries de Pagamentos (Rendas)",
+          "palavras_chave": ["série uniforme", "anuidade", "renda", "fluxo de pagamentos"],
+          "filhos": [
+            {"codigo": "series_postecipadas", "label": "Séries Postecipadas", "palavras_chave": ["série postecipada", "postecipado", "fim de período"]},
+            {"codigo": "series_antecipadas", "label": "Séries Antecipadas", "palavras_chave": ["série antecipada", "antecipado", "início de período"]},
+            {"codigo": "series_diferidas", "label": "Séries Diferidas", "palavras_chave": ["série diferida", "carência", "pagamento diferido"]},
+            {"codigo": "perpetuidade", "label": "Perpetuidade", "palavras_chave": ["perpetuidade", "renda perpétua", "fluxo perpétuo"]}
+          ]
+        },
+        {
+          "codigo": "sistemas_amortizacao",
+          "label": "Sistemas de Amortização",
+          "palavras_chave": ["sistema de amortização", "amortização de dívida", "financiamento"],
+          "filhos": [
+            {"codigo": "price", "label": "Sistema Price (Francês)", "palavras_chave": ["sistema price", "tabela price", "sistema francês", "prestação constante"]},
+            {"codigo": "sac", "label": "SAC — Sistema de Amortização Constante", "palavras_chave": ["sac", "amortização constante", "prestação decrescente"]},
+            {"codigo": "sacre", "label": "SACRE — Misto", "palavras_chave": ["sacre", "sistema misto", "amortização misto"]},
+            {"codigo": "americano", "label": "Sistema Americano", "palavras_chave": ["sistema americano", "pagamento de juros periódico", "amortização única"]},
+            {"codigo": "carencia_amortizacao", "label": "Carência e Amortização", "palavras_chave": ["carência", "pagamento de juros durante carência", "saldo devedor"]}
+          ]
+        },
+        {
+          "codigo": "analise_investimentos_basica",
+          "label": "Análise de Investimentos (Básica)",
+          "palavras_chave": ["análise de investimento", "viabilidade financeira", "métodos de análise"],
+          "filhos": [
+            {"codigo": "vpl", "label": "VPL — Valor Presente Líquido", "palavras_chave": ["vpl", "valor presente líquido", "npv", "fluxo de caixa descontado"]},
+            {"codigo": "tir", "label": "TIR — Taxa Interna de Retorno", "palavras_chave": ["tir", "taxa interna de retorno", "irr"]},
+            {"codigo": "payback", "label": "Payback Simples e Descontado", "palavras_chave": ["payback", "payback simples", "payback descontado", "período de retorno"]},
+            {"codigo": "indice_lucratividade", "label": "Índice de Lucratividade (IL)", "palavras_chave": ["índice de lucratividade", "il", "rentabilidade do investimento"]}
+          ]
+        },
+        {
+          "codigo": "inflacao_correcao",
+          "label": "Inflação e Correção Monetária",
+          "palavras_chave": ["correção monetária", "inflação no cálculo", "valor real e nominal"],
+          "filhos": [
+            {"codigo": "taxa_real_nominal", "label": "Taxa Real vs Nominal", "palavras_chave": ["taxa real", "taxa nominal", "equação de fisher", "deflator"]},
+            {"codigo": "indexacao", "label": "Indexação e Reajuste", "palavras_chave": ["indexação", "reajuste de contrato", "ipca", "igp-m", "selic"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "analise_demonstracoes",
+      "label": "Análise de Demonstrações Financeiras",
+      "palavras_chave": ["análise das demonstrações", "análise de balanço", "análise financeira"],
+      "filhos": [
+        {
+          "codigo": "tecnicas_analise",
+          "label": "Técnicas de Análise",
+          "palavras_chave": ["técnicas de análise", "métodos de análise contábil"],
+          "filhos": [
+            {"codigo": "analise_horizontal", "label": "Análise Horizontal", "palavras_chave": ["análise horizontal", "ah", "variação temporal", "evolução"]},
+            {"codigo": "analise_vertical", "label": "Análise Vertical", "palavras_chave": ["análise vertical", "av", "participação percentual"]},
+            {"codigo": "analise_por_indices", "label": "Análise por Índices/Quocientes", "palavras_chave": ["índices financeiros", "quocientes", "razões financeiras", "indicadores"]},
+            {"codigo": "padronizacao_demonstracoes", "label": "Padronização das Demonstrações", "palavras_chave": ["padronização", "reclassificação", "ajustes para análise"]}
+          ]
+        },
+        {
+          "codigo": "indices_liquidez",
+          "label": "Índices de Liquidez",
+          "palavras_chave": ["liquidez", "capacidade de pagamento", "índice de liquidez"],
+          "filhos": [
+            {"codigo": "liquidez_corrente", "label": "Liquidez Corrente", "palavras_chave": ["liquidez corrente", "lc", "ativo circulante sobre passivo circulante"]},
+            {"codigo": "liquidez_seca", "label": "Liquidez Seca", "palavras_chave": ["liquidez seca", "ls", "quick ratio"]},
+            {"codigo": "liquidez_imediata", "label": "Liquidez Imediata", "palavras_chave": ["liquidez imediata", "li", "disponível sobre passivo circulante"]},
+            {"codigo": "liquidez_geral", "label": "Liquidez Geral", "palavras_chave": ["liquidez geral", "lg", "solvência de longo prazo"]}
+          ]
+        },
+        {
+          "codigo": "indices_endividamento",
+          "label": "Índices de Endividamento e Estrutura",
+          "palavras_chave": ["endividamento", "estrutura de capital", "índice de endividamento"],
+          "filhos": [
+            {"codigo": "endividamento_geral", "label": "Endividamento Geral", "palavras_chave": ["endividamento geral", "capital de terceiros sobre ativo", "grau de endividamento"]},
+            {"codigo": "composicao_endividamento", "label": "Composição do Endividamento", "palavras_chave": ["composição do endividamento", "passivo circulante sobre passivo total"]},
+            {"codigo": "imobilizacao_pl", "label": "Imobilização do Patrimônio Líquido", "palavras_chave": ["imobilização do pl", "imobilizado sobre patrimônio líquido"]},
+            {"codigo": "garantia_capital_proprio", "label": "Garantia ao Capital de Terceiros", "palavras_chave": ["garantia ao capital de terceiros", "pl sobre passivo"]}
+          ]
+        },
+        {
+          "codigo": "indices_rentabilidade",
+          "label": "Índices de Rentabilidade",
+          "palavras_chave": ["rentabilidade", "lucratividade", "índice de rentabilidade"],
+          "filhos": [
+            {"codigo": "margem_liquida", "label": "Margem Líquida", "palavras_chave": ["margem líquida", "ml", "lucro líquido sobre receita"]},
+            {"codigo": "margem_bruta", "label": "Margem Bruta", "palavras_chave": ["margem bruta", "mb", "lucro bruto sobre receita"]},
+            {"codigo": "margem_operacional", "label": "Margem Operacional", "palavras_chave": ["margem operacional", "ebit margin", "lucro operacional"]},
+            {"codigo": "roa", "label": "ROA — Retorno sobre Ativo", "palavras_chave": ["roa", "return on assets", "retorno sobre o ativo"]},
+            {"codigo": "roe", "label": "ROE — Retorno sobre PL", "palavras_chave": ["roe", "return on equity", "retorno sobre patrimônio líquido"]},
+            {"codigo": "roi", "label": "ROI — Retorno sobre Investimento", "palavras_chave": ["roi", "return on investment", "retorno sobre investimento"]},
+            {"codigo": "ebitda", "label": "EBITDA e Margem EBITDA", "palavras_chave": ["ebitda", "lajida", "lucro antes de juros impostos depreciação", "margem ebitda"]}
+          ]
+        },
+        {
+          "codigo": "indices_atividade",
+          "label": "Índices de Atividade (Prazos Médios)",
+          "palavras_chave": ["prazo médio", "índice de atividade", "ciclo operacional"],
+          "filhos": [
+            {"codigo": "pmre", "label": "Prazo Médio de Renovação de Estoques (PMRE)", "palavras_chave": ["pmre", "giro de estoque", "renovação de estoque"]},
+            {"codigo": "pmrv", "label": "Prazo Médio de Recebimento (PMRV)", "palavras_chave": ["pmrv", "prazo médio de recebimento", "duplicatas a receber"]},
+            {"codigo": "pmpc", "label": "Prazo Médio de Pagamento (PMPC)", "palavras_chave": ["pmpc", "prazo médio de pagamento", "fornecedores"]},
+            {"codigo": "ciclo_operacional", "label": "Ciclo Operacional", "palavras_chave": ["ciclo operacional", "co", "pmre mais pmrv"]},
+            {"codigo": "ciclo_financeiro", "label": "Ciclo Financeiro / de Caixa", "palavras_chave": ["ciclo financeiro", "ciclo de caixa", "ciclo de conversão de caixa"]}
+          ]
+        },
+        {
+          "codigo": "modelo_dupont",
+          "label": "Modelo DuPont",
+          "palavras_chave": ["dupont", "análise dupont", "decomposição do roe"],
+          "filhos": [
+            {"codigo": "dupont_tradicional", "label": "DuPont Tradicional (3 fatores)", "palavras_chave": ["dupont 3 fatores", "margem giro alavancagem"]},
+            {"codigo": "dupont_ampliado", "label": "DuPont Ampliado (5 fatores)", "palavras_chave": ["dupont ampliado", "dupont 5 fatores"]}
+          ]
+        },
+        {
+          "codigo": "capital_giro",
+          "label": "Capital de Giro e NCG",
+          "palavras_chave": ["capital de giro", "capital circulante líquido", "ccl", "necessidade de capital de giro"],
+          "filhos": [
+            {"codigo": "ccl", "label": "CCL — Capital Circulante Líquido", "palavras_chave": ["ccl", "capital circulante líquido", "ativo circulante menos passivo circulante"]},
+            {"codigo": "ncg", "label": "NCG — Necessidade de Capital de Giro", "palavras_chave": ["ncg", "necessidade de capital de giro", "ativo operacional", "passivo operacional"]},
+            {"codigo": "saldo_tesouraria", "label": "Saldo de Tesouraria (T)", "palavras_chave": ["saldo de tesouraria", "modelo fleuriet", "efeito tesoura"]},
+            {"codigo": "modelo_fleuriet", "label": "Modelo Dinâmico (Fleuriet)", "palavras_chave": ["modelo fleuriet", "análise dinâmica", "tipologia de balanço"]}
+          ]
+        },
+        {
+          "codigo": "interpretacao_resultados",
+          "label": "Interpretação e Pareceres",
+          "palavras_chave": ["interpretação de índices", "parecer de análise", "diagnóstico financeiro"],
+          "filhos": [
+            {"codigo": "diagnostico_empresarial", "label": "Diagnóstico Empresarial", "palavras_chave": ["diagnóstico empresarial", "saúde financeira", "performance empresarial"]},
+            {"codigo": "previsao_falencia", "label": "Previsão de Falência (Z-Score Altman)", "palavras_chave": ["z-score", "altman", "previsão de falência", "modelo kanitz"]},
+            {"codigo": "relatorio_analise", "label": "Relatório de Análise", "palavras_chave": ["relatório de análise financeira", "parecer técnico", "conclusão da análise"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "analise_investimentos_riscos",
+      "label": "Análise de Investimentos e Riscos",
+      "palavras_chave": ["análise de investimentos", "risco financeiro", "decisões de investimento"],
+      "filhos": [
+        {
+          "codigo": "criterios_decisao",
+          "label": "Critérios de Decisão de Investimento",
+          "palavras_chave": ["critério de decisão", "viabilidade do projeto", "seleção de investimentos"],
+          "filhos": [
+            {"codigo": "vpl_avancado", "label": "VPL — Valor Presente Líquido", "palavras_chave": ["vpl", "valor presente líquido", "npv", "fluxo descontado de projetos"]},
+            {"codigo": "tir_avancado", "label": "TIR e TIR Modificada", "palavras_chave": ["tir", "taxa interna de retorno", "tir modificada", "mirr", "tir múltipla"]},
+            {"codigo": "payback_avancado", "label": "Payback Simples e Descontado", "palavras_chave": ["payback", "payback descontado", "tempo de recuperação"]},
+            {"codigo": "il_avancado", "label": "Índice de Lucratividade", "palavras_chave": ["índice de lucratividade", "il", "profitability index", "pi"]},
+            {"codigo": "ear", "label": "EAR — Equivalente Anual Uniforme", "palavras_chave": ["equivalente anual", "ear", "anualização do vpl"]}
+          ]
+        },
+        {
+          "codigo": "fluxo_caixa_projetos",
+          "label": "Fluxo de Caixa de Projetos",
+          "palavras_chave": ["fluxo de caixa do projeto", "elaboração de fluxo de caixa"],
+          "filhos": [
+            {"codigo": "fluxo_incremental", "label": "Fluxo de Caixa Incremental", "palavras_chave": ["fluxo incremental", "incremental cash flow", "diferenciais do projeto"]},
+            {"codigo": "fluxo_relevante", "label": "Custos Relevantes e Sunk Costs", "palavras_chave": ["custo relevante", "sunk cost", "custo irrecuperável", "custo de oportunidade"]},
+            {"codigo": "valor_residual", "label": "Valor Residual", "palavras_chave": ["valor residual", "valor terminal", "valor de revenda"]}
+          ]
+        },
+        {
+          "codigo": "custo_capital",
+          "label": "Custo de Capital",
+          "palavras_chave": ["custo de capital", "custo do capital próprio", "custo do capital de terceiros"],
+          "filhos": [
+            {"codigo": "wacc", "label": "WACC — Custo Médio Ponderado", "palavras_chave": ["wacc", "custo médio ponderado de capital", "cmpc"]},
+            {"codigo": "capm", "label": "CAPM — Capital Asset Pricing Model", "palavras_chave": ["capm", "modelo de precificação de ativos", "prêmio de risco", "taxa livre de risco"]},
+            {"codigo": "custo_divida", "label": "Custo da Dívida", "palavras_chave": ["custo da dívida", "kd", "custo de capital de terceiros", "benefício fiscal"]},
+            {"codigo": "estrutura_capital", "label": "Estrutura de Capital", "palavras_chave": ["estrutura de capital", "modigliani miller", "alavancagem financeira"]}
+          ]
+        },
+        {
+          "codigo": "risco_retorno",
+          "label": "Risco e Retorno",
+          "palavras_chave": ["risco e retorno", "trade-off risco retorno", "expectativa de retorno"],
+          "filhos": [
+            {"codigo": "tipos_risco", "label": "Tipos de Risco", "palavras_chave": ["risco de mercado", "risco de crédito", "risco de liquidez", "risco operacional", "risco sistêmico", "risco não sistêmico"]},
+            {"codigo": "retorno_esperado", "label": "Retorno Esperado", "palavras_chave": ["retorno esperado", "média ponderada de retornos", "expectativa"]},
+            {"codigo": "variancia_desvio", "label": "Variância e Desvio-Padrão", "palavras_chave": ["variância", "desvio padrão", "volatilidade", "dispersão de retornos"]},
+            {"codigo": "beta", "label": "Beta — Risco Sistemático", "palavras_chave": ["beta", "coeficiente beta", "risco sistemático", "sensibilidade ao mercado"]},
+            {"codigo": "covariancia_correlacao", "label": "Covariância e Correlação", "palavras_chave": ["covariância", "correlação", "diversificação"]}
+          ]
+        },
+        {
+          "codigo": "carteira_investimentos",
+          "label": "Teoria de Carteiras",
+          "palavras_chave": ["teoria de carteiras", "carteira de investimentos", "portfólio"],
+          "filhos": [
+            {"codigo": "markowitz", "label": "Markowitz e Fronteira Eficiente", "palavras_chave": ["markowitz", "fronteira eficiente", "carteira eficiente", "mvp"]},
+            {"codigo": "sharpe", "label": "Índice de Sharpe", "palavras_chave": ["índice de sharpe", "sharpe ratio", "retorno ajustado ao risco"]},
+            {"codigo": "treynor_jensen", "label": "Treynor e Alfa de Jensen", "palavras_chave": ["índice de treynor", "alfa de jensen", "medidas de desempenho"]},
+            {"codigo": "diversificacao", "label": "Diversificação", "palavras_chave": ["diversificação", "redução de risco", "carteira diversificada"]}
+          ]
+        },
+        {
+          "codigo": "analise_risco_projetos",
+          "label": "Análise de Risco em Projetos",
+          "palavras_chave": ["análise de risco", "risco em projetos", "tomada de decisão sob risco"],
+          "filhos": [
+            {"codigo": "analise_sensibilidade", "label": "Análise de Sensibilidade", "palavras_chave": ["análise de sensibilidade", "what-if", "variável crítica"]},
+            {"codigo": "analise_cenarios", "label": "Análise de Cenários", "palavras_chave": ["análise de cenários", "cenário otimista", "pessimista", "realista"]},
+            {"codigo": "monte_carlo", "label": "Simulação de Monte Carlo", "palavras_chave": ["monte carlo", "simulação estocástica", "distribuição de probabilidade"]},
+            {"codigo": "arvore_decisao", "label": "Árvore de Decisão", "palavras_chave": ["árvore de decisão", "decision tree", "valor esperado"]},
+            {"codigo": "var", "label": "VaR — Value at Risk", "palavras_chave": ["var", "value at risk", "risco máximo", "perda máxima"]}
+          ]
+        },
+        {
+          "codigo": "investimentos_renda_fixa",
+          "label": "Investimentos em Renda Fixa",
+          "palavras_chave": ["renda fixa", "investimento em renda fixa"],
+          "filhos": [
+            {"codigo": "cdb_rdb", "label": "CDB e RDB", "palavras_chave": ["cdb", "rdb", "certificado de depósito bancário", "rentabilidade prefixada", "pós-fixada"]},
+            {"codigo": "lci_lca", "label": "LCI e LCA", "palavras_chave": ["lci", "lca", "letra de crédito imobiliário", "letra de crédito do agronegócio", "isenção de ir"]},
+            {"codigo": "tesouro_direto", "label": "Tesouro Direto", "palavras_chave": ["tesouro direto", "tesouro selic", "tesouro ipca", "tesouro prefixado", "lft", "ltn", "ntn-b"]},
+            {"codigo": "debentures", "label": "Debêntures", "palavras_chave": ["debênture", "debênture incentivada", "título de dívida corporativa"]},
+            {"codigo": "fundos_renda_fixa", "label": "Fundos de Renda Fixa", "palavras_chave": ["fundo de renda fixa", "fundos di", "fundo referenciado"]}
+          ]
+        },
+        {
+          "codigo": "investimentos_renda_variavel",
+          "label": "Investimentos em Renda Variável",
+          "palavras_chave": ["renda variável", "ações", "investimento em bolsa"],
+          "filhos": [
+            {"codigo": "acoes_basico", "label": "Ações (ON, PN)", "palavras_chave": ["ação ordinária", "ação preferencial", "on", "pn", "tag along"]},
+            {"codigo": "fundos_imobiliarios", "label": "Fundos Imobiliários (FIIs)", "palavras_chave": ["fii", "fundo imobiliário", "dividendos isentos", "rendimentos imobiliários"]},
+            {"codigo": "etfs", "label": "ETFs", "palavras_chave": ["etf", "exchange traded fund", "fundo de índice", "bova11", "ivvb11"]},
+            {"codigo": "derivativos_basico", "label": "Derivativos (Introdução)", "palavras_chave": ["derivativo", "futuros", "opções", "swap", "hedge"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "etica_cidadania",
+      "label": "Ética e Cidadania Organizacional",
+      "palavras_chave": ["ética", "cidadania", "ética organizacional", "responsabilidade"],
+      "filhos": [
+        {
+          "codigo": "etica_profissional",
+          "label": "Ética Profissional",
+          "palavras_chave": ["ética profissional", "conduta profissional", "moral no trabalho"],
+          "filhos": [
+            {"codigo": "codigo_etica_contabil", "label": "Código de Ética do Contador (CFC)", "palavras_chave": ["código de ética profissional do contador", "cfc", "conselho federal de contabilidade"]},
+            {"codigo": "valores_morais", "label": "Valores Morais e Profissionais", "palavras_chave": ["valores morais", "integridade", "honestidade", "transparência"]},
+            {"codigo": "sigilo_profissional", "label": "Sigilo Profissional", "palavras_chave": ["sigilo profissional", "confidencialidade", "informação privilegiada"]},
+            {"codigo": "conflito_interesses", "label": "Conflito de Interesses", "palavras_chave": ["conflito de interesses", "imparcialidade", "independência"]}
+          ]
+        },
+        {
+          "codigo": "governanca_compliance",
+          "label": "Governança Corporativa e Compliance",
+          "palavras_chave": ["governança corporativa", "compliance", "boas práticas"],
+          "filhos": [
+            {"codigo": "principios_governanca", "label": "Princípios de Governança (IBGC)", "palavras_chave": ["governança corporativa", "ibgc", "transparência", "equidade", "prestação de contas", "accountability"]},
+            {"codigo": "compliance_corporativo", "label": "Compliance Corporativo", "palavras_chave": ["compliance", "conformidade", "programa de integridade"]},
+            {"codigo": "lei_anticorrupcao", "label": "Lei Anticorrupção (12.846/2013)", "palavras_chave": ["lei anticorrupção", "lei 12846", "responsabilidade objetiva", "fcpa"]},
+            {"codigo": "lavagem_dinheiro", "label": "Prevenção à Lavagem de Dinheiro", "palavras_chave": ["lavagem de dinheiro", "pld", "coaf", "lei 9613", "kyc", "know your customer"]}
+          ]
+        },
+        {
+          "codigo": "cidadania_organizacional",
+          "label": "Cidadania Organizacional",
+          "palavras_chave": ["cidadania organizacional", "cidadania empresarial", "ambiente de trabalho"],
+          "filhos": [
+            {"codigo": "diversidade_inclusao", "label": "Diversidade e Inclusão", "palavras_chave": ["diversidade", "inclusão", "equidade no trabalho", "pcd"]},
+            {"codigo": "assedio_moral", "label": "Assédio Moral e Sexual", "palavras_chave": ["assédio moral", "assédio sexual", "ambiente hostil"]},
+            {"codigo": "clima_organizacional", "label": "Clima e Cultura Organizacional", "palavras_chave": ["clima organizacional", "cultura organizacional", "valores corporativos"]}
+          ]
+        },
+        {
+          "codigo": "responsabilidade_social",
+          "label": "Responsabilidade Social e ESG",
+          "palavras_chave": ["responsabilidade social", "esg", "sustentabilidade empresarial"],
+          "filhos": [
+            {"codigo": "rse", "label": "Responsabilidade Social Empresarial", "palavras_chave": ["responsabilidade social empresarial", "rse", "instituto ethos"]},
+            {"codigo": "esg", "label": "ESG — Ambiental, Social e Governança", "palavras_chave": ["esg", "environmental social governance", "investimento sustentável"]},
+            {"codigo": "sustentabilidade", "label": "Sustentabilidade e Desenvolvimento Sustentável", "palavras_chave": ["sustentabilidade", "ods", "desenvolvimento sustentável", "agenda 2030"]},
+            {"codigo": "relatorio_sustentabilidade", "label": "Relatórios de Sustentabilidade", "palavras_chave": ["relatório de sustentabilidade", "gri", "global reporting initiative"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "gestao_custos_precos",
+      "label": "Gestão de Custos e Formação de Preços",
+      "palavras_chave": ["gestão de custos", "custos", "formação de preço", "contabilidade de custos"],
+      "filhos": [
+        {
+          "codigo": "classificacao_custos",
+          "label": "Classificação dos Custos",
+          "palavras_chave": ["classificação de custos", "tipos de custos"],
+          "filhos": [
+            {"codigo": "custos_fixos_variaveis", "label": "Custos Fixos e Variáveis", "palavras_chave": ["custo fixo", "custo variável", "custo semi-variável", "custo misto"]},
+            {"codigo": "custos_diretos_indiretos", "label": "Custos Diretos e Indiretos", "palavras_chave": ["custo direto", "custo indireto", "rateio de custos"]},
+            {"codigo": "custo_despesa", "label": "Custo, Despesa, Investimento e Perda", "palavras_chave": ["custo versus despesa", "perda", "desperdício", "gasto"]},
+            {"codigo": "custos_producao", "label": "Custos de Produção", "palavras_chave": ["matéria-prima", "mão de obra direta", "custos indiretos de fabricação", "cif"]}
+          ]
+        },
+        {
+          "codigo": "sistemas_custeio",
+          "label": "Sistemas de Custeio",
+          "palavras_chave": ["sistema de custeio", "método de custeio"],
+          "filhos": [
+            {"codigo": "custeio_absorcao", "label": "Custeio por Absorção", "palavras_chave": ["custeio por absorção", "custeio integral", "absorção de custos fixos"]},
+            {"codigo": "custeio_variavel", "label": "Custeio Variável / Direto", "palavras_chave": ["custeio variável", "custeio direto", "custeio marginal"]},
+            {"codigo": "abc_costing", "label": "ABC — Activity Based Costing", "palavras_chave": ["abc", "custeio baseado em atividades", "activity based costing", "direcionador de custo"]},
+            {"codigo": "custeio_padrao", "label": "Custeio Padrão", "palavras_chave": ["custo padrão", "custo standard", "variações de custo"]},
+            {"codigo": "custeio_meta", "label": "Custeio Meta (Target Costing)", "palavras_chave": ["custeio meta", "target costing", "preço de mercado menos lucro"]}
+          ]
+        },
+        {
+          "codigo": "margem_contribuicao",
+          "label": "Margem de Contribuição e Análise CVL",
+          "palavras_chave": ["margem de contribuição", "análise custo-volume-lucro", "cvl"],
+          "filhos": [
+            {"codigo": "calculo_margem", "label": "Cálculo da Margem de Contribuição", "palavras_chave": ["margem de contribuição unitária", "margem de contribuição total", "razão de contribuição"]},
+            {"codigo": "ponto_equilibrio", "label": "Ponto de Equilíbrio", "palavras_chave": ["ponto de equilíbrio", "break-even", "pe contábil", "pe econômico", "pe financeiro"]},
+            {"codigo": "margem_seguranca", "label": "Margem de Segurança", "palavras_chave": ["margem de segurança", "ms", "vendas acima do ponto de equilíbrio"]},
+            {"codigo": "alavancagem_operacional", "label": "Alavancagem Operacional", "palavras_chave": ["alavancagem operacional", "gao", "grau de alavancagem operacional"]}
+          ]
+        },
+        {
+          "codigo": "formacao_preco",
+          "label": "Formação de Preço de Venda",
+          "palavras_chave": ["formação de preço", "precificação", "preço de venda"],
+          "filhos": [
+            {"codigo": "markup", "label": "Markup", "palavras_chave": ["markup", "marcação", "markup divisor", "markup multiplicador"]},
+            {"codigo": "metodo_custo_pleno", "label": "Método do Custo Pleno", "palavras_chave": ["custo pleno", "preço com base no custo total"]},
+            {"codigo": "metodo_concorrencia", "label": "Preço com Base na Concorrência", "palavras_chave": ["preço de mercado", "competitividade de preço", "benchmarking de preço"]},
+            {"codigo": "preco_servicos", "label": "Precificação de Serviços", "palavras_chave": ["preço de serviços", "hora-homem", "precificação de hora técnica"]},
+            {"codigo": "estrategias_preco", "label": "Estratégias de Precificação", "palavras_chave": ["desnatamento", "penetração", "preço psicológico", "preço promocional"]}
+          ]
+        },
+        {
+          "codigo": "gestao_estrategica_custos",
+          "label": "Gestão Estratégica de Custos",
+          "palavras_chave": ["gestão estratégica de custos", "redução de custos"],
+          "filhos": [
+            {"codigo": "cadeia_valor", "label": "Cadeia de Valor (Porter)", "palavras_chave": ["cadeia de valor", "porter", "atividades primárias", "atividades de apoio"]},
+            {"codigo": "kaizen", "label": "Kaizen Costing", "palavras_chave": ["kaizen", "melhoria contínua", "redução contínua de custos"]},
+            {"codigo": "just_in_time", "label": "Just in Time", "palavras_chave": ["just in time", "jit", "estoque zero", "produção enxuta"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "planejamento_orcamentario",
+      "label": "Planejamento Financeiro e Orçamentário",
+      "palavras_chave": ["planejamento financeiro", "orçamento", "orçamento empresarial"],
+      "filhos": [
+        {
+          "codigo": "planejamento_estrategico",
+          "label": "Planejamento Estratégico",
+          "palavras_chave": ["planejamento estratégico", "estratégia empresarial"],
+          "filhos": [
+            {"codigo": "missao_visao_valores", "label": "Missão, Visão e Valores", "palavras_chave": ["missão", "visão", "valores", "propósito empresarial"]},
+            {"codigo": "analise_swot", "label": "Análise SWOT/FOFA", "palavras_chave": ["swot", "fofa", "forças fraquezas oportunidades ameaças"]},
+            {"codigo": "objetivos_metas", "label": "Objetivos e Metas (SMART)", "palavras_chave": ["objetivos smart", "metas", "kpi", "indicadores de desempenho"]},
+            {"codigo": "bsc", "label": "Balanced Scorecard (BSC)", "palavras_chave": ["balanced scorecard", "bsc", "perspectivas estratégicas", "kaplan e norton"]}
+          ]
+        },
+        {
+          "codigo": "orcamento_empresarial",
+          "label": "Orçamento Empresarial",
+          "palavras_chave": ["orçamento empresarial", "elaboração de orçamento", "budget"],
+          "filhos": [
+            {"codigo": "orcamento_vendas", "label": "Orçamento de Vendas", "palavras_chave": ["orçamento de vendas", "previsão de vendas", "forecast"]},
+            {"codigo": "orcamento_producao", "label": "Orçamento de Produção", "palavras_chave": ["orçamento de produção", "plano de produção"]},
+            {"codigo": "orcamento_compras", "label": "Orçamento de Compras e Estoques", "palavras_chave": ["orçamento de compras", "orçamento de matéria-prima", "estoque mínimo"]},
+            {"codigo": "orcamento_mao_obra", "label": "Orçamento de Mão de Obra", "palavras_chave": ["orçamento de mão de obra", "folha orçada", "encargos orçados"]},
+            {"codigo": "orcamento_cif", "label": "Orçamento de CIF", "palavras_chave": ["orçamento de custos indiretos", "cif orçado"]},
+            {"codigo": "orcamento_despesas", "label": "Orçamento de Despesas Operacionais", "palavras_chave": ["orçamento de despesas", "despesas administrativas", "despesas comerciais"]},
+            {"codigo": "orcamento_investimentos", "label": "Orçamento de Investimentos (Capex)", "palavras_chave": ["capex", "orçamento de capital", "investimento de longo prazo"]},
+            {"codigo": "orcamento_caixa", "label": "Orçamento de Caixa", "palavras_chave": ["orçamento de caixa", "fluxo de caixa projetado", "projeção de caixa"]},
+            {"codigo": "demonstracoes_projetadas", "label": "Demonstrações Projetadas (Pro Forma)", "palavras_chave": ["demonstrações projetadas", "balanço projetado", "dre projetada", "pro forma"]}
+          ]
+        },
+        {
+          "codigo": "tipos_orcamento",
+          "label": "Tipos e Métodos de Orçamento",
+          "palavras_chave": ["tipos de orçamento", "métodos orçamentários"],
+          "filhos": [
+            {"codigo": "orcamento_estatico", "label": "Orçamento Estático", "palavras_chave": ["orçamento estático", "orçamento fixo"]},
+            {"codigo": "orcamento_flexivel", "label": "Orçamento Flexível", "palavras_chave": ["orçamento flexível", "ajustado ao volume"]},
+            {"codigo": "obz", "label": "OBZ — Orçamento Base Zero", "palavras_chave": ["obz", "orçamento base zero", "zero based budgeting"]},
+            {"codigo": "orcamento_continuo", "label": "Orçamento Contínuo (Rolling)", "palavras_chave": ["orçamento contínuo", "rolling forecast", "orçamento rolante"]},
+            {"codigo": "beyond_budgeting", "label": "Beyond Budgeting", "palavras_chave": ["beyond budgeting", "além do orçamento", "gestão sem orçamento"]}
+          ]
+        },
+        {
+          "codigo": "controle_orcamentario",
+          "label": "Controle Orçamentário",
+          "palavras_chave": ["controle orçamentário", "acompanhamento orçamentário"],
+          "filhos": [
+            {"codigo": "analise_variacao", "label": "Análise de Variações (Orçado vs Realizado)", "palavras_chave": ["análise de variação", "orçado x realizado", "desvio orçamentário"]},
+            {"codigo": "feedback_orcamentario", "label": "Feedback e Revisões", "palavras_chave": ["revisão orçamentária", "ajuste de orçamento", "reforecast"]},
+            {"codigo": "gestao_resultado", "label": "Gestão por Resultados", "palavras_chave": ["gestão por resultados", "accountability", "centros de responsabilidade"]}
+          ]
+        },
+        {
+          "codigo": "planejamento_tributario",
+          "label": "Planejamento Tributário",
+          "palavras_chave": ["planejamento tributário", "elisão fiscal"],
+          "filhos": [
+            {"codigo": "elisao_evasao", "label": "Elisão vs Evasão Fiscal", "palavras_chave": ["elisão fiscal", "evasão fiscal", "sonegação", "planejamento tributário lícito"]},
+            {"codigo": "escolha_regime", "label": "Escolha do Regime Tributário", "palavras_chave": ["escolha do regime", "simples nacional", "lucro presumido", "lucro real"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "auditoria_controladoria",
+      "label": "Auditoria e Controladoria",
+      "palavras_chave": ["auditoria", "controladoria", "controle interno"],
+      "filhos": [
+        {
+          "codigo": "fundamentos_auditoria",
+          "label": "Fundamentos da Auditoria",
+          "palavras_chave": ["fundamentos da auditoria", "conceito de auditoria"],
+          "filhos": [
+            {"codigo": "tipos_auditoria", "label": "Tipos de Auditoria", "palavras_chave": ["auditoria contábil", "auditoria operacional", "auditoria de gestão", "auditoria fiscal", "auditoria de sistemas"]},
+            {"codigo": "auditoria_interna", "label": "Auditoria Interna", "palavras_chave": ["auditoria interna", "auditor interno", "iia", "instituto dos auditores internos"]},
+            {"codigo": "auditoria_externa", "label": "Auditoria Externa / Independente", "palavras_chave": ["auditoria externa", "auditoria independente", "ibracon", "cvm auditoria"]},
+            {"codigo": "normas_auditoria", "label": "Normas de Auditoria (NBC TA)", "palavras_chave": ["nbc ta", "normas brasileiras de auditoria", "isa", "international standards on auditing"]}
+          ]
+        },
+        {
+          "codigo": "planejamento_auditoria",
+          "label": "Planejamento e Execução de Auditoria",
+          "palavras_chave": ["planejamento de auditoria", "execução da auditoria"],
+          "filhos": [
+            {"codigo": "risco_auditoria", "label": "Risco de Auditoria", "palavras_chave": ["risco de auditoria", "risco inerente", "risco de controle", "risco de detecção"]},
+            {"codigo": "materialidade", "label": "Materialidade", "palavras_chave": ["materialidade", "relevância", "tolerável", "performance materiality"]},
+            {"codigo": "amostragem_auditoria", "label": "Amostragem em Auditoria", "palavras_chave": ["amostragem", "amostragem estatística", "amostragem por atributos"]},
+            {"codigo": "papeis_trabalho", "label": "Papéis de Trabalho", "palavras_chave": ["papéis de trabalho", "documentação de auditoria", "evidência de auditoria"]},
+            {"codigo": "procedimentos_auditoria", "label": "Procedimentos de Auditoria", "palavras_chave": ["procedimentos substantivos", "testes de controle", "circularização", "inspeção"]}
+          ]
+        },
+        {
+          "codigo": "relatorios_auditoria",
+          "label": "Relatórios e Pareceres",
+          "palavras_chave": ["relatório de auditoria", "parecer do auditor"],
+          "filhos": [
+            {"codigo": "parecer_sem_ressalva", "label": "Parecer Sem Ressalva", "palavras_chave": ["parecer sem ressalva", "opinião limpa", "unqualified opinion"]},
+            {"codigo": "parecer_com_ressalva", "label": "Parecer Com Ressalva", "palavras_chave": ["parecer com ressalva", "qualified opinion"]},
+            {"codigo": "parecer_adverso", "label": "Parecer Adverso", "palavras_chave": ["parecer adverso", "opinião adversa"]},
+            {"codigo": "abstencao_opiniao", "label": "Abstenção de Opinião", "palavras_chave": ["abstenção de opinião", "negativa de opinião", "disclaimer"]}
+          ]
+        },
+        {
+          "codigo": "controle_interno",
+          "label": "Controle Interno",
+          "palavras_chave": ["controle interno", "sistema de controle interno"],
+          "filhos": [
+            {"codigo": "coso", "label": "COSO — Estrutura Integrada", "palavras_chave": ["coso", "committee of sponsoring organizations", "estrutura de controle interno"]},
+            {"codigo": "coso_erm", "label": "COSO ERM (Gestão de Riscos)", "palavras_chave": ["coso erm", "enterprise risk management", "gestão integrada de riscos"]},
+            {"codigo": "componentes_controle", "label": "Componentes do Controle Interno", "palavras_chave": ["ambiente de controle", "avaliação de risco", "atividades de controle", "informação e comunicação", "monitoramento"]},
+            {"codigo": "segregacao_funcoes", "label": "Segregação de Funções", "palavras_chave": ["segregação de funções", "separação de atribuições", "controle por oposição"]}
+          ]
+        },
+        {
+          "codigo": "fraudes_corrupcao",
+          "label": "Fraudes e Corrupção",
+          "palavras_chave": ["fraude", "corrupção", "esquema fraudulento"],
+          "filhos": [
+            {"codigo": "triangulo_fraude", "label": "Triângulo da Fraude (Cressey)", "palavras_chave": ["triângulo da fraude", "cressey", "pressão", "oportunidade", "racionalização"]},
+            {"codigo": "auditoria_forense", "label": "Auditoria Forense", "palavras_chave": ["auditoria forense", "perícia contábil", "investigação de fraude"]},
+            {"codigo": "red_flags", "label": "Red Flags / Sinais de Alerta", "palavras_chave": ["red flag", "sinal de alerta", "indício de fraude"]}
+          ]
+        },
+        {
+          "codigo": "controladoria",
+          "label": "Controladoria",
+          "palavras_chave": ["controladoria", "controller", "área de controladoria"],
+          "filhos": [
+            {"codigo": "funcao_controller", "label": "Função do Controller", "palavras_chave": ["controller", "função da controladoria", "atribuições do controller"]},
+            {"codigo": "sistema_informacoes_gerenciais", "label": "Sistemas de Informações Gerenciais", "palavras_chave": ["sig", "sistema de informações gerenciais", "bi", "business intelligence"]},
+            {"codigo": "indicadores_kpi", "label": "Indicadores e KPIs", "palavras_chave": ["kpi", "indicador de desempenho", "indicadores gerenciais", "dashboard"]},
+            {"codigo": "gestao_centros_responsabilidade", "label": "Centros de Responsabilidade", "palavras_chave": ["centro de custo", "centro de lucro", "centro de investimento", "centro de receita"]},
+            {"codigo": "preco_transferencia", "label": "Preços de Transferência Internos", "palavras_chave": ["preço de transferência", "transfer pricing", "preço interno"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "financas_corporativas_internacionais",
+      "label": "Finanças Corporativas e Internacionais",
+      "palavras_chave": ["finanças corporativas", "finanças internacionais", "gestão financeira"],
+      "filhos": [
+        {
+          "codigo": "decisoes_financeiras",
+          "label": "Decisões Financeiras Corporativas",
+          "palavras_chave": ["decisões financeiras", "decisão de investimento", "decisão de financiamento"],
+          "filhos": [
+            {"codigo": "decisao_investimento", "label": "Decisão de Investimento", "palavras_chave": ["decisão de investimento", "alocação de capital", "capital budgeting"]},
+            {"codigo": "decisao_financiamento", "label": "Decisão de Financiamento", "palavras_chave": ["decisão de financiamento", "fontes de financiamento", "captação de recursos"]},
+            {"codigo": "decisao_dividendos", "label": "Política de Dividendos", "palavras_chave": ["política de dividendos", "payout", "dividendos obrigatórios", "jcp"]}
+          ]
+        },
+        {
+          "codigo": "estrutura_capital_corporativa",
+          "label": "Estrutura de Capital",
+          "palavras_chave": ["estrutura de capital corporativa", "endividamento ótimo"],
+          "filhos": [
+            {"codigo": "modigliani_miller", "label": "Modigliani e Miller", "palavras_chave": ["modigliani miller", "teorema mm", "irrelevância da estrutura"]},
+            {"codigo": "trade_off_theory", "label": "Trade-off Theory", "palavras_chave": ["trade-off theory", "estrutura ótima de capital", "benefícios e custos da dívida"]},
+            {"codigo": "pecking_order", "label": "Pecking Order Theory", "palavras_chave": ["pecking order", "myers", "hierarquia de fontes", "assimetria de informação"]},
+            {"codigo": "alavancagem", "label": "Alavancagem Financeira", "palavras_chave": ["alavancagem financeira", "gaf", "grau de alavancagem financeira", "alavancagem total"]}
+          ]
+        },
+        {
+          "codigo": "valuation",
+          "label": "Avaliação de Empresas (Valuation)",
+          "palavras_chave": ["valuation", "avaliação de empresas", "valor da empresa"],
+          "filhos": [
+            {"codigo": "dcf", "label": "DCF — Fluxo de Caixa Descontado", "palavras_chave": ["dcf", "fluxo de caixa descontado", "discounted cash flow", "fcl", "fluxo de caixa livre"]},
+            {"codigo": "multiplos", "label": "Avaliação por Múltiplos", "palavras_chave": ["múltiplos de mercado", "p/l", "ev/ebitda", "preço/lucro"]},
+            {"codigo": "valor_contabil", "label": "Valor Patrimonial", "palavras_chave": ["valor patrimonial", "valor contábil", "book value"]},
+            {"codigo": "valor_liquidacao", "label": "Valor de Liquidação", "palavras_chave": ["valor de liquidação", "venda forçada", "encerramento de atividades"]},
+            {"codigo": "eva_mva", "label": "EVA e MVA", "palavras_chave": ["eva", "economic value added", "mva", "market value added", "valor econômico agregado"]}
+          ]
+        },
+        {
+          "codigo": "fusoes_aquisicoes",
+          "label": "Fusões e Aquisições (M&A)",
+          "palavras_chave": ["fusões e aquisições", "m&a", "merger and acquisition"],
+          "filhos": [
+            {"codigo": "tipos_combinacao", "label": "Tipos de Combinação de Negócios", "palavras_chave": ["fusão", "incorporação", "cisão", "aquisição", "joint venture"]},
+            {"codigo": "due_diligence", "label": "Due Diligence", "palavras_chave": ["due diligence", "auditoria de aquisição", "investigação prévia"]},
+            {"codigo": "sinergias", "label": "Sinergias", "palavras_chave": ["sinergia", "sinergia operacional", "sinergia financeira", "criação de valor"]}
+          ]
+        },
+        {
+          "codigo": "mercado_cambial",
+          "label": "Mercado Cambial",
+          "palavras_chave": ["mercado cambial", "câmbio", "moedas"],
+          "filhos": [
+            {"codigo": "taxa_cambio", "label": "Taxa de Câmbio", "palavras_chave": ["taxa de câmbio", "ptax", "dólar comercial", "dólar turismo", "cotação cambial"]},
+            {"codigo": "regimes_cambiais", "label": "Regimes Cambiais", "palavras_chave": ["câmbio fixo", "câmbio flutuante", "câmbio administrado", "banda cambial"]},
+            {"codigo": "operacoes_cambio", "label": "Operações de Câmbio", "palavras_chave": ["operação de câmbio", "contrato de câmbio", "remessa internacional", "swift"]},
+            {"codigo": "paridade_cambial", "label": "Paridade Cambial e PPC", "palavras_chave": ["paridade do poder de compra", "ppc", "paridade de juros", "ppi"]}
+          ]
+        },
+        {
+          "codigo": "comercio_exterior",
+          "label": "Comércio Exterior",
+          "palavras_chave": ["comércio exterior", "exportação", "importação"],
+          "filhos": [
+            {"codigo": "balanca_comercial_corp", "label": "Balança Comercial", "palavras_chave": ["balança comercial", "superávit comercial", "déficit comercial"]},
+            {"codigo": "incoterms", "label": "Incoterms", "palavras_chave": ["incoterms", "fob", "cif", "exw", "termos de comércio internacional"]},
+            {"codigo": "tributacao_exportacao", "label": "Tributação na Exportação", "palavras_chave": ["tributos na exportação", "drawback", "ex tarifário"]},
+            {"codigo": "siscomex", "label": "SISCOMEX", "palavras_chave": ["siscomex", "sistema integrado de comércio exterior", "due", "di"]}
+          ]
+        },
+        {
+          "codigo": "hedge_derivativos",
+          "label": "Hedge e Derivativos",
+          "palavras_chave": ["hedge", "derivativos", "proteção cambial"],
+          "filhos": [
+            {"codigo": "contratos_futuros", "label": "Contratos Futuros", "palavras_chave": ["contrato futuro", "mercado futuro", "ajuste diário", "margem de garantia"]},
+            {"codigo": "opcoes", "label": "Opções", "palavras_chave": ["opção", "call", "put", "prêmio", "strike", "black scholes"]},
+            {"codigo": "swap", "label": "Swap", "palavras_chave": ["swap", "swap cambial", "swap de taxa de juros", "troca de fluxos"]},
+            {"codigo": "termo", "label": "Contratos a Termo (Forward)", "palavras_chave": ["contrato a termo", "forward", "ndf", "non deliverable forward"]},
+            {"codigo": "hedge_natural", "label": "Hedge Natural e Estratégias", "palavras_chave": ["hedge natural", "hedge cambial", "exposição cambial", "casamento de moedas"]}
+          ]
+        },
+        {
+          "codigo": "financiamento_corporativo",
+          "label": "Fontes de Financiamento Corporativo",
+          "palavras_chave": ["financiamento empresarial", "captação de recursos", "fontes de funding"],
+          "filhos": [
+            {"codigo": "capital_proprio", "label": "Capital Próprio", "palavras_chave": ["capital próprio", "equity", "emissão de ações", "ipo", "follow on"]},
+            {"codigo": "capital_terceiros", "label": "Capital de Terceiros", "palavras_chave": ["capital de terceiros", "dívida", "financiamento bancário", "emissão de debêntures"]},
+            {"codigo": "bndes_fomento", "label": "BNDES e Fomento", "palavras_chave": ["bndes", "finame", "linhas de fomento", "tjlp", "tlp"]},
+            {"codigo": "leasing", "label": "Leasing (Arrendamento Mercantil)", "palavras_chave": ["leasing", "arrendamento mercantil", "leasing financeiro", "leasing operacional"]},
+            {"codigo": "factoring", "label": "Factoring", "palavras_chave": ["factoring", "fomento mercantil", "antecipação de recebíveis"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "legislacao_tributaria",
+      "label": "Legislação Tributária e Fiscal",
+      "palavras_chave": ["legislação tributária", "tributário", "direito tributário", "fiscal"],
+      "filhos": [
+        {
+          "codigo": "sistema_tributario_nacional",
+          "label": "Sistema Tributário Nacional",
+          "palavras_chave": ["sistema tributário nacional", "stn", "ctn"],
+          "filhos": [
+            {"codigo": "ctn", "label": "CTN — Código Tributário Nacional", "palavras_chave": ["ctn", "código tributário nacional", "lei 5172"]},
+            {"codigo": "competencia_tributaria", "label": "Competência Tributária", "palavras_chave": ["competência tributária", "união", "estados", "municípios", "df"]},
+            {"codigo": "principios_tributarios", "label": "Princípios Constitucionais Tributários", "palavras_chave": ["princípio da legalidade", "anterioridade", "noventena", "capacidade contributiva", "irretroatividade"]},
+            {"codigo": "imunidade_isencao", "label": "Imunidade e Isenção", "palavras_chave": ["imunidade tributária", "isenção", "não incidência", "benefício fiscal"]}
+          ]
+        },
+        {
+          "codigo": "especies_tributarias",
+          "label": "Espécies Tributárias",
+          "palavras_chave": ["espécies tributárias", "tipos de tributo"],
+          "filhos": [
+            {"codigo": "impostos", "label": "Impostos", "palavras_chave": ["imposto", "imposto direto", "imposto indireto", "tributo não vinculado"]},
+            {"codigo": "taxas", "label": "Taxas", "palavras_chave": ["taxa", "poder de polícia", "serviço público específico"]},
+            {"codigo": "contribuicoes_melhoria", "label": "Contribuição de Melhoria", "palavras_chave": ["contribuição de melhoria", "valorização imobiliária", "obra pública"]},
+            {"codigo": "contribuicoes_especiais", "label": "Contribuições Especiais", "palavras_chave": ["contribuição social", "contribuição de intervenção no domínio econômico", "cide"]},
+            {"codigo": "emprestimos_compulsorios", "label": "Empréstimos Compulsórios", "palavras_chave": ["empréstimo compulsório", "tributo restituível"]}
+          ]
+        },
+        {
+          "codigo": "tributos_federais",
+          "label": "Tributos Federais",
+          "palavras_chave": ["tributos federais", "imposto federal"],
+          "filhos": [
+            {"codigo": "ir_pf", "label": "IRPF — Imposto de Renda Pessoa Física", "palavras_chave": ["irpf", "imposto de renda pessoa física", "declaração de ajuste anual", "dirpf"]},
+            {"codigo": "ir_pj", "label": "IRPJ — Imposto de Renda Pessoa Jurídica", "palavras_chave": ["irpj", "imposto de renda pessoa jurídica", "lucro real", "lucro presumido", "csll"]},
+            {"codigo": "ipi", "label": "IPI — Imposto sobre Produtos Industrializados", "palavras_chave": ["ipi", "imposto sobre produtos industrializados", "tipi", "seletividade"]},
+            {"codigo": "pis_cofins", "label": "PIS e COFINS", "palavras_chave": ["pis", "cofins", "pis/pasep", "cumulativo", "não cumulativo", "regime cumulativo"]},
+            {"codigo": "csll", "label": "CSLL", "palavras_chave": ["csll", "contribuição social sobre o lucro líquido"]},
+            {"codigo": "iof", "label": "IOF", "palavras_chave": ["iof", "imposto sobre operações financeiras", "operações de crédito"]},
+            {"codigo": "inss_patronal", "label": "INSS Patronal", "palavras_chave": ["inss patronal", "contribuição previdenciária patronal", "encargo previdenciário"]}
+          ]
+        },
+        {
+          "codigo": "tributos_estaduais",
+          "label": "Tributos Estaduais",
+          "palavras_chave": ["tributos estaduais", "imposto estadual"],
+          "filhos": [
+            {"codigo": "icms", "label": "ICMS", "palavras_chave": ["icms", "imposto sobre circulação de mercadorias", "substituição tributária", "icms-st", "difal"]},
+            {"codigo": "ipva", "label": "IPVA", "palavras_chave": ["ipva", "imposto sobre propriedade de veículos automotores"]},
+            {"codigo": "itcmd", "label": "ITCMD", "palavras_chave": ["itcmd", "imposto sobre transmissão causa mortis e doação", "imposto sobre herança"]}
+          ]
+        },
+        {
+          "codigo": "tributos_municipais",
+          "label": "Tributos Municipais",
+          "palavras_chave": ["tributos municipais", "imposto municipal"],
+          "filhos": [
+            {"codigo": "iss", "label": "ISS / ISSQN", "palavras_chave": ["iss", "issqn", "imposto sobre serviços", "lista de serviços"]},
+            {"codigo": "iptu", "label": "IPTU", "palavras_chave": ["iptu", "imposto predial e territorial urbano"]},
+            {"codigo": "itbi", "label": "ITBI", "palavras_chave": ["itbi", "imposto sobre transmissão de bens imóveis", "transmissão inter vivos"]}
+          ]
+        },
+        {
+          "codigo": "regimes_tributarios",
+          "label": "Regimes de Tributação",
+          "palavras_chave": ["regime tributário", "tributação das empresas"],
+          "filhos": [
+            {"codigo": "simples_nacional", "label": "Simples Nacional", "palavras_chave": ["simples nacional", "lei complementar 123", "supersimples", "mei", "microempreendedor individual"]},
+            {"codigo": "lucro_presumido", "label": "Lucro Presumido", "palavras_chave": ["lucro presumido", "presunção de lucro", "tributação simplificada"]},
+            {"codigo": "lucro_real", "label": "Lucro Real", "palavras_chave": ["lucro real", "lucro real trimestral", "lucro real anual", "adições", "exclusões", "lalur"]},
+            {"codigo": "lucro_arbitrado", "label": "Lucro Arbitrado", "palavras_chave": ["lucro arbitrado", "arbitramento do lucro"]}
+          ]
+        },
+        {
+          "codigo": "obrigacoes_acessorias",
+          "label": "Obrigações Acessórias e SPED",
+          "palavras_chave": ["obrigação acessória", "sped", "declarações fiscais"],
+          "filhos": [
+            {"codigo": "sped_fiscal", "label": "SPED Fiscal (EFD)", "palavras_chave": ["sped fiscal", "efd", "escrituração fiscal digital"]},
+            {"codigo": "sped_contribuicoes", "label": "EFD-Contribuições", "palavras_chave": ["efd contribuições", "sped contribuições", "pis cofins digital"]},
+            {"codigo": "sped_contabil", "label": "SPED Contábil (ECD)", "palavras_chave": ["ecd", "escrituração contábil digital", "sped contábil"]},
+            {"codigo": "ecf", "label": "ECF — Escrituração Contábil Fiscal", "palavras_chave": ["ecf", "escrituração contábil fiscal"]},
+            {"codigo": "dctf", "label": "DCTF e DCTFWeb", "palavras_chave": ["dctf", "dctfweb", "declaração de débitos e créditos tributários"]},
+            {"codigo": "esocial", "label": "eSocial", "palavras_chave": ["esocial", "sistema de escrituração digital das obrigações fiscais previdenciárias trabalhistas"]},
+            {"codigo": "nfe", "label": "NF-e e NFC-e", "palavras_chave": ["nf-e", "nota fiscal eletrônica", "nfc-e", "danfe", "cfop"]},
+            {"codigo": "nfse", "label": "NFS-e", "palavras_chave": ["nfs-e", "nota fiscal de serviço eletrônica"]}
+          ]
+        },
+        {
+          "codigo": "obrigacao_tributaria",
+          "label": "Obrigação Tributária",
+          "palavras_chave": ["obrigação tributária", "relação fiscal"],
+          "filhos": [
+            {"codigo": "fato_gerador", "label": "Fato Gerador", "palavras_chave": ["fato gerador", "hipótese de incidência", "subsunção"]},
+            {"codigo": "sujeito_ativo_passivo", "label": "Sujeito Ativo e Passivo", "palavras_chave": ["sujeito ativo", "sujeito passivo", "contribuinte", "responsável tributário"]},
+            {"codigo": "base_calculo_aliquota", "label": "Base de Cálculo e Alíquota", "palavras_chave": ["base de cálculo", "alíquota", "alíquota progressiva", "alíquota proporcional"]},
+            {"codigo": "credito_tributario", "label": "Crédito Tributário", "palavras_chave": ["crédito tributário", "lançamento", "constituição do crédito"]},
+            {"codigo": "extincao_credito", "label": "Extinção do Crédito Tributário", "palavras_chave": ["extinção do crédito", "pagamento", "compensação", "prescrição", "decadência", "remissão"]}
+          ]
+        },
+        {
+          "codigo": "processo_fiscal",
+          "label": "Processo Administrativo Fiscal",
+          "palavras_chave": ["processo fiscal", "contencioso administrativo", "auto de infração"],
+          "filhos": [
+            {"codigo": "auto_infracao", "label": "Auto de Infração", "palavras_chave": ["auto de infração", "lavratura", "multa fiscal"]},
+            {"codigo": "defesa_recurso", "label": "Defesa e Recursos Administrativos", "palavras_chave": ["impugnação", "recurso voluntário", "carf", "processo administrativo fiscal"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "mercado_capitais",
+      "label": "Mercado de Capitais e Operações Financeiras",
+      "palavras_chave": ["mercado de capitais", "operações financeiras", "bolsa de valores"],
+      "filhos": [
+        {
+          "codigo": "estrutura_mercado_capitais",
+          "label": "Estrutura do Mercado de Capitais",
+          "palavras_chave": ["estrutura do mercado de capitais", "segmentos de mercado"],
+          "filhos": [
+            {"codigo": "mercado_primario_secundario", "label": "Mercado Primário e Secundário", "palavras_chave": ["mercado primário", "mercado secundário", "emissão de títulos", "negociação"]},
+            {"codigo": "b3", "label": "B3 — Brasil, Bolsa, Balcão", "palavras_chave": ["b3", "bovespa", "bolsa brasileira", "brasil bolsa balcão"]},
+            {"codigo": "balcao_organizado", "label": "Mercado de Balcão", "palavras_chave": ["mercado de balcão", "otc", "over the counter", "balcão organizado"]},
+            {"codigo": "participantes_mercado", "label": "Participantes do Mercado", "palavras_chave": ["corretora", "distribuidora", "agente autônomo", "investidor institucional", "investidor pessoa física"]},
+            {"codigo": "anbima", "label": "ANBIMA", "palavras_chave": ["anbima", "autorregulação", "certificação cpa-10", "cpa-20"]}
+          ]
+        },
+        {
+          "codigo": "renda_variavel_avancado",
+          "label": "Renda Variável",
+          "palavras_chave": ["renda variável", "ações", "investimento em ações"],
+          "filhos": [
+            {"codigo": "tipos_acoes", "label": "Tipos de Ações", "palavras_chave": ["ação ordinária", "on", "ação preferencial", "pn", "units", "tag along"]},
+            {"codigo": "ipo_follow_on", "label": "IPO e Follow-on", "palavras_chave": ["ipo", "oferta pública inicial", "follow-on", "oferta subsequente", "underwriting"]},
+            {"codigo": "indices_mercado", "label": "Índices de Mercado", "palavras_chave": ["ibovespa", "ibrx", "smll", "small caps", "índice de ações"]},
+            {"codigo": "analise_fundamentalista", "label": "Análise Fundamentalista", "palavras_chave": ["análise fundamentalista", "p/l", "p/vp", "dy", "dividend yield", "lpa"]},
+            {"codigo": "analise_tecnica", "label": "Análise Técnica / Gráfica", "palavras_chave": ["análise técnica", "análise gráfica", "candlestick", "suportes e resistências", "médias móveis"]},
+            {"codigo": "dividendos_jcp", "label": "Dividendos e JCP", "palavras_chave": ["dividendos", "jcp", "juros sobre capital próprio", "proventos", "data com"]},
+            {"codigo": "governanca_b3", "label": "Níveis de Governança da B3", "palavras_chave": ["novo mercado", "nível 1", "nível 2", "governança b3", "bovespa mais"]}
+          ]
+        },
+        {
+          "codigo": "renda_fixa_avancado",
+          "label": "Renda Fixa (Mercado)",
+          "palavras_chave": ["renda fixa", "títulos de dívida", "instrumentos de renda fixa"],
+          "filhos": [
+            {"codigo": "titulos_publicos", "label": "Títulos Públicos", "palavras_chave": ["título público", "tesouro nacional", "lft", "ltn", "ntn-b", "ntn-f", "tesouro direto"]},
+            {"codigo": "titulos_privados", "label": "Títulos Privados", "palavras_chave": ["título privado", "cdb", "lci", "lca", "lc", "letra financeira", "lf"]},
+            {"codigo": "debentures_avancado", "label": "Debêntures", "palavras_chave": ["debênture", "debênture conversível", "debênture incentivada", "lei 12431"]},
+            {"codigo": "cri_cra", "label": "CRI e CRA", "palavras_chave": ["cri", "certificado de recebíveis imobiliários", "cra", "certificado de recebíveis do agronegócio"]},
+            {"codigo": "fgc", "label": "FGC — Fundo Garantidor de Créditos", "palavras_chave": ["fgc", "fundo garantidor de créditos", "garantia até 250 mil"]},
+            {"codigo": "marcacao_mercado", "label": "Marcação a Mercado", "palavras_chave": ["marcação a mercado", "marcação na curva", "preço unitário", "pu"]}
+          ]
+        },
+        {
+          "codigo": "fundos_investimento",
+          "label": "Fundos de Investimento",
+          "palavras_chave": ["fundo de investimento", "fundos", "gestão de fundos"],
+          "filhos": [
+            {"codigo": "estrutura_fundo", "label": "Estrutura de um Fundo", "palavras_chave": ["gestor", "administrador", "custodiante", "auditor", "cota", "patrimônio líquido do fundo"]},
+            {"codigo": "tipos_fundos", "label": "Tipos de Fundos (CVM 555/175)", "palavras_chave": ["fundo de renda fixa", "fundo de ações", "fundo multimercado", "fundo cambial", "fundo de curto prazo"]},
+            {"codigo": "fii_avancado", "label": "Fundos Imobiliários (FIIs)", "palavras_chave": ["fii", "fundo imobiliário", "tijolo", "papel", "fundo de fundos"]},
+            {"codigo": "fip_fia", "label": "FIP e FIA", "palavras_chave": ["fip", "fundo de investimento em participações", "private equity", "venture capital"]},
+            {"codigo": "fidc", "label": "FIDC", "palavras_chave": ["fidc", "fundo de investimento em direitos creditórios", "securitização de recebíveis"]},
+            {"codigo": "tributacao_fundos", "label": "Tributação de Fundos", "palavras_chave": ["come-cotas", "tributação de fundos", "ir sobre fundos", "alíquota regressiva"]}
+          ]
+        },
+        {
+          "codigo": "derivativos_avancado",
+          "label": "Mercado de Derivativos",
+          "palavras_chave": ["derivativos", "mercado de derivativos"],
+          "filhos": [
+            {"codigo": "futuros_b3", "label": "Mercado Futuro", "palavras_chave": ["contrato futuro", "futuro de dólar", "futuro de ibovespa", "futuro de boi gordo", "futuro de café"]},
+            {"codigo": "opcoes_avancado", "label": "Opções", "palavras_chave": ["opção de compra", "opção de venda", "call", "put", "exercício de opção", "americana", "europeia"]},
+            {"codigo": "swap_avancado", "label": "Operações de Swap", "palavras_chave": ["swap", "swap pré x cdi", "swap cambial", "operação de troca"]},
+            {"codigo": "termo_acoes", "label": "Termo de Ações", "palavras_chave": ["termo de ações", "mercado a termo"]},
+            {"codigo": "estrategias_derivativos", "label": "Estratégias com Derivativos", "palavras_chave": ["trava de alta", "trava de baixa", "borboleta", "straddle", "strangle"]}
+          ]
+        },
+        {
+          "codigo": "operacoes_credito",
+          "label": "Operações de Crédito",
+          "palavras_chave": ["operações de crédito", "concessão de crédito"],
+          "filhos": [
+            {"codigo": "credito_pessoal", "label": "Crédito Pessoal e Consignado", "palavras_chave": ["crédito pessoal", "consignado", "cheque especial", "cartão de crédito rotativo"]},
+            {"codigo": "credito_imobiliario", "label": "Crédito Imobiliário", "palavras_chave": ["crédito imobiliário", "financiamento de imóvel", "sfh", "sfi", "alienação fiduciária"]},
+            {"codigo": "credito_corporativo", "label": "Crédito Corporativo", "palavras_chave": ["crédito empresarial", "capital de giro", "conta garantida", "desconto de duplicatas"]},
+            {"codigo": "analise_credito", "label": "Análise de Crédito (5C's)", "palavras_chave": ["análise de crédito", "5 cs do crédito", "caráter", "capacidade", "capital", "colateral", "condições", "score de crédito"]},
+            {"codigo": "scr_bacen", "label": "SCR — Sistema de Informações de Crédito", "palavras_chave": ["scr", "sistema de informações de crédito", "central de risco"]}
+          ]
+        },
+        {
+          "codigo": "criptoativos",
+          "label": "Criptoativos e Novos Mercados",
+          "palavras_chave": ["criptoativos", "criptomoedas", "blockchain"],
+          "filhos": [
+            {"codigo": "bitcoin_altcoins", "label": "Bitcoin e Altcoins", "palavras_chave": ["bitcoin", "btc", "ethereum", "altcoin", "criptomoeda"]},
+            {"codigo": "blockchain", "label": "Blockchain", "palavras_chave": ["blockchain", "tecnologia de registro distribuído", "smart contract"]},
+            {"codigo": "regulacao_cripto", "label": "Regulação de Criptoativos", "palavras_chave": ["lei 14478", "marco regulatório das criptos", "regulação cvm cripto"]},
+            {"codigo": "drex_cbdc", "label": "DREX e CBDC", "palavras_chave": ["drex", "cbdc", "real digital", "moeda digital do banco central"]}
+          ]
+        },
+        {
+          "codigo": "etica_mercado",
+          "label": "Ética e Regulação no Mercado",
+          "palavras_chave": ["ética no mercado", "regulação financeira", "conduta no mercado"],
+          "filhos": [
+            {"codigo": "insider_trading", "label": "Insider Trading", "palavras_chave": ["insider trading", "informação privilegiada", "crime contra o mercado"]},
+            {"codigo": "front_running", "label": "Front Running e Manipulação", "palavras_chave": ["front running", "manipulação de mercado", "spoofing"]},
+            {"codigo": "suitability", "label": "Suitability", "palavras_chave": ["suitability", "perfil do investidor", "api", "análise de perfil"]}
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "tcc_financas",
+      "label": "Trabalho de Conclusão de Curso (TCC) em Finanças",
+      "palavras_chave": ["tcc", "trabalho de conclusão", "monografia", "projeto integrador"],
+      "filhos": [
+        {
+          "codigo": "introducao_tcc",
+          "label": "Introdução e Tema do TCC",
+          "palavras_chave": ["introdução", "escolha do tema", "delimitação do tema"],
+          "filhos": [
+            {"codigo": "escolha_tema", "label": "Escolha e Delimitação do Tema", "palavras_chave": ["escolha do tema", "delimitação do tema", "recorte temático", "relevância do tema"]},
+            {"codigo": "problema_pesquisa", "label": "Problema de Pesquisa", "palavras_chave": ["problema de pesquisa", "questão de pesquisa", "formulação do problema"]},
+            {"codigo": "justificativa", "label": "Justificativa", "palavras_chave": ["justificativa", "relevância", "contribuição do trabalho"]},
+            {"codigo": "objetivos_tcc", "label": "Objetivos (Geral e Específicos)", "palavras_chave": ["objetivo geral", "objetivos específicos", "verbos no infinitivo", "metas do trabalho"]},
+            {"codigo": "hipoteses", "label": "Hipóteses", "palavras_chave": ["hipótese", "suposição", "resposta provisória"]}
+          ]
+        },
+        {
+          "codigo": "fundamentacao_teorica",
+          "label": "Fundamentação Teórica",
+          "palavras_chave": ["fundamentação teórica", "referencial teórico", "revisão de literatura"],
+          "filhos": [
+            {"codigo": "revisao_literatura", "label": "Revisão de Literatura", "palavras_chave": ["revisão de literatura", "revisão bibliográfica", "estado da arte"]},
+            {"codigo": "citacoes_referencias", "label": "Citações e Referências (ABNT)", "palavras_chave": ["abnt", "citação direta", "citação indireta", "nbr 10520", "referências bibliográficas"]},
+            {"codigo": "autores_classicos_financas", "label": "Autores Clássicos de Finanças", "palavras_chave": ["gitman", "assaf neto", "ross", "brealey", "damodaran", "matarazzo"]}
+          ]
+        },
+        {
+          "codigo": "metodologia",
+          "label": "Metodologia da Pesquisa",
+          "palavras_chave": ["metodologia", "método científico", "método de pesquisa"],
+          "filhos": [
+            {"codigo": "tipos_pesquisa", "label": "Tipos de Pesquisa", "palavras_chave": ["pesquisa exploratória", "descritiva", "explicativa", "bibliográfica", "documental"]},
+            {"codigo": "abordagem_pesquisa", "label": "Abordagem (Quali, Quanti, Mista)", "palavras_chave": ["pesquisa qualitativa", "pesquisa quantitativa", "abordagem mista", "métodos mistos"]},
+            {"codigo": "estudo_caso", "label": "Estudo de Caso", "palavras_chave": ["estudo de caso", "case study", "caso único", "casos múltiplos"]},
+            {"codigo": "coleta_dados", "label": "Coleta de Dados", "palavras_chave": ["coleta de dados", "questionário", "entrevista", "observação", "análise documental"]},
+            {"codigo": "analise_dados", "label": "Análise de Dados", "palavras_chave": ["análise de dados", "tratamento estatístico", "análise de conteúdo", "tabulação"]},
+            {"codigo": "amostra_populacao", "label": "Amostra e População", "palavras_chave": ["população", "amostra", "amostragem", "amostragem probabilística", "amostragem por conveniência"]}
+          ]
+        },
+        {
+          "codigo": "desenvolvimento_tcc",
+          "label": "Desenvolvimento do TCC",
+          "palavras_chave": ["desenvolvimento do trabalho", "análise e discussão"],
+          "filhos": [
+            {"codigo": "apresentacao_caso", "label": "Apresentação da Empresa/Caso", "palavras_chave": ["caracterização da empresa", "perfil organizacional", "histórico da empresa"]},
+            {"codigo": "analise_resultados", "label": "Análise de Resultados", "palavras_chave": ["análise de resultados", "discussão dos resultados", "interpretação"]},
+            {"codigo": "tabelas_graficos", "label": "Tabelas, Quadros e Gráficos", "palavras_chave": ["tabela", "quadro", "gráfico", "figuras", "ilustrações", "abnt nbr 14724"]},
+            {"codigo": "discussao", "label": "Discussão e Triangulação", "palavras_chave": ["discussão", "confronto com a literatura", "triangulação de dados"]}
+          ]
+        },
+        {
+          "codigo": "validacao_resultados",
+          "label": "Validação dos Resultados",
+          "palavras_chave": ["validação", "validar resultados", "confiabilidade"],
+          "filhos": [
+            {"codigo": "validade_confiabilidade", "label": "Validade e Confiabilidade", "palavras_chave": ["validade", "confiabilidade", "rigor metodológico", "fidedignidade"]},
+            {"codigo": "limitacoes_pesquisa", "label": "Limitações da Pesquisa", "palavras_chave": ["limitações da pesquisa", "delimitações", "restrições do estudo"]},
+            {"codigo": "viabilidade_proposta", "label": "Análise de Viabilidade da Proposta", "palavras_chave": ["viabilidade econômica", "viabilidade financeira", "análise de implantação"]}
+          ]
+        },
+        {
+          "codigo": "conclusao_tcc",
+          "label": "Conclusão e Considerações Finais",
+          "palavras_chave": ["conclusão", "considerações finais", "fechamento do trabalho"],
+          "filhos": [
+            {"codigo": "respostas_objetivos", "label": "Resposta aos Objetivos", "palavras_chave": ["alcance dos objetivos", "resposta à pergunta de pesquisa", "atingimento das metas"]},
+            {"codigo": "contribuicoes", "label": "Contribuições e Recomendações", "palavras_chave": ["contribuições teóricas", "contribuições práticas", "recomendações", "sugestões para trabalhos futuros"]}
+          ]
+        },
+        {
+          "codigo": "apresentacao_tcc",
+          "label": "Apresentação e Defesa do TCC",
+          "palavras_chave": ["apresentação do tcc", "defesa", "banca examinadora"],
+          "filhos": [
+            {"codigo": "preparacao_apresentacao", "label": "Preparação da Apresentação", "palavras_chave": ["slides", "tempo de apresentação", "roteiro de apresentação"]},
+            {"codigo": "banca_examinadora", "label": "Banca Examinadora", "palavras_chave": ["banca", "examinadores", "arguição", "avaliação do tcc"]},
+            {"codigo": "normas_abnt", "label": "Normas ABNT para Formatação", "palavras_chave": ["abnt nbr 14724", "formatação de tcc", "margens", "espaçamento", "fonte"]},
+            {"codigo": "elementos_pre_pos", "label": "Elementos Pré e Pós-Textuais", "palavras_chave": ["capa", "folha de rosto", "sumário", "resumo", "abstract", "apêndices", "anexos"]}
+          ]
+        }
+      ]
+    }
+  ]
+}
