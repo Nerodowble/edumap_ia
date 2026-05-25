@@ -224,6 +224,7 @@ SUBJECT_TO_KEY: Dict[str, str] = {
     "Planejamento, Programação e Controle da Produção (PPCP)": "ppcp",
     "Suprimentos e Gestão de Estoques": "suprimentos_estoques",
     "Logística Internacional e Economia": "logistica_internacional",
+    "Comércio Exterior": "comercio_exterior",
     "Logística Reversa e Sustentabilidade": "logistica_reversa_sustentabilidade",
     "Planejamento Estratégico e Logístico": "planejamento_estrategico",
     "Sistemas de Informação Logística": "sistemas_informacao_logistica",

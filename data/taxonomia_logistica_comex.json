@@ -1,0 +1,1113 @@
+{
+  "versao": "1.0",
+  "etapa": "curso_logistica",
+  "descricao": "Taxonomia ultra detalhada de Comércio Exterior - Técnico em Logística (ETEC). Disciplina complementar à 'Logística Internacional e Economia'.",
+  "materias": [
+    {
+      "codigo": "comercio_exterior",
+      "label": "Comércio Exterior",
+      "palavras_chave": ["comércio exterior", "comercio exterior", "comex", "comércio internacional", "comercio internacional", "international trade", "exportação", "exportacao", "importação", "importacao", "foreign trade"],
+      "filhos": [
+        {
+          "codigo": "cex_fundamentos",
+          "label": "Fundamentos e Atores do Comércio Exterior",
+          "palavras_chave": ["fundamentos do comércio exterior", "atores do comex", "agentes do comércio exterior", "intervenientes comex", "players do comércio exterior"],
+          "filhos": [
+            {
+              "codigo": "cex_conceitos_basicos",
+              "label": "Conceitos Básicos e Objetivos",
+              "palavras_chave": ["conceito de comércio exterior", "objetivos do comex", "definição comércio internacional", "finalidade do comércio exterior"],
+              "filhos": [
+                {"codigo": "cex_definicao_comex", "label": "Definição de Comércio Exterior", "palavras_chave": ["definição comércio exterior", "o que é comex", "conceito comex", "comércio entre países"]},
+                {"codigo": "cex_objetivos_nacionais", "label": "Objetivos Nacionais e Estratégicos", "palavras_chave": ["objetivos do comércio exterior", "estratégia exportadora", "política de comércio exterior", "soberania econômica"]},
+                {"codigo": "cex_vantagens_absolutas", "label": "Vantagens Absolutas (Adam Smith)", "palavras_chave": ["vantagens absolutas", "adam smith", "teoria clássica do comércio", "especialização produtiva"]},
+                {"codigo": "cex_vantagens_comparativas", "label": "Vantagens Comparativas (Ricardo)", "palavras_chave": ["vantagens comparativas", "david ricardo", "ricardo", "lei das vantagens comparativas", "custo de oportunidade comércio"]},
+                {"codigo": "cex_heckscher_ohlin", "label": "Modelo Heckscher-Ohlin", "palavras_chave": ["heckscher-ohlin", "heckscher ohlin", "h-o", "dotação de fatores", "intensidade de fatores"]},
+                {"codigo": "cex_novas_teorias", "label": "Novas Teorias do Comércio Internacional", "palavras_chave": ["nova teoria do comércio", "krugman", "economia de escala internacional", "diferenciação de produto"]}
+              ]
+            },
+            {
+              "codigo": "cex_balanca_pagamentos",
+              "label": "Balança de Pagamentos e Balança Comercial",
+              "palavras_chave": ["balança de pagamentos", "balanca de pagamentos", "balança comercial", "balanca comercial", "contas externas", "bp"],
+              "filhos": [
+                {"codigo": "cex_bp_estrutura", "label": "Estrutura da Balança de Pagamentos", "palavras_chave": ["estrutura balança de pagamentos", "conta corrente", "conta capital", "conta financeira", "transações correntes"]},
+                {"codigo": "cex_bc_saldo", "label": "Saldo da Balança Comercial", "palavras_chave": ["saldo balança comercial", "superávit comercial", "déficit comercial", "exportações menos importações"]},
+                {"codigo": "cex_servicos_renda", "label": "Conta de Serviços e Renda", "palavras_chave": ["balança de serviços", "remessa de lucros", "fretes internacionais", "royalties", "viagens internacionais"]},
+                {"codigo": "cex_reservas_internacionais", "label": "Reservas Internacionais", "palavras_chave": ["reservas internacionais", "reservas cambiais", "ativos externos", "bacen reservas"]}
+              ]
+            },
+            {
+              "codigo": "cex_agentes_publicos",
+              "label": "Agentes Públicos / Intervenientes Governamentais",
+              "palavras_chave": ["agentes públicos comex", "órgãos governamentais", "intervenientes públicos", "anuentes comércio exterior"],
+              "filhos": [
+                {"codigo": "cex_rfb", "label": "Receita Federal do Brasil (RFB)", "palavras_chave": ["receita federal", "rfb", "auditor fiscal", "alfândega", "fiscalização aduaneira"]},
+                {"codigo": "cex_mdic_secex", "label": "MDIC e SECEX", "palavras_chave": ["mdic", "ministério do desenvolvimento", "secex", "secretaria de comércio exterior", "midr"]},
+                {"codigo": "cex_camex", "label": "CAMEX - Câmara de Comércio Exterior", "palavras_chave": ["camex", "câmara de comércio exterior", "gecex", "deliberações camex"]},
+                {"codigo": "cex_bacen", "label": "Banco Central (BACEN)", "palavras_chave": ["bacen", "banco central", "regulamentação cambial", "rmcci", "circular bacen"]},
+                {"codigo": "cex_mapa", "label": "MAPA (Agricultura)", "palavras_chave": ["mapa", "ministério da agricultura", "vigiagro", "anuência mapa", "certificado fitossanitário"]},
+                {"codigo": "cex_anvisa", "label": "ANVISA", "palavras_chave": ["anvisa", "vigilância sanitária", "anuência anvisa", "registro anvisa importação"]},
+                {"codigo": "cex_suframa", "label": "SUFRAMA e Zona Franca de Manaus", "palavras_chave": ["suframa", "zona franca de manaus", "zfm", "área de livre comércio", "alc"]},
+                {"codigo": "cex_outros_anuentes", "label": "Outros Órgãos Anuentes", "palavras_chave": ["dpf", "exército", "ibama", "mctic", "anatel", "anp", "ancine", "inmetro", "órgãos anuentes"]},
+                {"codigo": "cex_apex", "label": "ApexBrasil", "palavras_chave": ["apexbrasil", "apex", "agência de promoção de exportações", "promoção exportadora"]}
+              ]
+            },
+            {
+              "codigo": "cex_agentes_privados",
+              "label": "Agentes Privados / Intervenientes",
+              "palavras_chave": ["agentes privados comex", "intervenientes privados", "operadores do comércio exterior"],
+              "filhos": [
+                {"codigo": "cex_exportador", "label": "Exportador", "palavras_chave": ["exportador", "empresa exportadora", "habilitação exportador"]},
+                {"codigo": "cex_importador", "label": "Importador", "palavras_chave": ["importador", "empresa importadora", "habilitação importador"]},
+                {"codigo": "cex_despachante", "label": "Despachante Aduaneiro", "palavras_chave": ["despachante aduaneiro", "despachante", "ada", "ajudante de despachante", "registro de despachante"]},
+                {"codigo": "cex_comissaria", "label": "Comissária de Despacho", "palavras_chave": ["comissária de despacho", "comissaria", "empresa de despacho aduaneiro"]},
+                {"codigo": "cex_nvocc", "label": "NVOCC", "palavras_chave": ["nvocc", "non vessel operating common carrier", "operador sem navio", "consolidador marítimo"]},
+                {"codigo": "cex_freight_forwarder", "label": "Freight Forwarder / Agente de Carga", "palavras_chave": ["freight forwarder", "agente de carga", "agente de cargas internacional", "transitário"]},
+                {"codigo": "cex_courier", "label": "Courier / Remessa Expressa", "palavras_chave": ["courier", "remessa expressa internacional", "encomenda expressa", "dhl", "fedex", "ups"]},
+                {"codigo": "cex_trading", "label": "Trading Company", "palavras_chave": ["trading company", "trading", "comercial exportadora", "empresa comercial exportadora", "ece"]},
+                {"codigo": "cex_armadores", "label": "Armadores e Companhias Marítimas", "palavras_chave": ["armador", "shipowner", "companhia marítima", "linha de navegação", "carrier marítimo"]},
+                {"codigo": "cex_seguradoras_internacionais", "label": "Seguradoras Internacionais", "palavras_chave": ["seguradora de cargas", "seguro internacional", "underwriter", "p&i club"]},
+                {"codigo": "cex_bancos_comex", "label": "Bancos e Instituições Financeiras", "palavras_chave": ["banco de comércio exterior", "trade finance", "banco corresponde", "carta de crédito banco"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "cex_sistemas_habilitacao",
+          "label": "Sistemas Aduaneiros e Habilitação no Brasil",
+          "palavras_chave": ["sistemas aduaneiros", "habilitação comércio exterior", "siscomex", "radar habilitação"],
+          "filhos": [
+            {
+              "codigo": "cex_siscomex",
+              "label": "Siscomex - Sistema Integrado de Comércio Exterior",
+              "palavras_chave": ["siscomex", "sistema integrado de comércio exterior", "portal siscomex"],
+              "filhos": [
+                {"codigo": "cex_portal_unico", "label": "Portal Único de Comércio Exterior (PUCOMEX)", "palavras_chave": ["portal único", "pucomex", "portal único siscomex", "single window"]},
+                {"codigo": "cex_due", "label": "DUE - Declaração Única de Exportação", "palavras_chave": ["due", "declaração única de exportação", "novo processo de exportação", "registro due"]},
+                {"codigo": "cex_duimp", "label": "DUImp - Declaração Única de Importação", "palavras_chave": ["duimp", "declaração única de importação", "nova importação", "catálogo de produtos duimp"]},
+                {"codigo": "cex_lpco", "label": "LPCO - Licenças, Permissões, Certificados e Outros", "palavras_chave": ["lpco", "licenças permissões certificados", "anuência lpco", "novo licenciamento"]},
+                {"codigo": "cex_siscomex_carga", "label": "Siscomex Carga (Mantra/Mercante)", "palavras_chave": ["siscomex carga", "mantra", "mercante", "ce-mercante", "manifesto eletrônico"]},
+                {"codigo": "cex_di_legado", "label": "DI - Declaração de Importação (legado)", "palavras_chave": ["declaração de importação", "di", "registro de di", "adição de di"]}
+              ]
+            },
+            {
+              "codigo": "cex_radar",
+              "label": "RADAR - Habilitação no Comércio Exterior",
+              "palavras_chave": ["radar", "habilitação radar", "rastreamento aduaneiro", "radar siscomex", "in rfb 1984"],
+              "filhos": [
+                {"codigo": "cex_radar_expressa", "label": "Modalidade Expressa", "palavras_chave": ["radar expressa", "modalidade expressa", "habilitação expressa", "limite us$ 50 mil"]},
+                {"codigo": "cex_radar_limitada", "label": "Modalidade Limitada", "palavras_chave": ["radar limitada", "modalidade limitada", "us$ 150 mil", "us$ 50.000"]},
+                {"codigo": "cex_radar_ilimitada", "label": "Modalidade Ilimitada", "palavras_chave": ["radar ilimitada", "modalidade ilimitada", "operação ilimitada", "sem limite radar"]},
+                {"codigo": "cex_radar_pf", "label": "Pessoa Física no RADAR", "palavras_chave": ["radar pessoa física", "pf radar", "habilitação pf comex"]},
+                {"codigo": "cex_radar_revisao", "label": "Revisão e Suspensão do RADAR", "palavras_chave": ["revisão de estimativa", "suspensão radar", "bloqueio radar", "alfa radar"]}
+              ]
+            },
+            {
+              "codigo": "cex_classificacao_fiscal",
+              "label": "Classificação Fiscal de Mercadorias",
+              "palavras_chave": ["classificação fiscal", "nomenclatura", "sistema harmonizado", "ncm classificação"],
+              "filhos": [
+                {"codigo": "cex_sh", "label": "Sistema Harmonizado (SH/HS)", "palavras_chave": ["sistema harmonizado", "sh", "hs code", "harmonized system", "omc oma"]},
+                {"codigo": "cex_ncm_estrutura", "label": "NCM - Estrutura e Códigos", "palavras_chave": ["ncm", "nomenclatura comum do mercosul", "código ncm", "8 dígitos ncm", "capítulo posição subposição"]},
+                {"codigo": "cex_rgi", "label": "Regras Gerais de Interpretação (RGI)", "palavras_chave": ["rgi", "regras gerais de interpretação", "regra geral 1", "regra geral 3a", "classificação por similaridade"]},
+                {"codigo": "cex_tec", "label": "TEC - Tarifa Externa Comum", "palavras_chave": ["tec", "tarifa externa comum", "mercosul tec", "alíquota tec"]},
+                {"codigo": "cex_letec", "label": "LETEC - Lista de Exceções à TEC", "palavras_chave": ["letec", "lista de exceções à tec", "exceção tarifária mercosul"]},
+                {"codigo": "cex_ex_tarifario", "label": "Ex-Tarifário", "palavras_chave": ["ex-tarifário", "ex tarifário", "redução temporária de ii", "bens de capital sem similar nacional"]},
+                {"codigo": "cex_lista_cinco", "label": "Lista de Bens de Informática e Telecomunicações", "palavras_chave": ["lista de bk", "lista bit", "bens de informática e telecomunicações"]},
+                {"codigo": "cex_naladi", "label": "NALADI - ALADI", "palavras_chave": ["naladi", "nomenclatura aladi", "naladi sh"]}
+              ]
+            },
+            {
+              "codigo": "cex_ccm",
+              "label": "CCM e Cadastros Auxiliares",
+              "palavras_chave": ["ccm comex", "cadastro do comércio exterior", "siscoserv cadastros"],
+              "filhos": [
+                {"codigo": "cex_siscoserv", "label": "Siscoserv (Serviços)", "palavras_chave": ["siscoserv", "sistema integrado de comércio exterior de serviços", "registro de serviços internacionais"]},
+                {"codigo": "cex_catalogo_produtos", "label": "Catálogo de Produtos (Duimp)", "palavras_chave": ["catálogo de produtos", "catalogo produtos duimp", "atributos do produto"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "cex_incoterms_2020",
+          "label": "Incoterms 2020",
+          "palavras_chave": ["incoterms", "incoterms 2020", "international commercial terms", "termos internacionais de comércio", "regras incoterms"],
+          "filhos": [
+            {
+              "codigo": "cex_incoterms_geral",
+              "label": "Conceitos Gerais dos Incoterms",
+              "palavras_chave": ["conceito incoterms", "função dos incoterms", "objetivo incoterms", "icc incoterms"],
+              "filhos": [
+                {"codigo": "cex_inco_definicao", "label": "Definição e Função dos Incoterms", "palavras_chave": ["definição incoterms", "para que servem incoterms", "icc câmara de comércio internacional"]},
+                {"codigo": "cex_inco_obrigacoes", "label": "Distribuição de Obrigações", "palavras_chave": ["obrigações comprador vendedor", "responsabilidades incoterms", "a1 a10 b1 b10"]},
+                {"codigo": "cex_inco_riscos", "label": "Transferência de Riscos", "palavras_chave": ["transferência de risco", "transferencia de risco", "risco da mercadoria", "ponto de transferência"]},
+                {"codigo": "cex_inco_custos", "label": "Distribuição de Custos", "palavras_chave": ["distribuição de custos incoterms", "quem paga frete", "quem paga seguro"]},
+                {"codigo": "cex_inco_seguro", "label": "Responsabilidade pelo Seguro", "palavras_chave": ["seguro incoterms", "seguro de carga", "obrigação de contratar seguro", "cláusulas a b c seguro"]},
+                {"codigo": "cex_inco_desembaraco", "label": "Responsabilidade pelo Desembaraço", "palavras_chave": ["desembaraço incoterms", "desembaraço aduaneiro exportação importação", "quem libera mercadoria"]},
+                {"codigo": "cex_inco_comparacao_2010", "label": "Comparação Incoterms 2010 x 2020", "palavras_chave": ["incoterms 2010", "incoterms 2020", "mudanças incoterms", "dat substituído por dpu"]},
+                {"codigo": "cex_inco_grupos", "label": "Grupos de Incoterms (E, F, C, D)", "palavras_chave": ["grupo e", "grupo f", "grupo c", "grupo d", "categorias incoterms"]}
+              ]
+            },
+            {
+              "codigo": "cex_inco_qualquer_modal",
+              "label": "Termos para Qualquer Modal de Transporte",
+              "palavras_chave": ["incoterms multimodal", "qualquer modal", "incoterms aéreo terrestre", "any mode"],
+              "filhos": [
+                {
+                  "codigo": "cex_exw",
+                  "label": "EXW - Ex Works (Na Origem)",
+                  "palavras_chave": ["exw", "ex works", "na fábrica", "na origem", "mínima obrigação do vendedor"],
+                  "filhos": [
+                    {"codigo": "cex_exw_entrega", "label": "Ponto de Entrega EXW", "palavras_chave": ["entrega exw", "estabelecimento do vendedor exw", "à disposição do comprador"]},
+                    {"codigo": "cex_exw_risco", "label": "Risco e Custos no EXW", "palavras_chave": ["risco exw", "comprador assume todos os custos", "ex works responsabilidade"]},
+                    {"codigo": "cex_exw_uso", "label": "Uso Típico do EXW", "palavras_chave": ["quando usar exw", "exw exportação direta", "exw operação doméstica"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_fca",
+                  "label": "FCA - Free Carrier (Livre no Transportador)",
+                  "palavras_chave": ["fca", "free carrier", "livre no transportador", "entrega ao transportador"],
+                  "filhos": [
+                    {"codigo": "cex_fca_entrega", "label": "Ponto de Entrega FCA", "palavras_chave": ["entrega fca", "local nomeado fca", "fca instalação do vendedor", "fca outro local"]},
+                    {"codigo": "cex_fca_bl", "label": "FCA com B/L On Board (novidade 2020)", "palavras_chave": ["fca b/l on board", "bill of lading fca", "carta de crédito fca", "novidade incoterms 2020"]},
+                    {"codigo": "cex_fca_desembaraco", "label": "Desembaraço de Exportação no FCA", "palavras_chave": ["desembaraço exportação fca", "vendedor desembaraça fca"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_cpt",
+                  "label": "CPT - Carriage Paid To (Transporte Pago Até)",
+                  "palavras_chave": ["cpt", "carriage paid to", "transporte pago até", "frete pago até"],
+                  "filhos": [
+                    {"codigo": "cex_cpt_entrega", "label": "Entrega no CPT", "palavras_chave": ["entrega cpt", "primeiro transportador cpt"]},
+                    {"codigo": "cex_cpt_risco_custo", "label": "Diferença entre Risco e Custo no CPT", "palavras_chave": ["risco x custo cpt", "ponto crítico cpt", "dois pontos no cpt"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_cip",
+                  "label": "CIP - Carriage and Insurance Paid To",
+                  "palavras_chave": ["cip", "carriage and insurance paid", "transporte e seguro pagos"],
+                  "filhos": [
+                    {"codigo": "cex_cip_seguro_obrigatorio", "label": "Seguro Obrigatório no CIP (Cláusula A)", "palavras_chave": ["seguro cip", "cláusula a", "all risks cip", "icc a"]},
+                    {"codigo": "cex_cip_diferenca_cpt", "label": "Diferença entre CIP e CPT", "palavras_chave": ["cip x cpt", "diferença cip cpt", "cip inclui seguro"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_dap",
+                  "label": "DAP - Delivered at Place (Entregue no Local)",
+                  "palavras_chave": ["dap", "delivered at place", "entregue no local", "delivery dap"],
+                  "filhos": [
+                    {"codigo": "cex_dap_entrega", "label": "Entrega no DAP (sem descarga)", "palavras_chave": ["entrega dap", "pronto para descarga", "dap não inclui descarregamento"]},
+                    {"codigo": "cex_dap_desembaraco", "label": "Desembaraço no DAP", "palavras_chave": ["dap desembaraço importação", "comprador desembaraça importação"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_dpu",
+                  "label": "DPU - Delivered at Place Unloaded",
+                  "palavras_chave": ["dpu", "delivered at place unloaded", "entregue descarregado", "substitui dat"],
+                  "filhos": [
+                    {"codigo": "cex_dpu_descarga", "label": "Descarga no DPU", "palavras_chave": ["dpu descarregamento", "vendedor descarrega dpu", "único incoterm descarrega"]},
+                    {"codigo": "cex_dpu_vs_dat", "label": "DPU vs DAT (substituição em 2020)", "palavras_chave": ["dpu substitui dat", "dat incoterms 2010", "novidade incoterms 2020 dpu"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_ddp",
+                  "label": "DDP - Delivered Duty Paid",
+                  "palavras_chave": ["ddp", "delivered duty paid", "entregue com direitos pagos", "máxima obrigação do vendedor"],
+                  "filhos": [
+                    {"codigo": "cex_ddp_tributos", "label": "Tributos no DDP", "palavras_chave": ["ddp tributos", "vendedor paga impostos importação", "ddp com tributos pagos"]},
+                    {"codigo": "cex_ddp_riscos", "label": "Riscos do DDP", "palavras_chave": ["risco ddp", "limitações ddp", "ddp e tributação local"]}
+                  ]
+                }
+              ]
+            },
+            {
+              "codigo": "cex_inco_aquaviario",
+              "label": "Termos para Transporte Marítimo e Aquaviário",
+              "palavras_chave": ["incoterms marítimo", "incoterms aquaviário", "incoterms aquaviario", "sea and inland waterway"],
+              "filhos": [
+                {
+                  "codigo": "cex_fas",
+                  "label": "FAS - Free Alongside Ship",
+                  "palavras_chave": ["fas", "free alongside ship", "livre ao lado do navio", "porto de embarque fas"],
+                  "filhos": [
+                    {"codigo": "cex_fas_entrega", "label": "Entrega ao Lado do Navio", "palavras_chave": ["entrega ao lado do navio", "cais fas", "ponto de entrega fas"]},
+                    {"codigo": "cex_fas_uso", "label": "Uso Típico FAS (Granéis)", "palavras_chave": ["fas granel", "fas commodities", "fas carga a granel"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_fob",
+                  "label": "FOB - Free on Board",
+                  "palavras_chave": ["fob", "free on board", "livre a bordo", "fob porto", "fob brasileiro"],
+                  "filhos": [
+                    {"codigo": "cex_fob_entrega", "label": "Entrega FOB (a bordo do navio)", "palavras_chave": ["fob entrega a bordo", "amurada do navio", "rail of ship histórico"]},
+                    {"codigo": "cex_fob_brasil", "label": "FOB nas Estatísticas Brasileiras", "palavras_chave": ["fob brasil", "exportação fob", "estatística fob", "valor fob"]},
+                    {"codigo": "cex_fob_risco", "label": "Transferência de Risco FOB", "palavras_chave": ["risco fob", "transferência fob a bordo", "fob ship's rail"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_cfr",
+                  "label": "CFR - Cost and Freight",
+                  "palavras_chave": ["cfr", "cost and freight", "custo e frete", "c&f"],
+                  "filhos": [
+                    {"codigo": "cex_cfr_frete", "label": "Frete Internacional no CFR", "palavras_chave": ["frete cfr", "ocean freight cfr", "vendedor paga frete marítimo"]},
+                    {"codigo": "cex_cfr_risco", "label": "Risco no CFR (transfere no embarque)", "palavras_chave": ["risco cfr", "cfr a bordo", "cfr risco no embarque"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_cif",
+                  "label": "CIF - Cost, Insurance and Freight",
+                  "palavras_chave": ["cif", "cost insurance and freight", "custo seguro e frete", "valor cif", "cif importação"],
+                  "filhos": [
+                    {"codigo": "cex_cif_seguro", "label": "Seguro Obrigatório no CIF (Cláusula C)", "palavras_chave": ["seguro cif", "cláusula c", "icc c", "cobertura mínima cif"]},
+                    {"codigo": "cex_cif_valor_aduaneiro", "label": "CIF como Base do Valor Aduaneiro", "palavras_chave": ["cif valor aduaneiro", "cif base de cálculo", "valor cif importação"]},
+                    {"codigo": "cex_cif_estatistica", "label": "CIF nas Estatísticas Brasileiras", "palavras_chave": ["cif brasil", "importação cif", "valor cif estatística"]}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "cex_tributacao",
+          "label": "Tributação no Comércio Exterior",
+          "palavras_chave": ["tributação comércio exterior", "tributacao comex", "impostos comércio exterior", "tributos importação exportação"],
+          "filhos": [
+            {
+              "codigo": "cex_trib_importacao",
+              "label": "Tributos na Importação",
+              "palavras_chave": ["tributos importação", "impostos importação brasil", "tributação na importação"],
+              "filhos": [
+                {
+                  "codigo": "cex_ii",
+                  "label": "Imposto de Importação (II)",
+                  "palavras_chave": ["imposto de importação", "ii", "imposto sobre importação", "alíquota ii"],
+                  "filhos": [
+                    {"codigo": "cex_ii_fato_gerador", "label": "Fato Gerador do II", "palavras_chave": ["fato gerador ii", "entrada no território nacional", "fato gerador imposto importação"]},
+                    {"codigo": "cex_ii_aliquota", "label": "Alíquotas do II (TEC)", "palavras_chave": ["alíquota ii", "tec alíquota", "imposto importação percentual"]},
+                    {"codigo": "cex_ii_base_calculo", "label": "Base de Cálculo do II", "palavras_chave": ["base de cálculo ii", "valor aduaneiro ii", "vmld imposto importação"]},
+                    {"codigo": "cex_ii_funcao", "label": "Função Extrafiscal do II", "palavras_chave": ["extrafiscal ii", "função regulatória", "proteção da indústria nacional"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_ipi_importacao",
+                  "label": "IPI-Importação",
+                  "palavras_chave": ["ipi importação", "ipi-importação", "imposto sobre produtos industrializados importação"],
+                  "filhos": [
+                    {"codigo": "cex_ipi_base", "label": "Base de Cálculo IPI-Importação", "palavras_chave": ["base ipi importação", "valor aduaneiro mais ii", "vmld + ii"]},
+                    {"codigo": "cex_ipi_tipi", "label": "TIPI e Alíquotas", "palavras_chave": ["tipi", "tabela de incidência ipi", "alíquota ipi"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_icms_importacao",
+                  "label": "ICMS-Importação",
+                  "palavras_chave": ["icms importação", "icms-importação", "icms sobre importação"],
+                  "filhos": [
+                    {"codigo": "cex_icms_base", "label": "Base de Cálculo do ICMS-Importação", "palavras_chave": ["base de cálculo icms importação", "icms por dentro", "cálculo por dentro icms"]},
+                    {"codigo": "cex_icms_aliquota", "label": "Alíquotas e Estados", "palavras_chave": ["alíquota icms importação", "icms interestadual importação", "icms 4%"]},
+                    {"codigo": "cex_icms_guerra_dos_portos", "label": "Guerra dos Portos e Resolução 13/2012", "palavras_chave": ["guerra dos portos", "resolução 13", "icms 4% importação", "alíquota uniforme"]},
+                    {"codigo": "cex_icms_gnre", "label": "GNRE e Recolhimento", "palavras_chave": ["gnre", "guia nacional de recolhimento", "recolhimento icms importação"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_pis_cofins_importacao",
+                  "label": "PIS/COFINS-Importação",
+                  "palavras_chave": ["pis importação", "cofins importação", "pis-importação", "cofins-importação", "pis cofins"],
+                  "filhos": [
+                    {"codigo": "cex_pis_cofins_aliquotas", "label": "Alíquotas PIS/COFINS-Importação", "palavras_chave": ["alíquota pis importação", "alíquota cofins importação", "2.1% 9.65%"]},
+                    {"codigo": "cex_pis_cofins_base", "label": "Base de Cálculo PIS/COFINS-Importação", "palavras_chave": ["base pis cofins importação", "lei 10.865", "cálculo pis cofins"]},
+                    {"codigo": "cex_pis_cofins_credito", "label": "Crédito de PIS/COFINS-Importação", "palavras_chave": ["crédito pis importação", "crédito cofins", "regime não cumulativo importação"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_afrmm",
+                  "label": "AFRMM - Adicional ao Frete para Renovação da Marinha Mercante",
+                  "palavras_chave": ["afrmm", "adicional ao frete", "marinha mercante", "antaq afrmm"],
+                  "filhos": [
+                    {"codigo": "cex_afrmm_aliquota", "label": "Alíquotas do AFRMM", "palavras_chave": ["alíquota afrmm", "afrmm longo curso", "afrmm cabotagem", "afrmm 8% 25%"]},
+                    {"codigo": "cex_afrmm_isencoes", "label": "Isenções e Suspensões do AFRMM", "palavras_chave": ["isenção afrmm", "suspensão afrmm", "drawback afrmm"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_taxa_siscomex",
+                  "label": "Taxa Siscomex (Taxa de Utilização)",
+                  "palavras_chave": ["taxa siscomex", "taxa de utilização siscomex", "tus", "taxa por adição"]
+                },
+                {
+                  "codigo": "cex_cide_importacao",
+                  "label": "CIDE-Importação (Combustíveis e Royalties)",
+                  "palavras_chave": ["cide", "cide importação", "cide combustíveis", "cide royalties", "lei 10.336"]
+                }
+              ]
+            },
+            {
+              "codigo": "cex_trib_exportacao",
+              "label": "Tributos na Exportação e Imunidades",
+              "palavras_chave": ["tributos exportação", "imunidade exportação", "exportação isenta", "exportação imune"],
+              "filhos": [
+                {"codigo": "cex_imunidade_exportacao", "label": "Imunidade Constitucional da Exportação", "palavras_chave": ["imunidade constitucional exportação", "cf 1988 exportação", "exportação imune impostos"]},
+                {"codigo": "cex_ie", "label": "Imposto de Exportação (IE)", "palavras_chave": ["imposto de exportação", "ie", "ie alíquota", "produtos sujeitos a ie"]},
+                {"codigo": "cex_ie_produtos", "label": "Produtos sujeitos a IE", "palavras_chave": ["couros e peles ie", "cigarros ie", "armas ie", "imposto exportação produtos"]},
+                {"codigo": "cex_exportacao_icms", "label": "ICMS na Exportação (LC 87/96)", "palavras_chave": ["icms exportação", "lc 87/96", "lei kandir", "imunidade icms exportação"]},
+                {"codigo": "cex_restituicao_tributos", "label": "Restituição/Ressarcimento de Tributos", "palavras_chave": ["restituição tributos exportação", "ressarcimento pis cofins exportação", "reintegra"]},
+                {"codigo": "cex_reintegra", "label": "REINTEGRA - Regime Especial", "palavras_chave": ["reintegra", "regime especial de reintegração", "lei 13.043", "crédito reintegra"]}
+              ]
+            },
+            {
+              "codigo": "cex_valor_aduaneiro",
+              "label": "Valor Aduaneiro e Valoração",
+              "palavras_chave": ["valor aduaneiro", "valoração aduaneira", "ava-gatt", "ava gatt", "iva", "vmld"],
+              "filhos": [
+                {"codigo": "cex_ava_gatt", "label": "Acordo de Valoração Aduaneira (AVA-GATT)", "palavras_chave": ["ava-gatt", "acordo de valoração aduaneira", "gatt valoração", "valor de transação"]},
+                {"codigo": "cex_metodo_1", "label": "Método 1 - Valor de Transação", "palavras_chave": ["método 1 valoração", "valor de transação", "preço efetivamente pago", "valor pago ou pagar"]},
+                {"codigo": "cex_metodo_2_3", "label": "Métodos 2 e 3 - Mercadorias Idênticas e Similares", "palavras_chave": ["mercadorias idênticas", "mercadorias similares", "método 2 valoração", "método 3 valoração"]},
+                {"codigo": "cex_metodo_4_5", "label": "Métodos 4 e 5 - Dedutivo e Computado", "palavras_chave": ["método dedutivo", "método computado", "método 4", "método 5"]},
+                {"codigo": "cex_metodo_6", "label": "Método 6 - Pelo Razoável Critério", "palavras_chave": ["método 6 valoração", "fallback method", "critério razoável"]},
+                {"codigo": "cex_ajustes_valor", "label": "Ajustes ao Valor de Transação", "palavras_chave": ["ajustes valor aduaneiro", "comissões corretagem", "royalties valoração", "frete e seguro valor aduaneiro"]},
+                {"codigo": "cex_vmld", "label": "VMLD - Valor da Mercadoria no Local de Desembarque", "palavras_chave": ["vmld", "valor mercadoria local desembarque", "valor aduaneiro brasil", "iva brasileiro"]}
+              ]
+            },
+            {
+              "codigo": "cex_calculo_tributos",
+              "label": "Cálculo de Tributos e Composição do Custo",
+              "palavras_chave": ["cálculo de tributos", "cálculo de custo de importação", "ipi por dentro", "composição custo"],
+              "filhos": [
+                {"codigo": "cex_calc_ii", "label": "Cálculo do II", "palavras_chave": ["como calcular ii", "fórmula ii", "exemplo cálculo imposto importação"]},
+                {"codigo": "cex_calc_icms_por_dentro", "label": "ICMS por Dentro (Gross-up)", "palavras_chave": ["icms por dentro", "gross up icms", "cálculo por dentro", "fórmula icms importação"]},
+                {"codigo": "cex_custo_importacao", "label": "Composição do Custo Total de Importação", "palavras_chave": ["custo total de importação", "custo landed", "landed cost", "formação de preço importação"]},
+                {"codigo": "cex_planilha_importacao", "label": "Planilha de Importação", "palavras_chave": ["planilha de importação", "planilha de custo importação", "spreadsheet importação"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "cex_regimes_aduaneiros",
+          "label": "Regimes Aduaneiros Especiais e Atípicos",
+          "palavras_chave": ["regimes aduaneiros", "regime aduaneiro especial", "regime atípico", "regime suspensivo"],
+          "filhos": [
+            {
+              "codigo": "cex_drawback",
+              "label": "Drawback",
+              "palavras_chave": ["drawback", "regime drawback", "incentivo à exportação"],
+              "filhos": [
+                {"codigo": "cex_drawback_suspensao", "label": "Drawback Suspensão", "palavras_chave": ["drawback suspensão", "suspensão tributos importação", "ato concessório suspensão"]},
+                {"codigo": "cex_drawback_isencao", "label": "Drawback Isenção", "palavras_chave": ["drawback isenção", "reposição de estoque", "isenção drawback"]},
+                {"codigo": "cex_drawback_restituicao", "label": "Drawback Restituição", "palavras_chave": ["drawback restituição", "restituição tributos pagos exportação"]},
+                {"codigo": "cex_drawback_integrado", "label": "Drawback Integrado", "palavras_chave": ["drawback integrado", "drawback aquisição no mercado interno", "drawback verde-amarelo"]},
+                {"codigo": "cex_drawback_intermediario", "label": "Drawback Intermediário", "palavras_chave": ["drawback intermediário", "fornecimento intermediário", "fabricante-intermediário"]}
+              ]
+            },
+            {
+              "codigo": "cex_recof",
+              "label": "RECOF e RECOF-SPED",
+              "palavras_chave": ["recof", "regime aduaneiro de entreposto industrial", "recof-sped", "entreposto industrial sob controle informatizado"],
+              "filhos": [
+                {"codigo": "cex_recof_industrial", "label": "RECOF Industrial", "palavras_chave": ["recof industrial", "indústria recof", "suspensão tributos recof"]},
+                {"codigo": "cex_recof_sped", "label": "RECOF-SPED", "palavras_chave": ["recof sped", "recof simplificado", "habilitação recof sped"]}
+              ]
+            },
+            {
+              "codigo": "cex_entreposto",
+              "label": "Entreposto Aduaneiro",
+              "palavras_chave": ["entreposto aduaneiro", "regime de entreposto", "armazenagem sob controle aduaneiro"],
+              "filhos": [
+                {"codigo": "cex_entreposto_importacao", "label": "Entreposto na Importação", "palavras_chave": ["entreposto importação", "armazenagem importação", "estocagem aduaneira importação"]},
+                {"codigo": "cex_entreposto_exportacao", "label": "Entreposto na Exportação", "palavras_chave": ["entreposto exportação", "armazenagem exportação", "exportação sem embarque imediato"]}
+              ]
+            },
+            {
+              "codigo": "cex_admissao_temporaria",
+              "label": "Admissão Temporária",
+              "palavras_chave": ["admissão temporária", "admissao temporaria", "in rfb 1600", "regime atípico admissão"],
+              "filhos": [
+                {"codigo": "cex_adm_temp_utilizacao", "label": "Admissão Temporária para Utilização Econômica", "palavras_chave": ["admissão temporária utilização econômica", "atue", "leasing internacional"]},
+                {"codigo": "cex_adm_temp_aperfeicoamento", "label": "Admissão Temporária para Aperfeiçoamento Ativo", "palavras_chave": ["admissão temporária aperfeiçoamento ativo", "industrialização sob encomenda externa"]},
+                {"codigo": "cex_carnet_ata", "label": "Carnet ATA", "palavras_chave": ["carnet ata", "ata carnet", "passaporte de mercadorias", "feiras e exposições"]}
+              ]
+            },
+            {
+              "codigo": "cex_exportacao_temporaria",
+              "label": "Exportação Temporária",
+              "palavras_chave": ["exportação temporária", "exportacao temporaria", "regime atípico exportação"],
+              "filhos": [
+                {"codigo": "cex_exp_temp_aperfeicoamento_passivo", "label": "Exportação Temporária para Aperfeiçoamento Passivo", "palavras_chave": ["aperfeiçoamento passivo", "exportação temporária industrialização", "reparo no exterior"]}
+              ]
+            },
+            {
+              "codigo": "cex_dac_dae",
+              "label": "Depósito Aduaneiro (DAC) e Depósito Afiançado (DAF/DAE)",
+              "palavras_chave": ["dac", "depósito aduaneiro de certificado", "daf", "depósito afiançado", "dae"],
+              "filhos": [
+                {"codigo": "cex_dac", "label": "DAC - Depósito Aduaneiro de Certificado", "palavras_chave": ["dac", "depósito aduaneiro certificado"]},
+                {"codigo": "cex_daf_dae", "label": "DAF/DAE - Depósito Afiançado e Especial", "palavras_chave": ["daf", "depósito afiançado", "dae", "depósito especial"]}
+              ]
+            },
+            {
+              "codigo": "cex_loja_franca",
+              "label": "Loja Franca (Duty Free)",
+              "palavras_chave": ["loja franca", "duty free", "duty free shop", "free shop aeroporto"]
+            },
+            {
+              "codigo": "cex_transito_aduaneiro",
+              "label": "Trânsito Aduaneiro",
+              "palavras_chave": ["trânsito aduaneiro", "transito aduaneiro", "dta", "declaração de trânsito aduaneiro"],
+              "filhos": [
+                {"codigo": "cex_dta", "label": "DTA - Declaração de Trânsito Aduaneiro", "palavras_chave": ["dta", "declaração de trânsito aduaneiro", "documento de trânsito"]},
+                {"codigo": "cex_mic_dta", "label": "MIC/DTA (Mercosul Rodoviário)", "palavras_chave": ["mic/dta", "mic dta", "manifesto internacional de carga", "trânsito mercosul"]},
+                {"codigo": "cex_tir", "label": "TIR - Transports Internationaux Routiers", "palavras_chave": ["tir", "carnet tir", "transporte rodoviário internacional"]}
+              ]
+            },
+            {
+              "codigo": "cex_zpe",
+              "label": "Zonas de Processamento de Exportação (ZPE)",
+              "palavras_chave": ["zpe", "zona de processamento de exportação", "lei 11.508"]
+            },
+            {
+              "codigo": "cex_repetro",
+              "label": "REPETRO (Petróleo e Gás)",
+              "palavras_chave": ["repetro", "regime petróleo gás", "repetro-sped", "repetro industrialização"]
+            },
+            {
+              "codigo": "cex_repex",
+              "label": "REPEX e Outros Regimes Setoriais",
+              "palavras_chave": ["repex", "regime aduaneiro petróleo", "regimes setoriais", "repex importação"]
+            }
+          ]
+        },
+        {
+          "codigo": "cex_documentacao",
+          "label": "Documentação no Comércio Exterior",
+          "palavras_chave": ["documentação comércio exterior", "documentos comex", "papéis do comex", "documentação exportação importação"],
+          "filhos": [
+            {
+              "codigo": "cex_docs_exportacao",
+              "label": "Documentos de Exportação",
+              "palavras_chave": ["documentos de exportação", "papéis exportação", "documentação exportadora"],
+              "filhos": [
+                {
+                  "codigo": "cex_invoice",
+                  "label": "Commercial Invoice (Fatura Comercial)",
+                  "palavras_chave": ["commercial invoice", "fatura comercial", "invoice", "proforma invoice"],
+                  "filhos": [
+                    {"codigo": "cex_proforma", "label": "Proforma Invoice", "palavras_chave": ["proforma invoice", "fatura proforma", "fatura pró-forma", "cotação internacional"]},
+                    {"codigo": "cex_invoice_dados", "label": "Dados Obrigatórios da Invoice", "palavras_chave": ["dados invoice", "campos obrigatórios fatura comercial", "shipper consignee notify"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_packing_list",
+                  "label": "Packing List (Romaneio de Carga)",
+                  "palavras_chave": ["packing list", "romaneio", "romaneio de carga", "lista de embarque"]
+                },
+                {
+                  "codigo": "cex_due_doc",
+                  "label": "DUE - Declaração Única de Exportação",
+                  "palavras_chave": ["due documento", "declaração única exportação documento", "due registro"]
+                },
+                {
+                  "codigo": "cex_certificado_origem",
+                  "label": "Certificado de Origem",
+                  "palavras_chave": ["certificado de origem", "co", "origem preferencial", "regra de origem"],
+                  "filhos": [
+                    {"codigo": "cex_co_mercosul", "label": "Certificado de Origem Mercosul", "palavras_chave": ["certificado origem mercosul", "co mercosul", "regra origem mercosul"]},
+                    {"codigo": "cex_co_form_a", "label": "Form A (SGP)", "palavras_chave": ["form a", "sgp", "sistema geral de preferências", "form a unctad"]},
+                    {"codigo": "cex_co_eur_1", "label": "EUR.1 (União Europeia)", "palavras_chave": ["eur.1", "eur 1", "certificado eur1", "ue acordo preferencial"]},
+                    {"codigo": "cex_co_aladi", "label": "Certificado ALADI", "palavras_chave": ["certificado aladi", "co aladi", "acordo aladi"]},
+                    {"codigo": "cex_co_digital", "label": "Certificado de Origem Digital", "palavras_chave": ["certificado origem digital", "cod", "iccwbo certificado digital"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_documentos_transporte_exp",
+                  "label": "Documentos de Transporte (Exportação)",
+                  "palavras_chave": ["documentos transporte exportação", "conhecimento de embarque exportação", "transport documents"],
+                  "filhos": [
+                    {
+                      "codigo": "cex_bl",
+                      "label": "B/L - Bill of Lading (Marítimo)",
+                      "palavras_chave": ["bill of lading", "b/l", "bl", "conhecimento de embarque marítimo", "ocean bill of lading"],
+                      "filhos": [
+                        {"codigo": "cex_bl_master", "label": "Master B/L", "palavras_chave": ["master bl", "master bill of lading", "mbl"]},
+                        {"codigo": "cex_bl_house", "label": "House B/L", "palavras_chave": ["house bl", "house bill of lading", "hbl"]},
+                        {"codigo": "cex_bl_telex_release", "label": "Telex Release / Express Release", "palavras_chave": ["telex release", "express release", "liberação telex", "liberação eletrônica"]},
+                        {"codigo": "cex_bl_seaway", "label": "Sea Waybill", "palavras_chave": ["sea waybill", "swb", "seaway bill", "conhecimento não negociável"]}
+                      ]
+                    },
+                    {
+                      "codigo": "cex_awb",
+                      "label": "AWB - Air Waybill (Aéreo)",
+                      "palavras_chave": ["awb", "air waybill", "conhecimento aéreo", "mawb hawb"],
+                      "filhos": [
+                        {"codigo": "cex_mawb", "label": "MAWB - Master AWB", "palavras_chave": ["mawb", "master air waybill"]},
+                        {"codigo": "cex_hawb", "label": "HAWB - House AWB", "palavras_chave": ["hawb", "house air waybill"]}
+                      ]
+                    },
+                    {"codigo": "cex_ctrc_int", "label": "CRT - Conhecimento Rodoviário (Mercosul)", "palavras_chave": ["crt", "conhecimento rodoviário", "ctrc internacional", "conhecimento rodoviário mercosul"]},
+                    {"codigo": "cex_rwb", "label": "RWB - Rail Waybill (Ferroviário)", "palavras_chave": ["rwb", "rail waybill", "conhecimento ferroviário internacional"]},
+                    {"codigo": "cex_multimodal_bl", "label": "Conhecimento Multimodal (MTD/FBL)", "palavras_chave": ["mtd", "fbl", "fiata bl", "conhecimento multimodal", "multimodal transport document"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_manifesto",
+                  "label": "Manifesto de Carga",
+                  "palavras_chave": ["manifesto de carga", "cargo manifest", "manifesto eletrônico"]
+                },
+                {
+                  "codigo": "cex_carta_credito_doc",
+                  "label": "Letter of Credit (Carta de Crédito)",
+                  "palavras_chave": ["letter of credit", "carta de crédito", "l/c", "lc documento"]
+                },
+                {
+                  "codigo": "cex_certificados_diversos",
+                  "label": "Certificados Diversos (Fitossanitário, Sanitário, Qualidade)",
+                  "palavras_chave": ["certificado fitossanitário", "certificado sanitário", "certificado de qualidade", "fito mapa"]
+                }
+              ]
+            },
+            {
+              "codigo": "cex_docs_importacao",
+              "label": "Documentos de Importação",
+              "palavras_chave": ["documentos importação", "documentação importadora", "papéis da importação"],
+              "filhos": [
+                {
+                  "codigo": "cex_duimp_doc",
+                  "label": "DUImp - Declaração Única de Importação",
+                  "palavras_chave": ["duimp documento", "declaração única importação", "duimp registro", "duimp item"]
+                },
+                {
+                  "codigo": "cex_di_doc",
+                  "label": "DI - Declaração de Importação (legado)",
+                  "palavras_chave": ["di documento", "declaração de importação documento", "registro de di", "adição da di"]
+                },
+                {
+                  "codigo": "cex_li",
+                  "label": "Licenciamento de Importação (LI)",
+                  "palavras_chave": ["licenciamento de importação", "li", "li substitutiva", "anuência li"],
+                  "filhos": [
+                    {"codigo": "cex_li_automatica", "label": "LI Automática", "palavras_chave": ["li automática", "licenciamento automático"]},
+                    {"codigo": "cex_li_nao_automatica", "label": "LI Não Automática", "palavras_chave": ["li não automática", "licenciamento não automático", "anuência prévia"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_ce_mercante",
+                  "label": "CE-Mercante",
+                  "palavras_chave": ["ce-mercante", "ce mercante", "conhecimento eletrônico mercante", "manifesto mercante"]
+                },
+                {
+                  "codigo": "cex_anuencias_imp",
+                  "label": "Anuências e Autorizações de Importação",
+                  "palavras_chave": ["anuência importação", "autorização importação", "lpco importação", "tratamento administrativo"]
+                },
+                {
+                  "codigo": "cex_dsi",
+                  "label": "DSI - Declaração Simplificada de Importação",
+                  "palavras_chave": ["dsi", "declaração simplificada de importação", "importação simplificada", "remessa expressa importação"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "cex_despacho_aduaneiro",
+          "label": "Despacho Aduaneiro",
+          "palavras_chave": ["despacho aduaneiro", "procedimento aduaneiro", "desembaraço aduaneiro", "alfândega procedimento"],
+          "filhos": [
+            {
+              "codigo": "cex_canais_parametrizacao",
+              "label": "Canais de Parametrização",
+              "palavras_chave": ["canais de parametrização", "parametrização aduaneira", "canal verde amarelo vermelho cinza"],
+              "filhos": [
+                {"codigo": "cex_canal_verde", "label": "Canal Verde", "palavras_chave": ["canal verde", "desembaraço automático", "liberação imediata verde"]},
+                {"codigo": "cex_canal_amarelo", "label": "Canal Amarelo", "palavras_chave": ["canal amarelo", "conferência documental", "exame de documentos"]},
+                {"codigo": "cex_canal_vermelho", "label": "Canal Vermelho", "palavras_chave": ["canal vermelho", "conferência física", "verificação física da mercadoria"]},
+                {"codigo": "cex_canal_cinza", "label": "Canal Cinza", "palavras_chave": ["canal cinza", "valoração aduaneira procedimento", "suspeita de fraude valor", "procedimento especial controle"]}
+              ]
+            },
+            {
+              "codigo": "cex_etapas_despacho",
+              "label": "Etapas do Despacho",
+              "palavras_chave": ["etapas do despacho", "fluxo do despacho", "fases do despacho aduaneiro"],
+              "filhos": [
+                {"codigo": "cex_registro_di_duimp", "label": "Registro da DI/DUImp", "palavras_chave": ["registro da di", "registro duimp", "início despacho"]},
+                {"codigo": "cex_parametrizacao", "label": "Parametrização", "palavras_chave": ["parametrização", "seleção de canal", "análise de risco aduaneira"]},
+                {"codigo": "cex_conferencia_aduaneira", "label": "Conferência Aduaneira", "palavras_chave": ["conferência aduaneira", "exame documental", "verificação física"]},
+                {"codigo": "cex_desembaraco", "label": "Desembaraço", "palavras_chave": ["desembaraço aduaneiro", "liberação da mercadoria", "termo de desembaraço"]},
+                {"codigo": "cex_entrega_mercadoria", "label": "Entrega da Mercadoria", "palavras_chave": ["entrega da mercadoria", "saída da zona primária", "retirada do recinto aduaneiro"]}
+              ]
+            },
+            {
+              "codigo": "cex_irregularidades",
+              "label": "Irregularidades e Penalidades",
+              "palavras_chave": ["irregularidades aduaneiras", "penalidades aduaneiras", "infração aduaneira", "multa aduaneira"],
+              "filhos": [
+                {"codigo": "cex_perdimento", "label": "Pena de Perdimento", "palavras_chave": ["perdimento", "pena de perdimento", "dano ao erário", "subfaturamento perdimento"]},
+                {"codigo": "cex_subfaturamento", "label": "Subfaturamento e Superfaturamento", "palavras_chave": ["subfaturamento", "superfaturamento", "fraude de valor", "interposição fraudulenta"]},
+                {"codigo": "cex_falsa_classificacao", "label": "Falsa Classificação Fiscal", "palavras_chave": ["falsa classificação fiscal", "erro de ncm", "multa classificação"]},
+                {"codigo": "cex_denuncia_espontanea", "label": "Denúncia Espontânea", "palavras_chave": ["denúncia espontânea", "ctn 138", "exclusão de multa"]},
+                {"codigo": "cex_retificacao", "label": "Retificação de DI/DUImp", "palavras_chave": ["retificação de di", "retificação duimp", "alterar declaração", "in rfb retificação"]},
+                {"codigo": "cex_revisao_aduaneira", "label": "Revisão Aduaneira", "palavras_chave": ["revisão aduaneira", "fiscalização posterior", "lançamento de ofício"]}
+              ]
+            },
+            {
+              "codigo": "cex_recintos_aduaneiros",
+              "label": "Recintos Aduaneiros",
+              "palavras_chave": ["recintos aduaneiros", "zona primária", "zona secundária", "porto seco"],
+              "filhos": [
+                {"codigo": "cex_zona_primaria", "label": "Zona Primária", "palavras_chave": ["zona primária", "zona primaria", "porto alfandegado", "aeroporto alfandegado", "ponto de fronteira"]},
+                {"codigo": "cex_zona_secundaria", "label": "Zona Secundária", "palavras_chave": ["zona secundária", "zona secundaria", "território nacional", "circulação de mercadoria importada"]},
+                {"codigo": "cex_porto_seco", "label": "Porto Seco (EADI/CLIA)", "palavras_chave": ["porto seco", "eadi", "estação aduaneira interior", "clia", "centro logístico industrial aduaneiro"]},
+                {"codigo": "cex_redex", "label": "REDEX - Recinto Especial para Despacho Aduaneiro de Exportação", "palavras_chave": ["redex", "recinto especial despacho aduaneiro exportação"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "cex_cambio_pagamentos",
+          "label": "Câmbio e Pagamentos Internacionais",
+          "palavras_chave": ["câmbio internacional", "cambio comex", "pagamentos internacionais", "operação de câmbio"],
+          "filhos": [
+            {
+              "codigo": "cex_modalidades_pagamento_int",
+              "label": "Modalidades de Pagamento Internacional",
+              "palavras_chave": ["modalidades pagamento internacional", "formas de pagamento comex", "métodos de pagamento internacional"],
+              "filhos": [
+                {
+                  "codigo": "cex_pagamento_antecipado",
+                  "label": "Pagamento Antecipado",
+                  "palavras_chave": ["pagamento antecipado", "advance payment", "remessa antecipada", "cash in advance"]
+                },
+                {
+                  "codigo": "cex_remessa_direta",
+                  "label": "Remessa Direta / Conta Aberta",
+                  "palavras_chave": ["remessa direta", "conta aberta", "open account", "remessa simples"]
+                },
+                {
+                  "codigo": "cex_cobranca_documentaria",
+                  "label": "Cobrança Documentária",
+                  "palavras_chave": ["cobrança documentária", "documentary collection", "urc 522"],
+                  "filhos": [
+                    {"codigo": "cex_dp_cobranca", "label": "Cobrança à Vista (D/P)", "palavras_chave": ["d/p", "documents against payment", "cobrança à vista", "documentos contra pagamento"]},
+                    {"codigo": "cex_da_cobranca", "label": "Cobrança a Prazo (D/A)", "palavras_chave": ["d/a", "documents against acceptance", "cobrança a prazo", "documentos contra aceite"]},
+                    {"codigo": "cex_clean_collection", "label": "Clean Collection (Cobrança Simples)", "palavras_chave": ["clean collection", "cobrança simples", "sem documentos comerciais"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_carta_credito",
+                  "label": "Carta de Crédito (L/C)",
+                  "palavras_chave": ["carta de crédito", "letter of credit", "l/c", "lc", "ucp 600"],
+                  "filhos": [
+                    {"codigo": "cex_lc_ucp600", "label": "UCP 600 e Regulamentação", "palavras_chave": ["ucp 600", "uniform customs and practice", "icc lc"]},
+                    {"codigo": "cex_lc_irrevogavel", "label": "L/C Irrevogável", "palavras_chave": ["lc irrevogável", "carta de crédito irrevogável", "irrevocable l/c"]},
+                    {"codigo": "cex_lc_confirmada", "label": "L/C Confirmada", "palavras_chave": ["lc confirmada", "confirmed l/c", "banco confirmador"]},
+                    {"codigo": "cex_lc_transferivel", "label": "L/C Transferível", "palavras_chave": ["lc transferível", "transferable letter of credit"]},
+                    {"codigo": "cex_lc_standby", "label": "Standby Letter of Credit", "palavras_chave": ["standby lc", "sblc", "isp98", "standby letter of credit"]},
+                    {"codigo": "cex_lc_atores", "label": "Atores da L/C (Banco Emissor, Avisador, Beneficiário)", "palavras_chave": ["banco emissor", "banco avisador", "beneficiário lc", "ordenante carta de crédito"]},
+                    {"codigo": "cex_lc_discrepancias", "label": "Discrepâncias e Aceite", "palavras_chave": ["discrepância lc", "discrepancies", "aceite carta de crédito", "rejeição lc"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_garantias_bancarias",
+                  "label": "Garantias Bancárias Internacionais",
+                  "palavras_chave": ["garantia bancária", "bank guarantee", "demand guarantee", "urdg 758"]
+                }
+              ]
+            },
+            {
+              "codigo": "cex_financiamento_export",
+              "label": "Financiamento à Exportação e Importação",
+              "palavras_chave": ["financiamento exportação", "trade finance", "linha de crédito exportação", "financiamento importação"],
+              "filhos": [
+                {"codigo": "cex_acc", "label": "ACC - Adiantamento sobre Contrato de Câmbio", "palavras_chave": ["acc", "adiantamento sobre contrato de câmbio", "financiamento pré-embarque"]},
+                {"codigo": "cex_ace", "label": "ACE - Adiantamento sobre Cambiais Entregues", "palavras_chave": ["ace", "adiantamento sobre cambiais entregues", "financiamento pós-embarque"]},
+                {"codigo": "cex_proex", "label": "PROEX (BB)", "palavras_chave": ["proex", "programa de financiamento às exportações", "banco do brasil exportação"]},
+                {"codigo": "cex_bndes_exim", "label": "BNDES Exim", "palavras_chave": ["bndes exim", "financiamento bndes exportação", "exim pré-embarque", "exim pós-embarque"]},
+                {"codigo": "cex_forfaiting", "label": "Forfaiting", "palavras_chave": ["forfaiting", "compra de duplicatas exportação", "sem direito de regresso"]},
+                {"codigo": "cex_factoring_int", "label": "Factoring Internacional", "palavras_chave": ["factoring internacional", "international factoring", "factor exportador"]}
+              ]
+            },
+            {
+              "codigo": "cex_operacoes_cambio",
+              "label": "Operações de Câmbio",
+              "palavras_chave": ["operações de câmbio", "contrato de câmbio", "fechamento de câmbio", "mercado de câmbio"],
+              "filhos": [
+                {"codigo": "cex_contrato_cambio", "label": "Contrato de Câmbio", "palavras_chave": ["contrato de câmbio", "contrato cambial", "exportação tipo 1", "importação tipo 2"]},
+                {"codigo": "cex_fechamento_cambio", "label": "Fechamento de Câmbio", "palavras_chave": ["fechamento de câmbio", "liquidação cambial", "data de liquidação"]},
+                {"codigo": "cex_simbolico_financeiro", "label": "Operações Simbólicas e Financeiras", "palavras_chave": ["câmbio simbólico", "operação simbólica", "câmbio financeiro", "natureza da operação cambial"]},
+                {"codigo": "cex_taxas_cambio_op", "label": "Taxas (Spot, Forward, NDF)", "palavras_chave": ["taxa spot", "taxa forward", "ndf", "non deliverable forward", "câmbio futuro"]},
+                {"codigo": "cex_swift", "label": "SWIFT e Mensageria Internacional", "palavras_chave": ["swift", "society for worldwide interbank", "mt103", "mt700", "mensageria bancária"]},
+                {"codigo": "cex_rmcci", "label": "RMCCI / Lei Cambial / Lei 14.286", "palavras_chave": ["rmcci", "regulamento mercado de câmbio", "lei 14.286", "novo marco cambial"]}
+              ]
+            },
+            {
+              "codigo": "cex_riscos_cambiais",
+              "label": "Riscos Cambiais e Hedge",
+              "palavras_chave": ["risco cambial", "hedge cambial", "exposição cambial", "proteção cambial"],
+              "filhos": [
+                {"codigo": "cex_hedge_forward", "label": "Hedge com Forward (NDF)", "palavras_chave": ["hedge forward", "ndf hedge", "termo de câmbio"]},
+                {"codigo": "cex_hedge_opcoes", "label": "Hedge com Opções e Futuros", "palavras_chave": ["hedge opções cambiais", "futuros de dólar", "opção de compra dólar", "b3 dólar"]},
+                {"codigo": "cex_swap_cambial", "label": "Swap Cambial", "palavras_chave": ["swap cambial", "swap de moedas", "currency swap"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "cex_modais_transporte_int",
+          "label": "Modais de Transporte Internacional",
+          "palavras_chave": ["modais transporte internacional", "transporte internacional de cargas", "modais internacionais", "international transport"],
+          "filhos": [
+            {
+              "codigo": "cex_maritimo",
+              "label": "Transporte Marítimo Internacional",
+              "palavras_chave": ["transporte marítimo", "navegação internacional", "marítimo internacional", "ocean shipping"],
+              "filhos": [
+                {
+                  "codigo": "cex_tipos_navios",
+                  "label": "Tipos de Navios",
+                  "palavras_chave": ["tipos de navios", "embarcações", "vessel types", "navio cargueiro"],
+                  "filhos": [
+                    {"codigo": "cex_porta_conteiner", "label": "Porta-contêineres", "palavras_chave": ["porta-contêiner", "porta conteiner", "container ship", "navio celular"]},
+                    {"codigo": "cex_granel_solido", "label": "Graneleiros (Bulk Carrier)", "palavras_chave": ["graneleiro", "bulk carrier", "navio granel sólido", "minério carvão grãos"]},
+                    {"codigo": "cex_granel_liquido", "label": "Navios-Tanque", "palavras_chave": ["navio-tanque", "tanker", "petroleiro", "gaseiro", "lng carrier"]},
+                    {"codigo": "cex_roro", "label": "Ro-Ro (Roll On/Roll Off)", "palavras_chave": ["ro-ro", "roll on roll off", "navio roro", "transporte de veículos marítimo"]},
+                    {"codigo": "cex_breakbulk", "label": "Break Bulk / Carga Geral", "palavras_chave": ["break bulk", "carga geral solta", "navio convencional", "general cargo"]},
+                    {"codigo": "cex_reefer_ship", "label": "Navios Refrigerados (Reefer)", "palavras_chave": ["navio reefer", "navio frigorífico", "carga refrigerada marítima"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_conteineres",
+                  "label": "Contêineres (Tipos e Especificações)",
+                  "palavras_chave": ["contêineres", "conteineres", "iso container", "tipos de contêiner"],
+                  "filhos": [
+                    {"codigo": "cex_container_20", "label": "Contêiner 20'", "palavras_chave": ["contêiner 20", "container 20 pés", "20 dry", "teu"]},
+                    {"codigo": "cex_container_40", "label": "Contêiner 40' e 40' HC", "palavras_chave": ["contêiner 40", "container 40 pés", "40 hc", "high cube", "feu"]},
+                    {"codigo": "cex_container_reefer", "label": "Reefer Container (Refrigerado)", "palavras_chave": ["reefer container", "contêiner reefer", "contêiner refrigerado"]},
+                    {"codigo": "cex_container_ot", "label": "Open Top", "palavras_chave": ["open top", "ot container", "contêiner sem teto"]},
+                    {"codigo": "cex_container_fr", "label": "Flat Rack", "palavras_chave": ["flat rack", "fr container", "carga indivisível"]},
+                    {"codigo": "cex_container_tank", "label": "Tank Container", "palavras_chave": ["tank container", "iso tank", "contêiner tanque", "líquidos a granel"]},
+                    {"codigo": "cex_teu_feu", "label": "TEU e FEU", "palavras_chave": ["teu", "twenty foot equivalent unit", "feu", "forty foot equivalent unit", "unidade equivalente"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_fcl_lcl",
+                  "label": "FCL e LCL",
+                  "palavras_chave": ["fcl", "lcl", "full container load", "less than container load", "carga consolidada"],
+                  "filhos": [
+                    {"codigo": "cex_fcl", "label": "FCL - Full Container Load", "palavras_chave": ["fcl", "full container load", "contêiner cheio", "carga fechada"]},
+                    {"codigo": "cex_lcl", "label": "LCL - Less than Container Load", "palavras_chave": ["lcl", "less than container load", "carga fracionada", "consolidação lcl"]},
+                    {"codigo": "cex_consolidacao", "label": "Consolidação de Cargas (CFS)", "palavras_chave": ["consolidação de cargas", "cfs", "container freight station", "desconsolidação"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_terminais_portuarios",
+                  "label": "Terminais Portuários e Operações Portuárias",
+                  "palavras_chave": ["terminais portuários", "porto organizado", "operações portuárias", "lei dos portos"],
+                  "filhos": [
+                    {"codigo": "cex_lei_portos", "label": "Lei dos Portos (12.815/2013)", "palavras_chave": ["lei dos portos", "lei 12.815", "marco regulatório portuário", "antaq portos"]},
+                    {"codigo": "cex_tup", "label": "TUP - Terminal de Uso Privado", "palavras_chave": ["tup", "terminal de uso privado", "porto privado"]},
+                    {"codigo": "cex_arrendamento", "label": "Arrendamentos Portuários", "palavras_chave": ["arrendamento portuário", "concessão portuária", "leilão de porto"]},
+                    {"codigo": "cex_ogmo", "label": "OGMO e Trabalho Portuário", "palavras_chave": ["ogmo", "órgão gestor de mão de obra portuária", "trabalhador portuário avulso"]}
+                  ]
+                },
+                {
+                  "codigo": "cex_frete_maritimo",
+                  "label": "Frete Marítimo e Sobretaxas",
+                  "palavras_chave": ["frete marítimo", "ocean freight", "sobretaxas frete", "bunker surcharge"],
+                  "filhos": [
+                    {"codigo": "cex_baf_caf", "label": "BAF e CAF", "palavras_chave": ["baf", "bunker adjustment factor", "caf", "currency adjustment factor"]},
+                    {"codigo": "cex_thc", "label": "THC - Terminal Handling Charge", "palavras_chave": ["thc", "terminal handling charge", "taxa de movimentação portuária"]},
+                    {"codigo": "cex_demurrage", "label": "Demurrage e Detention", "palavras_chave": ["demurrage", "detention", "sobrestadia", "estadia de contêiner"]},
+                    {"codigo": "cex_iso", "label": "ISPS Code (Security)", "palavras_chave": ["isps code", "isps", "security charge", "international ship and port facility security"]}
+                  ]
+                }
+              ]
+            },
+            {
+              "codigo": "cex_aereo",
+              "label": "Transporte Aéreo Internacional",
+              "palavras_chave": ["transporte aéreo internacional", "carga aérea", "air cargo", "frete aéreo internacional"],
+              "filhos": [
+                {"codigo": "cex_iata", "label": "IATA - International Air Transport Association", "palavras_chave": ["iata", "international air transport association", "código iata"]},
+                {"codigo": "cex_uld", "label": "ULD - Unit Load Device", "palavras_chave": ["uld", "unit load device", "pallet aéreo", "container aéreo"]},
+                {"codigo": "cex_carga_aerea_tipos", "label": "Tipos de Carga Aérea", "palavras_chave": ["carga aérea geral", "perishables", "perecíveis aéreo", "carga viva", "valuable cargo"]},
+                {"codigo": "cex_courier_int", "label": "Courier / Remessa Expressa Aérea", "palavras_chave": ["courier internacional", "remessa expressa aérea", "carga expressa", "dhl fedex ups"]},
+                {"codigo": "cex_frete_aereo", "label": "Frete Aéreo e Tarifação", "palavras_chave": ["frete aéreo", "tarifa aérea", "chargeable weight", "peso taxado", "peso cubado aéreo"]}
+              ]
+            },
+            {
+              "codigo": "cex_rodoviario_int",
+              "label": "Transporte Rodoviário Internacional",
+              "palavras_chave": ["rodoviário internacional", "transporte rodoviário internacional", "mercosul rodoviário", "international road transport"],
+              "filhos": [
+                {"codigo": "cex_atit", "label": "ATIT - Acordo sobre Transporte Internacional Terrestre", "palavras_chave": ["atit", "acordo de transporte internacional terrestre", "mercosul atit", "cone sul"]},
+                {"codigo": "cex_lo_rodoviario", "label": "Licença Originária / Complementar", "palavras_chave": ["licença originária rodoviária", "lo", "licença complementar lc", "transporte internacional licença"]},
+                {"codigo": "cex_mic_dta_rod", "label": "MIC/DTA - Manifesto Internacional de Carga", "palavras_chave": ["mic dta rodoviário", "manifesto internacional rodoviário", "trânsito mercosul rodoviário"]},
+                {"codigo": "cex_tir_rod", "label": "Carnet TIR", "palavras_chave": ["carnet tir", "tir rodoviário", "transports internationaux routiers"]}
+              ]
+            },
+            {
+              "codigo": "cex_ferroviario_int",
+              "label": "Transporte Ferroviário Internacional",
+              "palavras_chave": ["ferroviário internacional", "transporte ferroviário internacional", "international rail freight"],
+              "filhos": [
+                {"codigo": "cex_corredor_bioceanico", "label": "Corredores Bioceânicos", "palavras_chave": ["corredor bioceânico", "ferrovia bioceânica", "integração sul-americana"]},
+                {"codigo": "cex_rwb_int", "label": "RWB - Rail Waybill", "palavras_chave": ["rwb", "rail waybill", "conhecimento ferroviário internacional"]}
+              ]
+            },
+            {
+              "codigo": "cex_dutoviario_int",
+              "label": "Transporte Dutoviário (Pipelines)",
+              "palavras_chave": ["dutoviário", "duto", "pipeline", "transporte dutoviário", "oleoduto gasoduto"]
+            },
+            {
+              "codigo": "cex_multimodal_intermodal",
+              "label": "Transporte Multimodal e Intermodal",
+              "palavras_chave": ["transporte multimodal", "transporte intermodal", "otm", "multimodal transport"],
+              "filhos": [
+                {"codigo": "cex_otm", "label": "OTM - Operador de Transporte Multimodal", "palavras_chave": ["otm", "operador de transporte multimodal", "habilitação otm antt"]},
+                {"codigo": "cex_lei_9611", "label": "Lei 9.611/1998 (Transporte Multimodal)", "palavras_chave": ["lei 9.611", "lei 9611", "marco multimodal", "lei de transporte multimodal"]},
+                {"codigo": "cex_diferenca_multi_inter", "label": "Multimodal x Intermodal", "palavras_chave": ["multimodal versus intermodal", "diferença multimodal intermodal", "único documento multimodal"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "cex_acordos_politica",
+          "label": "Acordos Internacionais e Política Comercial",
+          "palavras_chave": ["acordos internacionais", "política comercial", "blocos econômicos", "acordos comerciais"],
+          "filhos": [
+            {
+              "codigo": "cex_omc",
+              "label": "OMC - Organização Mundial do Comércio",
+              "palavras_chave": ["omc", "organização mundial do comércio", "wto", "world trade organization"],
+              "filhos": [
+                {"codigo": "cex_gatt", "label": "GATT - Acordo Geral sobre Tarifas e Comércio", "palavras_chave": ["gatt", "acordo geral sobre tarifas", "gatt 1947", "gatt 1994"]},
+                {"codigo": "cex_gats", "label": "GATS - Acordo Geral sobre Serviços", "palavras_chave": ["gats", "agcs", "acordo geral sobre comércio de serviços"]},
+                {"codigo": "cex_trips", "label": "TRIPS - Aspectos de Propriedade Intelectual", "palavras_chave": ["trips", "acordo trips", "propriedade intelectual omc", "adpic"]},
+                {"codigo": "cex_omc_solucao_disputas", "label": "Mecanismo de Solução de Controvérsias", "palavras_chave": ["solução de controvérsias", "osc", "painel omc", "órgão de apelação"]},
+                {"codigo": "cex_rodadas_omc", "label": "Rodadas (Uruguai, Doha)", "palavras_chave": ["rodada uruguai", "rodada doha", "rodadas omc", "rodadas comerciais"]}
+              ]
+            },
+            {
+              "codigo": "cex_mercosul",
+              "label": "Mercosul",
+              "palavras_chave": ["mercosul", "mercado comum do sul", "tratado de assunção", "protocolo de ouro preto"],
+              "filhos": [
+                {"codigo": "cex_tratado_assuncao", "label": "Tratado de Assunção (1991)", "palavras_chave": ["tratado de assunção", "tratado assuncao", "1991 mercosul", "fundação mercosul"]},
+                {"codigo": "cex_ouro_preto", "label": "Protocolo de Ouro Preto", "palavras_chave": ["protocolo de ouro preto", "personalidade jurídica mercosul", "estrutura institucional mercosul"]},
+                {"codigo": "cex_mercosul_estados", "label": "Estados-Partes e Associados", "palavras_chave": ["estados partes mercosul", "argentina brasil paraguai uruguai", "venezuela mercosul", "estados associados mercosul"]},
+                {"codigo": "cex_tec_mercosul", "label": "TEC - Tarifa Externa Comum", "palavras_chave": ["tec mercosul", "tarifa externa comum mercosul", "união aduaneira mercosul"]},
+                {"codigo": "cex_mercosul_uniao_aduaneira", "label": "União Aduaneira Imperfeita", "palavras_chave": ["união aduaneira", "uniao aduaneira", "união aduaneira imperfeita mercosul"]}
+              ]
+            },
+            {
+              "codigo": "cex_aladi",
+              "label": "ALADI - Associação Latino-Americana de Integração",
+              "palavras_chave": ["aladi", "associação latino-americana de integração", "tratado de montevidéu 1980"],
+              "filhos": [
+                {"codigo": "cex_acordos_aladi", "label": "ACE - Acordos de Complementação Econômica", "palavras_chave": ["ace aladi", "acordos de complementação econômica", "ace 14 ace 18"]},
+                {"codigo": "cex_app_aladi", "label": "APP - Acordo de Preferências Tarifárias", "palavras_chave": ["app aladi", "preferências tarifárias regionais", "ptr"]}
+              ]
+            },
+            {
+              "codigo": "cex_blocos_economicos",
+              "label": "Blocos Econômicos Internacionais",
+              "palavras_chave": ["blocos econômicos", "integração regional", "uniões econômicas"],
+              "filhos": [
+                {"codigo": "cex_ue", "label": "União Europeia (UE)", "palavras_chave": ["união europeia", "ue", "european union", "mercado comum europeu"]},
+                {"codigo": "cex_usmca", "label": "USMCA (ex-NAFTA)", "palavras_chave": ["usmca", "nafta", "estados unidos méxico canadá", "north american trade"]},
+                {"codigo": "cex_asean", "label": "ASEAN", "palavras_chave": ["asean", "association of southeast asian nations", "ásia sudeste"]},
+                {"codigo": "cex_apec", "label": "APEC", "palavras_chave": ["apec", "asia-pacific economic cooperation"]},
+                {"codigo": "cex_brics", "label": "BRICS", "palavras_chave": ["brics", "brasil rússia índia china áfrica do sul", "novo banco de desenvolvimento"]},
+                {"codigo": "cex_ccg_can", "label": "CCG, CAN e outros", "palavras_chave": ["comunidade andina", "can", "ccg", "conselho de cooperação do golfo"]}
+              ]
+            },
+            {
+              "codigo": "cex_acordos_preferenciais",
+              "label": "Acordos Preferenciais e Regras de Origem",
+              "palavras_chave": ["acordos preferenciais", "preferências tarifárias", "regras de origem"],
+              "filhos": [
+                {"codigo": "cex_regras_origem", "label": "Regras de Origem", "palavras_chave": ["regras de origem", "origem preferencial", "salto tarifário", "regional value content"]},
+                {"codigo": "cex_origem_nao_preferencial", "label": "Origem Não Preferencial", "palavras_chave": ["origem não preferencial", "antidumping origem", "investigação de origem"]},
+                {"codigo": "cex_sgp", "label": "SGP - Sistema Geral de Preferências", "palavras_chave": ["sgp", "sistema geral de preferências", "form a", "preferências unilaterais"]},
+                {"codigo": "cex_tlc", "label": "TLC - Tratados de Livre Comércio", "palavras_chave": ["tlc", "tratado de livre comércio", "free trade agreement", "fta"]}
+              ]
+            },
+            {
+              "codigo": "cex_defesa_comercial",
+              "label": "Defesa Comercial",
+              "palavras_chave": ["defesa comercial", "medidas de defesa comercial", "investigação comercial", "trade remedies"],
+              "filhos": [
+                {"codigo": "cex_antidumping", "label": "Antidumping", "palavras_chave": ["antidumping", "dumping", "medida antidumping", "investigação antidumping"]},
+                {"codigo": "cex_dumping_calculo", "label": "Cálculo da Margem de Dumping", "palavras_chave": ["margem de dumping", "valor normal", "preço de exportação dumping", "dano à indústria"]},
+                {"codigo": "cex_medidas_compensatorias", "label": "Medidas Compensatórias", "palavras_chave": ["medidas compensatórias", "subsídios", "subsídio acionável", "scm acordo"]},
+                {"codigo": "cex_salvaguardas", "label": "Salvaguardas", "palavras_chave": ["salvaguardas", "medidas de salvaguarda", "salvaguarda comercial", "surto de importações"]},
+                {"codigo": "cex_decom_secex", "label": "DECOM/SECEX (Investigações no Brasil)", "palavras_chave": ["decom", "departamento de defesa comercial", "secex investigação", "secom"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "cex_marketing_internacional",
+          "label": "Marketing Internacional e Estratégia",
+          "palavras_chave": ["marketing internacional", "estratégia internacional", "international marketing", "negócios internacionais"],
+          "filhos": [
+            {
+              "codigo": "cex_pesquisa_mercado_int",
+              "label": "Pesquisa de Mercado Internacional",
+              "palavras_chave": ["pesquisa de mercado internacional", "market research internacional", "estudo de mercado externo"],
+              "filhos": [
+                {"codigo": "cex_pesquisa_secundaria", "label": "Pesquisa Secundária (Comex Stat, ITC)", "palavras_chave": ["pesquisa secundária", "comex stat", "international trade centre", "trade map"]},
+                {"codigo": "cex_segmentacao_int", "label": "Segmentação Internacional", "palavras_chave": ["segmentação internacional", "segmentação global", "segmento de mercado externo"]},
+                {"codigo": "cex_seleção_paises", "label": "Seleção de Países Alvo", "palavras_chave": ["seleção de países", "country screening", "país-alvo exportação", "matriz de seleção de mercados"]}
+              ]
+            },
+            {
+              "codigo": "cex_adaptacao_produto",
+              "label": "Adaptação do Produto e Mix Internacional",
+              "palavras_chave": ["adaptação de produto", "mix internacional", "4 ps internacional", "marketing mix global"],
+              "filhos": [
+                {"codigo": "cex_padronizacao_adaptacao", "label": "Padronização vs Adaptação", "palavras_chave": ["padronização", "adaptação produto", "global x local", "glocal"]},
+                {"codigo": "cex_embalagem_int", "label": "Embalagem para Exportação", "palavras_chave": ["embalagem para exportação", "embalagem internacional", "marcação de embalagem", "rotulagem exportação"]},
+                {"codigo": "cex_marca_internacional", "label": "Marca Internacional e Branding", "palavras_chave": ["marca internacional", "branding internacional", "global brand", "registro de marca internacional"]}
+              ]
+            },
+            {
+              "codigo": "cex_formacao_preco_export",
+              "label": "Formação de Preço de Exportação",
+              "palavras_chave": ["formação de preço de exportação", "pricing internacional", "preço de exportação", "cálculo preço exportação"],
+              "filhos": [
+                {"codigo": "cex_custos_export", "label": "Composição de Custos para Exportação", "palavras_chave": ["custos para exportação", "custo de produção exportação", "encargos exportação"]},
+                {"codigo": "cex_preco_ex_fabrica", "label": "Preço Ex-Fábrica", "palavras_chave": ["preço ex-fábrica", "ex factory price", "preço de venda na fábrica"]},
+                {"codigo": "cex_markup_export", "label": "Markup e Margem de Exportação", "palavras_chave": ["markup exportação", "margem exportação", "lucro exportação"]},
+                {"codigo": "cex_preco_fob_cif_calc", "label": "Cálculo de Preço FOB, CFR e CIF", "palavras_chave": ["calcular preço fob", "preço cif", "como precificar exportação", "fórmula fob cif"]}
+              ]
+            },
+            {
+              "codigo": "cex_barreiras",
+              "label": "Barreiras ao Comércio",
+              "palavras_chave": ["barreiras comerciais", "barreiras ao comércio", "obstáculos exportação"],
+              "filhos": [
+                {"codigo": "cex_barreiras_tarifarias", "label": "Barreiras Tarifárias", "palavras_chave": ["barreiras tarifárias", "tarifa de importação", "imposto de importação como barreira"]},
+                {"codigo": "cex_barreiras_nao_tarifarias", "label": "Barreiras Não Tarifárias", "palavras_chave": ["barreiras não tarifárias", "bnt", "barreira técnica", "quota de importação", "embargo"]},
+                {"codigo": "cex_barreiras_tecnicas", "label": "Barreiras Técnicas (TBT)", "palavras_chave": ["barreiras técnicas", "tbt", "technical barriers to trade", "regulamento técnico"]},
+                {"codigo": "cex_barreiras_sanitarias", "label": "Barreiras Sanitárias e Fitossanitárias (SPS)", "palavras_chave": ["barreiras sanitárias", "sps", "barreira fitossanitária", "acordo sps omc"]}
+              ]
+            },
+            {
+              "codigo": "cex_modos_entrada",
+              "label": "Modos de Entrada em Mercados Internacionais",
+              "palavras_chave": ["modos de entrada", "entry modes", "estratégia de internacionalização", "uppsala model"],
+              "filhos": [
+                {"codigo": "cex_exportacao_direta_indireta", "label": "Exportação Direta e Indireta", "palavras_chave": ["exportação direta", "exportação indireta", "trading exportadora"]},
+                {"codigo": "cex_licenciamento_franchising", "label": "Licenciamento e Franchising", "palavras_chave": ["licenciamento internacional", "franchising internacional", "franquia internacional"]},
+                {"codigo": "cex_joint_venture", "label": "Joint Venture e Aliança Estratégica", "palavras_chave": ["joint venture", "aliança estratégica internacional", "parceria internacional"]},
+                {"codigo": "cex_ide", "label": "IDE - Investimento Direto Externo", "palavras_chave": ["ide", "investimento direto estrangeiro", "subsidiária integral", "greenfield brownfield"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "cex_indicadores_estatisticas",
+          "label": "Indicadores e Estatísticas de Comércio Exterior",
+          "palavras_chave": ["indicadores comércio exterior", "estatísticas comex", "dados de exportação importação", "trade statistics"],
+          "filhos": [
+            {"codigo": "cex_balanca_comercial_ind", "label": "Indicadores da Balança Comercial", "palavras_chave": ["indicadores balança comercial", "saldo comercial mensal", "corrente de comércio"]},
+            {"codigo": "cex_intercambio", "label": "Intercâmbio Comercial Brasileiro", "palavras_chave": ["intercâmbio comercial", "intercambio comercial brasileiro", "principais parceiros comerciais"]},
+            {"codigo": "cex_exportacao_ncm", "label": "Exportação e Importação por NCM", "palavras_chave": ["exportação por ncm", "importação por ncm", "dados por produto", "estatística por ncm"]},
+            {"codigo": "cex_comex_stat", "label": "Comex Stat / Comex Vis", "palavras_chave": ["comex stat", "comex vis", "estatísticas de comércio exterior mdic", "siscomex estatística"]},
+            {"codigo": "cex_aliceweb", "label": "AliceWeb (legado)", "palavras_chave": ["aliceweb", "alice web", "estatísticas comex legado", "antigo sistema estatístico"]},
+            {"codigo": "cex_competitividade", "label": "Indicadores de Competitividade Externa", "palavras_chave": ["competitividade internacional", "indicador de competitividade", "vantagem comparativa revelada", "vcr"]},
+            {"codigo": "cex_termos_troca", "label": "Termos de Troca", "palavras_chave": ["termos de troca", "terms of trade", "preço de exportação importação relação"]}
+          ]
+        },
+        {
+          "codigo": "cex_seguros_internacionais",
+          "label": "Seguros Internacionais de Carga",
+          "palavras_chave": ["seguro internacional de carga", "marine cargo insurance", "cargo insurance", "seguro de transporte internacional"],
+          "filhos": [
+            {
+              "codigo": "cex_clausulas_icc",
+              "label": "Cláusulas ICC (Institute Cargo Clauses)",
+              "palavras_chave": ["icc", "institute cargo clauses", "cláusula a b c seguro", "lloyd's cláusulas"],
+              "filhos": [
+                {"codigo": "cex_icc_a", "label": "ICC (A) - All Risks", "palavras_chave": ["icc a", "all risks", "cobertura ampla seguro carga"]},
+                {"codigo": "cex_icc_b", "label": "ICC (B) - Cobertura Intermediária", "palavras_chave": ["icc b", "cobertura intermediária seguro carga"]},
+                {"codigo": "cex_icc_c", "label": "ICC (C) - Cobertura Restrita", "palavras_chave": ["icc c", "cobertura restrita", "cobertura básica seguro carga"]}
+              ]
+            },
+            {"codigo": "cex_apolice", "label": "Apólice de Seguro Internacional", "palavras_chave": ["apólice seguro carga", "policy of insurance", "certificado de seguro internacional"]},
+            {"codigo": "cex_avaria_geral", "label": "Avaria Grossa e Avaria Particular", "palavras_chave": ["avaria grossa", "avaria geral", "general average", "avaria particular"]},
+            {"codigo": "cex_riscos_carga", "label": "Riscos Cobertos e Excluídos", "palavras_chave": ["riscos cobertos seguro carga", "exclusões seguro", "riscos de guerra", "war risks"]}
+          ]
+        },
+        {
+          "codigo": "cex_riscos_compliance",
+          "label": "Riscos, Compliance e OEA",
+          "palavras_chave": ["compliance aduaneiro", "riscos no comércio exterior", "oea", "operador econômico autorizado", "compliance comex"],
+          "filhos": [
+            {
+              "codigo": "cex_oea",
+              "label": "OEA - Operador Econômico Autorizado",
+              "palavras_chave": ["oea", "operador econômico autorizado", "authorized economic operator", "certificação oea brasil"],
+              "filhos": [
+                {"codigo": "cex_oea_seguranca", "label": "OEA-Segurança", "palavras_chave": ["oea segurança", "modalidade segurança oea"]},
+                {"codigo": "cex_oea_conformidade", "label": "OEA-Conformidade", "palavras_chave": ["oea conformidade", "oea conformidade nível 1", "oea conformidade nível 2"]},
+                {"codigo": "cex_oea_integrado", "label": "OEA-Integrado", "palavras_chave": ["oea integrado", "oea completo", "oea pleno"]},
+                {"codigo": "cex_oea_beneficios", "label": "Benefícios do OEA", "palavras_chave": ["benefícios oea", "vantagens oea", "fast track aduaneiro", "canal verde prioritário"]},
+                {"codigo": "cex_oea_mutual_recognition", "label": "Acordos de Reconhecimento Mútuo", "palavras_chave": ["mutual recognition", "reconhecimento mútuo oea", "mra oea"]}
+              ]
+            },
+            {
+              "codigo": "cex_compliance_aduaneiro",
+              "label": "Compliance Aduaneiro",
+              "palavras_chave": ["compliance aduaneiro", "conformidade aduaneira", "due diligence aduaneiro", "controles internos comex"],
+              "filhos": [
+                {"codigo": "cex_due_diligence", "label": "Due Diligence em Comex", "palavras_chave": ["due diligence", "diligência prévia", "kyc fornecedor", "kyc cliente"]},
+                {"codigo": "cex_kyc", "label": "KYC - Know Your Customer", "palavras_chave": ["kyc", "know your customer", "conheça seu cliente", "kyc internacional"]},
+                {"codigo": "cex_pld_ft", "label": "PLD/FT - Prevenção à Lavagem de Dinheiro", "palavras_chave": ["pld", "lavagem de dinheiro", "ft", "financiamento ao terrorismo", "coaf"]},
+                {"codigo": "cex_coaf", "label": "COAF e Lei 9.613/98", "palavras_chave": ["coaf", "lei 9.613", "lavagem de dinheiro lei", "conselho de controle de atividades financeiras"]}
+              ]
+            },
+            {
+              "codigo": "cex_bens_controlados",
+              "label": "Bens Controlados, Embargos e Sanções",
+              "palavras_chave": ["bens controlados", "lista de bens sensíveis", "dual use", "embargos econômicos"],
+              "filhos": [
+                {"codigo": "cex_dual_use", "label": "Bens de Uso Dual", "palavras_chave": ["dual use", "uso dual", "bens de uso duplo", "ciatec"]},
+                {"codigo": "cex_armas_municoes", "label": "Armas, Munições e Explosivos", "palavras_chave": ["importação de armas", "exército produtos controlados", "munições controle", "diex"]},
+                {"codigo": "cex_quimicos_controlados", "label": "Produtos Químicos Controlados", "palavras_chave": ["produtos químicos controlados", "polícia federal precursores", "drogas precursoras"]},
+                {"codigo": "cex_radioativos", "label": "Materiais Radioativos e Nucleares", "palavras_chave": ["cnen", "materiais radioativos", "controle nuclear", "armas nucleares"]},
+                {"codigo": "cex_embargos", "label": "Embargos Internacionais", "palavras_chave": ["embargos", "embargo internacional", "sanção econômica", "sanção comercial"]},
+                {"codigo": "cex_ofac", "label": "OFAC e Sanções dos EUA", "palavras_chave": ["ofac", "sanções ofac", "sdn list", "office of foreign assets control"]},
+                {"codigo": "cex_onu_sancoes", "label": "Sanções da ONU", "palavras_chave": ["sanções onu", "resoluções de sanções", "conselho de segurança onu"]}
+              ]
+            },
+            {
+              "codigo": "cex_fraudes_riscos",
+              "label": "Fraudes e Riscos Operacionais",
+              "palavras_chave": ["fraudes comex", "riscos operacionais comércio exterior", "interposição fraudulenta", "fraude aduaneira"],
+              "filhos": [
+                {"codigo": "cex_interposicao_fraudulenta", "label": "Interposição Fraudulenta", "palavras_chave": ["interposição fraudulenta", "ocultação do real adquirente", "laranja importação"]},
+                {"codigo": "cex_subfaturamento_risco", "label": "Subfaturamento e Superfaturamento", "palavras_chave": ["subfaturamento", "superfaturamento", "ocultação de valor", "fraude valor aduaneiro"]},
+                {"codigo": "cex_contrabando_descaminho", "label": "Contrabando e Descaminho", "palavras_chave": ["contrabando", "descaminho", "crime contra a ordem tributária", "código penal 334"]}
+              ]
+            }
+          ]
+        },
+        {
+          "codigo": "cex_legislacao_normativos",
+          "label": "Legislação e Normativos Aduaneiros",
+          "palavras_chave": ["legislação aduaneira", "normativos comex", "leis comércio exterior", "decretos aduaneiros"],
+          "filhos": [
+            {"codigo": "cex_regulamento_aduaneiro", "label": "Regulamento Aduaneiro (Decreto 6.759/2009)", "palavras_chave": ["regulamento aduaneiro", "decreto 6.759", "ra 2009", "decreto 6759/2009"]},
+            {"codigo": "cex_dl_37", "label": "Decreto-Lei 37/1966", "palavras_chave": ["decreto-lei 37", "dl 37", "lei aduaneira", "1966 imposto de importação"]},
+            {"codigo": "cex_in_1984", "label": "IN RFB 1.984/2020 (Habilitação Radar)", "palavras_chave": ["in rfb 1984", "instrução normativa 1.984", "habilitação radar", "1984/2020"]},
+            {"codigo": "cex_in_2090", "label": "IN RFB 2.090/2022 (DUImp)", "palavras_chave": ["in rfb 2090", "instrução normativa duimp", "regulamentação duimp"]},
+            {"codigo": "cex_in_1657", "label": "IN RFB 1.657 (Exportação)", "palavras_chave": ["in rfb 1657", "due exportação norma", "regulamentação due"]},
+            {"codigo": "cex_lei_14286", "label": "Lei 14.286/2021 (Marco Cambial)", "palavras_chave": ["lei 14.286", "novo marco cambial", "lei cambial 2021", "fluxo de capitais"]},
+            {"codigo": "cex_lei_kandir", "label": "Lei Kandir (LC 87/96)", "palavras_chave": ["lei kandir", "lc 87/96", "lei complementar 87", "icms exportação lei"]},
+            {"codigo": "cex_lei_9611_legis", "label": "Lei 9.611/1998 (Multimodal)", "palavras_chave": ["lei 9.611", "lei 9611", "marco multimodal lei", "transporte multimodal lei"]}
+          ]
+        }
+      ]
+    }
+  ]
+}
