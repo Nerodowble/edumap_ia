@@ -273,10 +273,16 @@ class TurmaCreate(BaseModel):
 
 class AlunoCreate(BaseModel):
     nome: str
+    ra: str = ""
+    cpf: str = ""
+    data_nascimento: str = ""
 
 
 class AlunoUpdate(BaseModel):
     nome: str
+    ra: str = ""
+    cpf: str = ""
+    data_nascimento: str = ""
 
 
 class TurmaUpdate(BaseModel):
@@ -570,17 +576,20 @@ def list_alunos(turma_id: int, user=Depends(get_current_user)):
 @app.post("/turmas/{turma_id}/alunos", status_code=201, summary="Adiciona aluno à turma")
 def create_aluno(turma_id: int, body: AlunoCreate, user=Depends(get_current_user)):
     _require_turma_access(turma_id, user)
-    aid = db.criar_aluno(body.nome, turma_id)
-    return {"id": aid, "nome": body.nome, "turma_id": turma_id}
+    aid = db.criar_aluno(body.nome, turma_id, body.ra, body.cpf, body.data_nascimento)
+    return {
+        "id": aid, "nome": body.nome, "turma_id": turma_id,
+        "ra": body.ra, "cpf": body.cpf, "data_nascimento": body.data_nascimento,
+    }
 
 
-@app.put("/alunos/{aluno_id}", summary="Atualiza o nome de um aluno")
+@app.put("/alunos/{aluno_id}", summary="Atualiza dados de um aluno")
 def update_aluno(aluno_id: int, body: AlunoUpdate, user=Depends(get_current_user)):
     aluno = db.get_aluno(aluno_id)
     if not aluno:
         raise HTTPException(404, "Aluno não encontrado.")
     _require_turma_access(aluno["turma_id"], user)
-    if not db.atualizar_aluno(aluno_id, body.nome):
+    if not db.atualizar_aluno_completo(aluno_id, body.nome, body.ra, body.cpf, body.data_nascimento):
         raise HTTPException(400, "Nome inválido.")
     return db.get_aluno(aluno_id)
 
@@ -872,3 +881,368 @@ async def ocr_gabarito_aluno(
         raise HTTPException(500, f"Erro no OCR: {exc}") from exc
     finally:
         os.unlink(tmp_path)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROVA ONLINE — Pivô para criação manual + aplicação online
+# ═══════════════════════════════════════════════════════════════════════════════
+import hashlib  # noqa: E402
+import secrets  # noqa: E402
+from typing import List  # noqa: E402
+from fastapi import Request  # noqa: E402
+
+
+# ── Helpers ──────────────────────────────────────────────────────────────────
+def _fingerprint(request: Request) -> str:
+    """Gera fingerprint do dispositivo (sha256 do IP + User-Agent)."""
+    xff = request.headers.get("x-forwarded-for", "")
+    ip = (xff.split(",")[0].strip() if xff else (request.client.host if request.client else "")) or ""
+    ua = request.headers.get("user-agent", "") or ""
+    raw = f"{ip}::{ua}"
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:32]
+
+
+def _request_ip(request: Request) -> str:
+    xff = request.headers.get("x-forwarded-for", "")
+    if xff:
+        return xff.split(",")[0].strip()
+    return (request.client.host if request.client else "") or ""
+
+
+def _gerar_pin() -> str:
+    """PIN de 6 dígitos. Não usa 0 e 1 pra evitar confusão visual."""
+    digitos = "23456789"
+    return "".join(secrets.choice(digitos) for _ in range(6))
+
+
+def _create_aluno_token(aluno_id: int) -> str:
+    """JWT específico de aluno (não é usuário do sistema)."""
+    exp = datetime.now(timezone.utc) + timedelta(hours=8)
+    return jwt.encode({"aid": aluno_id, "kind": "aluno", "exp": exp}, _SECRET, algorithm=_ALGO)
+
+
+def get_current_aluno(creds: Optional[HTTPAuthorizationCredentials] = Depends(_bearer)) -> Dict:
+    if not creds:
+        raise HTTPException(401, "Token de aluno não fornecido.")
+    try:
+        payload = jwt.decode(creds.credentials, _SECRET, algorithms=[_ALGO])
+        if payload.get("kind") != "aluno":
+            raise HTTPException(401, "Token inválido.")
+        aid = int(payload.get("aid", 0))
+    except (JWTError, ValueError):
+        raise HTTPException(401, "Token inválido ou expirado.")
+    aluno = db.get_aluno(aid)
+    if not aluno:
+        raise HTTPException(401, "Aluno não encontrado.")
+    return aluno
+
+
+# ── Schemas ──────────────────────────────────────────────────────────────────
+class ProvaManualCreate(BaseModel):
+    titulo: str
+    turma_id: Optional[int] = None
+    disciplina: str = ""
+    serie: str = ""
+    tempo_limite_min: Optional[int] = None
+
+
+class QuestaoCreate(BaseModel):
+    stem: str
+    alternativas: List[str]
+    gabarito: str
+    tipo: str = "multipla_escolha"
+    bloom_nivel: int = 0
+    bloom_nome: str = ""
+    bloom_verbo: str = ""
+    taxonomia_codigo: str = ""
+
+
+class QuestaoUpdate(BaseModel):
+    stem: str
+    alternativas: List[str]
+    gabarito: str
+    tipo: str = "multipla_escolha"
+    bloom_nivel: int = 0
+    bloom_nome: str = ""
+    bloom_verbo: str = ""
+    taxonomia_codigo: str = ""
+
+
+class PublicarProvaIn(BaseModel):
+    tempo_limite_min: Optional[int] = None
+
+
+class AlunoLoginIn(BaseModel):
+    nome: str
+    ra: str
+
+
+class IniciarProvaIn(BaseModel):
+    pin: str
+
+
+class ResponderQuestaoIn(BaseModel):
+    questao_id: int
+    resposta: str
+    tempo_segundos: Optional[int] = None
+
+
+# ── Endpoints professor: prova manual ────────────────────────────────────────
+@app.post("/provas/manual", status_code=201, summary="Cria uma prova manualmente (sem OCR), em rascunho")
+def criar_prova_manual_endpoint(body: ProvaManualCreate, user=Depends(get_current_user)):
+    if body.turma_id:
+        _require_turma_access(body.turma_id, user)
+    pid = db.criar_prova_manual(
+        titulo=body.titulo or "Prova sem título",
+        turma_id=body.turma_id,
+        disciplina=body.disciplina,
+        serie=body.serie,
+        usuario_id=user["id"],
+        tempo_limite_min=body.tempo_limite_min,
+    )
+    return db.get_prova(pid)
+
+
+@app.get("/provas/{prova_id}/edicao", summary="Detalhes da prova para edição (com alternativas e gabarito)")
+def get_prova_edicao(prova_id: int, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
+    prova = db.get_prova(prova_id)
+    questoes = db.get_questoes_prova(prova_id)
+    gabarito = db.get_gabarito(prova_id)
+    import json as _json
+    for q in questoes:
+        try:
+            q["alternativas"] = _json.loads(q.get("alternativas") or "[]")
+        except Exception:
+            q["alternativas"] = []
+        q["gabarito"] = gabarito.get(q["numero"], "")
+    return {"prova": prova, "questoes": questoes}
+
+
+@app.post("/provas/{prova_id}/questoes", status_code=201, summary="Adiciona questão a uma prova manual")
+def add_questao_manual(prova_id: int, body: QuestaoCreate, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
+    prova = db.get_prova(prova_id)
+    if prova.get("status") == "encerrada":
+        raise HTTPException(400, "Prova já encerrada.")
+    # Próximo número
+    questoes = db.get_questoes_prova(prova_id)
+    proximo = (max([q["numero"] for q in questoes], default=0) or 0) + 1
+    qid = db.adicionar_questao_manual(
+        prova_id=prova_id,
+        numero=proximo,
+        stem=body.stem,
+        alternativas=body.alternativas,
+        gabarito=body.gabarito,
+        tipo=body.tipo,
+        bloom_nivel=body.bloom_nivel,
+        bloom_nome=body.bloom_nome,
+        bloom_verbo=body.bloom_verbo,
+        taxonomia_codigo=body.taxonomia_codigo,
+    )
+    return {"id": qid, "numero": proximo}
+
+
+@app.put("/provas/{prova_id}/questoes/{questao_id}", summary="Atualiza questão de uma prova manual")
+def update_questao_manual(prova_id: int, questao_id: int, body: QuestaoUpdate, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
+    if not db.atualizar_questao_manual(
+        questao_id=questao_id,
+        stem=body.stem,
+        alternativas=body.alternativas,
+        gabarito=body.gabarito,
+        tipo=body.tipo,
+        bloom_nivel=body.bloom_nivel,
+        bloom_nome=body.bloom_nome,
+        bloom_verbo=body.bloom_verbo,
+        taxonomia_codigo=body.taxonomia_codigo,
+    ):
+        raise HTTPException(404, "Questão não encontrada.")
+    return {"ok": True}
+
+
+@app.delete("/provas/{prova_id}/questoes/{questao_id}", status_code=204, summary="Remove questão")
+def delete_questao(prova_id: int, questao_id: int, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
+    if not db.deletar_questao(questao_id):
+        raise HTTPException(404, "Questão não encontrada.")
+
+
+@app.post("/provas/{prova_id}/publicar", summary="Publica prova e gera PIN ad-hoc")
+def publicar_prova_endpoint(prova_id: int, body: PublicarProvaIn = Body(default=None), user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
+    prova = db.get_prova(prova_id)
+    if not prova.get("turma_id"):
+        raise HTTPException(400, "Vincule a prova a uma turma antes de publicar.")
+    questoes = db.get_questoes_prova(prova_id)
+    if not questoes:
+        raise HTTPException(400, "A prova não tem questões.")
+    pin = _gerar_pin()
+    db.publicar_prova(prova_id, pin, body.tempo_limite_min if body else None)
+    return {"ok": True, "pin": pin, "total_questoes": len(questoes)}
+
+
+@app.post("/provas/{prova_id}/encerrar", summary="Encerra aplicação da prova")
+def encerrar_prova_endpoint(prova_id: int, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
+    db.encerrar_prova(prova_id)
+    return {"ok": True}
+
+
+@app.get("/provas/{prova_id}/monitor", summary="Lista alunos da turma com status de aplicação")
+def monitor_prova(prova_id: int, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
+    prova = db.get_prova(prova_id)
+    acessos = db.listar_acessos_prova(prova_id)
+    out = []
+    for a in acessos:
+        if a.get("finished_at"):
+            status = "finalizado"
+        elif a.get("started_at") and a.get("fingerprint"):
+            status = "em_andamento"
+        elif a.get("started_at"):
+            status = "aguardando_relogin"
+        else:
+            status = "aguardando"
+        out.append({**a, "status": status})
+    return {
+        "prova": {
+            "id": prova["id"],
+            "titulo": prova.get("titulo"),
+            "status": prova.get("status"),
+            "pin": prova.get("pin"),
+            "publicada_em": prova.get("publicada_em"),
+            "encerrada_em": prova.get("encerrada_em"),
+            "total_questoes": prova.get("total_questoes"),
+        },
+        "acessos": out,
+    }
+
+
+@app.post("/provas/{prova_id}/alunos/{aluno_id}/liberar-relogin", summary="Libera relogin de aluno (caso celular travou)")
+def liberar_relogin_endpoint(prova_id: int, aluno_id: int, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
+    ok = db.liberar_relogin(prova_id, aluno_id)
+    if not ok:
+        raise HTTPException(400, "Não foi possível liberar relogin (prova já finalizada ou inexistente).")
+    return {"ok": True}
+
+
+# ── Endpoints públicos do aluno ──────────────────────────────────────────────
+@app.post("/aluno/auth", summary="Login do aluno (Nome completo + R.A.)")
+def aluno_auth(body: AlunoLoginIn):
+    aluno = db.buscar_aluno_por_nome_ra(body.nome, body.ra)
+    if not aluno:
+        raise HTTPException(401, "Nome ou R.A. não conferem. Verifique com o professor.")
+    tok = _create_aluno_token(aluno["id"])
+    return {"token": tok, "aluno": {"id": aluno["id"], "nome": aluno["nome"], "ra": aluno.get("ra") or ""}}
+
+
+@app.get("/aluno/me", summary="Dados do aluno autenticado")
+def aluno_me(aluno=Depends(get_current_aluno)):
+    return {
+        "id": aluno["id"],
+        "nome": aluno["nome"],
+        "ra": aluno.get("ra") or "",
+        "turma_id": aluno.get("turma_id"),
+    }
+
+
+@app.get("/aluno/provas", summary="Lista provas em aberto da turma do aluno")
+def aluno_listar_provas(aluno=Depends(get_current_aluno)):
+    return db.listar_provas_em_aberto_para_aluno(aluno["id"])
+
+
+@app.post("/aluno/provas/{prova_id}/iniciar", summary="Inicia uma prova (valida PIN, registra fingerprint)")
+def aluno_iniciar_prova(prova_id: int, body: IniciarProvaIn, request: Request, aluno=Depends(get_current_aluno)):
+    prova = db.get_prova(prova_id)
+    if not prova:
+        raise HTTPException(404, "Prova não encontrada.")
+    if prova.get("status") != "publicada":
+        raise HTTPException(400, "Esta prova não está aberta para resposta.")
+    if (prova.get("pin") or "").strip() != (body.pin or "").strip():
+        raise HTTPException(401, "PIN inválido. Confira com o professor.")
+    if prova.get("turma_id") != aluno.get("turma_id"):
+        raise HTTPException(403, "Esta prova não pertence à sua turma.")
+
+    fp = _fingerprint(request)
+    ip = _request_ip(request)
+    ua = request.headers.get("user-agent", "")
+    try:
+        acesso = db.criar_ou_obter_acesso(prova_id, aluno["id"], fp, ip, ua)
+    except ValueError as e:
+        msg = str(e)
+        if msg == "prova_ja_finalizada":
+            raise HTTPException(403, "Você já finalizou esta prova.")
+        if msg == "dispositivo_diferente":
+            raise HTTPException(409, "Esta prova já foi iniciada em outro dispositivo. Peça ao professor para liberar relogin.")
+        raise HTTPException(400, "Não foi possível iniciar a prova.")
+    return {"ok": True, "acesso": acesso}
+
+
+@app.get("/aluno/provas/{prova_id}/questoes", summary="Retorna as questões (sem o gabarito) para o aluno responder")
+def aluno_questoes(prova_id: int, request: Request, aluno=Depends(get_current_aluno)):
+    prova = db.get_prova(prova_id)
+    if not prova:
+        raise HTTPException(404, "Prova não encontrada.")
+    if prova.get("status") != "publicada":
+        raise HTTPException(400, "Prova não está aberta.")
+    if prova.get("turma_id") != aluno.get("turma_id"):
+        raise HTTPException(403, "Você não tem acesso a esta prova.")
+    acesso = db.get_acesso(prova_id, aluno["id"])
+    if not acesso:
+        raise HTTPException(403, "Inicie a prova primeiro.")
+    if acesso.get("finished_at"):
+        raise HTTPException(403, "Prova já finalizada.")
+    fp = _fingerprint(request)
+    if acesso.get("fingerprint") and acesso["fingerprint"] != fp:
+        raise HTTPException(409, "Dispositivo diferente do que iniciou a prova.")
+    questoes = db.get_questoes_para_aluno(prova_id)
+    return {
+        "prova": {
+            "id": prova["id"], "titulo": prova.get("titulo"),
+            "disciplina": prova.get("disciplina"), "total_questoes": prova.get("total_questoes"),
+            "tempo_limite_min": prova.get("tempo_limite_min"),
+        },
+        "started_at": acesso.get("started_at"),
+        "questoes": questoes,
+    }
+
+
+@app.post("/aluno/provas/{prova_id}/responder", summary="Salva a resposta do aluno para uma questão")
+def aluno_responder(prova_id: int, body: ResponderQuestaoIn, request: Request, aluno=Depends(get_current_aluno)):
+    prova = db.get_prova(prova_id)
+    if not prova or prova.get("status") != "publicada":
+        raise HTTPException(400, "Prova indisponível.")
+    if prova.get("turma_id") != aluno.get("turma_id"):
+        raise HTTPException(403, "Sem acesso.")
+    acesso = db.get_acesso(prova_id, aluno["id"])
+    if not acesso or acesso.get("finished_at"):
+        raise HTTPException(403, "Prova não iniciada ou já finalizada.")
+    fp = _fingerprint(request)
+    if acesso.get("fingerprint") and acesso["fingerprint"] != fp:
+        raise HTTPException(409, "Dispositivo diferente.")
+    out = db.salvar_resposta_unica(
+        aluno_id=aluno["id"],
+        questao_id=body.questao_id,
+        resposta=body.resposta,
+        tempo_segundos=body.tempo_segundos,
+    )
+    if not out.get("ok"):
+        raise HTTPException(400, out.get("erro", "Erro ao salvar resposta."))
+    return {"ok": True}
+
+
+@app.post("/aluno/provas/{prova_id}/finalizar", summary="Finaliza a prova do aluno (registra finished_at)")
+def aluno_finalizar(prova_id: int, request: Request, aluno=Depends(get_current_aluno)):
+    prova = db.get_prova(prova_id)
+    if not prova:
+        raise HTTPException(404, "Prova não encontrada.")
+    acesso = db.get_acesso(prova_id, aluno["id"])
+    if not acesso:
+        raise HTTPException(403, "Prova não iniciada.")
+    fp = _fingerprint(request)
+    if acesso.get("fingerprint") and acesso["fingerprint"] != fp:
+        raise HTTPException(409, "Dispositivo diferente.")
+    db.finalizar_acesso(prova_id, aluno["id"])
+    return {"ok": True}

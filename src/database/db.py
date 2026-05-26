@@ -41,6 +41,9 @@ _PG_SCHEMA = [
         id        BIGSERIAL PRIMARY KEY,
         nome      TEXT NOT NULL,
         turma_id  BIGINT REFERENCES turmas(id) ON DELETE CASCADE,
+        ra        TEXT,
+        cpf       TEXT,
+        data_nascimento TEXT,
         criado_em TIMESTAMPTZ DEFAULT NOW()
     )""",
     """CREATE TABLE IF NOT EXISTS provas (
@@ -53,7 +56,25 @@ _PG_SCHEMA = [
         ocr_method     TEXT,
         total_questoes INTEGER,
         usuario_id     BIGINT REFERENCES usuarios(id) ON DELETE SET NULL,
+        origem         TEXT DEFAULT 'ocr',
+        status         TEXT DEFAULT 'rascunho',
+        pin            TEXT,
+        publicada_em   TIMESTAMPTZ,
+        encerrada_em   TIMESTAMPTZ,
+        tempo_limite_min INTEGER,
         criado_em      TIMESTAMPTZ DEFAULT NOW()
+    )""",
+    """CREATE TABLE IF NOT EXISTS prova_acessos (
+        id              BIGSERIAL PRIMARY KEY,
+        prova_id        BIGINT NOT NULL REFERENCES provas(id) ON DELETE CASCADE,
+        aluno_id        BIGINT NOT NULL REFERENCES alunos(id) ON DELETE CASCADE,
+        started_at      TIMESTAMPTZ DEFAULT NOW(),
+        finished_at     TIMESTAMPTZ,
+        fingerprint     TEXT,
+        ip              TEXT,
+        user_agent      TEXT,
+        liberado_em     TIMESTAMPTZ,
+        UNIQUE (prova_id, aluno_id)
     )""",
     """CREATE TABLE IF NOT EXISTS questoes (
         id               BIGSERIAL PRIMARY KEY,
@@ -61,6 +82,7 @@ _PG_SCHEMA = [
         numero           INTEGER,
         texto            TEXT,
         stem             TEXT,
+        alternativas     TEXT,
         tipo             TEXT DEFAULT 'multipla_escolha',
         area_key         TEXT,
         area_display     TEXT,
@@ -73,13 +95,14 @@ _PG_SCHEMA = [
         bncc_codigos     TEXT
     )""",
     """CREATE TABLE IF NOT EXISTS respostas (
-        id         BIGSERIAL PRIMARY KEY,
-        aluno_id   BIGINT NOT NULL REFERENCES alunos(id) ON DELETE CASCADE,
-        questao_id BIGINT NOT NULL REFERENCES questoes(id) ON DELETE CASCADE,
-        resposta   TEXT,
-        gabarito   TEXT,
-        correta    INTEGER DEFAULT 0,
-        criado_em  TIMESTAMPTZ DEFAULT NOW(),
+        id              BIGSERIAL PRIMARY KEY,
+        aluno_id        BIGINT NOT NULL REFERENCES alunos(id) ON DELETE CASCADE,
+        questao_id      BIGINT NOT NULL REFERENCES questoes(id) ON DELETE CASCADE,
+        resposta        TEXT,
+        gabarito        TEXT,
+        correta         INTEGER DEFAULT 0,
+        tempo_segundos  INTEGER,
+        criado_em       TIMESTAMPTZ DEFAULT NOW(),
         UNIQUE (aluno_id, questao_id)
     )""",
     """CREATE TABLE IF NOT EXISTS gabarito (
@@ -126,6 +149,9 @@ CREATE TABLE IF NOT EXISTS alunos (
     id        INTEGER PRIMARY KEY AUTOINCREMENT,
     nome      TEXT NOT NULL,
     turma_id  INTEGER REFERENCES turmas(id) ON DELETE CASCADE,
+    ra        TEXT,
+    cpf       TEXT,
+    data_nascimento TEXT,
     criado_em TEXT DEFAULT (datetime('now','localtime'))
 );
 CREATE TABLE IF NOT EXISTS provas (
@@ -138,7 +164,25 @@ CREATE TABLE IF NOT EXISTS provas (
     ocr_method     TEXT,
     total_questoes INTEGER,
     usuario_id     INTEGER REFERENCES usuarios(id) ON DELETE SET NULL,
+    origem         TEXT DEFAULT 'ocr',
+    status         TEXT DEFAULT 'rascunho',
+    pin            TEXT,
+    publicada_em   TEXT,
+    encerrada_em   TEXT,
+    tempo_limite_min INTEGER,
     criado_em      TEXT DEFAULT (datetime('now','localtime'))
+);
+CREATE TABLE IF NOT EXISTS prova_acessos (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    prova_id        INTEGER NOT NULL REFERENCES provas(id) ON DELETE CASCADE,
+    aluno_id        INTEGER NOT NULL REFERENCES alunos(id) ON DELETE CASCADE,
+    started_at      TEXT DEFAULT (datetime('now','localtime')),
+    finished_at     TEXT,
+    fingerprint     TEXT,
+    ip              TEXT,
+    user_agent      TEXT,
+    liberado_em     TEXT,
+    UNIQUE(prova_id, aluno_id)
 );
 CREATE TABLE IF NOT EXISTS questoes (
     id               INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -146,6 +190,7 @@ CREATE TABLE IF NOT EXISTS questoes (
     numero           INTEGER,
     texto            TEXT,
     stem             TEXT,
+    alternativas     TEXT,
     tipo             TEXT DEFAULT 'multipla_escolha',
     area_key         TEXT,
     area_display     TEXT,
@@ -158,13 +203,14 @@ CREATE TABLE IF NOT EXISTS questoes (
     bncc_codigos     TEXT
 );
 CREATE TABLE IF NOT EXISTS respostas (
-    id          INTEGER PRIMARY KEY AUTOINCREMENT,
-    aluno_id    INTEGER NOT NULL REFERENCES alunos(id) ON DELETE CASCADE,
-    questao_id  INTEGER NOT NULL REFERENCES questoes(id) ON DELETE CASCADE,
-    resposta    TEXT,
-    gabarito    TEXT,
-    correta     INTEGER DEFAULT 0,
-    criado_em   TEXT DEFAULT (datetime('now','localtime')),
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    aluno_id        INTEGER NOT NULL REFERENCES alunos(id) ON DELETE CASCADE,
+    questao_id      INTEGER NOT NULL REFERENCES questoes(id) ON DELETE CASCADE,
+    resposta        TEXT,
+    gabarito        TEXT,
+    correta         INTEGER DEFAULT 0,
+    tempo_segundos  INTEGER,
+    criado_em       TEXT DEFAULT (datetime('now','localtime')),
     UNIQUE(aluno_id, questao_id)
 );
 CREATE TABLE IF NOT EXISTS gabarito (
@@ -270,6 +316,17 @@ class _Conn:
                 "ALTER TABLE questoes ADD COLUMN IF NOT EXISTS taxonomia_codigo TEXT",
                 "ALTER TABLE provas ADD COLUMN IF NOT EXISTS usuario_id BIGINT REFERENCES usuarios(id) ON DELETE SET NULL",
                 "ALTER TABLE questoes ADD COLUMN IF NOT EXISTS tipo TEXT DEFAULT 'multipla_escolha'",
+                "ALTER TABLE alunos ADD COLUMN IF NOT EXISTS ra TEXT",
+                "ALTER TABLE alunos ADD COLUMN IF NOT EXISTS cpf TEXT",
+                "ALTER TABLE alunos ADD COLUMN IF NOT EXISTS data_nascimento TEXT",
+                "ALTER TABLE provas ADD COLUMN IF NOT EXISTS origem TEXT DEFAULT 'ocr'",
+                "ALTER TABLE provas ADD COLUMN IF NOT EXISTS status TEXT DEFAULT 'rascunho'",
+                "ALTER TABLE provas ADD COLUMN IF NOT EXISTS pin TEXT",
+                "ALTER TABLE provas ADD COLUMN IF NOT EXISTS publicada_em TIMESTAMPTZ",
+                "ALTER TABLE provas ADD COLUMN IF NOT EXISTS encerrada_em TIMESTAMPTZ",
+                "ALTER TABLE provas ADD COLUMN IF NOT EXISTS tempo_limite_min INTEGER",
+                "ALTER TABLE questoes ADD COLUMN IF NOT EXISTS alternativas TEXT",
+                "ALTER TABLE respostas ADD COLUMN IF NOT EXISTS tempo_segundos INTEGER",
             ]:
                 try:
                     self._cur.execute(alter)
@@ -284,6 +341,17 @@ class _Conn:
                 "ALTER TABLE questoes ADD COLUMN taxonomia_codigo TEXT",
                 "ALTER TABLE provas ADD COLUMN usuario_id INTEGER REFERENCES usuarios(id) ON DELETE SET NULL",
                 "ALTER TABLE questoes ADD COLUMN tipo TEXT DEFAULT 'multipla_escolha'",
+                "ALTER TABLE alunos ADD COLUMN ra TEXT",
+                "ALTER TABLE alunos ADD COLUMN cpf TEXT",
+                "ALTER TABLE alunos ADD COLUMN data_nascimento TEXT",
+                "ALTER TABLE provas ADD COLUMN origem TEXT DEFAULT 'ocr'",
+                "ALTER TABLE provas ADD COLUMN status TEXT DEFAULT 'rascunho'",
+                "ALTER TABLE provas ADD COLUMN pin TEXT",
+                "ALTER TABLE provas ADD COLUMN publicada_em TEXT",
+                "ALTER TABLE provas ADD COLUMN encerrada_em TEXT",
+                "ALTER TABLE provas ADD COLUMN tempo_limite_min INTEGER",
+                "ALTER TABLE questoes ADD COLUMN alternativas TEXT",
+                "ALTER TABLE respostas ADD COLUMN tempo_segundos INTEGER",
             ]:
                 try:
                     self._con.execute(alter)
@@ -345,11 +413,52 @@ def delete_turma(turma_id: int) -> None:
 
 # ── Alunos ────────────────────────────────────────────────────────────────────
 
-def criar_aluno(nome: str, turma_id: int) -> int:
+def criar_aluno(
+    nome: str,
+    turma_id: int,
+    ra: str = "",
+    cpf: str = "",
+    data_nascimento: str = "",
+) -> int:
     with _conn() as con:
         return con.insert(
-            "INSERT INTO alunos (nome, turma_id) VALUES (?,?)", (nome, turma_id)
+            "INSERT INTO alunos (nome, turma_id, ra, cpf, data_nascimento) VALUES (?,?,?,?,?)",
+            (nome, turma_id, ra or "", cpf or "", data_nascimento or ""),
         )
+
+
+def buscar_aluno_por_nome_ra(nome: str, ra: str) -> Optional[Dict]:
+    """Busca aluno por (nome+RA) case-insensitive. Usado no login do aluno."""
+    if not nome or not ra:
+        return None
+    nome_norm = nome.strip().lower()
+    ra_norm = ra.strip()
+    with _conn() as con:
+        rows = con.execute(
+            "SELECT * FROM alunos WHERE LOWER(TRIM(nome))=? AND TRIM(ra)=?",
+            (nome_norm, ra_norm),
+        ).fetchall()
+        return rows[0] if rows else None
+
+
+def atualizar_aluno_completo(
+    aluno_id: int,
+    nome: str,
+    ra: str = "",
+    cpf: str = "",
+    data_nascimento: str = "",
+) -> bool:
+    if not nome or not nome.strip():
+        return False
+    with _conn() as con:
+        existing = con.execute("SELECT id FROM alunos WHERE id=?", (aluno_id,)).fetchone()
+        if not existing:
+            return False
+        con.execute(
+            "UPDATE alunos SET nome=?, ra=?, cpf=?, data_nascimento=? WHERE id=?",
+            (nome.strip(), ra or "", cpf or "", data_nascimento or "", aluno_id),
+        )
+        return True
 
 
 def listar_alunos(turma_id: int) -> List[Dict]:
@@ -874,6 +983,363 @@ def relatorio_drilldown(prova_id: int) -> Dict:
                 )
 
     return tree
+
+
+# ── Prova manual (criada na plataforma, sem OCR) ──────────────────────────────
+
+def criar_prova_manual(
+    titulo: str,
+    turma_id: Optional[int],
+    disciplina: str,
+    serie: str,
+    usuario_id: Optional[int],
+    tempo_limite_min: Optional[int] = None,
+) -> int:
+    """Cria prova manual no estado 'rascunho', sem questões."""
+    with _conn() as con:
+        return con.insert(
+            """INSERT INTO provas
+               (titulo, turma_id, disciplina, serie, arquivo_nome, ocr_method,
+                total_questoes, usuario_id, origem, status, tempo_limite_min)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
+            (titulo, turma_id, disciplina, serie, "", "manual", 0, usuario_id,
+             "manual", "rascunho", tempo_limite_min),
+        )
+
+
+def adicionar_questao_manual(
+    prova_id: int,
+    numero: int,
+    stem: str,
+    alternativas: List[str],
+    gabarito: str,
+    tipo: str = "multipla_escolha",
+    bloom_nivel: int = 0,
+    bloom_nome: str = "",
+    bloom_verbo: str = "",
+    taxonomia_codigo: str = "",
+    area_key: str = "",
+    area_display: str = "",
+) -> int:
+    """Insere questão criada manualmente. Salva alternativas como JSON e
+    grava gabarito na tabela `gabarito` automaticamente."""
+    alts_json = json.dumps(alternativas, ensure_ascii=False)
+    with _conn() as con:
+        qid = con.insert(
+            """INSERT INTO questoes
+               (prova_id, numero, texto, stem, alternativas, tipo,
+                area_key, area_display, subarea_key, subarea_label,
+                bloom_nivel, bloom_nome, bloom_verbo, taxonomia_codigo, bncc_codigos)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+            (prova_id, numero, stem, stem, alts_json, tipo,
+             area_key, area_display, "geral", "Geral",
+             bloom_nivel, bloom_nome, bloom_verbo, taxonomia_codigo, "[]"),
+        )
+        # Atualiza total_questoes
+        con.execute(
+            "UPDATE provas SET total_questoes = (SELECT COUNT(*) FROM questoes WHERE prova_id=?) WHERE id=?",
+            (prova_id, prova_id),
+        )
+        # Grava gabarito
+        if gabarito:
+            con.execute("DELETE FROM gabarito WHERE prova_id=? AND numero_questao=?", (prova_id, numero))
+            con.execute(
+                "INSERT INTO gabarito (prova_id, numero_questao, alternativa) VALUES (?,?,?)",
+                (prova_id, numero, gabarito.upper()),
+            )
+        return qid
+
+
+def atualizar_questao_manual(
+    questao_id: int,
+    stem: str,
+    alternativas: List[str],
+    gabarito: str,
+    tipo: str = "multipla_escolha",
+    bloom_nivel: int = 0,
+    bloom_nome: str = "",
+    bloom_verbo: str = "",
+    taxonomia_codigo: str = "",
+) -> bool:
+    alts_json = json.dumps(alternativas, ensure_ascii=False)
+    with _conn() as con:
+        row = con.execute("SELECT prova_id, numero FROM questoes WHERE id=?", (questao_id,)).fetchone()
+        if not row:
+            return False
+        con.execute(
+            """UPDATE questoes SET stem=?, texto=?, alternativas=?, tipo=?,
+                                   bloom_nivel=?, bloom_nome=?, bloom_verbo=?,
+                                   taxonomia_codigo=?
+                                   WHERE id=?""",
+            (stem, stem, alts_json, tipo, bloom_nivel, bloom_nome, bloom_verbo, taxonomia_codigo, questao_id),
+        )
+        if gabarito:
+            con.execute("DELETE FROM gabarito WHERE prova_id=? AND numero_questao=?", (row["prova_id"], row["numero"]))
+            con.execute(
+                "INSERT INTO gabarito (prova_id, numero_questao, alternativa) VALUES (?,?,?)",
+                (row["prova_id"], row["numero"], gabarito.upper()),
+            )
+        return True
+
+
+def deletar_questao(questao_id: int) -> bool:
+    with _conn() as con:
+        row = con.execute("SELECT prova_id, numero FROM questoes WHERE id=?", (questao_id,)).fetchone()
+        if not row:
+            return False
+        con.execute("DELETE FROM questoes WHERE id=?", (questao_id,))
+        con.execute("DELETE FROM gabarito WHERE prova_id=? AND numero_questao=?", (row["prova_id"], row["numero"]))
+        # Renumera questões restantes e atualiza total
+        questoes = con.execute(
+            "SELECT id, numero FROM questoes WHERE prova_id=? ORDER BY numero", (row["prova_id"],)
+        ).fetchall()
+        for novo_idx, q in enumerate(questoes, start=1):
+            if q["numero"] != novo_idx:
+                con.execute("UPDATE questoes SET numero=? WHERE id=?", (novo_idx, q["id"]))
+                con.execute(
+                    "UPDATE gabarito SET numero_questao=? WHERE prova_id=? AND numero_questao=?",
+                    (novo_idx, row["prova_id"], q["numero"]),
+                )
+        con.execute(
+            "UPDATE provas SET total_questoes = (SELECT COUNT(*) FROM questoes WHERE prova_id=?) WHERE id=?",
+            (row["prova_id"], row["prova_id"]),
+        )
+        return True
+
+
+def publicar_prova(prova_id: int, pin: str, tempo_limite_min: Optional[int] = None) -> bool:
+    """Publica prova (status='publicada') com PIN ad-hoc."""
+    with _conn() as con:
+        existing = con.execute("SELECT id FROM provas WHERE id=?", (prova_id,)).fetchone()
+        if not existing:
+            return False
+        if _BACKEND == "postgres":
+            con.execute(
+                "UPDATE provas SET status='publicada', pin=?, tempo_limite_min=?, publicada_em=NOW(), encerrada_em=NULL WHERE id=?",
+                (pin, tempo_limite_min, prova_id),
+            )
+        else:
+            con.execute(
+                "UPDATE provas SET status='publicada', pin=?, tempo_limite_min=?, publicada_em=datetime('now','localtime'), encerrada_em=NULL WHERE id=?",
+                (pin, tempo_limite_min, prova_id),
+            )
+        return True
+
+
+def encerrar_prova(prova_id: int) -> bool:
+    with _conn() as con:
+        existing = con.execute("SELECT id FROM provas WHERE id=?", (prova_id,)).fetchone()
+        if not existing:
+            return False
+        if _BACKEND == "postgres":
+            con.execute(
+                "UPDATE provas SET status='encerrada', encerrada_em=NOW() WHERE id=?",
+                (prova_id,),
+            )
+        else:
+            con.execute(
+                "UPDATE provas SET status='encerrada', encerrada_em=datetime('now','localtime') WHERE id=?",
+                (prova_id,),
+            )
+        return True
+
+
+def get_questoes_para_aluno(prova_id: int) -> List[Dict]:
+    """Retorna questões da prova SEM expor o gabarito ao aluno.
+    Inclui o campo `alternativas` decodificado."""
+    with _conn() as con:
+        rows = con.execute(
+            """SELECT id, numero, stem, alternativas, tipo
+               FROM questoes WHERE prova_id=? ORDER BY numero""",
+            (prova_id,),
+        ).fetchall()
+        for r in rows:
+            try:
+                r["alternativas"] = json.loads(r.get("alternativas") or "[]")
+            except Exception:
+                r["alternativas"] = []
+        return rows
+
+
+# ── Prova Acessos (sessão do aluno na prova) ──────────────────────────────────
+
+def get_acesso(prova_id: int, aluno_id: int) -> Optional[Dict]:
+    with _conn() as con:
+        return con.execute(
+            "SELECT * FROM prova_acessos WHERE prova_id=? AND aluno_id=?",
+            (prova_id, aluno_id),
+        ).fetchone()
+
+
+def criar_ou_obter_acesso(
+    prova_id: int,
+    aluno_id: int,
+    fingerprint: str,
+    ip: str,
+    user_agent: str,
+) -> Dict:
+    """Cria acesso ou retorna o existente.
+    Bloqueio: se já existe e o fingerprint é diferente E não foi liberado, lança ValueError."""
+    existing = get_acesso(prova_id, aluno_id)
+    if existing:
+        # Já finalizado? não pode reentrar
+        if existing.get("finished_at"):
+            raise ValueError("prova_ja_finalizada")
+        # Mesmo dispositivo? OK, continua
+        if existing.get("fingerprint") == fingerprint:
+            return existing
+        # Foi liberado pelo professor? OK, atualiza fingerprint e libera novamente
+        if existing.get("liberado_em"):
+            with _conn() as con:
+                con.execute(
+                    "UPDATE prova_acessos SET fingerprint=?, ip=?, user_agent=?, liberado_em=NULL WHERE id=?",
+                    (fingerprint, ip, user_agent, existing["id"]),
+                )
+            return get_acesso(prova_id, aluno_id)  # type: ignore
+        # Bloqueado
+        raise ValueError("dispositivo_diferente")
+
+    # Cria novo
+    with _conn() as con:
+        if _BACKEND == "postgres":
+            con.execute(
+                """INSERT INTO prova_acessos (prova_id, aluno_id, fingerprint, ip, user_agent, started_at)
+                   VALUES (?,?,?,?,?, NOW())""",
+                (prova_id, aluno_id, fingerprint, ip, user_agent),
+            )
+        else:
+            con.execute(
+                """INSERT INTO prova_acessos (prova_id, aluno_id, fingerprint, ip, user_agent, started_at)
+                   VALUES (?,?,?,?,?, datetime('now','localtime'))""",
+                (prova_id, aluno_id, fingerprint, ip, user_agent),
+            )
+    return get_acesso(prova_id, aluno_id)  # type: ignore
+
+
+def finalizar_acesso(prova_id: int, aluno_id: int) -> bool:
+    with _conn() as con:
+        acesso = con.execute(
+            "SELECT id, finished_at FROM prova_acessos WHERE prova_id=? AND aluno_id=?",
+            (prova_id, aluno_id),
+        ).fetchone()
+        if not acesso:
+            return False
+        if acesso.get("finished_at"):
+            return True
+        if _BACKEND == "postgres":
+            con.execute(
+                "UPDATE prova_acessos SET finished_at=NOW() WHERE id=?", (acesso["id"],)
+            )
+        else:
+            con.execute(
+                "UPDATE prova_acessos SET finished_at=datetime('now','localtime') WHERE id=?",
+                (acesso["id"],),
+            )
+        return True
+
+
+def liberar_relogin(prova_id: int, aluno_id: int) -> bool:
+    """Permite que o aluno faça login de novo (zera fingerprint).
+    Não funciona se a prova já foi finalizada — nesse caso o professor precisa
+    chamar reset_prova_aluno."""
+    with _conn() as con:
+        acesso = con.execute(
+            "SELECT id, finished_at FROM prova_acessos WHERE prova_id=? AND aluno_id=?",
+            (prova_id, aluno_id),
+        ).fetchone()
+        if not acesso:
+            return False
+        if acesso.get("finished_at"):
+            return False
+        if _BACKEND == "postgres":
+            con.execute(
+                "UPDATE prova_acessos SET fingerprint=NULL, liberado_em=NOW() WHERE id=?",
+                (acesso["id"],),
+            )
+        else:
+            con.execute(
+                "UPDATE prova_acessos SET fingerprint=NULL, liberado_em=datetime('now','localtime') WHERE id=?",
+                (acesso["id"],),
+            )
+        return True
+
+
+def listar_acessos_prova(prova_id: int) -> List[Dict]:
+    """Para o monitor do professor: lista alunos da turma da prova com status."""
+    with _conn() as con:
+        prova = con.execute("SELECT turma_id FROM provas WHERE id=?", (prova_id,)).fetchone()
+        if not prova or not prova.get("turma_id"):
+            return []
+        return con.execute(
+            """SELECT a.id AS aluno_id, a.nome AS aluno_nome, a.ra,
+                      pa.started_at, pa.finished_at, pa.fingerprint, pa.liberado_em,
+                      pa.ip, pa.user_agent
+               FROM alunos a
+               LEFT JOIN prova_acessos pa
+                 ON pa.aluno_id = a.id AND pa.prova_id = ?
+               WHERE a.turma_id = ?
+               ORDER BY a.nome""",
+            (prova_id, prova["turma_id"]),
+        ).fetchall()
+
+
+def listar_provas_em_aberto_para_aluno(aluno_id: int) -> List[Dict]:
+    """Lista provas publicadas da turma do aluno, marcando quais ele já fez."""
+    with _conn() as con:
+        aluno = con.execute("SELECT turma_id FROM alunos WHERE id=?", (aluno_id,)).fetchone()
+        if not aluno or not aluno.get("turma_id"):
+            return []
+        return con.execute(
+            """SELECT p.id, p.titulo, p.disciplina, p.serie, p.total_questoes,
+                      p.tempo_limite_min, p.publicada_em,
+                      pa.started_at, pa.finished_at
+               FROM provas p
+               LEFT JOIN prova_acessos pa
+                 ON pa.prova_id = p.id AND pa.aluno_id = ?
+               WHERE p.turma_id = ? AND p.status = 'publicada'
+               ORDER BY p.publicada_em DESC""",
+            (aluno_id, aluno["turma_id"]),
+        ).fetchall()
+
+
+def get_prova_por_pin(pin: str) -> Optional[Dict]:
+    with _conn() as con:
+        rows = con.execute(
+            "SELECT * FROM provas WHERE pin=? AND status='publicada'",
+            (pin.strip(),),
+        ).fetchall()
+        return rows[0] if rows else None
+
+
+def salvar_resposta_unica(
+    aluno_id: int,
+    questao_id: int,
+    resposta: str,
+    tempo_segundos: Optional[int] = None,
+) -> Dict:
+    """Salva uma resposta do aluno (online) e calcula automaticamente o gabarito/correta."""
+    with _conn() as con:
+        q = con.execute(
+            "SELECT prova_id, numero FROM questoes WHERE id=?", (questao_id,)
+        ).fetchone()
+        if not q:
+            return {"ok": False, "erro": "questao_nao_encontrada"}
+        gab_row = con.execute(
+            "SELECT alternativa FROM gabarito WHERE prova_id=? AND numero_questao=?",
+            (q["prova_id"], q["numero"]),
+        ).fetchone()
+        gab = (gab_row["alternativa"] if gab_row else "") or ""
+        resp = (resposta or "").strip().upper()
+        correta = 1 if (resp and gab and resp == gab.upper()) else 0
+        con.execute(
+            """INSERT INTO respostas (aluno_id, questao_id, resposta, gabarito, correta, tempo_segundos)
+               VALUES (?,?,?,?,?,?)
+               ON CONFLICT(aluno_id, questao_id) DO UPDATE
+               SET resposta=excluded.resposta, gabarito=excluded.gabarito,
+                   correta=excluded.correta, tempo_segundos=excluded.tempo_segundos""",
+            (aluno_id, questao_id, resp, gab, correta, tempo_segundos),
+        )
+        return {"ok": True, "correta": bool(correta)}
 
 
 # Auto-init on import
