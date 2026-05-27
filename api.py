@@ -508,6 +508,18 @@ def admin_list_usuarios(user=Depends(get_current_user)):
     return db_usuarios.listar_usuarios()
 
 
+# Health/version endpoint para conferir qual commit esta deployado.
+# Sem autenticacao para facilitar debug em producao.
+@app.get("/admin/version", summary="Versão atual da API e endpoints admin disponíveis")
+def admin_version():
+    routes_admin = sorted(
+        f"{list(r.methods - {'HEAD', 'OPTIONS'})[0]} {r.path}"
+        for r in app.routes
+        if hasattr(r, "methods") and hasattr(r, "path") and "/admin/" in r.path
+    )
+    return {"version": "0.1.0", "admin_routes_count": len(routes_admin), "admin_routes": routes_admin}
+
+
 class UsuarioUpdate(BaseModel):
     nome: Optional[str] = None
     role: Optional[str] = None
