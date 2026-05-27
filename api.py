@@ -508,10 +508,64 @@ def admin_list_usuarios(user=Depends(get_current_user)):
     return db_usuarios.listar_usuarios()
 
 
+class UsuarioUpdate(BaseModel):
+    nome: Optional[str] = None
+    role: Optional[str] = None
+    escola: Optional[str] = None
+
+
+@app.put("/admin/usuarios/{usuario_id}", summary="Atualiza usuário (admin_geral)")
+def admin_update_usuario(usuario_id: int, body: UsuarioUpdate, user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    if body.role and body.role not in ("admin_geral", "admin_escolar", "professor"):
+        raise HTTPException(400, "Role inválido. Use admin_geral, admin_escolar ou professor.")
+    if not db_usuarios.atualizar_usuario(
+        usuario_id, nome=body.nome, role=body.role, escola=body.escola,
+    ):
+        raise HTTPException(404, "Usuário não encontrado ou nenhum campo válido foi enviado.")
+    return db_usuarios.get_usuario(usuario_id)
+
+
+@app.delete("/admin/usuarios/{usuario_id}", status_code=204, summary="Deleta usuário (admin_geral)")
+def admin_delete_usuario(usuario_id: int, user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    # Impede auto-deleção
+    if user.get("id") == usuario_id:
+        raise HTTPException(400, "Você não pode deletar sua própria conta.")
+    if not db_usuarios.deletar_usuario(usuario_id):
+        raise HTTPException(404, "Usuário não encontrado.")
+
+
 @app.get("/admin/escolas", summary="Lista escolas agregadas (admin_geral)")
 def admin_list_escolas(user=Depends(get_current_user)):
     _require_admin_geral(user)
     return db_usuarios.listar_escolas()
+
+
+class EscolaRenameIn(BaseModel):
+    nome_novo: str
+
+
+@app.put("/admin/escolas/{nome_antigo}", summary="Renomeia uma escola (admin_geral)")
+def admin_rename_escola(nome_antigo: str, body: EscolaRenameIn, user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    try:
+        res = db_usuarios.renomear_escola(nome_antigo, body.nome_novo)
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+    return {"ok": True, **res}
+
+
+@app.delete("/admin/escolas/{nome}", summary="Apaga escola - deleta usuarios e turmas dessa escola (admin_geral)")
+def admin_delete_escola(nome: str, user=Depends(get_current_user)):
+    _require_admin_geral(user)
+    if (user.get("escola") or "") == nome:
+        raise HTTPException(400, "Você não pode deletar a escola onde sua conta está vinculada.")
+    try:
+        res = db_usuarios.deletar_escola(nome)
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+    return {"ok": True, **res}
 
 
 # ── Admin: Provas ─────────────────────────────────────────────────────────────
