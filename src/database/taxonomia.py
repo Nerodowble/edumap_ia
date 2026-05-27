@@ -187,15 +187,26 @@ def listar_etapas() -> List[Dict]:
 
 
 def listar_materias(etapa: str = "ef2") -> List[Dict]:
+    """Retorna materias da etapa com slug, label (do no raiz) e contagem."""
     with _conn() as con:
-        return con.execute(
+        # Pega contagem por materia
+        counts = con.execute(
             """SELECT materia, COUNT(*) AS total_nos
-               FROM taxonomia
-               WHERE etapa=?
-               GROUP BY materia
-               ORDER BY materia""",
+               FROM taxonomia WHERE etapa=?
+               GROUP BY materia ORDER BY materia""",
             (etapa,),
         ).fetchall()
+        # Pega o label do no raiz (nivel=1) de cada materia
+        roots = con.execute(
+            """SELECT materia, label
+               FROM taxonomia
+               WHERE etapa=? AND nivel=1""",
+            (etapa,),
+        ).fetchall()
+    labels = {r["materia"]: r["label"] for r in roots}
+    for c in counts:
+        c["label"] = labels.get(c["materia"], c["materia"])
+    return counts
 
 
 def listar_nos(materia: Optional[str] = None, etapa: str = "ef2") -> List[Dict]:

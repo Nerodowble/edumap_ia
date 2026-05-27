@@ -34,6 +34,7 @@ _PG_SCHEMA = [
         nome       TEXT NOT NULL,
         escola     TEXT,
         disciplina TEXT,
+        etapa      TEXT,
         usuario_id BIGINT REFERENCES usuarios(id) ON DELETE SET NULL,
         criado_em  TIMESTAMPTZ DEFAULT NOW()
     )""",
@@ -149,6 +150,7 @@ CREATE TABLE IF NOT EXISTS turmas (
     nome        TEXT NOT NULL,
     escola      TEXT,
     disciplina  TEXT,
+    etapa       TEXT,
     usuario_id  INTEGER REFERENCES usuarios(id) ON DELETE SET NULL,
     criado_em   TEXT DEFAULT (datetime('now','localtime'))
 );
@@ -341,6 +343,7 @@ class _Conn:
                 "ALTER TABLE provas ADD COLUMN IF NOT EXISTS tempo_limite_min INTEGER",
                 "ALTER TABLE questoes ADD COLUMN IF NOT EXISTS alternativas TEXT",
                 "ALTER TABLE respostas ADD COLUMN IF NOT EXISTS tempo_segundos INTEGER",
+                "ALTER TABLE turmas ADD COLUMN IF NOT EXISTS etapa TEXT",
             ]:
                 try:
                     self._cur.execute(alter)
@@ -366,6 +369,7 @@ class _Conn:
                 "ALTER TABLE provas ADD COLUMN tempo_limite_min INTEGER",
                 "ALTER TABLE questoes ADD COLUMN alternativas TEXT",
                 "ALTER TABLE respostas ADD COLUMN tempo_segundos INTEGER",
+                "ALTER TABLE turmas ADD COLUMN etapa TEXT",
             ]:
                 try:
                     self._con.execute(alter)
@@ -397,11 +401,17 @@ def init_db():
 
 # ── Turmas ────────────────────────────────────────────────────────────────────
 
-def criar_turma(nome: str, escola: str = "", disciplina: str = "", usuario_id: Optional[int] = None) -> int:
+def criar_turma(
+    nome: str,
+    escola: str = "",
+    disciplina: str = "",
+    etapa: str = "",
+    usuario_id: Optional[int] = None,
+) -> int:
     with _conn() as con:
         return con.insert(
-            "INSERT INTO turmas (nome, escola, disciplina, usuario_id) VALUES (?,?,?,?)",
-            (nome, escola, disciplina, usuario_id),
+            "INSERT INTO turmas (nome, escola, disciplina, etapa, usuario_id) VALUES (?,?,?,?,?)",
+            (nome, escola, disciplina, etapa or None, usuario_id),
         )
 
 
@@ -507,17 +517,30 @@ def deletar_aluno(aluno_id: int) -> bool:
         return True
 
 
-def atualizar_turma(turma_id: int, nome: str, escola: str = "", disciplina: str = "") -> bool:
+def atualizar_turma(
+    turma_id: int,
+    nome: str,
+    escola: str = "",
+    disciplina: str = "",
+    etapa: Optional[str] = None,
+) -> bool:
     if not nome or not nome.strip():
         return False
     with _conn() as con:
         existing = con.execute("SELECT id FROM turmas WHERE id=?", (turma_id,)).fetchone()
         if not existing:
             return False
-        con.execute(
-            "UPDATE turmas SET nome=?, escola=?, disciplina=? WHERE id=?",
-            (nome.strip(), escola or "", disciplina or "", turma_id),
-        )
+        # etapa=None significa "nao alterar" para retrocompat; "" zera; outra string atualiza
+        if etapa is None:
+            con.execute(
+                "UPDATE turmas SET nome=?, escola=?, disciplina=? WHERE id=?",
+                (nome.strip(), escola or "", disciplina or "", turma_id),
+            )
+        else:
+            con.execute(
+                "UPDATE turmas SET nome=?, escola=?, disciplina=?, etapa=? WHERE id=?",
+                (nome.strip(), escola or "", disciplina or "", etapa or None, turma_id),
+            )
         return True
 
 

@@ -269,6 +269,7 @@ class TurmaCreate(BaseModel):
     nome: str
     escola: str = ""
     disciplina: str = ""
+    etapa: str = ""  # slug da etapa (ex: curso_logistica, ef2, superior)
 
 
 class AlunoCreate(BaseModel):
@@ -289,6 +290,7 @@ class TurmaUpdate(BaseModel):
     nome: str
     escola: str = ""
     disciplina: str = ""
+    etapa: Optional[str] = None  # None = nao alterar; "" = limpar; outra string = atualizar
 
 
 class RespostaItem(BaseModel):
@@ -394,6 +396,13 @@ def admin_seed_taxonomia(user=Depends(get_current_user)):
 
 @app.get("/admin/taxonomia/etapas", summary="Lista etapas distintas com contagem")
 def admin_taxonomia_etapas(user=Depends(get_current_user)):
+    return db_taxonomia.listar_etapas()
+
+
+@app.get("/etapas", summary="Lista etapas disponiveis (para professor escolher ao criar turma)")
+def listar_etapas_publicas(user=Depends(get_current_user)):
+    """Mesma lista do /admin/taxonomia/etapas, mas acessivel a qualquer
+    usuario autenticado. Util para o select de etapa ao criar/editar turma."""
     return db_taxonomia.listar_etapas()
 
 
@@ -613,15 +622,15 @@ def list_turmas(user=Depends(get_current_user)):
 @app.post("/turmas", status_code=201, summary="Cria uma nova turma")
 def create_turma(body: TurmaCreate, user=Depends(get_current_user)):
     uid = user["id"] if user["id"] != 0 else None
-    tid = db.criar_turma(body.nome, body.escola, body.disciplina, uid)
+    tid = db.criar_turma(body.nome, body.escola, body.disciplina, body.etapa, uid)
     turma = db.get_turma(tid)
     return turma
 
 
-@app.put("/turmas/{turma_id}", summary="Atualiza nome/escola/disciplina de uma turma")
+@app.put("/turmas/{turma_id}", summary="Atualiza nome/escola/disciplina/etapa de uma turma")
 def update_turma(turma_id: int, body: TurmaUpdate, user=Depends(get_current_user)):
     _require_turma_access(turma_id, user)
-    if not db.atualizar_turma(turma_id, body.nome, body.escola, body.disciplina):
+    if not db.atualizar_turma(turma_id, body.nome, body.escola, body.disciplina, body.etapa):
         raise HTTPException(400, "Não foi possível atualizar a turma. Verifique se o nome é válido.")
     return db.get_turma(turma_id)
 
@@ -630,6 +639,40 @@ def update_turma(turma_id: int, body: TurmaUpdate, user=Depends(get_current_user
 def delete_turma(turma_id: int, user=Depends(get_current_user)):
     _require_turma_access(turma_id, user)
     db.delete_turma(turma_id)
+
+
+@app.get("/turmas/{turma_id}/contexto", summary="Retorna a etapa da turma com materias e series disponiveis")
+def turma_contexto(turma_id: int, user=Depends(get_current_user)):
+    """Para ancorar a UI de criar prova: dado o turma_id, devolve a etapa
+    e as opcoes de disciplina/serie filtradas pra ela."""
+    _require_turma_access(turma_id, user)
+    turma = db.get_turma(turma_id)
+    if not turma:
+        raise HTTPException(404, "Turma nao encontrada.")
+    etapa = turma.get("etapa") or ""
+    if not etapa:
+        return {
+            "etapa": "",
+            "etapa_label": "",
+            "etapa_grupo": "",
+            "materias": [],
+            "tem_filtro": False,
+        }
+    # Procura nos metadados da etapa
+    etapa_label = etapa
+    etapa_grupo = ""
+    for e in db_taxonomia.listar_etapas():
+        if e["etapa"] == etapa:
+            etapa_label = e.get("etapa_label") or etapa
+            etapa_grupo = e.get("etapa_grupo") or ""
+            break
+    return {
+        "etapa": etapa,
+        "etapa_label": etapa_label,
+        "etapa_grupo": etapa_grupo,
+        "materias": db_taxonomia.listar_materias(etapa),
+        "tem_filtro": True,
+    }
 
 
 # ── Alunos ────────────────────────────────────────────────────────────────────
