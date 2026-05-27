@@ -122,6 +122,13 @@ _PG_SCHEMA = [
         palavras_chave  TEXT,
         criado_em       TIMESTAMPTZ DEFAULT NOW()
     )""",
+    """CREATE TABLE IF NOT EXISTS etapas_meta (
+        etapa  TEXT PRIMARY KEY,
+        label  TEXT NOT NULL,
+        grupo  TEXT,
+        ordem  INTEGER DEFAULT 100,
+        atualizado_em TIMESTAMPTZ DEFAULT NOW()
+    )""",
     "CREATE INDEX IF NOT EXISTS idx_taxonomia_materia ON taxonomia(materia)",
     "CREATE INDEX IF NOT EXISTS idx_taxonomia_parent  ON taxonomia(parent_id)",
     "CREATE INDEX IF NOT EXISTS idx_taxonomia_etapa   ON taxonomia(etapa)",
@@ -229,6 +236,13 @@ CREATE TABLE IF NOT EXISTS taxonomia (
     parent_id       INTEGER REFERENCES taxonomia(id) ON DELETE CASCADE,
     palavras_chave  TEXT,
     criado_em       TEXT DEFAULT (datetime('now','localtime'))
+);
+CREATE TABLE IF NOT EXISTS etapas_meta (
+    etapa          TEXT PRIMARY KEY,
+    label          TEXT NOT NULL,
+    grupo          TEXT,
+    ordem          INTEGER DEFAULT 100,
+    atualizado_em  TEXT DEFAULT (datetime('now','localtime'))
 );
 CREATE INDEX IF NOT EXISTS idx_taxonomia_materia ON taxonomia(materia);
 CREATE INDEX IF NOT EXISTS idx_taxonomia_parent  ON taxonomia(parent_id);

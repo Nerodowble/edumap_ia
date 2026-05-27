@@ -51,12 +51,59 @@ def _walk(con, no: dict, etapa: str, materia: str, codigo_pai: str, nivel: int, 
         _walk(con, filho, etapa, materia, codigo_atual, nivel + 1, novo_id)
 
 
+def _fallback_etapa_label(etapa: str) -> str:
+    """Gera label legivel a partir do slug se o JSON nao informou etapa_label."""
+    if not etapa:
+        return ""
+    if etapa.startswith("curso_"):
+        nome = etapa.replace("curso_", "").replace("_", " ")
+        return "Téc. " + nome[:1].upper() + nome[1:]
+    return etapa.upper() if len(etapa) <= 5 else etapa.title()
+
+
+def _fallback_etapa_grupo(etapa: str) -> str:
+    if etapa.startswith("curso_"):
+        return "tecnico"
+    if etapa == "superior":
+        return "superior"
+    return "basica"
+
+
+def _upsert_etapa_meta(con, etapa: str, label: str, grupo: str, ordem: Optional[int]):
+    """UPSERT em etapas_meta. SO atualiza se o caller passou explicitamente
+    (caller eh seed_from_data que pode receber etapa_label do JSON)."""
+    if not etapa:
+        return
+    # Postgres vs SQLite: usa ON CONFLICT (suportado nos dois)
+    con.execute(
+        """INSERT INTO etapas_meta (etapa, label, grupo, ordem)
+           VALUES (?,?,?,?)
+           ON CONFLICT(etapa) DO UPDATE
+             SET label = excluded.label,
+                 grupo = excluded.grupo,
+                 ordem = excluded.ordem""",
+        (etapa, label, grupo, ordem if ordem is not None else 100),
+    )
+
+
 def seed_from_data(data: Dict) -> Dict:
-    """Popular o banco a partir de um dict já parseado (upload via API)."""
+    """Popular o banco a partir de um dict já parseado (upload via API).
+
+    Aceita campos opcionais no JSON raiz:
+      - etapa_label: nome legivel da etapa (ex: "Téc. Logística")
+      - etapa_grupo: agrupamento UI (ex: "tecnico", "basica", "superior")
+      - etapa_ordem: prioridade de exibicao no select (menor = primeiro)
+
+    Se nao informados, infere fallback do proprio slug.
+    """
     if not isinstance(data, dict) or "materias" not in data:
         raise ValueError("JSON inválido: esperado dict com chave 'materias'.")
 
     etapa = data.get("etapa", "ef2")
+    etapa_label = data.get("etapa_label") or _fallback_etapa_label(etapa)
+    etapa_grupo = data.get("etapa_grupo") or _fallback_etapa_grupo(etapa)
+    etapa_ordem = data.get("etapa_ordem")
+
     materias = data.get("materias", [])
     if not isinstance(materias, list):
         raise ValueError("JSON inválido: 'materias' deve ser lista.")
@@ -74,6 +121,13 @@ def seed_from_data(data: Dict) -> Dict:
             _walk(con, materia, etapa, cod, "", nivel=1, parent_id=None)
             materias_processadas.append(materia["label"])
 
+        # Persiste o metadado da etapa (label/grupo/ordem)
+        try:
+            _upsert_etapa_meta(con, etapa, etapa_label, etapa_grupo, etapa_ordem)
+        except Exception:
+            # Tabela pode nao existir ainda em base muito antiga; silencia
+            pass
+
         row = con.execute(
             "SELECT COUNT(*) AS c FROM taxonomia WHERE etapa=?", (etapa,)
         ).fetchone()
@@ -83,6 +137,8 @@ def seed_from_data(data: Dict) -> Dict:
     adicionados = total_depois - total_antes
     return {
         "etapa": etapa,
+        "etapa_label": etapa_label,
+        "etapa_grupo": etapa_grupo,
         "materias_processadas": materias_processadas,
         "total_antes": total_antes,
         "total_depois": total_depois,
@@ -103,15 +159,31 @@ def seed_from_json(json_path: Path) -> Dict:
 # ── Consulta ──────────────────────────────────────────────────────────────────
 
 def listar_etapas() -> List[Dict]:
-    """Retorna etapas distintas com contagem de nós."""
+    """Retorna etapas distintas com contagem de nós + metadados (label/grupo).
+
+    LEFT JOIN com etapas_meta: se a etapa nao tem metadado salvo, retorna
+    label e grupo gerados a partir do slug (fallback no Python).
+    """
     with _conn() as con:
-        return con.execute(
-            """SELECT etapa, COUNT(*) AS total_nos,
-                      COUNT(DISTINCT materia) AS total_materias
-               FROM taxonomia
-               GROUP BY etapa
-               ORDER BY etapa""",
+        rows = con.execute(
+            """SELECT t.etapa,
+                      COUNT(*) AS total_nos,
+                      COUNT(DISTINCT t.materia) AS total_materias,
+                      em.label AS etapa_label,
+                      em.grupo AS etapa_grupo,
+                      em.ordem AS etapa_ordem
+               FROM taxonomia t
+               LEFT JOIN etapas_meta em ON em.etapa = t.etapa
+               GROUP BY t.etapa, em.label, em.grupo, em.ordem
+               ORDER BY COALESCE(em.ordem, 100), t.etapa"""
         ).fetchall()
+        # Preenche fallback quando nao ha metadado salvo
+        for r in rows:
+            if not r.get("etapa_label"):
+                r["etapa_label"] = _fallback_etapa_label(r["etapa"])
+            if not r.get("etapa_grupo"):
+                r["etapa_grupo"] = _fallback_etapa_grupo(r["etapa"])
+        return rows
 
 
 def listar_materias(etapa: str = "ef2") -> List[Dict]:
