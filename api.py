@@ -1342,6 +1342,83 @@ def aluno_responder(prova_id: int, body: ResponderQuestaoIn, request: Request, a
     return {"ok": True}
 
 
+class ReclassificarIn(BaseModel):
+    prova_ids: Optional[list] = None
+    disciplina: Optional[str] = None
+
+
+@app.get("/admin/taxonomia/reclassificar/preview", summary="Conta quantas questoes serao reclassificadas")
+def reclassificar_preview(disciplina: Optional[str] = None, user=Depends(get_current_user)):
+    if user.get("role") != "admin_geral":
+        raise HTTPException(403, "Apenas admin_geral pode reclassificar taxonomia.")
+    questoes = db.listar_questoes_para_reclassificar(disciplina_filter=disciplina)
+    disciplinas = db.listar_disciplinas_distintas()
+    provas_unicas = len({q["prova_id"] for q in questoes})
+    return {
+        "total_questoes": len(questoes),
+        "total_provas": provas_unicas,
+        "disciplinas_disponiveis": disciplinas,
+    }
+
+
+@app.post("/admin/taxonomia/reclassificar", summary="Reclassifica taxonomia de provas existentes (admin_geral)")
+def reclassificar_taxonomia(body: ReclassificarIn = Body(default=None), user=Depends(get_current_user)):
+    if user.get("role") != "admin_geral":
+        raise HTTPException(403, "Apenas admin_geral pode reclassificar taxonomia.")
+
+    prova_ids = body.prova_ids if body and body.prova_ids else None
+    disciplina = body.disciplina if body and body.disciplina else None
+
+    questoes = db.listar_questoes_para_reclassificar(
+        prova_ids=prova_ids,
+        disciplina_filter=disciplina,
+    )
+
+    atualizadas = 0
+    mantidas = 0
+    mudancas_resumo = []  # primeiras 20 mudancas para log/feedback
+
+    for q in questoes:
+        alts = q.get("alternativas_lista") or []
+        nova = _classificar_questao(q.get("stem") or "", alts, q.get("disciplina") or "")
+
+        antes = (q.get("taxonomia_codigo") or "", q.get("bloom_nivel") or 0, q.get("area_key") or "")
+        depois = (nova.get("taxonomia_codigo") or "", nova.get("bloom_nivel") or 0, nova.get("area_key") or "")
+
+        if antes == depois:
+            mantidas += 1
+            continue
+
+        db.atualizar_classificacao_questao(
+            questao_id=q["id"],
+            area_key=nova["area_key"],
+            area_display=nova["area_display"],
+            subarea_key=nova["subarea_key"],
+            subarea_label=nova["subarea_label"],
+            bloom_nivel=nova["bloom_nivel"],
+            bloom_nome=nova["bloom_nome"],
+            bloom_verbo=nova["bloom_verbo"],
+            taxonomia_codigo=nova["taxonomia_codigo"],
+        )
+        atualizadas += 1
+        if len(mudancas_resumo) < 20:
+            mudancas_resumo.append({
+                "prova_id": q["prova_id"],
+                "prova_titulo": q.get("prova_titulo") or "",
+                "numero": q["numero"],
+                "antes": {"taxonomia": antes[0], "bloom": antes[1], "area": antes[2]},
+                "depois": {"taxonomia": depois[0], "bloom": depois[1], "area": depois[2]},
+            })
+
+    return {
+        "ok": True,
+        "atualizadas": atualizadas,
+        "mantidas": mantidas,
+        "total_processadas": len(questoes),
+        "mudancas": mudancas_resumo,
+    }
+
+
 @app.post("/aluno/provas/{prova_id}/finalizar", summary="Finaliza a prova do aluno (registra finished_at)")
 def aluno_finalizar(prova_id: int, request: Request, aluno=Depends(get_current_aluno)):
     prova = db.get_prova(prova_id)

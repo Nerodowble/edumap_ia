@@ -1320,6 +1320,84 @@ def get_prova_por_pin(pin: str) -> Optional[Dict]:
         return rows[0] if rows else None
 
 
+def listar_questoes_para_reclassificar(
+    prova_ids: Optional[List[int]] = None,
+    disciplina_filter: Optional[str] = None,
+) -> List[Dict]:
+    """Retorna questoes + disciplina/origem da prova para reclassificacao.
+    Inclui apenas questoes de provas com origem='manual' (texto digitado e mais
+    confiavel; OCR pode ter ruido). Se prova_ids for None, traz todas; se
+    disciplina_filter for passada, filtra por igualdade exata."""
+    where = ["p.origem = 'manual'"]
+    params: list = []
+    if prova_ids:
+        placeholders = ",".join(["?"] * len(prova_ids))
+        where.append(f"q.prova_id IN ({placeholders})")
+        params.extend(prova_ids)
+    if disciplina_filter:
+        where.append("p.disciplina = ?")
+        params.append(disciplina_filter)
+    where_sql = " AND ".join(where)
+    with _conn() as con:
+        rows = con.execute(
+            f"""SELECT q.id, q.prova_id, q.numero, q.stem, q.alternativas,
+                       q.taxonomia_codigo, q.bloom_nivel, q.area_key, q.area_display,
+                       p.disciplina, p.titulo AS prova_titulo
+                FROM questoes q
+                JOIN provas p ON p.id = q.prova_id
+                WHERE {where_sql}
+                ORDER BY q.prova_id, q.numero""",
+            tuple(params),
+        ).fetchall()
+        for r in rows:
+            try:
+                r["alternativas_lista"] = json.loads(r.get("alternativas") or "[]")
+            except Exception:
+                r["alternativas_lista"] = []
+        return rows
+
+
+def atualizar_classificacao_questao(
+    questao_id: int,
+    area_key: str,
+    area_display: str,
+    subarea_key: str,
+    subarea_label: str,
+    bloom_nivel: int,
+    bloom_nome: str,
+    bloom_verbo: str,
+    taxonomia_codigo: str,
+) -> bool:
+    """UPDATE apenas dos campos de classificacao (nao toca em stem, alternativas, gabarito)."""
+    with _conn() as con:
+        existing = con.execute("SELECT id FROM questoes WHERE id=?", (questao_id,)).fetchone()
+        if not existing:
+            return False
+        con.execute(
+            """UPDATE questoes SET area_key=?, area_display=?,
+                                   subarea_key=?, subarea_label=?,
+                                   bloom_nivel=?, bloom_nome=?, bloom_verbo=?,
+                                   taxonomia_codigo=?
+                                   WHERE id=?""",
+            (area_key or "", area_display or "",
+             subarea_key or "geral", subarea_label or "Geral",
+             bloom_nivel or 0, bloom_nome or "", bloom_verbo or "",
+             taxonomia_codigo or "", questao_id),
+        )
+        return True
+
+
+def listar_disciplinas_distintas() -> List[str]:
+    """Lista as disciplinas distintas presentes nas provas manuais (para o filtro do reprocesso)."""
+    with _conn() as con:
+        rows = con.execute(
+            """SELECT DISTINCT disciplina FROM provas
+               WHERE origem='manual' AND disciplina IS NOT NULL AND disciplina != ''
+               ORDER BY disciplina"""
+        ).fetchall()
+        return [r["disciplina"] for r in rows if r.get("disciplina")]
+
+
 def salvar_resposta_unica(
     aluno_id: int,
     questao_id: int,
