@@ -24,6 +24,32 @@ from database.db import _conn
 
 _MIN_KEYWORD_LEN = 3  # ignora keywords muito curtos (ex: "à", "a") — evita falsos-positivos
 
+# Lista de palavras que NUNCA devem ser keywords de taxonomia.
+# São preposições, conjunções, palavras de uso geral em português, ou termos
+# muito genéricos que casam em qualquer texto e poluem a classificação.
+# Exemplo real: o nó "logica_programacao" tinha keywords "para", "enquanto",
+# "constante", "processamento" → classificou questão de logística como
+# programação porque "para minimizar" e "procura constante" bateram.
+_STOPWORDS = {
+    # Preposicoes e conjuncoes
+    "para", "com", "sem", "por", "sob", "sobre", "ante", "contra",
+    "perante", "entre", "durante", "mediante", "ate", "desde",
+    "enquanto", "embora", "porem", "logo", "pois", "caso", "quando",
+    "como", "onde", "mesmo", "ainda", "tambem", "sequer",
+    # Verbos auxiliares / cotidianos
+    "ser", "estar", "ter", "haver", "fazer", "dizer", "ver", "saber",
+    "poder", "querer", "dever", "ficar", "dar", "passar",
+    # Palavras genericas que poluem
+    "processo", "processamento", "sistema", "metodo",
+    "forma", "tipo", "valor", "item", "parte", "ponto",
+    "constante", "simples", "comum", "basico", "geral",
+    "varios", "outros", "qualquer", "alguns", "alguma",
+    "primeiro", "segundo", "terceiro", "ultimo",
+    # Termos de avaliacao muito genericos
+    "questao", "alternativa", "resposta", "correta", "errada",
+    "considere", "considerando", "assinale", "marque",
+}
+
 
 def _normalize(text: str) -> str:
     """Lowercase + remove acentos (NFD → stripa combinantes)."""
@@ -36,13 +62,19 @@ def _normalize(text: str) -> str:
 
 
 def _parse_keywords(csv: Optional[str]) -> List[str]:
+    """Extrai palavras-chave da string CSV, normaliza, filtra stopwords."""
     if not csv:
         return []
     out = []
     for raw in csv.split(","):
         kw = _normalize(raw.strip())
-        if len(kw) >= _MIN_KEYWORD_LEN:
-            out.append(kw)
+        if len(kw) < _MIN_KEYWORD_LEN:
+            continue
+        # Filtra stopwords (mas SO se a keyword for uma unica palavra;
+        # frases como "modelo classico" ainda passam pq tem mais de um token)
+        if " " not in kw and kw in _STOPWORDS:
+            continue
+        out.append(kw)
     return out
 
 

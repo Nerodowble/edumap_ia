@@ -1034,8 +1034,9 @@ def _classificar_questao(stem: str, alternativas: list, disciplina: str) -> Dict
     except Exception:
         bloom_level, bloom_name, bloom_verb = 0, "", ""
 
-    # 2) Materia/area: usa a disciplina da prova como hint
+    # 2) Materia/area: usa a disciplina da prova como hint (se informada)
     area_key = SUBJECT_TO_KEY.get(disciplina or "", "")
+    tem_hint = bool(area_key)
     tax = None
 
     if area_key:
@@ -1044,11 +1045,15 @@ def _classificar_questao(stem: str, alternativas: list, disciplina: str) -> Dict
         except Exception:
             tax = None
 
-    # Se nao casou nada na materia hint, ou nao tem hint, tenta auto
-    if not tax or tax.get("matches", 0) < 1:
+    # Fallback automatico SO se NAO ha hint de disciplina (auto-detect puro).
+    # Se o professor informou a disciplina e a classificacao falhou, melhor
+    # deixar sem nó taxonomico do que classificar errado em outra materia.
+    if not tax and not tem_hint:
         try:
             tax_auto = classify_taxonomia_auto(stem_full)
-            if tax_auto and tax_auto.get("materia_total_matches", tax_auto.get("matches", 0)) >= 1:
+            # Threshold mais alto: >= 2 matches na materia para evitar
+            # classificacao por palavra solta
+            if tax_auto and tax_auto.get("materia_total_matches", 0) >= 2:
                 tax = tax_auto
                 area_key = tax_auto.get("materia") or area_key
         except Exception:

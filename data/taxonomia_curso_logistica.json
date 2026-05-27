@@ -492,9 +492,9 @@
         {
           "codigo": "fundamentos_estoque",
           "label": "Fundamentos de Estoque",
-          "palavras_chave": ["estoque", "inventário", "fundamentos de estoque"],
+          "palavras_chave": ["estoque", "estoques", "inventário", "fundamentos de estoque", "stock", "stocks", "armazém de stocks", "gestão de stocks", "posse de stock", "custo de posse"],
           "filhos": [
-            {"codigo": "funcoes_estoque", "label": "Funções do Estoque", "palavras_chave": ["função do estoque", "estoque de antecipação", "estoque de ciclo", "estoque pulmão", "estoque de segurança"]},
+            {"codigo": "funcoes_estoque", "label": "Funções do Estoque", "palavras_chave": ["função do estoque", "estoque de antecipação", "estoque de ciclo", "estoque pulmão", "estoque de segurança", "stock de segurança", "ponto de encomenda"]},
             {"codigo": "tipos_estoque", "label": "Tipos de Estoque", "palavras_chave": ["matéria-prima", "produto em processo", "wip", "produto acabado", "mro", "estoque de manutenção"]},
             {"codigo": "fifo_lifo", "label": "FIFO, LIFO e PEPS, UEPS", "palavras_chave": ["fifo", "lifo", "peps", "ueps", "primeiro que entra primeiro que sai", "avaliação de estoque"]},
             {"codigo": "media_ponderada", "label": "Custo Médio Ponderado", "palavras_chave": ["custo médio", "média ponderada", "preço médio", "avaliação por média"]}
@@ -503,10 +503,10 @@
         {
           "codigo": "modelos_reposicao",
           "label": "Modelos de Reposição",
-          "palavras_chave": ["reposição de estoque", "ressuprimento", "modelos de estoque"],
+          "palavras_chave": ["reposição de estoque", "ressuprimento", "modelos de estoque", "modelos de stock", "reposição", "encomenda", "encomendas", "custo de pedido", "custo de encomenda", "minimizar custos"],
           "filhos": [
-            {"codigo": "ponto_pedido", "label": "Ponto de Pedido", "palavras_chave": ["ponto de pedido", "pp", "ponto de reposição", "nível de ressuprimento"]},
-            {"codigo": "lote_economico", "label": "Lote Econômico de Compra (EOQ)", "palavras_chave": ["lote econômico", "eoq", "economic order quantity", "fórmula de wilson", "lec"]},
+            {"codigo": "ponto_pedido", "label": "Ponto de Pedido", "palavras_chave": ["ponto de pedido", "ponto de encomenda", "ponto de reposição", "nível de ressuprimento", "lead time"]},
+            {"codigo": "lote_economico", "label": "Lote Econômico de Compra (EOQ)", "palavras_chave": ["lote econômico", "lote economico", "lote económico", "eoq", "economic order quantity", "fórmula de wilson", "modelo de wilson", "lec", "quantidade ideal", "quantidade econômica", "lote ideal", "lote economico de compras", "procura anual", "custo de pedido", "custo de posse"]},
             {"codigo": "estoque_seguranca", "label": "Estoque de Segurança", "palavras_chave": ["estoque de segurança", "ss", "safety stock", "estoque mínimo"]},
             {"codigo": "revisao_periodica", "label": "Sistema de Revisão Periódica", "palavras_chave": ["revisão periódica", "modelo p", "intervalo fixo de revisão"]},
             {"codigo": "min_max", "label": "Sistema Mínimo-Máximo", "palavras_chave": ["mínimo-máximo", "min-max", "estoque mínimo", "estoque máximo"]}
