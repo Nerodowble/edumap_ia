@@ -1020,6 +1020,8 @@ def adicionar_questao_manual(
     taxonomia_codigo: str = "",
     area_key: str = "",
     area_display: str = "",
+    subarea_key: str = "geral",
+    subarea_label: str = "Geral",
 ) -> int:
     """Insere questão criada manualmente. Salva alternativas como JSON e
     grava gabarito na tabela `gabarito` automaticamente."""
@@ -1032,7 +1034,7 @@ def adicionar_questao_manual(
                 bloom_nivel, bloom_nome, bloom_verbo, taxonomia_codigo, bncc_codigos)
                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             (prova_id, numero, stem, stem, alts_json, tipo,
-             area_key, area_display, "geral", "Geral",
+             area_key, area_display, subarea_key or "geral", subarea_label or "Geral",
              bloom_nivel, bloom_nome, bloom_verbo, taxonomia_codigo, "[]"),
         )
         # Atualiza total_questoes
@@ -1060,6 +1062,10 @@ def atualizar_questao_manual(
     bloom_nome: str = "",
     bloom_verbo: str = "",
     taxonomia_codigo: str = "",
+    area_key: str = "",
+    area_display: str = "",
+    subarea_key: str = "geral",
+    subarea_label: str = "Geral",
 ) -> bool:
     alts_json = json.dumps(alternativas, ensure_ascii=False)
     with _conn() as con:
@@ -1069,9 +1075,12 @@ def atualizar_questao_manual(
         con.execute(
             """UPDATE questoes SET stem=?, texto=?, alternativas=?, tipo=?,
                                    bloom_nivel=?, bloom_nome=?, bloom_verbo=?,
-                                   taxonomia_codigo=?
+                                   taxonomia_codigo=?, area_key=?, area_display=?,
+                                   subarea_key=?, subarea_label=?
                                    WHERE id=?""",
-            (stem, stem, alts_json, tipo, bloom_nivel, bloom_nome, bloom_verbo, taxonomia_codigo, questao_id),
+            (stem, stem, alts_json, tipo, bloom_nivel, bloom_nome, bloom_verbo,
+             taxonomia_codigo, area_key, area_display,
+             subarea_key or "geral", subarea_label or "Geral", questao_id),
         )
         if gabarito:
             con.execute("DELETE FROM gabarito WHERE prova_id=? AND numero_questao=?", (row["prova_id"], row["numero"]))

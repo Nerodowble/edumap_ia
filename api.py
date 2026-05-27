@@ -1019,15 +1019,82 @@ def get_prova_edicao(prova_id: int, user=Depends(get_current_user)):
     return {"prova": prova, "questoes": questoes}
 
 
-@app.post("/provas/{prova_id}/questoes", status_code=201, summary="Adiciona questão a uma prova manual")
+def _classificar_questao(stem: str, alternativas: list, disciplina: str) -> Dict:
+    """Roda o pipeline taxonomico sobre uma questao criada manualmente.
+    Usa a disciplina da prova como hint de materia (fallback: classify_across_all).
+    Retorna dict com area_key, area_display, subarea_key, subarea_label,
+    bloom_nivel, bloom_nome, bloom_verbo, taxonomia_codigo.
+    Resultado fica como SUGESTAO automatica — frontend pode permitir override."""
+    stem_full = (stem or "") + " " + " ".join(alternativas or [])
+    stem_full = stem_full.strip()
+
+    # 1) Bloom
+    try:
+        bloom_level, bloom_name, bloom_verb = classify_bloom(stem)
+    except Exception:
+        bloom_level, bloom_name, bloom_verb = 0, "", ""
+
+    # 2) Materia/area: usa a disciplina da prova como hint
+    area_key = SUBJECT_TO_KEY.get(disciplina or "", "")
+    tax = None
+
+    if area_key:
+        try:
+            tax = classify_taxonomia(stem_full, area_key)
+        except Exception:
+            tax = None
+
+    # Se nao casou nada na materia hint, ou nao tem hint, tenta auto
+    if not tax or tax.get("matches", 0) < 1:
+        try:
+            tax_auto = classify_taxonomia_auto(stem_full)
+            if tax_auto and tax_auto.get("materia_total_matches", tax_auto.get("matches", 0)) >= 1:
+                tax = tax_auto
+                area_key = tax_auto.get("materia") or area_key
+        except Exception:
+            pass
+
+    area_display = get_area_display_name(area_key) if area_key else ""
+
+    # 3) Subarea (baseada na area)
+    try:
+        subarea_key, subarea_label = classify_subarea(stem, area_key)
+    except Exception:
+        subarea_key, subarea_label = "geral", "Geral"
+
+    return {
+        "area_key":          area_key or "",
+        "area_display":      area_display or "",
+        "subarea_key":       subarea_key or "geral",
+        "subarea_label":     subarea_label or "Geral",
+        "bloom_nivel":       bloom_level or 0,
+        "bloom_nome":        bloom_name or "",
+        "bloom_verbo":       bloom_verb or "",
+        "taxonomia_codigo":  (tax or {}).get("codigo", "") if tax else "",
+        "taxonomia_label":   (tax or {}).get("label", "") if tax else "",
+        "taxonomia_caminho": (tax or {}).get("caminho", []) if tax else [],
+    }
+
+
+@app.post("/provas/{prova_id}/questoes", status_code=201, summary="Adiciona questão a uma prova manual (com classificação automática)")
 def add_questao_manual(prova_id: int, body: QuestaoCreate, user=Depends(get_current_user)):
     _require_prova_access(prova_id, user)
     prova = db.get_prova(prova_id)
     if prova.get("status") == "encerrada":
         raise HTTPException(400, "Prova já encerrada.")
-    # Próximo número
+
+    # Roda classificacao automatica (Bloom + materia + taxonomia + subarea)
+    auto = _classificar_questao(body.stem, body.alternativas, prova.get("disciplina") or "")
+
+    # Override: se o professor passou valores nao-default, prevalece
+    bloom_nivel = body.bloom_nivel if body.bloom_nivel else auto["bloom_nivel"]
+    bloom_nome  = body.bloom_nome  or auto["bloom_nome"]
+    bloom_verbo = body.bloom_verbo or auto["bloom_verbo"]
+    taxonomia_codigo = body.taxonomia_codigo or auto["taxonomia_codigo"]
+
     questoes = db.get_questoes_prova(prova_id)
     proximo = (max([q["numero"] for q in questoes], default=0) or 0) + 1
+
     qid = db.adicionar_questao_manual(
         prova_id=prova_id,
         numero=proximo,
@@ -1035,30 +1102,67 @@ def add_questao_manual(prova_id: int, body: QuestaoCreate, user=Depends(get_curr
         alternativas=body.alternativas,
         gabarito=body.gabarito,
         tipo=body.tipo,
-        bloom_nivel=body.bloom_nivel,
-        bloom_nome=body.bloom_nome,
-        bloom_verbo=body.bloom_verbo,
-        taxonomia_codigo=body.taxonomia_codigo,
+        bloom_nivel=bloom_nivel,
+        bloom_nome=bloom_nome,
+        bloom_verbo=bloom_verbo,
+        taxonomia_codigo=taxonomia_codigo,
+        area_key=auto["area_key"],
+        area_display=auto["area_display"],
+        subarea_key=auto["subarea_key"],
+        subarea_label=auto["subarea_label"],
     )
-    return {"id": qid, "numero": proximo}
+    return {
+        "id": qid, "numero": proximo,
+        "classificacao_automatica": {
+            "bloom_nivel": bloom_nivel,
+            "bloom_nome": bloom_nome,
+            "area_display": auto["area_display"],
+            "taxonomia_codigo": taxonomia_codigo,
+            "taxonomia_label": auto["taxonomia_label"],
+            "taxonomia_caminho": auto["taxonomia_caminho"],
+        },
+    }
 
 
-@app.put("/provas/{prova_id}/questoes/{questao_id}", summary="Atualiza questão de uma prova manual")
+@app.put("/provas/{prova_id}/questoes/{questao_id}", summary="Atualiza questão de uma prova manual (re-classifica automaticamente)")
 def update_questao_manual(prova_id: int, questao_id: int, body: QuestaoUpdate, user=Depends(get_current_user)):
     _require_prova_access(prova_id, user)
+    prova = db.get_prova(prova_id)
+    auto = _classificar_questao(body.stem, body.alternativas, prova.get("disciplina") or "")
+
+    # Override: se o professor passou valores nao-default no body, prevalece sobre auto
+    bloom_nivel = body.bloom_nivel if body.bloom_nivel else auto["bloom_nivel"]
+    bloom_nome  = body.bloom_nome  or auto["bloom_nome"]
+    bloom_verbo = body.bloom_verbo or auto["bloom_verbo"]
+    taxonomia_codigo = body.taxonomia_codigo or auto["taxonomia_codigo"]
+
     if not db.atualizar_questao_manual(
         questao_id=questao_id,
         stem=body.stem,
         alternativas=body.alternativas,
         gabarito=body.gabarito,
         tipo=body.tipo,
-        bloom_nivel=body.bloom_nivel,
-        bloom_nome=body.bloom_nome,
-        bloom_verbo=body.bloom_verbo,
-        taxonomia_codigo=body.taxonomia_codigo,
+        bloom_nivel=bloom_nivel,
+        bloom_nome=bloom_nome,
+        bloom_verbo=bloom_verbo,
+        taxonomia_codigo=taxonomia_codigo,
+        area_key=auto["area_key"],
+        area_display=auto["area_display"],
+        subarea_key=auto["subarea_key"],
+        subarea_label=auto["subarea_label"],
     ):
         raise HTTPException(404, "Questão não encontrada.")
-    return {"ok": True}
+    return {
+        "ok": True,
+        "classificacao_automatica": {
+            "bloom_nivel": bloom_nivel,
+            "bloom_nome": bloom_nome,
+            "area_display": auto["area_display"],
+            "taxonomia_codigo": taxonomia_codigo,
+            "taxonomia_label": auto["taxonomia_label"],
+            "taxonomia_caminho": auto["taxonomia_caminho"],
+        },
+    }
 
 
 @app.delete("/provas/{prova_id}/questoes/{questao_id}", status_code=204, summary="Remove questão")
