@@ -4,7 +4,9 @@
 > **Base auditada:** backend `edumap_ia` @ `da6a67c` · frontend `edumap_frontend` @ `a9920d3`
 > **Auditores:** 3 agentes (backend, frontend, UI/UX). Leitura de código, testes locais e verificação só leitura em produção.
 >
-> Marque `[x]` ao concluir e anote o commit ao lado. Referências `arquivo:linha` valem para os commits acima e podem ter se deslocado.
+> **Última atualização:** 2026-09-26 — backend em produção @ `2e9b49a`, frontend @ `46d667d`; 200 testes no backend.
+>
+> Marque `[x]` ao concluir e anote o commit ao lado. `[~]` = parcial/em andamento. Referências `arquivo:linha` valem para os commits acima e podem ter se deslocado.
 
 ---
 
@@ -46,7 +48,10 @@
 2. ~~C2, C3, C4~~ ✅ e testes com autenticação real (T1 — iniciado: test_auth_convites.py + test_isolamento.py)
 3. ~~C5, C6~~ ✅ (ver pendências de confirmação nos itens)
 4. ~~C7, C8, A1, A2, A4, A5, A6~~ ✅ (E2E em navegador: 16 verificações)
-5. ~~A3, A7, A8, A17, M9~~ ✅ (E2E /criar-prova: 7 verificações). Próximos: A9–A11, A13–A16, depois Médio e Baixo
+5. ~~A3, A7, A8, A17, M9~~ ✅ (E2E /criar-prova: 7 verificações)
+6. ~~A9, A10, A11, A13~~ ✅ (em produção)
+7. **▶ RETOMAR AQUI: A14 — em andamento, SEM COMMIT** (ver detalhes no item A14 abaixo)
+8. A15, A16, depois os itens Médio e Baixo
 
 ---
 
@@ -95,7 +100,7 @@
   - **Onde:** `api.py:100` (`"edumap-dev-secret-change-in-prod"`). Com essa chave dá para forjar um token de admin.
   - **Correção:** falhar no boot se a variável estiver ausente, exceto com `SKIP_AUTH` ou em ambiente de teste.
 
-- [x] **C6 — `data/edumap.db` versionado num repositório público** *(removido do índice com `git rm --cached`; **limpeza do histórico pendente de decisão do usuário**)*, com 40 alunos e hashes de senha
+- [x] **C6 — `data/edumap.db` versionado num repositório público** *(removido do índice com `git rm --cached`; **limpeza do histórico pendente de decisão do usuário** — perguntar se os dados eram reais ou de teste)*, com 40 alunos e hashes de senha
   - **Correção:** `git rm --cached data/edumap.db`, colocar `data/*.db` no `.gitignore` e avaliar a limpeza do histórico (git filter-repo). A limpeza é destrutiva: **confirmar com o usuário antes**.
 
 - [x] **C7 — PIN ou login errado desloga o aluno com "Sessão expirada"** *(PIN errado → 422; turma checada antes do PIN; front só limpa token em 401 de sessão)*
@@ -140,7 +145,11 @@
 - [x] **A13 — Editar aluno apaga CPF e data de nascimento:** *(campos omitidos mantêm o valor)* o front manda só `{nome, ra}` (`turmas/page.tsx:436`) e o backend sobrescreve os dois campos com "" (`api.py:282` e `db.py:482`). Fazer um update parcial.
 
 **UX**
-- [ ] **A14 — Fluxo de prova online invisível:** Sidebar (`Sidebar.tsx:20-28`), FlowBanner e Home só mostram o fluxo com OCR, e o monitor fica atrás de um link de 10px (`turmas/page.tsx:631`). Criar dois caminhos explícitos e uma entrada "Provas".
+- [~] **A14 — EM ANDAMENTO (parado em 2026-09-26, código no disco, sem commit/deploy)**
+  - Backend (pronto, testado): `GET /provas/online` em `api.py` + `db.listar_provas_online()` em `src/database/db.py`; 2 testes em `tests/test_isolamento.py::TestListaProvasOnline` (passando).
+  - Frontend (escrito, **falta `npx tsc --noEmit` + `npm run build`**): página nova `src/app/provas/page.tsx` ("Minhas provas online" com Continuar editando / Acompanhar ao vivo / Relatório); `Sidebar.tsx` em seções (Prova online / Prova impressa / Resultados); Home `src/app/page.tsx` com os dois caminhos; `FlowBanner.tsx` rotulado como prova impressa com link para /provas; `lib/api.ts` (`getProvasOnline`) e `lib/types.ts` (`ProvaOnline`).
+  - Para concluir: validar tsc/build → rodar suíte do backend → commit nos 2 repos → push do **backend primeiro** (o front chama /provas/online) → push do frontend. Não commitar `provas_exemplo/prova_exemplo_8ano.pdf` (regerado pelos testes).
+  - Problema original: Sidebar (`Sidebar.tsx:20-28`), FlowBanner e Home só mostram o fluxo com OCR, e o monitor fica atrás de um link de 10px (`turmas/page.tsx:631`). Criar dois caminhos explícitos e uma entrada "Provas".
 - [ ] **A15 — Contraste abaixo do WCAG AA:** `PctBadge` e cores de Bloom (`BloomBadge.tsx:24`, `criar-prova:386`). Usar tons 700 e rótulo em texto.
 - [ ] **A16 — `/aplicar` no celular:** nomes cortados, botão "Liberar" de 12px, "Encerrar" colado em "Copiar PIN", nenhum aviso quando o polling falha e a URL aparece relativa. Adicionar URL completa + QR.
 - [x] **A17 — `/turmas` no celular:** os botões editar e remover do aluno usam `opacity-0 group-hover` e ficam invisíveis no toque (`turmas/page.tsx:586`, `:594`).
