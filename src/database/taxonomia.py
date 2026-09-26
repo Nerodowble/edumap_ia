@@ -2,6 +2,7 @@
 Seed e consulta da taxonomia educacional.
 A lógica de seed é idempotente e pode ser chamada via script ou via API.
 """
+import hashlib
 import json
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -154,6 +155,31 @@ def seed_from_json(json_path: Path) -> Dict:
     with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
     return seed_from_data(data)
+
+
+def seed_from_json_if_changed(json_path: Path) -> Optional[Dict]:
+    """Como seed_from_json, mas pula o arquivo se o conteudo (sha256) for igual
+    ao do ultimo seed. Evita milhares de queries a cada boot e preserva edicoes
+    feitas pelo admin enquanto o JSON nao mudar. Retorna None se pulou."""
+    raw = json_path.read_bytes()
+    sha = hashlib.sha256(raw).hexdigest()
+    with _conn() as con:
+        con.execute(
+            "CREATE TABLE IF NOT EXISTS seed_hashes (arquivo TEXT PRIMARY KEY, sha256 TEXT NOT NULL)"
+        )
+        row = con.execute(
+            "SELECT sha256 FROM seed_hashes WHERE arquivo=?", (json_path.name,)
+        ).fetchone()
+    if row and row["sha256"] == sha:
+        return None
+    stats = seed_from_data(json.loads(raw.decode("utf-8")))
+    with _conn() as con:
+        con.execute(
+            """INSERT INTO seed_hashes (arquivo, sha256) VALUES (?,?)
+               ON CONFLICT(arquivo) DO UPDATE SET sha256 = excluded.sha256""",
+            (json_path.name, sha),
+        )
+    return stats
 
 
 # ── Consulta ──────────────────────────────────────────────────────────────────

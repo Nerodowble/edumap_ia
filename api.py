@@ -7,6 +7,7 @@ import os
 import re
 import sys
 import tempfile
+import threading
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, Optional
@@ -41,9 +42,8 @@ JSON_TEMPLATE = Path(__file__).parent / "data" / "taxonomia_template.json"
 
 def _auto_seed_taxonomias():
     """Auto-importa todos os arquivos data/taxonomia_*.json ou taxonomia.json
-    no startup do servidor. Idempotente (UPSERT). Pula o template. Silencia
-    erros para não impedir o boot."""
-    import json as _json
+    no startup do servidor. So reimporta arquivos cujo conteudo mudou desde o
+    ultimo seed (hash). Pula o template. Silencia erros para não impedir o boot."""
     data_dir = Path(__file__).parent / "data"
     if not data_dir.exists():
         return
@@ -51,9 +51,10 @@ def _auto_seed_taxonomias():
         if jf.name == "taxonomia_template.json":
             continue
         try:
-            with open(jf, "r", encoding="utf-8") as f:
-                data = _json.load(f)
-            stats = db_taxonomia.seed_from_data(data)
+            stats = db_taxonomia.seed_from_json_if_changed(jf)
+            if stats is None:
+                print(f"[auto-seed] {jf.name}: sem alterações, pulado")
+                continue
             print(
                 f"[auto-seed] {jf.name}: etapa={stats['etapa']} "
                 f"total={stats['total_depois']} adicionados={stats['adicionados']}"
@@ -62,17 +63,18 @@ def _auto_seed_taxonomias():
             print(f"[auto-seed] {jf.name}: FALHOU ({exc})")
 
 
-try:
-    _auto_seed_taxonomias()
-    # Migração: remover matéria legada unificada se as 3 novas existem
-    removed = db_taxonomia.cleanup_legacy_if_new_exists(
-        "superior", "psicologia_saude_mental_sus",
-        ["psicologia", "saude_mental", "sus"],
-    )
-    if removed:
-        print(f"[migration] matéria legada 'psicologia_saude_mental_sus' removida: {removed} nós")
-except Exception as _exc:
-    print(f"[auto-seed] erro geral: {_exc}")
+def _startup_seed():
+    try:
+        _auto_seed_taxonomias()
+        # Migração: remover matéria legada unificada se as 3 novas existem
+        removed = db_taxonomia.cleanup_legacy_if_new_exists(
+            "superior", "psicologia_saude_mental_sus",
+            ["psicologia", "saude_mental", "sus"],
+        )
+        if removed:
+            print(f"[migration] matéria legada 'psicologia_saude_mental_sus' removida: {removed} nós")
+    except Exception as _exc:
+        print(f"[auto-seed] erro geral: {_exc}")
 
 # ── App ───────────────────────────────────────────────────────────────────────
 app = FastAPI(
@@ -80,6 +82,15 @@ app = FastAPI(
     version="0.1.0",
     description="Backend da plataforma EduMap IA — diagnóstico taxonômico de aprendizagem.",
 )
+
+
+@app.on_event("startup")
+def _iniciar_seed_em_background():
+    # Roda fora do caminho de boot: o servidor abre a porta imediatamente
+    # (importante no Render free, que reinicia a cada cold start).
+    if os.getenv("SKIP_AUTO_SEED", "").lower() in ("1", "true", "yes"):
+        return
+    threading.Thread(target=_startup_seed, name="auto-seed", daemon=True).start()
 
 _extra = os.getenv("ALLOWED_ORIGINS", "")
 _origins = [
