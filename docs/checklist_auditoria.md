@@ -46,7 +46,7 @@
 2. ~~C2, C3, C4~~ ✅ e testes com autenticação real (T1 — iniciado: test_auth_convites.py + test_isolamento.py)
 3. ~~C5, C6~~ ✅ (ver pendências de confirmação nos itens)
 4. ~~C7, C8, A1, A2, A4, A5, A6~~ ✅ (E2E em navegador: 16 verificações)
-5. Restante dos itens Alto, depois Médio e Baixo
+5. ~~A3, A7, A8, A17, M9~~ ✅ (E2E /criar-prova: 7 verificações). Próximos: A9–A11, A13–A16, depois Médio e Baixo
 
 ---
 
@@ -113,7 +113,7 @@
 **Notas e correção**
 - [x] **A1 — Nota inflada:** *(relatório usa todas as questões; campo `respondidas`)* o percentual é calculado sobre as respondidas (1 de 2 certas dá 100%). `db.py:779-818`. Usar o total de questões da prova.
 - [x] **A2 — Trocar o gabarito não recalcula `respostas.correta`:** *(`_recalcular_corretas`)* `db.py:1122` e `:708`. Rodar um UPDATE de recálculo em `salvar_gabarito` e em `atualizar_questao_manual`.
-- [ ] **A3 — Gabarito deslocado:** alternativa vazia no meio, ou alternativa removida, troca a letra correta sem aviso. `criar-prova/page.tsx:147-153` e `:473`.
+- [x] **A3 — Gabarito deslocado:** *(vazias no meio recusadas; remover alternativa reajusta a letra)* alternativa vazia no meio, ou alternativa removida, troca a letra correta sem aviso. `criar-prova/page.tsx:147-153` e `:473`.
 
 **Prova do aluno**
 - [x] **A4 — Respostas locais vazam entre alunos no mesmo computador:** *(chaves com id do aluno; servidor devolve `respostas`)* a chave `edumap_prova_{id}_*` não inclui o aluno e não é limpa no logout. `aluno/prova/[id]/page.tsx:35-57` e `alunoAuth.ts:16-20`. Além disso, restaurar as respostas **do servidor** (backend devolver as respostas salvas em `/aluno/provas/{id}/questoes`).
@@ -121,8 +121,8 @@
 - [x] **A6 — Login de aluno só com o nome** enviando `ra="  "`: `db.py:456-463`. Validar depois do strip e exigir RA no cadastro.
 
 **Criar prova**
-- [ ] **A7 — "Voltar" + "Continuar" cria uma segunda prova:** `criar-prova/page.tsx:105-125` e `:535`. Atualizar a prova existente quando `provaId` já existe e validar a turma no passo 1.
-- [ ] **A8 — Rascunho sem saída:** não há como retomar, editar ou publicar. Link "Continuar editando" (`/criar-prova?id=`).
+- [x] **A7 — "Voltar" + "Continuar" cria uma segunda prova:** *(novo `PUT /provas/{id}` para rascunho; turma obrigatória no passo 1)* `criar-prova/page.tsx:105-125` e `:535`. Atualizar a prova existente quando `provaId` já existe e validar a turma no passo 1.
+- [x] **A8 — Rascunho sem saída:** *(`/criar-prova?id=` + link em Turmas, só provas manuais)* não há como retomar, editar ou publicar. Link "Continuar editando" (`/criar-prova?id=`).
 
 **Classificação e taxonomia**
 - [ ] **A9 — Classificação ignora a etapa e a disciplina:**
@@ -143,7 +143,7 @@
 - [ ] **A14 — Fluxo de prova online invisível:** Sidebar (`Sidebar.tsx:20-28`), FlowBanner e Home só mostram o fluxo com OCR, e o monitor fica atrás de um link de 10px (`turmas/page.tsx:631`). Criar dois caminhos explícitos e uma entrada "Provas".
 - [ ] **A15 — Contraste abaixo do WCAG AA:** `PctBadge` e cores de Bloom (`BloomBadge.tsx:24`, `criar-prova:386`). Usar tons 700 e rótulo em texto.
 - [ ] **A16 — `/aplicar` no celular:** nomes cortados, botão "Liberar" de 12px, "Encerrar" colado em "Copiar PIN", nenhum aviso quando o polling falha e a URL aparece relativa. Adicionar URL completa + QR.
-- [ ] **A17 — `/turmas` no celular:** os botões editar e remover do aluno usam `opacity-0 group-hover` e ficam invisíveis no toque (`turmas/page.tsx:586`, `:594`).
+- [x] **A17 — `/turmas` no celular:** os botões editar e remover do aluno usam `opacity-0 group-hover` e ficam invisíveis no toque (`turmas/page.tsx:586`, `:594`).
 
 ---
 
@@ -166,7 +166,7 @@
 
 **Formulários e navegação**
 - [ ] M8 — 41 `<label>` sem `htmlFor`/`id` (login, register, criar-prova, turmas, lancar, relatorio). Só `/aluno` está correto.
-- [ ] M9 — Scroll horizontal em `/criar-prova` a 360px: o stepper corta "Publicar".
+- [x] M9 — Scroll horizontal em `/criar-prova` a 360px: o stepper corta "Publicar".
 - [ ] M10 — `/analisar`: h1 "EduMap", "arraste o arquivo" sem `onDrop`, área de upload inacessível por teclado, jargão "Extração: TESSERACT".
 - [ ] M11 — Sem página inicial pública (`/` redireciona para `/login`) e sem "Esqueci minha senha".
 

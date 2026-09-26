@@ -1108,6 +1108,22 @@ def criar_prova_manual(
         )
 
 
+def atualizar_prova_manual(
+    prova_id: int,
+    titulo: str,
+    turma_id: Optional[int],
+    disciplina: str,
+    serie: str,
+    tempo_limite_min: Optional[int] = None,
+) -> None:
+    with _conn() as con:
+        con.execute(
+            """UPDATE provas SET titulo=?, turma_id=?, disciplina=?, serie=?, tempo_limite_min=?
+               WHERE id=?""",
+            (titulo, turma_id, disciplina, serie, tempo_limite_min, prova_id),
+        )
+
+
 def adicionar_questao_manual(
     prova_id: int,
     numero: int,

@@ -149,3 +149,34 @@ class TestNota:
             "stem": q1["stem"], "alternativas": ["4", "6", "8"], "gabarito": "B",
         })
         assert _relatorio_do_aluno(client, c)["acertos"] == 1
+
+
+# ── A7: editar dados da prova (em vez de criar outra) ────────────────────────
+
+class TestEditarProva:
+    def test_atualiza_rascunho_sem_criar_outra(self, client, c):
+        pid = c["prova"]["id"]
+        r = client.put(f"/provas/{pid}", headers=c["h"], json={
+            "titulo": "Título corrigido", "turma_id": c["turma"]["id"], "disciplina": "Física",
+        })
+        assert r.status_code == 200, r.text
+        assert r.json()["titulo"] == "Título corrigido"
+        assert r.json()["id"] == pid
+        # As questões continuam na mesma prova
+        assert len(client.get(f"/provas/{pid}/questoes", headers=c["h"]).json()) == 2
+
+    def test_nao_edita_prova_publicada(self, client, c):
+        _publicar(client, c)
+        r = client.put(f"/provas/{c['prova']['id']}", headers=c["h"], json={"titulo": "X"})
+        assert r.status_code == 400
+
+    def test_nao_edita_prova_alheia(self, client, c):
+        outro = _cenario(client, "Escola Alheia")
+        r = client.put(f"/provas/{c['prova']['id']}", headers=outro["h"], json={"titulo": "X"})
+        assert r.status_code == 403
+
+    def test_nao_move_para_turma_alheia(self, client, c):
+        outro = _cenario(client, "Escola Alheia 2")
+        r = client.put(f"/provas/{c['prova']['id']}", headers=c["h"],
+                       json={"titulo": "X", "turma_id": outro["turma"]["id"]})
+        assert r.status_code == 403

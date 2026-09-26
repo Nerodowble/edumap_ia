@@ -1237,6 +1237,23 @@ def criar_prova_manual_endpoint(body: ProvaManualCreate, user=Depends(get_curren
     return db.get_prova(pid)
 
 
+@app.put("/provas/{prova_id}", summary="Atualiza dados de uma prova manual em rascunho")
+def atualizar_prova_manual_endpoint(prova_id: int, body: ProvaManualCreate, user=Depends(get_current_user)):
+    _require_prova_access(prova_id, user)
+    prova = db.get_prova(prova_id)
+    if prova.get("status") != "rascunho":
+        raise HTTPException(400, "Só é possível alterar os dados de uma prova em rascunho.")
+    if body.turma_id:
+        _require_turma_access(body.turma_id, user)
+    if body.tempo_limite_min is not None and body.tempo_limite_min <= 0:
+        raise HTTPException(422, "O tempo limite deve ser maior que zero.")
+    db.atualizar_prova_manual(
+        prova_id, body.titulo.strip() or "Prova sem título", body.turma_id,
+        body.disciplina, body.serie, body.tempo_limite_min,
+    )
+    return db.get_prova(prova_id)
+
+
 @app.get("/provas/{prova_id}/edicao", summary="Detalhes da prova para edição (com alternativas e gabarito)")
 def get_prova_edicao(prova_id: int, user=Depends(get_current_user)):
     _require_prova_access(prova_id, user)
