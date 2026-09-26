@@ -167,3 +167,16 @@ class TestIsolamentoUpload:
                         files={"file": ("p.pdf", b"%PDF-1.4", "application/pdf")})
         assert r.status_code == 403  # antes: 500 "Erro ao processar prova: 403", depois do OCR
         assert chamou == []
+
+
+class TestListaProvasOnline:
+    def test_professor_ve_so_as_proprias(self, client, a, b):
+        ids = [p["id"] for p in client.get("/provas/online", headers=a["h"]).json()]
+        assert a["prova"]["id"] in ids
+        assert b["prova"]["id"] not in ids
+
+    def test_traz_nome_da_turma_e_status(self, client, a):
+        p = next(x for x in client.get("/provas/online", headers=a["h"]).json() if x["id"] == a["prova"]["id"])
+        assert p["turma_nome"] == a["turma"]["nome"]
+        assert p["status"] == "rascunho"
+        assert p["total_questoes"] == 2

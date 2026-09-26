@@ -831,6 +831,11 @@ def delete_aluno(aluno_id: int, user=Depends(get_current_user)):
 
 
 # ── Provas ────────────────────────────────────────────────────────────────────
+@app.get("/provas/online", summary="Lista as provas online (criadas no editor) do usuário")
+def list_provas_online(user=Depends(get_current_user)):
+    return db.listar_provas_online(user)
+
+
 @app.get("/turmas/{turma_id}/provas", summary="Lista provas de uma turma")
 def list_provas(turma_id: int, user=Depends(get_current_user)):
     _require_turma_access(turma_id, user)

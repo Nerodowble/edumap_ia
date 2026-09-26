@@ -50,9 +50,9 @@
 4. ~~C7, C8, A1, A2, A4, A5, A6~~ ✅ (E2E em navegador: 16 verificações)
 5. ~~A3, A7, A8, A17, M9~~ ✅ (E2E /criar-prova: 7 verificações)
 6. ~~A9, A10, A11, A13~~ ✅ (em produção)
-7. **▶ RETOMAR AQUI: A14 — em andamento, SEM COMMIT** (ver detalhes no item A14 abaixo)
-8. A15, A16, depois os itens Médio e Baixo
-9. Melhorias pedidas: N1 (junto com o A14), N2 (detalhar com o usuário antes)
+7. ~~A14, N1~~ ✅
+8. **▶ RETOMAR AQUI:** A15, A16, depois os itens Médio e Baixo
+9. Melhoria pedida: N2 (detalhar com o usuário antes)
 
 ---
 
@@ -146,11 +146,7 @@
 - [x] **A13 — Editar aluno apaga CPF e data de nascimento:** *(campos omitidos mantêm o valor)* o front manda só `{nome, ra}` (`turmas/page.tsx:436`) e o backend sobrescreve os dois campos com "" (`api.py:282` e `db.py:482`). Fazer um update parcial.
 
 **UX**
-- [~] **A14 — EM ANDAMENTO (parado em 2026-09-26, código no disco, sem commit/deploy)**
-  - Backend (pronto, testado): `GET /provas/online` em `api.py` + `db.listar_provas_online()` em `src/database/db.py`; 2 testes em `tests/test_isolamento.py::TestListaProvasOnline` (passando).
-  - Frontend (escrito, **falta `npx tsc --noEmit` + `npm run build`**): página nova `src/app/provas/page.tsx` ("Minhas provas online" com Continuar editando / Acompanhar ao vivo / Relatório); `Sidebar.tsx` em seções (Prova online / Prova impressa / Resultados); Home `src/app/page.tsx` com os dois caminhos; `FlowBanner.tsx` rotulado como prova impressa com link para /provas; `lib/api.ts` (`getProvasOnline`) e `lib/types.ts` (`ProvaOnline`).
-  - Para concluir: validar tsc/build → rodar suíte do backend → commit nos 2 repos → push do **backend primeiro** (o front chama /provas/online) → push do frontend. Não commitar `provas_exemplo/prova_exemplo_8ano.pdf` (regerado pelos testes).
-  - Problema original: Sidebar (`Sidebar.tsx:20-28`), FlowBanner e Home só mostram o fluxo com OCR, e o monitor fica atrás de um link de 10px (`turmas/page.tsx:631`). Criar dois caminhos explícitos e uma entrada "Provas".
+- [x] **A14 — Fluxo de prova online invisível:** *(GET /provas/online + página `/provas` "Minhas provas online"; Sidebar em seções Prova online / Prova impressa / Resultados; Home com os dois caminhos; FlowBanner rotulado; E2E com prints desktop e 375px)*
 - [ ] **A15 — Contraste abaixo do WCAG AA:** `PctBadge` e cores de Bloom (`BloomBadge.tsx:24`, `criar-prova:386`). Usar tons 700 e rótulo em texto.
 - [ ] **A16 — `/aplicar` no celular:** nomes cortados, botão "Liberar" de 12px, "Encerrar" colado em "Copiar PIN", nenhum aviso quando o polling falha e a URL aparece relativa. Adicionar URL completa + QR.
 - [x] **A17 — `/turmas` no celular:** os botões editar e remover do aluno usam `opacity-0 group-hover` e ficam invisíveis no toque (`turmas/page.tsx:586`, `:594`).
@@ -234,7 +230,7 @@
 
 ## ✨ Melhorias pedidas pelo usuário
 
-- [ ] **N1 — Rótulo da validade do convite** *(pedido em 2026-09-26; fazer junto com o A14)*
+- [x] **N1 — Rótulo da validade do convite** *(pedido em 2026-09-26; fazer junto com o A14)*
   - A validade do convite é só o **prazo para usar o código e criar a conta** (`expira_em`, checado em `convites.registrar_com_convite`). A conta criada não expira.
   - Trocar o rótulo "Validade (dias)" por **"Prazo para usar o convite (dias)"** em `src/components/admin/ConvitesPanel.tsx`, e a coluna "Expira em" por "Prazo do convite".
 

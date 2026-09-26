@@ -645,6 +645,28 @@ def listar_provas(turma_id: Optional[int] = None) -> List[Dict]:
         return con.execute("SELECT * FROM provas ORDER BY criado_em DESC").fetchall()
 
 
+def listar_provas_online(user: Dict) -> List[Dict]:
+    """Provas criadas no editor (origem='manual') visíveis para o usuário,
+    com o nome da turma. Mesma regra de visibilidade das turmas."""
+    sql = """SELECT p.id, p.titulo, p.disciplina, p.serie, p.status, p.total_questoes,
+                    p.tempo_limite_min, p.publicada_em, p.encerrada_em, p.criado_em,
+                    p.turma_id, t.nome AS turma_nome
+             FROM provas p
+             LEFT JOIN turmas t ON t.id = p.turma_id
+             WHERE p.origem = 'manual'"""
+    params: tuple = ()
+    role = user.get("role")
+    if role == "admin_escolar":
+        sql += " AND t.escola = ?"
+        params = (user.get("escola") or "",)
+    elif role != "admin_geral":
+        sql += " AND (p.usuario_id = ? OR t.usuario_id = ?)"
+        params = (user["id"], user["id"])
+    sql += " ORDER BY p.criado_em DESC, p.id DESC"
+    with _conn() as con:
+        return con.execute(sql, params).fetchall()
+
+
 # ── Autorização (ownership / role) ────────────────────────────────────────────
 
 def user_pode_ver_turma(turma_id: int, user: Dict) -> bool:
