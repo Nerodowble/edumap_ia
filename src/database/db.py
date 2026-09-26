@@ -785,7 +785,10 @@ def lancar_respostas_aluno(aluno_id: int, prova_id: int, respostas_aluno: Dict[i
 # ── Respostas ─────────────────────────────────────────────────────────────────
 
 def salvar_respostas(aluno_id: int, prova_id: int, respostas: Dict[int, Dict]):
-    """respostas: {questao_numero: {resposta, gabarito, correta}}"""
+    """respostas: {questao_numero: {resposta, gabarito}}.
+    `correta` é sempre calculado aqui: usa o gabarito salvo da prova e, só se a
+    prova ainda não tem gabarito para a questão, o informado pelo cliente."""
+    gabarito_prova = get_gabarito(prova_id)
     with _conn() as con:
         questoes = con.execute(
             "SELECT id, numero FROM questoes WHERE prova_id=?", (prova_id,)
@@ -796,14 +799,16 @@ def salvar_respostas(aluno_id: int, prova_id: int, respostas: Dict[int, Dict]):
             qid = num_to_id.get(numero)
             if not qid:
                 continue
+            resp = (dados.get("resposta") or "").strip().upper()
+            gab = (gabarito_prova.get(numero) or dados.get("gabarito") or "").strip().upper()
+            correta = 1 if (resp and gab and resp == gab) else 0
             con.execute(
                 """INSERT INTO respostas (aluno_id, questao_id, resposta, gabarito, correta)
                    VALUES (?,?,?,?,?)
                    ON CONFLICT(aluno_id, questao_id) DO UPDATE
                    SET resposta=excluded.resposta, gabarito=excluded.gabarito,
                        correta=excluded.correta""",
-                (aluno_id, qid, dados.get("resposta", ""), dados.get("gabarito", ""),
-                 1 if dados.get("correta") else 0),
+                (aluno_id, qid, resp, gab, correta),
             )
 
 
@@ -1470,14 +1475,17 @@ def listar_disciplinas_distintas() -> List[str]:
 
 def salvar_resposta_unica(
     aluno_id: int,
+    prova_id: int,
     questao_id: int,
     resposta: str,
     tempo_segundos: Optional[int] = None,
 ) -> Dict:
-    """Salva uma resposta do aluno (online) e calcula automaticamente o gabarito/correta."""
+    """Salva uma resposta do aluno (online) e calcula automaticamente o gabarito/correta.
+    A questão precisa pertencer à prova informada (o aluno só tem acesso a ela)."""
     with _conn() as con:
         q = con.execute(
-            "SELECT prova_id, numero FROM questoes WHERE id=?", (questao_id,)
+            "SELECT prova_id, numero FROM questoes WHERE id=? AND prova_id=?",
+            (questao_id, prova_id),
         ).fetchone()
         if not q:
             return {"ok": False, "erro": "questao_nao_encontrada"}

@@ -680,15 +680,14 @@ class TestValidacaoEdgeCases:
         r = client.post(f"/provas/{pid}/gabarito", json={"gabarito": gabarito})
         assert r.status_code == 201
 
-    def test_lancar_aluno_id_inexistente_passa(self, client, prova_com_gabarito):
-        """Aluno inexistente no banco pode causar FK error — verificar comportamento."""
+    def test_lancar_aluno_id_inexistente_404(self, client, prova_com_gabarito):
+        """Aluno inexistente é recusado antes de gravar (checklist C3)."""
         pid = prova_com_gabarito["prova_id"]
         gabarito = prova_com_gabarito["gabarito"]
         r = client.post(f"/provas/{pid}/lancar", json={
             "respostas": {"99999": dict(gabarito)}
         })
-        # Pode retornar 201 (FK não verificado) ou 500 (FK ativada)
-        assert r.status_code in (201, 500)
+        assert r.status_code == 404
 
     def test_relatorio_percentual_matematicamente_correto(self, client, prova_com_gabarito):
         """percentual deve ser exatamente round(acertos/total * 100)."""

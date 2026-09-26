@@ -109,7 +109,13 @@ app.add_middleware(
 )
 
 # ── Auth ──────────────────────────────────────────────────────────────────────
-_SECRET = os.getenv("SECRET_KEY", "edumap-dev-secret-change-in-prod")
+_SECRET = os.getenv("SECRET_KEY", "")
+if not _SECRET:
+    if os.getenv("DATABASE_URL"):
+        # Produção (Postgres): sem chave própria, qualquer um forjaria tokens
+        raise RuntimeError("SECRET_KEY não definida. Configure a variável de ambiente no servidor.")
+    _SECRET = "edumap-dev-secret-change-in-prod"
+    print("[auth] AVISO: SECRET_KEY ausente — usando chave de desenvolvimento (só para uso local).")
 _ALGO = "HS256"
 _TTL = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "10080"))  # 7 days
 SKIP_AUTH = os.getenv("SKIP_AUTH", "").lower() in ("1", "true", "yes")
@@ -146,6 +152,29 @@ def _require_prova_access(prova_id: int, user: Dict):
         raise HTTPException(404, "Prova não encontrada.")
     if not db.user_pode_ver_prova(prova_id, user):
         raise HTTPException(403, "Você não tem permissão para acessar esta prova.")
+
+
+def _require_questao_da_prova(questao_id: int, prova_id: int):
+    """404 se a questão não existe ou pertence a outra prova (evita IDOR)."""
+    q = db.get_questao(questao_id)
+    if not q or q["prova_id"] != prova_id:
+        raise HTTPException(404, "Questão não encontrada.")
+
+
+def _require_aluno_da_prova(aluno_id: int, prova_id: int, user: Dict):
+    """O aluno precisa ser da turma da prova (ou, se a prova não tem turma,
+    de uma turma que o usuário pode ver). Evita lançar/ler dados de alunos
+    de outros professores."""
+    aluno = db.get_aluno(aluno_id)
+    prova = db.get_prova(prova_id)
+    if not aluno or not prova:
+        raise HTTPException(404, "Aluno não encontrado.")
+    if prova.get("turma_id"):
+        ok = aluno.get("turma_id") == prova["turma_id"]
+    else:
+        ok = bool(aluno.get("turma_id")) and db.user_pode_ver_turma(aluno["turma_id"], user)
+    if not ok:
+        raise HTTPException(403, f"O aluno {aluno_id} não pertence à turma desta prova.")
 
 
 def get_current_user(creds: Optional[HTTPAuthorizationCredentials] = Depends(_bearer)):
@@ -939,6 +968,7 @@ def update_tipo_questao(
     user=Depends(get_current_user),
 ):
     _require_prova_access(prova_id, user)
+    _require_questao_da_prova(questao_id, prova_id)
     if body.tipo not in ("multipla_escolha", "verdadeiro_falso"):
         raise HTTPException(400, "tipo inválido. Use 'multipla_escolha' ou 'verdadeiro_falso'.")
     if not db.atualizar_tipo_questao(questao_id, body.tipo):
@@ -993,8 +1023,10 @@ def get_relatorio_pdf(prova_id: int, user=Depends(get_current_user)):
 @app.post("/provas/{prova_id}/respostas", status_code=201, summary="Salva respostas de um aluno")
 def save_respostas(prova_id: int, payload: RespostasPayload, user=Depends(get_current_user)):
     _require_prova_access(prova_id, user)
+    _require_aluno_da_prova(payload.aluno_id, prova_id, user)
+    # `correta` enviado pelo cliente é ignorado: o servidor recalcula (ver db.salvar_respostas)
     respostas = {
-        int(k): {"resposta": v.resposta, "gabarito": v.gabarito, "correta": v.correta}
+        int(k): {"resposta": v.resposta, "gabarito": v.gabarito}
         for k, v in payload.respostas.items()
     }
     db.salvar_respostas(payload.aluno_id, prova_id, respostas)
@@ -1019,6 +1051,11 @@ def get_gabarito(prova_id: int, user=Depends(get_current_user)):
 @app.post("/provas/{prova_id}/lancar", status_code=201, summary="Lança respostas de vários alunos")
 def lancar_respostas(prova_id: int, payload: LancarBulkPayload, user=Depends(get_current_user)):
     _require_prova_access(prova_id, user)
+    # Valida todos os alunos antes de gravar qualquer coisa
+    for aluno_id_str in payload.respostas:
+        if not aluno_id_str.isdigit():
+            raise HTTPException(422, f"aluno_id inválido: {aluno_id_str}")
+        _require_aluno_da_prova(int(aluno_id_str), prova_id, user)
     erros = []
     for aluno_id_str, resps in payload.respostas.items():
         try:
@@ -1329,6 +1366,7 @@ def add_questao_manual(prova_id: int, body: QuestaoCreate, user=Depends(get_curr
 @app.put("/provas/{prova_id}/questoes/{questao_id}", summary="Atualiza questão de uma prova manual (re-classifica automaticamente)")
 def update_questao_manual(prova_id: int, questao_id: int, body: QuestaoUpdate, user=Depends(get_current_user)):
     _require_prova_access(prova_id, user)
+    _require_questao_da_prova(questao_id, prova_id)
     prova = db.get_prova(prova_id)
     auto = _classificar_questao(body.stem, body.alternativas, prova.get("disciplina") or "")
 
@@ -1370,6 +1408,7 @@ def update_questao_manual(prova_id: int, questao_id: int, body: QuestaoUpdate, u
 @app.delete("/provas/{prova_id}/questoes/{questao_id}", status_code=204, summary="Remove questão")
 def delete_questao(prova_id: int, questao_id: int, user=Depends(get_current_user)):
     _require_prova_access(prova_id, user)
+    _require_questao_da_prova(questao_id, prova_id)
     if not db.deletar_questao(questao_id):
         raise HTTPException(404, "Questão não encontrada.")
 
@@ -1530,6 +1569,7 @@ def aluno_responder(prova_id: int, body: ResponderQuestaoIn, request: Request, a
         raise HTTPException(409, "Dispositivo diferente.")
     out = db.salvar_resposta_unica(
         aluno_id=aluno["id"],
+        prova_id=prova_id,
         questao_id=body.questao_id,
         resposta=body.resposta,
         tempo_segundos=body.tempo_segundos,

@@ -36,15 +36,15 @@
 - [x] **Boot lento:** o auto-seed da taxonomia (3.859 nós, cerca de 7.700 queries) rodava antes de abrir a porta. Agora roda em thread e só reimporta JSON alterado (tabela `seed_hashes`). Commit `6a54aac`.
 - [x] **Restart apagava edições do admin na taxonomia:** resolvido pelo mesmo commit `6a54aac`.
 - [x] Conta `admin_geral` do usuário criada no banco novo, e taxonomia com as 7 etapas carregadas.
-- [x] `SECRET_KEY` conferida no Render pelo usuário. O fallback no código continua (ver C5).
+- [ ] **Confirmar com o usuário** que `SECRET_KEY` existe no Render (Environment) ANTES de fazer push do C5 — sem ela o backend não sobe em produção.
 
 ---
 
 ## Ordem de execução
 
 1. ~~C1 (convites)~~ ✅
-2. C2, C3, C4 (furos de acesso) e testes com autenticação real (T1)
-3. C5, C6
+2. ~~C2, C3, C4~~ ✅ e testes com autenticação real (T1 — iniciado: test_auth_convites.py + test_isolamento.py)
+3. ~~C5, C6~~ ✅ (ver pendências de confirmação nos itens)
 4. C7, C8 e A1–A4 (prova do aluno e notas)
 5. Restante dos itens Alto, depois Médio e Baixo
 
@@ -79,23 +79,23 @@
     - [x] Permissões por perfil
   - O login do aluno (nome + R.A. + PIN) **não muda**.
 
-- [ ] **C2 — IDOR em questões:** um professor edita e apaga questões e gabarito de outro professor
+- [x] **C2 — IDOR em questões:** *(corrigido; tests/test_isolamento.py)* um professor edita e apaga questões e gabarito de outro professor
   - **Onde:** `api.py:845`, `:1241`, `:1282`. O código só confere o acesso à prova da URL, nunca se `questao_id` pertence a ela.
   - **Correção:** carregar a questão e exigir `q.prova_id == prova_id`, senão 404. Aplicar também em `db.atualizar_tipo_questao`, `atualizar_questao_manual` e `deletar_questao` (`WHERE id=? AND prova_id=?`).
 
-- [ ] **C3 — IDOR em respostas, com vazamento de alunos de outras escolas**
+- [x] **C3 — IDOR em respostas, com vazamento de alunos de outras escolas** *(corrigido; `correta` recalculado no servidor)*
   - **Onde:** `api.py:905` e `:931` aceitam qualquer `aluno_id`, e o relatório passa a mostrar nome, RA e turma. Em `api.py:909` o próprio cliente informa `correta`.
   - **Correção:** validar `aluno.turma_id == prova.turma_id` e recalcular `correta` no servidor.
 
-- [ ] **C4 — Aluno responde questão de outra prova**
+- [x] **C4 — Aluno responde questão de outra prova** *(corrigido; o bloqueio por status da prova já existia no endpoint)*
   - **Onde:** `api.py:1430` e `db.py:1438` (`salvar_resposta_unica` sem filtro por prova). Isso passa por cima de PIN, turma e encerramento.
   - **Correção:** `WHERE id=? AND prova_id=?` e rejeitar se a prova não estiver publicada.
 
-- [ ] **C5 — `SECRET_KEY` com fallback hardcoded**
+- [x] **C5 — `SECRET_KEY` com fallback hardcoded** *(código pronto: com DATABASE_URL e sem SECRET_KEY o boot falha; fallback só local. **Push só após o usuário confirmar a variável no Render**)*
   - **Onde:** `api.py:100` (`"edumap-dev-secret-change-in-prod"`). Com essa chave dá para forjar um token de admin.
   - **Correção:** falhar no boot se a variável estiver ausente, exceto com `SKIP_AUTH` ou em ambiente de teste.
 
-- [ ] **C6 — `data/edumap.db` versionado num repositório público**, com 40 alunos e hashes de senha
+- [x] **C6 — `data/edumap.db` versionado num repositório público** *(removido do índice com `git rm --cached`; **limpeza do histórico pendente de decisão do usuário**)*, com 40 alunos e hashes de senha
   - **Correção:** `git rm --cached data/edumap.db`, colocar `data/*.db` no `.gitignore` e avaliar a limpeza do histórico (git filter-repo). A limpeza é destrutiva: **confirmar com o usuário antes**.
 
 - [ ] **C7 — PIN ou login errado desloga o aluno com "Sessão expirada"**
@@ -201,7 +201,7 @@
 - [ ] B9 — Títulos de página genéricos ("EduMap"), alvos de toque pequenos em login e register, emojis misturados com ícones, e termos inconsistentes (prova/avaliação, disciplina/matéria).
 
 **Repositório**
-- [ ] B10 — Arquivo vazio `Dict[str` e `test_report.pdf` soltos na raiz. `__pycache__/*.pyc` versionados.
+- [~] B10 — *(`__pycache__` removidos do índice)* Arquivo vazio `Dict[str` e `test_report.pdf` soltos na raiz. `__pycache__/*.pyc` versionados.
 
 ---
 
