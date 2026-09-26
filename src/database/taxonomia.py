@@ -184,6 +184,22 @@ def seed_from_json_if_changed(json_path: Path) -> Optional[Dict]:
 
 # ── Consulta ──────────────────────────────────────────────────────────────────
 
+def materia_por_label(label: str, etapa: Optional[str] = None) -> Optional[Dict]:
+    """Converte o nome exibido da disciplina (label do nó raiz) na chave da
+    matéria. Com `etapa`, restringe à árvore dessa etapa — há slugs repetidos
+    entre cursos técnicos (ex.: tcc, etica_cidadania). Retorna {materia, etapa}."""
+    if not label:
+        return None
+    sql = "SELECT materia, etapa FROM taxonomia WHERE nivel=1 AND label=?"
+    params: tuple = (label.strip(),)
+    if etapa:
+        sql += " AND etapa=?"
+        params += (etapa,)
+    sql += " ORDER BY etapa LIMIT 1"
+    with _conn() as con:
+        return con.execute(sql, params).fetchone()
+
+
 def listar_etapas() -> List[Dict]:
     """Retorna etapas distintas com contagem de nós + metadados (label/grupo).
 

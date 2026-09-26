@@ -1481,9 +1481,10 @@ def listar_questoes_para_reclassificar(
         rows = con.execute(
             f"""SELECT q.id, q.prova_id, q.numero, q.stem, q.alternativas,
                        q.taxonomia_codigo, q.bloom_nivel, q.area_key, q.area_display,
-                       p.disciplina, p.titulo AS prova_titulo
+                       p.disciplina, p.titulo AS prova_titulo, t.etapa AS turma_etapa
                 FROM questoes q
                 JOIN provas p ON p.id = q.prova_id
+                LEFT JOIN turmas t ON t.id = p.turma_id
                 WHERE {where_sql}
                 ORDER BY q.prova_id, q.numero""",
             tuple(params),

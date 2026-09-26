@@ -877,6 +877,7 @@ async def upload_prova(
     else:
         tid = None
     suffix, content = await _ler_upload(file, "prova.pdf")
+    etapa_turma = (db.get_turma(tid) or {}).get("etapa") if tid else None
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
         tmp.write(content)
@@ -897,11 +898,12 @@ async def upload_prova(
 
             tax = None
             if not auto_detect:
-                area_key = SUBJECT_TO_KEY.get(subject, "indefinida")
+                area_key, etapa_materia = _materia_da_disciplina(subject, etapa_turma)
+                area_key = area_key or "indefinida"
                 area_conf = 1.0
-                if area_key and area_key != "indefinida":
+                if area_key != "indefinida":
                     try:
-                        tax = classify_taxonomia(stem_full, area_key)
+                        tax = classify_taxonomia(stem_full, area_key, etapa_materia or "ef2")
                     except Exception:
                         tax = None
             else:
@@ -1298,7 +1300,26 @@ def get_prova_edicao(prova_id: int, user=Depends(get_current_user)):
     return {"prova": prova, "questoes": questoes}
 
 
-def _classificar_questao(stem: str, alternativas: list, disciplina: str) -> Dict:
+def _etapa_da_prova(prova: Dict) -> Optional[str]:
+    turma = db.get_turma(prova["turma_id"]) if prova.get("turma_id") else None
+    return (turma or {}).get("etapa") or None
+
+
+def _materia_da_disciplina(disciplina: str, etapa: Optional[str]) -> tuple:
+    """(materia, etapa) a partir do que a prova guarda em `disciplina`: slug,
+    nome do mapa fixo ou label da taxonomia (o front de /criar-prova envia o label)."""
+    if not disciplina:
+        return "", etapa
+    chave = SUBJECT_TO_KEY.get(disciplina)
+    if chave:
+        return chave, etapa
+    achado = db_taxonomia.materia_por_label(disciplina, etapa) or db_taxonomia.materia_por_label(disciplina)
+    if achado:
+        return achado["materia"], etapa or achado["etapa"]
+    return "", etapa
+
+
+def _classificar_questao(stem: str, alternativas: list, disciplina: str, etapa: Optional[str] = None) -> Dict:
     """Roda o pipeline taxonomico sobre uma questao criada manualmente.
     Usa a disciplina da prova como hint de materia (fallback: classify_across_all).
     Retorna dict com area_key, area_display, subarea_key, subarea_label,
@@ -1314,13 +1335,13 @@ def _classificar_questao(stem: str, alternativas: list, disciplina: str) -> Dict
         bloom_level, bloom_name, bloom_verb = 0, "", ""
 
     # 2) Materia/area: usa a disciplina da prova como hint (se informada)
-    area_key = SUBJECT_TO_KEY.get(disciplina or "", "")
+    area_key, etapa_materia = _materia_da_disciplina(disciplina or "", etapa)
     tem_hint = bool(area_key)
     tax = None
 
     if area_key:
         try:
-            tax = classify_taxonomia(stem_full, area_key)
+            tax = classify_taxonomia(stem_full, area_key, etapa_materia or "ef2")
         except Exception:
             tax = None
 
@@ -1368,7 +1389,7 @@ def add_questao_manual(prova_id: int, body: QuestaoCreate, user=Depends(get_curr
         raise HTTPException(400, "Prova já encerrada.")
 
     # Roda classificacao automatica (Bloom + materia + taxonomia + subarea)
-    auto = _classificar_questao(body.stem, body.alternativas, prova.get("disciplina") or "")
+    auto = _classificar_questao(body.stem, body.alternativas, prova.get("disciplina") or "", _etapa_da_prova(prova))
 
     # Override: se o professor passou valores nao-default, prevalece
     bloom_nivel = body.bloom_nivel if body.bloom_nivel else auto["bloom_nivel"]
@@ -1413,7 +1434,7 @@ def update_questao_manual(prova_id: int, questao_id: int, body: QuestaoUpdate, u
     _require_prova_access(prova_id, user)
     _require_questao_da_prova(questao_id, prova_id)
     prova = db.get_prova(prova_id)
-    auto = _classificar_questao(body.stem, body.alternativas, prova.get("disciplina") or "")
+    auto = _classificar_questao(body.stem, body.alternativas, prova.get("disciplina") or "", _etapa_da_prova(prova))
 
     # Override: se o professor passou valores nao-default no body, prevalece sobre auto
     bloom_nivel = body.bloom_nivel if body.bloom_nivel else auto["bloom_nivel"]
@@ -1693,7 +1714,7 @@ def reclassificar_taxonomia(body: ReclassificarIn = Body(default=None), user=Dep
 
     for q in questoes:
         alts = q.get("alternativas_lista") or []
-        nova = _classificar_questao(q.get("stem") or "", alts, q.get("disciplina") or "")
+        nova = _classificar_questao(q.get("stem") or "", alts, q.get("disciplina") or "", q.get("turma_etapa"))
 
         antes = (q.get("taxonomia_codigo") or "", q.get("bloom_nivel") or 0, q.get("area_key") or "")
         depois = (nova.get("taxonomia_codigo") or "", nova.get("bloom_nivel") or 0, nova.get("area_key") or "")

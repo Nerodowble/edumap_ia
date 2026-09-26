@@ -110,7 +110,7 @@ def _load_tree(materia: str, etapa: str = "ef2") -> List[Dict]:
         # Fallback: se a etapa padrão não tem a matéria, tenta qualquer etapa
         if not nodes:
             row = con.execute(
-                "SELECT DISTINCT etapa FROM taxonomia WHERE materia=? LIMIT 1",
+                "SELECT DISTINCT etapa FROM taxonomia WHERE materia=? ORDER BY etapa LIMIT 1",
                 (materia,),
             ).fetchone()
             if row:

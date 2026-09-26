@@ -125,7 +125,7 @@
 - [x] **A8 — Rascunho sem saída:** *(`/criar-prova?id=` + link em Turmas, só provas manuais)* não há como retomar, editar ou publicar. Link "Continuar editando" (`/criar-prova?id=`).
 
 **Classificação e taxonomia**
-- [ ] **A9 — Classificação ignora a etapa e a disciplina:**
+- [x] **A9 — Classificação ignora a etapa e a disciplina:** *(label da disciplina resolvido via raiz da taxonomia filtrada pela etapa da turma; etapa repassada ao classificador em criar/editar/reclassificar/upload; fallback com ORDER BY)*
   - 19 labels enviados pelo front não existem no `SUBJECT_TO_KEY` (`api.py:1147`);
   - `classify_taxonomia` não recebe `turma.etapa`;
   - o fallback em `taxonomia_classifier.py:111-115` usa `LIMIT 1` sem ORDER BY, com 7 slugs repetidos entre cursos.
