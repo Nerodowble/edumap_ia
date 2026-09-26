@@ -156,3 +156,14 @@ class TestIsolamentoAluno:
         r = client.post(f"/aluno/provas/{a['prova']['id']}/responder", headers=ha,
                         json={"questao_id": qa["id"], "resposta": "A"})
         assert r.status_code == 200
+
+
+class TestIsolamentoUpload:
+    def test_upload_para_turma_alheia_403_sem_rodar_ocr(self, client, a, b, monkeypatch):
+        chamou = []
+        monkeypatch.setattr(_api, "extract_text_from_file", lambda *x, **k: chamou.append(1) or ("", "digital"))
+        r = client.post("/provas/upload", headers=a["h"],
+                        data={"year_level": "8º ano EF", "turma_id": str(b["turma"]["id"])},
+                        files={"file": ("p.pdf", b"%PDF-1.4", "application/pdf")})
+        assert r.status_code == 403  # antes: 500 "Erro ao processar prova: 403", depois do OCR
+        assert chamou == []

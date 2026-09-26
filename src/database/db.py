@@ -502,19 +502,28 @@ def buscar_aluno_por_nome_ra(nome: str, ra: str) -> Optional[Dict]:
 def atualizar_aluno_completo(
     aluno_id: int,
     nome: str,
-    ra: str = "",
-    cpf: str = "",
-    data_nascimento: str = "",
+    ra: Optional[str] = None,
+    cpf: Optional[str] = None,
+    data_nascimento: Optional[str] = None,
 ) -> bool:
+    """Campos None mantêm o valor atual; string (inclusive "") substitui."""
     if not nome or not nome.strip():
         return False
     with _conn() as con:
-        existing = con.execute("SELECT id FROM alunos WHERE id=?", (aluno_id,)).fetchone()
-        if not existing:
+        atual = con.execute(
+            "SELECT ra, cpf, data_nascimento FROM alunos WHERE id=?", (aluno_id,)
+        ).fetchone()
+        if not atual:
             return False
         con.execute(
             "UPDATE alunos SET nome=?, ra=?, cpf=?, data_nascimento=? WHERE id=?",
-            (nome.strip(), ra or "", cpf or "", data_nascimento or "", aluno_id),
+            (
+                nome.strip(),
+                (ra if ra is not None else atual["ra"]) or "",
+                (cpf if cpf is not None else atual["cpf"]) or "",
+                (data_nascimento if data_nascimento is not None else atual["data_nascimento"]) or "",
+                aluno_id,
+            ),
         )
         return True
 

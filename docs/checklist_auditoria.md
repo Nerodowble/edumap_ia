@@ -132,12 +132,12 @@
   - **Correção:** guardar o slug da matéria e passar a etapa.
 
 **Upload e segmentação**
-- [ ] **A10 — Upload devolve 500 para erro do cliente e checa acesso depois do OCR:** `api.py:737-833`. Validar antes do `try`, re-levantar `HTTPException` e limitar tamanho e extensão.
+- [x] **A10 — Upload devolve 500 para erro do cliente e checa acesso depois do OCR:** *(`_ler_upload`: extensão 415, tamanho 413 (MAX_UPLOAD_MB=15), vazio 422; turma validada antes do OCR)* `api.py:737-833`. Validar antes do `try`, re-levantar `HTTPException` e limitar tamanho e extensão.
 - [ ] **A11 — Segmentador perde questões:** "Questão N" sozinha na linha é rejeitada (`segmenter.py:30`), e uma lista numerada no enunciado substitui as questões reais na deduplicação (`segmenter.py:125-130`).
 
 **Contrato front↔back**
 - [x] **A12 — Exclusões mostram erro mesmo quando deram certo:** *(corrigido junto com C1: `req()` trata 204)* `req()` faz `res.json()` numa resposta 204. `lib/api.ts:25-37`. Afeta `deleteTurma`, `deleteAluno`, `deleteQuestao` e `adminDeleteUsuario`.
-- [ ] **A13 — Editar aluno apaga CPF e data de nascimento:** o front manda só `{nome, ra}` (`turmas/page.tsx:436`) e o backend sobrescreve os dois campos com "" (`api.py:282` e `db.py:482`). Fazer um update parcial.
+- [x] **A13 — Editar aluno apaga CPF e data de nascimento:** *(campos omitidos mantêm o valor)* o front manda só `{nome, ra}` (`turmas/page.tsx:436`) e o backend sobrescreve os dois campos com "" (`api.py:282` e `db.py:482`). Fazer um update parcial.
 
 **UX**
 - [ ] **A14 — Fluxo de prova online invisível:** Sidebar (`Sidebar.tsx:20-28`), FlowBanner e Home só mostram o fluxo com OCR, e o monitor fica atrás de um link de 10px (`turmas/page.tsx:631`). Criar dois caminhos explícitos e uma entrada "Provas".

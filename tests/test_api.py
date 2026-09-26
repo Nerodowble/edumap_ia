@@ -735,24 +735,42 @@ class TestValidacaoEdgeCases:
                     assert pcts == sorted(pcts), \
                         f"Alunos não ordenados por pct em {area}/{sub}/bloom{bloom}: {pcts}"
 
-    def test_upload_arquivo_texto_retorna_422_ou_500(self, client):
-        """Upload de arquivo não-imagem/pdf deve ser rejeitado graciosamente."""
+    def test_upload_arquivo_texto_retorna_415(self, client):
+        """Upload de arquivo não-imagem/pdf é recusado antes do OCR (checklist A10)."""
         fake_file = io.BytesIO(b"isto nao e um pdf")
         r = client.post(
             "/provas/upload",
             data={"year_level": "8º ano EF"},
             files={"file": ("prova.txt", fake_file, "text/plain")},
         )
-        assert r.status_code in (200, 422, 500), f"Status inesperado: {r.status_code}"
+        assert r.status_code == 415, f"Status inesperado: {r.status_code}"
 
-    def test_upload_pdf_vazio_retorna_erro(self, client):
-        """PDF vazio (0 bytes) não deve derrubar o servidor."""
+    def test_upload_pdf_vazio_retorna_422(self, client):
+        """PDF vazio (0 bytes) é recusado com mensagem clara."""
         r = client.post(
             "/provas/upload",
             data={"year_level": "8º ano EF"},
             files={"file": ("vazio.pdf", b"", "application/pdf")},
         )
-        assert r.status_code in (200, 422, 500)
+        assert r.status_code == 422
+
+    def test_upload_muito_grande_413(self, client, monkeypatch):
+        import api as _api
+        monkeypatch.setattr(_api, "_MAX_UPLOAD_BYTES", 10)
+        r = client.post(
+            "/provas/upload",
+            data={"year_level": "8º ano EF"},
+            files={"file": ("grande.pdf", b"x" * 100, "application/pdf")},
+        )
+        assert r.status_code == 413
+
+    def test_upload_turma_id_invalido_422(self, client):
+        r = client.post(
+            "/provas/upload",
+            data={"year_level": "8º ano EF", "turma_id": "abc"},
+            files={"file": ("p.pdf", b"%PDF-1.4", "application/pdf")},
+        )
+        assert r.status_code == 422
 
     def test_por_bloom_soma_total_questoes(self, client, prova_com_gabarito):
         """Soma dos totais em por_bloom deve ser igual ao total de questões respondidas."""

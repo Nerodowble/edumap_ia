@@ -180,3 +180,25 @@ class TestEditarProva:
         r = client.put(f"/provas/{c['prova']['id']}", headers=c["h"],
                        json={"titulo": "X", "turma_id": outro["turma"]["id"]})
         assert r.status_code == 403
+
+
+# ── A13: editar aluno não apaga CPF/nascimento ───────────────────────────────
+
+class TestEditarAluno:
+    def test_edicao_parcial_preserva_cpf_e_nascimento(self, client, c):
+        h = c["h"]
+        a = client.post(f"/turmas/{c['turma']['id']}/alunos", headers=h, json={
+            "nome": "Aluno Completo", "ra": "123", "cpf": "111.222.333-44", "data_nascimento": "2008-05-10",
+        }).json()
+        r = client.put(f"/alunos/{a['id']}", headers=h, json={"nome": "Aluno Renomeado", "ra": "456"})
+        assert r.status_code == 200, r.text
+        d = r.json()
+        assert (d["nome"], d["ra"], d["cpf"], d["data_nascimento"]) == \
+            ("Aluno Renomeado", "456", "111.222.333-44", "2008-05-10")
+
+    def test_string_vazia_explicita_limpa(self, client, c):
+        h = c["h"]
+        a = client.post(f"/turmas/{c['turma']['id']}/alunos", headers=h,
+                        json={"nome": "Aluno CPF", "cpf": "999"}).json()
+        d = client.put(f"/alunos/{a['id']}", headers=h, json={"nome": "Aluno CPF", "cpf": ""}).json()
+        assert d["cpf"] == ""

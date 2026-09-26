@@ -322,9 +322,10 @@ class AlunoCreate(BaseModel):
 
 class AlunoUpdate(BaseModel):
     nome: str
-    ra: str = ""
-    cpf: str = ""
-    data_nascimento: str = ""
+    # None = manter o valor atual (antes o front enviava só nome/ra e apagava CPF e nascimento)
+    ra: Optional[str] = None
+    cpf: Optional[str] = None
+    data_nascimento: Optional[str] = None
 
 
 class TurmaUpdate(BaseModel):
@@ -836,6 +837,29 @@ def list_provas(turma_id: int, user=Depends(get_current_user)):
     return db.listar_provas(turma_id)
 
 
+_EXTENSOES_UPLOAD = {".pdf", ".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tif", ".tiff"}
+_MAX_UPLOAD_BYTES = int(os.getenv("MAX_UPLOAD_MB", "15")) * 1024 * 1024
+
+
+async def _ler_upload(file: UploadFile, padrao: str) -> tuple:
+    """Valida extensão e tamanho (lendo em blocos). Retorna (sufixo, bytes)."""
+    suffix = (Path(file.filename or padrao).suffix or Path(padrao).suffix).lower()
+    if suffix not in _EXTENSOES_UPLOAD:
+        raise HTTPException(415, "Formato não suportado. Envie PDF ou imagem (JPG, PNG, WEBP, TIFF, BMP).")
+    partes, total = [], 0
+    while True:
+        bloco = await file.read(1024 * 1024)
+        if not bloco:
+            break
+        total += len(bloco)
+        if total > _MAX_UPLOAD_BYTES:
+            raise HTTPException(413, f"Arquivo muito grande. O limite é {_MAX_UPLOAD_BYTES // (1024 * 1024)} MB.")
+        partes.append(bloco)
+    if total == 0:
+        raise HTTPException(422, "O arquivo enviado está vazio.")
+    return suffix, b"".join(partes)
+
+
 @app.post("/provas/upload", summary="Faz upload de prova, executa OCR e classifica questões")
 async def upload_prova(
     file: UploadFile = File(...),
@@ -844,8 +868,15 @@ async def upload_prova(
     turma_id: Optional[str] = Form(None),
     user=Depends(get_current_user),
 ):
-    suffix = Path(file.filename or "prova.pdf").suffix or ".pdf"
-    content = await file.read()
+    # Valida entrada e acesso ANTES do OCR (caro) e fora do try (senão vira 500)
+    if turma_id and turma_id not in ("", "none"):
+        if not turma_id.isdigit():
+            raise HTTPException(422, "turma_id inválido.")
+        tid: Optional[int] = int(turma_id)
+        _require_turma_access(tid, user)
+    else:
+        tid = None
+    suffix, content = await _ler_upload(file, "prova.pdf")
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
         tmp.write(content)
@@ -913,10 +944,6 @@ async def upload_prova(
                 "taxonomia_matches": tax["matches"] if tax else 0,
             })
 
-        tid = int(turma_id) if turma_id and turma_id not in ("", "none") else None
-        # Valida acesso à turma se fornecida
-        if tid is not None:
-            _require_turma_access(tid, user)
         disc_key = SUBJECT_TO_KEY.get(subject, "")
 
         owner_id = user["id"] if user.get("id", 0) != 0 else None
@@ -946,6 +973,8 @@ async def upload_prova(
             },
         }
 
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(500, f"Erro ao processar prova: {exc}") from exc
     finally:
@@ -1094,8 +1123,7 @@ async def ocr_gabarito_aluno(
     user=Depends(get_current_user),
 ):
     _require_prova_access(prova_id, user)
-    suffix = Path(file.filename or "gabarito.jpg").suffix or ".jpg"
-    content = await file.read()
+    suffix, content = await _ler_upload(file, "gabarito.jpg")
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
         tmp.write(content)
