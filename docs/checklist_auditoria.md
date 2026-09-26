@@ -52,6 +52,7 @@
 6. ~~A9, A10, A11, A13~~ ✅ (em produção)
 7. **▶ RETOMAR AQUI: A14 — em andamento, SEM COMMIT** (ver detalhes no item A14 abaixo)
 8. A15, A16, depois os itens Médio e Baixo
+9. Melhorias pedidas: N1 (junto com o A14), N2 (detalhar com o usuário antes)
 
 ---
 
@@ -228,6 +229,25 @@
   - troca de gabarito (A2; o teste atual passa porque relança as respostas);
   - segmentador com "Questão N" em linha própria;
   - V/F na prova online.
+
+---
+
+## ✨ Melhorias pedidas pelo usuário
+
+- [ ] **N1 — Rótulo da validade do convite** *(pedido em 2026-09-26; fazer junto com o A14)*
+  - A validade do convite é só o **prazo para usar o código e criar a conta** (`expira_em`, checado em `convites.registrar_com_convite`). A conta criada não expira.
+  - Trocar o rótulo "Validade (dias)" por **"Prazo para usar o convite (dias)"** em `src/components/admin/ConvitesPanel.tsx`, e a coluna "Expira em" por "Prazo do convite".
+
+- [ ] **N2 — Acesso temporário (conta com data de expiração)** *(pedido em 2026-09-26; funcionalidade nova, a detalhar com o usuário)*
+  - Caso de uso: professor de escola parceira que só pode usar o sistema por um período (ex.: até o fim do semestre).
+  - Proposta inicial (confirmar com o usuário antes de implementar):
+    - coluna `acesso_ate` (texto ISO UTC, opcional) em `usuarios`, nos schemas PG e SQLite (`src/database/db.py`);
+    - convite com campo opcional "Acesso válido até" → copiado para o usuário no cadastro;
+    - `get_current_user` e `/auth/login` recusam (403 "Seu acesso expirou em DD/MM/AAAA. Fale com o administrador.") quando `acesso_ate` já passou; `admin_geral` nunca expira;
+    - Admin → Usuários: mostrar e editar a data (prorrogar/remover); lista destacando contas expiradas;
+    - dados do professor (turmas, provas, relatórios) continuam guardados após a expiração.
+  - Decisões em aberto: o admin_escolar pode definir/prorrogar? avisar o professor X dias antes? o que acontece com provas publicadas quando a conta expira?
+  - Testes: login/rota protegida antes e depois da data, admin_geral isento, prorrogação.
 
 ---
 
