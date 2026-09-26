@@ -36,7 +36,7 @@
 - [x] **Boot lento:** o auto-seed da taxonomia (3.859 nós, cerca de 7.700 queries) rodava antes de abrir a porta. Agora roda em thread e só reimporta JSON alterado (tabela `seed_hashes`). Commit `6a54aac`.
 - [x] **Restart apagava edições do admin na taxonomia:** resolvido pelo mesmo commit `6a54aac`.
 - [x] Conta `admin_geral` do usuário criada no banco novo, e taxonomia com as 7 etapas carregadas.
-- [ ] **Confirmar com o usuário** que `SECRET_KEY` existe no Render (Environment) ANTES de fazer push do C5 — sem ela o backend não sobe em produção.
+- [x] `SECRET_KEY` confirmada pelo usuário no Render (2026-09-25).
 
 ---
 
