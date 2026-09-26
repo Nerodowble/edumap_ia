@@ -14,7 +14,9 @@ def criar_usuario(nome: str, email: str, senha_hash: str, role: str, escola: str
 
 def get_usuario_por_email(email: str) -> Optional[Dict]:
     with _conn() as con:
-        return con.execute("SELECT * FROM usuarios WHERE email=?", (email,)).fetchone()
+        return con.execute(
+            "SELECT * FROM usuarios WHERE LOWER(email)=?", ((email or "").strip().lower(),)
+        ).fetchone()
 
 
 def get_usuario(usuario_id: int) -> Optional[Dict]:

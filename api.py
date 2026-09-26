@@ -30,6 +30,7 @@ from classifier.segmenter import segment_questions
 from classifier.subarea_classifier import classify_subarea
 from classifier.taxonomia_classifier import classify as classify_taxonomia
 from classifier.taxonomia_classifier import classify_across_all as classify_taxonomia_auto
+from database import convites as db_convites
 from database import db
 from database import taxonomia as db_taxonomia
 from database import usuarios as db_usuarios
@@ -328,6 +329,14 @@ class RegisterBody(BaseModel):
     email: str
     senha: str
     escola: str = ""
+    codigo_convite: str = ""
+
+
+class ConviteBody(BaseModel):
+    role: str = "professor"
+    escola: str = ""
+    usos_max: int = 1
+    validade_dias: int = 7
 
 
 class LoginBody(BaseModel):
@@ -360,17 +369,43 @@ class TipoQuestaoBody(BaseModel):
 # ── Auth endpoints ────────────────────────────────────────────────────────────
 @app.post("/auth/register", status_code=201, summary="Registra novo usuário")
 def auth_register(body: RegisterBody):
-    if db_usuarios.get_usuario_por_email(body.email):
+    nome = body.nome.strip()
+    email = body.email.strip().lower()
+    if not nome:
+        raise HTTPException(422, "Informe o nome.")
+    if "@" not in email or "." not in email.split("@")[-1]:
+        raise HTTPException(422, "Email inválido.")
+    if len(body.senha) < 6:
+        raise HTTPException(422, "A senha deve ter pelo menos 6 caracteres.")
+    if db_usuarios.get_usuario_por_email(email):
         raise HTTPException(400, "Email já cadastrado.")
-    count = db_usuarios.contar_usuarios()
-    role = "admin_geral" if count == 0 else "professor"
-    uid = db_usuarios.criar_usuario(body.nome, body.email, _hash(body.senha), role, body.escola)
-    return {"token": _create_token(uid), "role": role, "nome": body.nome}
+
+    # Bootstrap: banco sem usuários — o primeiro vira admin_geral sem convite
+    if db_usuarios.contar_usuarios() == 0:
+        uid = db_usuarios.criar_usuario(nome, email, _hash(body.senha), "admin_geral", body.escola.strip())
+        return {"token": _create_token(uid), "role": "admin_geral", "nome": nome}
+
+    if not body.codigo_convite.strip():
+        raise HTTPException(403, "O cadastro exige um código de convite.")
+    novo = db_convites.registrar_com_convite(
+        body.codigo_convite, nome, email, _hash(body.senha), body.escola.strip()
+    )
+    if not novo:
+        raise HTTPException(403, "Código de convite inválido, expirado ou já utilizado.")
+    return {"token": _create_token(novo["id"]), "role": novo["role"], "nome": nome}
+
+
+@app.get("/convites/{codigo}", summary="Valida um código de convite (público)")
+def validar_convite(codigo: str):
+    conv = db_convites.get_convite_por_codigo(codigo)
+    if not conv or conv["status"] != "ativo":
+        return {"valido": False}
+    return {"valido": True, "role": conv["role"], "escola": conv["escola"] or ""}
 
 
 @app.post("/auth/login", summary="Autentica usuário e retorna JWT")
 def auth_login(body: LoginBody):
-    user = db_usuarios.get_usuario_por_email(body.email)
+    user = db_usuarios.get_usuario_por_email(body.email.strip().lower())
     if not user or not _verify(body.senha, user["senha_hash"]):
         raise HTTPException(401, "Email ou senha incorretos.")
     return {"token": _create_token(user["id"]), "role": user["role"], "nome": user["nome"]}
@@ -526,6 +561,48 @@ def admin_deletar_no(no_id: int, user=Depends(get_current_user)):
 def admin_list_usuarios(user=Depends(get_current_user)):
     _require_admin_geral(user)
     return db_usuarios.listar_usuarios()
+
+
+# ── Admin: Convites de cadastro ───────────────────────────────────────────────
+def _require_pode_convidar(user):
+    if user["role"] not in ("admin_geral", "admin_escolar"):
+        raise HTTPException(403, "Apenas administradores podem gerenciar convites.")
+    if user["role"] == "admin_escolar" and not (user.get("escola") or "").strip():
+        raise HTTPException(403, "Seu usuário não está vinculado a uma escola.")
+
+
+@app.post("/admin/convites", status_code=201, summary="Gera um código de convite de cadastro")
+def admin_criar_convite(body: ConviteBody, user=Depends(get_current_user)):
+    _require_pode_convidar(user)
+    if body.role not in db_convites.ROLES_CONVIDAVEIS:
+        raise HTTPException(422, "Role inválido. Use professor ou admin_escolar.")
+    if not 1 <= body.usos_max <= 500:
+        raise HTTPException(422, "usos_max deve estar entre 1 e 500.")
+    if not 1 <= body.validade_dias <= 90:
+        raise HTTPException(422, "validade_dias deve estar entre 1 e 90.")
+    escola = body.escola.strip()
+    if user["role"] == "admin_escolar":
+        if body.role != "professor":
+            raise HTTPException(403, "admin_escolar só pode convidar professores.")
+        escola = user["escola"]
+    return db_convites.criar_convite(body.role, escola, body.usos_max, body.validade_dias, user["id"])
+
+
+@app.get("/admin/convites", summary="Lista convites (admin_escolar vê só os da própria escola)")
+def admin_listar_convites(user=Depends(get_current_user)):
+    _require_pode_convidar(user)
+    escola = user["escola"] if user["role"] == "admin_escolar" else None
+    return db_convites.listar_convites(escola)
+
+
+@app.delete("/admin/convites/{convite_id}", summary="Desativa um convite")
+def admin_desativar_convite(convite_id: int, user=Depends(get_current_user)):
+    _require_pode_convidar(user)
+    conv = db_convites.get_convite(convite_id)
+    if not conv or (user["role"] == "admin_escolar" and conv["escola"] != user["escola"]):
+        raise HTTPException(404, "Convite não encontrado.")
+    db_convites.desativar_convite(convite_id)
+    return db_convites.get_convite(convite_id)
 
 
 # Health/version endpoint para conferir qual commit esta deployado.

@@ -130,6 +130,19 @@ _PG_SCHEMA = [
         ordem  INTEGER DEFAULT 100,
         atualizado_em TIMESTAMPTZ DEFAULT NOW()
     )""",
+    # expira_em em texto ISO-8601 UTC nos dois backends: comparacao lexicografica
+    """CREATE TABLE IF NOT EXISTS convites (
+        id          BIGSERIAL PRIMARY KEY,
+        codigo      TEXT NOT NULL UNIQUE,
+        role        TEXT NOT NULL DEFAULT 'professor',
+        escola      TEXT,
+        usos_max    INTEGER NOT NULL DEFAULT 1,
+        usos        INTEGER NOT NULL DEFAULT 0,
+        expira_em   TEXT NOT NULL,
+        ativo       INTEGER NOT NULL DEFAULT 1,
+        criado_por  BIGINT REFERENCES usuarios(id) ON DELETE SET NULL,
+        criado_em   TIMESTAMPTZ DEFAULT NOW()
+    )""",
     "CREATE INDEX IF NOT EXISTS idx_taxonomia_materia ON taxonomia(materia)",
     "CREATE INDEX IF NOT EXISTS idx_taxonomia_parent  ON taxonomia(parent_id)",
     "CREATE INDEX IF NOT EXISTS idx_taxonomia_etapa   ON taxonomia(etapa)",
@@ -246,6 +259,18 @@ CREATE TABLE IF NOT EXISTS etapas_meta (
     ordem          INTEGER DEFAULT 100,
     atualizado_em  TEXT DEFAULT (datetime('now','localtime'))
 );
+CREATE TABLE IF NOT EXISTS convites (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    codigo      TEXT NOT NULL UNIQUE,
+    role        TEXT NOT NULL DEFAULT 'professor',
+    escola      TEXT,
+    usos_max    INTEGER NOT NULL DEFAULT 1,
+    usos        INTEGER NOT NULL DEFAULT 0,
+    expira_em   TEXT NOT NULL,
+    ativo       INTEGER NOT NULL DEFAULT 1,
+    criado_por  INTEGER REFERENCES usuarios(id) ON DELETE SET NULL,
+    criado_em   TEXT DEFAULT (datetime('now','localtime'))
+);
 CREATE INDEX IF NOT EXISTS idx_taxonomia_materia ON taxonomia(materia);
 CREATE INDEX IF NOT EXISTS idx_taxonomia_parent  ON taxonomia(parent_id);
 CREATE INDEX IF NOT EXISTS idx_taxonomia_etapa   ON taxonomia(etapa);
@@ -312,6 +337,14 @@ class _Conn:
         else:
             cur = self._con.execute(sql, params)
             return cur.lastrowid
+
+    def update(self, sql: str, params=()) -> int:
+        """Execute UPDATE/DELETE and return the number of affected rows."""
+        sql = self._ph(sql)
+        if _BACKEND == "postgres":
+            self._cur.execute(sql, params or None)
+            return self._cur.rowcount
+        return self._con.execute(sql, params).rowcount
 
     def commit(self):
         self._con.commit()
