@@ -1505,10 +1505,12 @@ def aluno_iniciar_prova(prova_id: int, body: IniciarProvaIn, request: Request, a
         raise HTTPException(404, "Prova não encontrada.")
     if prova.get("status") != "publicada":
         raise HTTPException(400, "Esta prova não está aberta para resposta.")
-    if (prova.get("pin") or "").strip() != (body.pin or "").strip():
-        raise HTTPException(401, "PIN inválido. Confira com o professor.")
+    # Turma antes do PIN: aluno de outra turma não consegue testar PINs
     if prova.get("turma_id") != aluno.get("turma_id"):
         raise HTTPException(403, "Esta prova não pertence à sua turma.")
+    # 422 (e não 401): PIN errado não é sessão expirada — o front não deve deslogar
+    if (prova.get("pin") or "").strip() != (body.pin or "").strip():
+        raise HTTPException(422, "PIN incorreto. Confira com o professor.")
 
     fp = _fingerprint(request)
     ip = _request_ip(request)
@@ -1550,8 +1552,35 @@ def aluno_questoes(prova_id: int, request: Request, aluno=Depends(get_current_al
             "tempo_limite_min": prova.get("tempo_limite_min"),
         },
         "started_at": acesso.get("started_at"),
+        # Calculado no servidor: evita erro de fuso/formato de data no navegador
+        "segundos_decorridos": _segundos_desde(acesso.get("started_at")),
         "questoes": questoes,
+        # Respostas já salvas: o servidor é a fonte da verdade (relogin, outro aparelho)
+        "respostas": {str(k): v for k, v in db.get_respostas_aluno_prova(aluno["id"], prova_id).items()},
     }
+
+
+_TOLERANCIA_TEMPO_SEG = 60  # latência de rede / relógio
+
+
+def _segundos_desde(ts) -> int:
+    """Segundos desde `ts` (datetime do Postgres com fuso ou texto local do SQLite)."""
+    if ts is None:
+        return 0
+    if not isinstance(ts, datetime):
+        try:
+            ts = datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
+        except ValueError:
+            return 0
+    agora = datetime.now(ts.tzinfo) if ts.tzinfo else datetime.now()
+    return max(0, int((agora - ts).total_seconds()))
+
+
+def _tempo_esgotado(prova: Dict, acesso: Dict) -> bool:
+    limite = prova.get("tempo_limite_min")
+    if not limite:
+        return False
+    return _segundos_desde(acesso.get("started_at")) > limite * 60 + _TOLERANCIA_TEMPO_SEG
 
 
 @app.post("/aluno/provas/{prova_id}/responder", summary="Salva a resposta do aluno para uma questão")
@@ -1567,6 +1596,8 @@ def aluno_responder(prova_id: int, body: ResponderQuestaoIn, request: Request, a
     fp = _fingerprint(request)
     if acesso.get("fingerprint") and acesso["fingerprint"] != fp:
         raise HTTPException(409, "Dispositivo diferente.")
+    if _tempo_esgotado(prova, acesso):
+        raise HTTPException(403, "O tempo da prova terminou.")
     out = db.salvar_resposta_unica(
         aluno_id=aluno["id"],
         prova_id=prova_id,

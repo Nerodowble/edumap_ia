@@ -45,7 +45,7 @@
 1. ~~C1 (convites)~~ ✅
 2. ~~C2, C3, C4~~ ✅ e testes com autenticação real (T1 — iniciado: test_auth_convites.py + test_isolamento.py)
 3. ~~C5, C6~~ ✅ (ver pendências de confirmação nos itens)
-4. C7, C8 e A1–A4 (prova do aluno e notas)
+4. ~~C7, C8, A1, A2, A4, A5, A6~~ ✅ (E2E em navegador: 16 verificações)
 5. Restante dos itens Alto, depois Médio e Baixo
 
 ---
@@ -98,11 +98,11 @@
 - [x] **C6 — `data/edumap.db` versionado num repositório público** *(removido do índice com `git rm --cached`; **limpeza do histórico pendente de decisão do usuário**)*, com 40 alunos e hashes de senha
   - **Correção:** `git rm --cached data/edumap.db`, colocar `data/*.db` no `.gitignore` e avaliar a limpeza do histórico (git filter-repo). A limpeza é destrutiva: **confirmar com o usuário antes**.
 
-- [ ] **C7 — PIN ou login errado desloga o aluno com "Sessão expirada"**
+- [x] **C7 — PIN ou login errado desloga o aluno com "Sessão expirada"** *(PIN errado → 422; turma checada antes do PIN; front só limpa token em 401 de sessão)*
   - **Onde:** backend `api.py:1382` (401 no PIN errado) e `/aluno/auth`. Frontend `lib/api.ts:453-458` (todo 401 apaga o token).
   - **Correção:** PIN e credencial errados devolvem 400/422, ou o front só limpa o token quando o erro for de token. Mostrar "PIN incorreto" (`aluno/provas/page.tsx:48`) e "Nome ou R.A. incorretos" (`aluno/page.tsx:37`).
 
-- [ ] **C8 — Falha de rede na prova faz o aluno perder a resposta**
+- [x] **C8 — Falha de rede na prova faz o aluno perder a resposta** *(fila local `lib/useFilaRespostas.ts` com reenvio a cada 5s e no evento online; finalizar só com fila vazia; validado em E2E com rede desligada)*
   - **Onde:** `aluno/prova/[id]/page.tsx:93-97`. Aparece o erro cru `[500] /aluno/...` ou "Failed to fetch", sem nova tentativa, e o erro continua na tela mesmo depois de um sucesso.
   - **Correção:** salvar local primeiro, com fila de reenvio, mensagem clara ("Sem conexão — será enviada quando voltar") e limpar o erro depois do sucesso.
 
@@ -111,14 +111,14 @@
 ## 🟠 Alto
 
 **Notas e correção**
-- [ ] **A1 — Nota inflada:** o percentual é calculado sobre as respondidas (1 de 2 certas dá 100%). `db.py:779-818`. Usar o total de questões da prova.
-- [ ] **A2 — Trocar o gabarito não recalcula `respostas.correta`:** `db.py:1122` e `:708`. Rodar um UPDATE de recálculo em `salvar_gabarito` e em `atualizar_questao_manual`.
+- [x] **A1 — Nota inflada:** *(relatório usa todas as questões; campo `respondidas`)* o percentual é calculado sobre as respondidas (1 de 2 certas dá 100%). `db.py:779-818`. Usar o total de questões da prova.
+- [x] **A2 — Trocar o gabarito não recalcula `respostas.correta`:** *(`_recalcular_corretas`)* `db.py:1122` e `:708`. Rodar um UPDATE de recálculo em `salvar_gabarito` e em `atualizar_questao_manual`.
 - [ ] **A3 — Gabarito deslocado:** alternativa vazia no meio, ou alternativa removida, troca a letra correta sem aviso. `criar-prova/page.tsx:147-153` e `:473`.
 
 **Prova do aluno**
-- [ ] **A4 — Respostas locais vazam entre alunos no mesmo computador:** a chave `edumap_prova_{id}_*` não inclui o aluno e não é limpa no logout. `aluno/prova/[id]/page.tsx:35-57` e `alunoAuth.ts:16-20`. Além disso, restaurar as respostas **do servidor** (backend devolver as respostas salvas em `/aluno/provas/{id}/questoes`).
-- [ ] **A5 — Tempo limite decorativo:** não há contagem regressiva, aviso nem envio automático no front, e nada bloqueia no servidor. `aluno/prova/[id]/page.tsx:62-70`.
-- [ ] **A6 — Login de aluno só com o nome** enviando `ra="  "`: `db.py:456-463`. Validar depois do strip e exigir RA no cadastro.
+- [x] **A4 — Respostas locais vazam entre alunos no mesmo computador:** *(chaves com id do aluno; servidor devolve `respostas`)* a chave `edumap_prova_{id}_*` não inclui o aluno e não é limpa no logout. `aluno/prova/[id]/page.tsx:35-57` e `alunoAuth.ts:16-20`. Além disso, restaurar as respostas **do servidor** (backend devolver as respostas salvas em `/aluno/provas/{id}/questoes`).
+- [x] **A5 — Tempo limite decorativo:** *(contagem regressiva, aviso nos 5 min, envio automático; servidor recusa resposta após limite + 60s)* não há contagem regressiva, aviso nem envio automático no front, e nada bloqueia no servidor. `aluno/prova/[id]/page.tsx:62-70`.
+- [x] **A6 — Login de aluno só com o nome** enviando `ra="  "`: `db.py:456-463`. Validar depois do strip e exigir RA no cadastro.
 
 **Criar prova**
 - [ ] **A7 — "Voltar" + "Continuar" cria uma segunda prova:** `criar-prova/page.tsx:105-125` e `:535`. Atualizar a prova existente quando `provaId` já existe e validar a turma no passo 1.
@@ -180,7 +180,7 @@
   - não avisa sobre alterações não salvas;
   - certo e errado aparecem só por cor;
   - o aviso "sem gabarito" manda ir em Analisar mesmo quando a prova é online.
-- [ ] M16 — `/aluno/provas`: erro de rede aparece como "Nenhuma prova em aberto", sem botão de atualizar, e o placeholder "O número que a ETEC te deu" exclui outras escolas.
+- [~] M16 — *(erro de rede com botão Tentar de novo feito; placeholder ETEC pendente)* `/aluno/provas`: erro de rede aparece como "Nenhuma prova em aberto", sem botão de atualizar, e o placeholder "O número que a ETEC te deu" exclui outras escolas.
 - [ ] M17 — Modais (PIN, Finalizar) sem `role="dialog"`, sem foco preso e sem fechar com Esc.
 
 ---
@@ -192,7 +192,7 @@
 - [ ] B2 — Endpoints de leitura `/admin/taxonomia/*` não exigem admin.
 - [ ] B3 — `_score` não bate com a docstring (`taxonomia_classifier.py:96`).
 - [ ] B4 — PG: o rollback de um ALTER que falhe em `init_schema` (`db.py:348-351`) desfaz também os CREATEs pendentes.
-- [ ] B5 — Datas: o SQLite grava sem fuso e o PG em ISO. Isso gera NaN no timer do aluno no Safari.
+- [x] B5 — *(timer usa `segundos_decorridos` do servidor)* Datas: o SQLite grava sem fuso e o PG em ISO. Isso gera NaN no timer do aluno no Safari.
 - [ ] B6 — N+1 em `relatorio_turma`. O relatório expõe CPF e data de nascimento, e o monitor expõe IP e User-Agent.
 
 **Frontend**

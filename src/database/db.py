@@ -486,10 +486,11 @@ def criar_aluno(
 
 def buscar_aluno_por_nome_ra(nome: str, ra: str) -> Optional[Dict]:
     """Busca aluno por (nome+RA) case-insensitive. Usado no login do aluno."""
-    if not nome or not ra:
+    nome_norm = (nome or "").strip().lower()
+    ra_norm = (ra or "").strip()
+    # Validar DEPOIS do strip: RA só com espaços casaria com alunos sem RA
+    if not nome_norm or not ra_norm:
         return None
-    nome_norm = nome.strip().lower()
-    ra_norm = ra.strip()
     with _conn() as con:
         rows = con.execute(
             "SELECT * FROM alunos WHERE LOWER(TRIM(nome))=? AND TRIM(ra)=?",
@@ -738,6 +739,23 @@ def get_questoes_prova(prova_id: int) -> List[Dict]:
 
 # ── Gabarito ──────────────────────────────────────────────────────────────────
 
+def _recalcular_corretas(con, prova_id: int) -> None:
+    """Reaplica o gabarito atual às respostas já lançadas da prova."""
+    rows = con.execute(
+        """SELECT r.id, r.resposta, r.gabarito AS gab_anterior, g.alternativa
+           FROM respostas r
+           JOIN questoes q ON q.id = r.questao_id
+           LEFT JOIN gabarito g ON g.prova_id = q.prova_id AND g.numero_questao = q.numero
+           WHERE q.prova_id = ?""",
+        (prova_id,),
+    ).fetchall()
+    for r in rows:
+        gab = (r["alternativa"] or r["gab_anterior"] or "").upper()
+        resp = (r["resposta"] or "").upper()
+        correta = 1 if (resp and gab and resp == gab) else 0
+        con.execute("UPDATE respostas SET gabarito=?, correta=? WHERE id=?", (gab, correta, r["id"]))
+
+
 def salvar_gabarito(prova_id: int, gabarito: Dict[int, str]) -> None:
     with _conn() as con:
         con.execute("DELETE FROM gabarito WHERE prova_id=?", (prova_id,))
@@ -746,6 +764,7 @@ def salvar_gabarito(prova_id: int, gabarito: Dict[int, str]) -> None:
                 "INSERT INTO gabarito (prova_id, numero_questao, alternativa) VALUES (?,?,?)",
                 (prova_id, num, alt.upper()),
             )
+        _recalcular_corretas(con, prova_id)
 
 
 def get_gabarito(prova_id: int) -> Dict[int, str]:
@@ -815,24 +834,30 @@ def salvar_respostas(aluno_id: int, prova_id: int, respostas: Dict[int, Dict]):
 # ── Relatório ─────────────────────────────────────────────────────────────────
 
 def relatorio_aluno(aluno_id: int, prova_id: int) -> Dict:
+    """Desempenho do aluno sobre TODAS as questões da prova: questão sem
+    resposta conta como erro (antes a nota considerava só as respondidas)."""
     with _conn() as con:
         aluno = con.execute("SELECT * FROM alunos WHERE id=?", (aluno_id,)).fetchone()
         rows = con.execute(
             """SELECT q.numero, q.area_display, q.bloom_nivel, q.bloom_nome,
-                      r.correta, r.resposta, r.gabarito
-               FROM respostas r
-               JOIN questoes q ON q.id = r.questao_id
-               WHERE r.aluno_id=? AND q.prova_id=?
+                      COALESCE(r.correta, 0) AS correta, r.resposta,
+                      COALESCE(r.gabarito, g.alternativa) AS gabarito
+               FROM questoes q
+               LEFT JOIN respostas r ON r.questao_id = q.id AND r.aluno_id = ?
+               LEFT JOIN gabarito g ON g.prova_id = q.prova_id AND g.numero_questao = q.numero
+               WHERE q.prova_id = ?
                ORDER BY q.numero""",
             (aluno_id, prova_id),
         ).fetchall()
 
         by_bloom: Dict = {}
         by_area: Dict = {}
-        total, acertos = 0, 0
+        total, acertos, respondidas = 0, 0, 0
 
         for r in rows:
             total += 1
+            if r["resposta"]:
+                respondidas += 1
             ok = bool(r["correta"])
             if ok:
                 acertos += 1
@@ -852,6 +877,7 @@ def relatorio_aluno(aluno_id: int, prova_id: int) -> Dict:
         return {
             "aluno": aluno or {},
             "total": total,
+            "respondidas": respondidas,
             "acertos": acertos,
             "percentual": round(acertos * 100 / total) if total else 0,
             "por_bloom": by_bloom,
@@ -1163,6 +1189,7 @@ def atualizar_questao_manual(
                 "INSERT INTO gabarito (prova_id, numero_questao, alternativa) VALUES (?,?,?)",
                 (row["prova_id"], row["numero"], gabarito.upper()),
             )
+            _recalcular_corretas(con, row["prova_id"])
         return True
 
 
@@ -1246,6 +1273,18 @@ def get_questoes_para_aluno(prova_id: int) -> List[Dict]:
 
 
 # ── Prova Acessos (sessão do aluno na prova) ──────────────────────────────────
+
+def get_respostas_aluno_prova(aluno_id: int, prova_id: int) -> Dict[int, str]:
+    """{questao_id: resposta} já salvas pelo aluno nesta prova (sem dizer se acertou)."""
+    with _conn() as con:
+        rows = con.execute(
+            """SELECT r.questao_id, r.resposta FROM respostas r
+               JOIN questoes q ON q.id = r.questao_id
+               WHERE r.aluno_id=? AND q.prova_id=?""",
+            (aluno_id, prova_id),
+        ).fetchall()
+        return {r["questao_id"]: r["resposta"] for r in rows if r["resposta"]}
+
 
 def get_acesso(prova_id: int, aluno_id: int) -> Optional[Dict]:
     with _conn() as con:
