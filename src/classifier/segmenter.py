@@ -8,6 +8,11 @@ _PATTERNS = [
     re.compile(r"^\((\d{1,2})\)\s+\S"),
     re.compile(r"^(\d{1,2})\s*[ªa]\s+[Qq]uestão", re.IGNORECASE),
 ]
+# Marcadores por extenso ("Questão 3", "3ª Questão") são inequívocos: valem mesmo
+# sozinhos na linha, com o enunciado na linha seguinte.
+_PATTERNS_FORTES = {1, 4}
+# Salto máximo aceito entre números consecutivos (OCR pode perder uma questão)
+_SALTO_MAX = 3
 
 _ALT_PATTERN = re.compile(
     r"^\s*[\[(]?\s*[AaBbCcDdEe]\s*[\])]?\s*[-.)]\s+\S", re.MULTILINE
@@ -22,20 +27,22 @@ _HEADER_WORDS = re.compile(
 
 
 def _match_question(line: str):
-    # Exige ao menos 15 caracteres depois do marcador (cabeçalhos são curtos)
-    for pat in _PATTERNS:
+    """Retorna (numero, forte) se a linha abre uma questão, senão None."""
+    for i, pat in enumerate(_PATTERNS):
         m = pat.match(line)
         if m:
+            forte = i in _PATTERNS_FORTES
             rest = line[m.end():].strip()
-            if len(rest) < 10:
+            # Marcador numérico simples exige texto depois (cabeçalhos são curtos)
+            if not forte and len(rest) < 10:
                 continue
             # Rejeita se a linha tem cara de cabeçalho
-            if _HEADER_WORDS.search(line) and len(line.strip()) < 60:
+            if _HEADER_WORDS.search(rest if forte else line) and len(line.strip()) < 60:
                 continue
             try:
-                return int(m.group(1))
+                return int(m.group(1)), forte
             except (IndexError, ValueError):
-                return -1
+                return -1, forte
     return None
 
 
@@ -97,7 +104,15 @@ def segment_questions(text: str) -> List[Dict]:
     current_num = None
 
     for line in lines:
-        num = _match_question(line.strip())
+        achado = _match_question(line.strip())
+        num = None
+        if achado is not None:
+            num, forte = achado
+            # Numeração que não continua a sequência (ex.: lista "1. ... 2. ..."
+            # dentro do enunciado da questão 3) é conteúdo, não questão nova
+            if (not forte and current_num is not None and num > 0
+                    and not (current_num < num <= current_num + _SALTO_MAX)):
+                num = None
         if num is not None:
             # Só salva chunk anterior se já tivemos um marcador de questão.
             # Isso descarta o cabeçalho (linhas antes da 1ª questão).
